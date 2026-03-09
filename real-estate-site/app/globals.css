@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #f6f0e6;
+  --color-paper-strong: #ede0cf;
+  --color-surface: rgba(255, 252, 247, 0.9);
+  --color-surface-strong: #fffdf8;
+  --color-ink: #19231e;
+  --color-muted: #5d6a61;
+  --color-forest: #23352e;
+  --color-forest-soft: #31483f;
+  --color-sand: #ccb391;
+  --color-gold: #b18a58;
+  --color-line: rgba(25, 35, 30, 0.08);
+  --color-line-strong: rgba(25, 35, 30, 0.16);
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-cormorant);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(204, 179, 145, 0.26), transparent 28%),
+    radial-gradient(circle at top right, rgba(49, 72, 63, 0.14), transparent 24%),
+    linear-gradient(180deg, #fbf7f1 0%, #f6f0e6 48%, #f5eee2 100%);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+}
+
+::selection {
+  background: rgba(177, 138, 88, 0.2);
+  color: var(--color-ink);
+}
+
+a,
+button,
+input,
+textarea {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.section-shell {
+  position: relative;
+}
+
+.section-shell::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 32px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.2)),
+    radial-gradient(circle at top right, rgba(204, 179, 145, 0.22), transparent 40%);
+  content: "";
+}
+
+.soft-card {
+  border: 1px solid var(--color-line);
+  background: rgba(255, 252, 247, 0.82);
+  box-shadow: 0 24px 60px -36px rgba(28, 43, 37, 0.38);
+  backdrop-filter: blur(18px);
+}
+
+.fine-print {
+  color: rgba(93, 106, 97, 0.92);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}

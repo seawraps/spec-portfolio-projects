@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Speaking stage illustration</title>
+  <desc id="desc">An abstract stage scene with a presenter under warm spotlights and an engaged audience.</desc>
+  <defs>
+    <linearGradient id="stageBg" x1="102" x2="1104" y1="84" y2="811" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b2332"/>
+      <stop offset="1" stop-color="#34455a"/>
+    </linearGradient>
+    <linearGradient id="spotlight" x1="615" x2="615" y1="136" y2="643" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7d7a8" stop-opacity=".84"/>
+      <stop offset="1" stop-color="#f7d7a8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="431" x2="795" y1="173" y2="432" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8f1e8"/>
+      <stop offset="1" stop-color="#e2b28e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" rx="42" fill="url(#stageBg)"/>
+  <path d="M267 131h667l-55 438H322l-55-438Z" fill="url(#spotlight)"/>
+  <rect x="381" y="170" width="438" height="258" rx="26" fill="url(#screen)"/>
+  <rect x="420" y="209" width="360" height="180" rx="18" fill="#fff8f1"/>
+  <path d="M463 297h274" stroke="#bb6f5f" stroke-linecap="round" stroke-width="22"/>
+  <path d="M463 343h182" stroke="#1b2332" stroke-linecap="round" stroke-width="18" opacity=".72"/>
+  <path d="M655 343h82" stroke="#d8a27b" stroke-linecap="round" stroke-width="18"/>
+  <ellipse cx="605" cy="726" rx="425" ry="122" fill="#111826"/>
+  <path d="M561 446c20-28 52-42 95-42 44 0 75 15 95 45 17 25 25 54 25 85 0 34-10 68-29 102-30 52-58 109-82 170h-75c-13-51-36-103-69-158-24-39-36-77-36-114 0-30 8-59 24-88 13-23 31-43 52-60Z" fill="#f3ceb1"/>
+  <path d="M530 841c17-72 42-128 76-167 33-40 79-60 138-60 57 0 101 21 132 63 31 42 52 97 65 164H530Z" fill="#d8a27b"/>
+  <path d="M554 476c18-61 58-97 120-109 73-15 135 13 187 84-57 11-105 28-145 52-39 23-77 58-112 104-39-21-72-31-101-30-29 1-57 7-85 18 20-54 32-94 36-119Z" fill="#253042"/>
+  <g fill="#f7f1e8" opacity=".7">
+    <circle cx="153" cy="180" r="8"/>
+    <circle cx="196" cy="217" r="10"/>
+    <circle cx="1015" cy="156" r="8"/>
+    <circle cx="1048" cy="200" r="11"/>
+  </g>
+  <g fill="#34455a">
+    <ellipse cx="287" cy="757" rx="66" ry="58"/>
+    <ellipse cx="430" cy="770" rx="80" ry="67"/>
+    <ellipse cx="923" cy="770" rx="84" ry="66"/>
+    <ellipse cx="760" cy="761" rx="73" ry="61"/>
+  </g>
+</svg>

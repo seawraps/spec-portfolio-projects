@@ -1,0 +1,25 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#F0E7DB"/>
+  <rect width="1600" height="1200" fill="url(#paint0_radial)"/>
+  <rect y="818" width="1600" height="382" fill="#54665E"/>
+  <rect y="725" width="1600" height="126" fill="#7C8F77"/>
+  <rect x="230" y="452" width="1142" height="386" rx="22" fill="#9A7D63"/>
+  <rect x="308" y="320" width="986" height="196" rx="22" fill="#C8A889"/>
+  <path d="M728 470C728 394.889 788.889 334 864 334C939.111 334 1000 394.889 1000 470V626H728V470Z" fill="#FCF6EA"/>
+  <rect x="362" y="392" width="145" height="105" rx="12" fill="#FCF6EA"/>
+  <rect x="536" y="392" width="145" height="105" rx="12" fill="#FCF6EA"/>
+  <rect x="1022" y="392" width="145" height="105" rx="12" fill="#FCF6EA"/>
+  <rect x="1196" y="392" width="145" height="105" rx="12" fill="#FCF6EA"/>
+  <rect x="398" y="572" width="230" height="206" rx="12" fill="#EAD6BC"/>
+  <rect x="668" y="572" width="196" height="206" rx="12" fill="#2A3C34"/>
+  <rect x="902" y="572" width="300" height="206" rx="12" fill="#EAD6BC"/>
+  <rect x="116" y="628" width="188" height="220" rx="94" fill="#6D7C63"/>
+  <rect x="1300" y="612" width="208" height="236" rx="104" fill="#6D7C63"/>
+  <circle cx="1256" cy="182" r="88" fill="#FBEDC9"/>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1361 132) rotate(135.889) scale(607.57 728.15)">
+      <stop stop-color="#FFF4DF"/>
+      <stop offset="1" stop-color="#FFF4DF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

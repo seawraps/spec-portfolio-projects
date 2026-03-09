@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Brand strategy session illustration</title>
+  <desc id="desc">An abstract workshop scene with strategy boards, sticky-note style blocks, and collaborative energy.</desc>
+  <defs>
+    <linearGradient id="workshopBg" x1="124" x2="1072" y1="88" y2="804" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1d2433"/>
+      <stop offset=".5" stop-color="#2b394c"/>
+      <stop offset="1" stop-color="#3d536b"/>
+    </linearGradient>
+    <linearGradient id="board" x1="176" x2="873" y1="163" y2="632" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff7ed"/>
+      <stop offset="1" stop-color="#f0d6bd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" rx="42" fill="url(#workshopBg)"/>
+  <rect x="132" y="122" width="936" height="492" rx="34" fill="url(#board)"/>
+  <rect x="204" y="194" width="201" height="121" rx="20" fill="#f8ebdc"/>
+  <rect x="431" y="194" width="201" height="121" rx="20" fill="#d8a27b"/>
+  <rect x="658" y="194" width="201" height="121" rx="20" fill="#bb6f5f"/>
+  <rect x="204" y="343" width="298" height="110" rx="20" fill="#1d2433"/>
+  <rect x="530" y="343" width="329" height="110" rx="20" fill="#f8ebdc"/>
+  <rect x="204" y="481" width="655" height="70" rx="18" fill="#f1d8bf"/>
+  <path d="M245 235h120" stroke="#1d2433" stroke-linecap="round" stroke-width="18"/>
+  <path d="M245 274h89" stroke="#bb6f5f" stroke-linecap="round" stroke-width="16"/>
+  <path d="M471 236h120" stroke="#fffaf4" stroke-linecap="round" stroke-width="18"/>
+  <path d="M471 275h89" stroke="#fffaf4" stroke-linecap="round" stroke-width="16" opacity=".8"/>
+  <path d="M697 236h120" stroke="#fffaf4" stroke-linecap="round" stroke-width="18"/>
+  <path d="M697 275h75" stroke="#f3ceb1" stroke-linecap="round" stroke-width="16"/>
+  <path d="M244 382h206" stroke="#fff7ed" stroke-linecap="round" stroke-width="18"/>
+  <path d="M244 418h138" stroke="#d8a27b" stroke-linecap="round" stroke-width="16"/>
+  <path d="M570 382h230" stroke="#1d2433" stroke-linecap="round" stroke-width="18"/>
+  <path d="M570 418h164" stroke="#bb6f5f" stroke-linecap="round" stroke-width="16"/>
+  <path d="M245 517h508" stroke="#1d2433" stroke-linecap="round" stroke-width="14" opacity=".78"/>
+  <ellipse cx="259" cy="744" rx="110" ry="76" fill="#d8a27b"/>
+  <ellipse cx="942" cy="739" rx="130" ry="82" fill="#bb6f5f"/>
+  <ellipse cx="610" cy="757" rx="222" ry="102" fill="#f8ebdc" opacity=".28"/>
+  <path d="M386 772c18-54 48-96 90-126 43-30 94-45 155-45 70 0 129 20 177 60 47 39 80 90 99 152H386v-41Z" fill="#f8ebdc"/>
+  <path d="M452 763c18-35 43-63 77-84 34-20 74-30 122-30 48 0 89 11 124 34 34 22 58 49 71 80H452Z" fill="#1d2433"/>
+  <g fill="#fff6ec" opacity=".8">
+    <circle cx="1026" cy="200" r="18"/>
+    <circle cx="101" cy="706" r="14"/>
+    <circle cx="1082" cy="671" r="11"/>
+  </g>
+</svg>

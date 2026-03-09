@@ -1,0 +1,31 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="32" fill="#F5EEE2"/>
+  <rect width="1200" height="630" fill="url(#paint0_radial)"/>
+  <rect width="1200" height="630" fill="url(#paint1_linear)"/>
+  <g opacity="0.9">
+    <rect x="703" y="134" width="344" height="300" rx="28" fill="#FAF6EF" stroke="#D7C4A6"/>
+    <rect x="746" y="232" width="260" height="142" rx="10" fill="#2A3F37"/>
+    <rect x="779" y="188" width="196" height="80" rx="8" fill="#DCC4A1"/>
+    <rect x="777" y="203" width="58" height="50" rx="6" fill="#FFF7EA"/>
+    <rect x="847" y="203" width="58" height="50" rx="6" fill="#FFF7EA"/>
+    <rect x="917" y="203" width="58" height="50" rx="6" fill="#FFF7EA"/>
+    <rect x="777" y="284" width="89" height="72" rx="8" fill="#FFF7EA"/>
+    <rect x="879" y="284" width="96" height="72" rx="8" fill="#FFF7EA"/>
+  </g>
+  <circle cx="148" cy="130" r="78" fill="#E6D4BB" fill-opacity="0.7"/>
+  <circle cx="1090" cy="96" r="54" fill="#CFB18E" fill-opacity="0.45"/>
+  <text x="96" y="170" fill="#6A736B" font-family="Georgia, serif" font-size="20" letter-spacing="6">BOUTIQUE REAL ESTATE ADVISORY</text>
+  <text x="96" y="286" fill="#1B2620" font-family="Georgia, serif" font-size="84">Crescent Vale</text>
+  <text x="96" y="364" fill="#1B2620" font-family="Georgia, serif" font-size="84">Realty</text>
+  <text x="96" y="432" fill="#59655D" font-family="Arial, sans-serif" font-size="27">Harbor City metro guidance for buyers, sellers, and valuation planning.</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(156 116) rotate(37.0734) scale(564.701 464.912)">
+      <stop stop-color="#E7D6BE"/>
+      <stop offset="1" stop-color="#E7D6BE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paint1_linear" x1="600" y1="0" x2="600" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF7F1"/>
+      <stop offset="1" stop-color="#F5EEE2"/>
+    </linearGradient>
+  </defs>
+</svg>

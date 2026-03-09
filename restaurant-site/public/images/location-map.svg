@@ -1,0 +1,12 @@
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="1000" fill="#E0F2FE"/>
+  <path d="M-40 480C210 390 360 370 560 420C760 470 930 450 1200 390L1440 340V1000H-40V480Z" fill="#BFDBFE"/>
+  <path d="M-40 620C210 540 470 540 710 620C940 700 1170 680 1440 610V1000H-40V620Z" fill="#93C5FD"/>
+  <path d="M180 320L1240 820" stroke="#94A3B8" stroke-width="30" stroke-linecap="round"/>
+  <path d="M220 860L1080 200" stroke="#94A3B8" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="760" cy="480" r="140" fill="#F97316"/>
+  <path d="M760 614C826 614 880 560 880 494C880 428 826 374 760 374C694 374 640 428 640 494C640 560 694 614 760 614Z" fill="#EA580C"/>
+  <circle cx="760" cy="492" r="44" fill="#FFF7ED"/>
+  <rect x="120" y="120" width="420" height="130" rx="24" fill="#0C4A6E"/>
+  <text x="170" y="198" fill="#F0F9FF" font-family="Arial, sans-serif" font-size="48" font-weight="700">Astera Coastal Bistro</text>
+</svg>

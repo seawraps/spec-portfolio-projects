@@ -1,0 +1,54 @@
+<svg width="760" height="760" viewBox="0 0 760 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="760" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13223A"/>
+      <stop offset="1" stop-color="#0A1423"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#172C46"/>
+      <stop offset="1" stop-color="#102136"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="760" height="760" rx="24" fill="url(#bg)"/>
+
+  <circle cx="600" cy="136" r="96" fill="#74F5C8" fill-opacity="0.15"/>
+  <circle cx="146" cy="640" r="110" fill="#FF8F5A" fill-opacity="0.13"/>
+
+  <rect x="68" y="78" width="284" height="172" rx="16" fill="url(#card)" stroke="#243C59"/>
+  <text x="96" y="118" fill="#A9BCD1" font-family="Arial" font-size="14">Audience Strategy</text>
+  <text x="96" y="156" fill="#F2F8FF" font-family="Arial" font-size="23" font-weight="700">ICP Priority Matrix</text>
+  <rect x="96" y="176" width="228" height="10" rx="5" fill="#223A57"/>
+  <rect x="96" y="196" width="186" height="10" rx="5" fill="#223A57"/>
+  <rect x="96" y="216" width="148" height="10" rx="5" fill="#223A57"/>
+
+  <rect x="386" y="78" width="306" height="286" rx="16" fill="url(#card)" stroke="#243C59"/>
+  <text x="414" y="118" fill="#A9BCD1" font-family="Arial" font-size="14">Campaign Narrative</text>
+  <text x="414" y="156" fill="#F2F8FF" font-family="Arial" font-size="23" font-weight="700">Q3 Launch Storyline</text>
+  <path d="M438 206H640" stroke="#2D4868" stroke-width="2"/>
+  <path d="M438 242H640" stroke="#2D4868" stroke-width="2"/>
+  <path d="M438 278H640" stroke="#2D4868" stroke-width="2"/>
+  <rect x="438" y="194" width="166" height="20" rx="10" fill="#74F5C8" fill-opacity="0.22"/>
+  <rect x="438" y="230" width="118" height="20" rx="10" fill="#FF8F5A" fill-opacity="0.26"/>
+  <rect x="438" y="266" width="204" height="20" rx="10" fill="#5AAEF2" fill-opacity="0.28"/>
+
+  <rect x="68" y="282" width="284" height="200" rx="16" fill="url(#card)" stroke="#243C59"/>
+  <text x="96" y="322" fill="#A9BCD1" font-family="Arial" font-size="14">Conversion Plan</text>
+  <text x="96" y="360" fill="#F2F8FF" font-family="Arial" font-size="23" font-weight="700">Funnel Experiment Backlog</text>
+  <circle cx="116" cy="408" r="8" fill="#74F5C8"/>
+  <circle cx="116" cy="438" r="8" fill="#FF8F5A"/>
+  <circle cx="116" cy="468" r="8" fill="#5AAEF2"/>
+  <rect x="136" y="400" width="186" height="14" rx="7" fill="#2C4666"/>
+  <rect x="136" y="430" width="154" height="14" rx="7" fill="#2C4666"/>
+  <rect x="136" y="460" width="172" height="14" rx="7" fill="#2C4666"/>
+
+  <rect x="68" y="514" width="624" height="170" rx="16" fill="url(#card)" stroke="#243C59"/>
+  <text x="96" y="554" fill="#A9BCD1" font-family="Arial" font-size="14">Weekly Operating Rhythm</text>
+  <text x="96" y="592" fill="#F2F8FF" font-family="Arial" font-size="24" font-weight="700">Strategy, execution, and reporting in one loop.</text>
+  <rect x="96" y="618" width="160" height="28" rx="14" fill="#74F5C8" fill-opacity="0.2"/>
+  <text x="128" y="637" fill="#74F5C8" font-family="Arial" font-size="12" font-weight="700">Mon: Planning</text>
+  <rect x="274" y="618" width="170" height="28" rx="14" fill="#FF8F5A" fill-opacity="0.2"/>
+  <text x="301" y="637" fill="#FFB08A" font-family="Arial" font-size="12" font-weight="700">Wed: Experiments</text>
+  <rect x="462" y="618" width="198" height="28" rx="14" fill="#5AAEF2" fill-opacity="0.2"/>
+  <text x="502" y="637" fill="#9FD0F6" font-family="Arial" font-size="12" font-weight="700">Fri: Reporting</text>
+</svg>

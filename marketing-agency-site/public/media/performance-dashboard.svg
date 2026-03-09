@@ -1,0 +1,67 @@
+<svg width="920" height="680" viewBox="0 0 920 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="920" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111F34"/>
+      <stop offset="1" stop-color="#0A1322"/>
+    </linearGradient>
+    <linearGradient id="line1" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#74F5C8"/>
+      <stop offset="1" stop-color="#54D8A8"/>
+    </linearGradient>
+    <linearGradient id="line2" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FF8F5A"/>
+      <stop offset="1" stop-color="#F2B15A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="920" height="680" rx="24" fill="url(#bg)"/>
+
+  <rect x="36" y="36" width="280" height="130" rx="14" fill="#13253B"/>
+  <rect x="332" y="36" width="280" height="130" rx="14" fill="#13253B"/>
+  <rect x="628" y="36" width="256" height="130" rx="14" fill="#13253B"/>
+
+  <text x="58" y="74" fill="#9FB4CC" font-family="Arial" font-size="14">Paid Media Revenue</text>
+  <text x="58" y="124" fill="#F2F8FF" font-family="Arial" font-size="34" font-weight="700">$2.84M</text>
+
+  <text x="354" y="74" fill="#9FB4CC" font-family="Arial" font-size="14">Qualified Leads</text>
+  <text x="354" y="124" fill="#F2F8FF" font-family="Arial" font-size="34" font-weight="700">4,186</text>
+
+  <text x="650" y="74" fill="#9FB4CC" font-family="Arial" font-size="14">Blended ROAS</text>
+  <text x="650" y="124" fill="#F2F8FF" font-family="Arial" font-size="34" font-weight="700">3.6x</text>
+
+  <rect x="36" y="188" width="848" height="274" rx="16" fill="#0E1B2C" stroke="#20334D"/>
+
+  <path d="M80 391 C128 360, 180 364, 230 338 C282 310, 330 317, 386 278 C438 242, 488 247, 534 223 C590 193, 635 203, 694 181 C744 163, 798 148, 840 126" stroke="url(#line1)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M80 420 C132 406, 182 397, 235 388 C290 377, 334 372, 389 361 C441 350, 490 346, 547 328 C602 310, 645 292, 696 284 C742 277, 790 266, 840 254" stroke="url(#line2)" stroke-width="4" stroke-linecap="round"/>
+
+  <g stroke="#233A57" stroke-width="1">
+    <line x1="80" y1="232" x2="840" y2="232"/>
+    <line x1="80" y1="284" x2="840" y2="284"/>
+    <line x1="80" y1="336" x2="840" y2="336"/>
+    <line x1="80" y1="388" x2="840" y2="388"/>
+    <line x1="80" y1="440" x2="840" y2="440"/>
+  </g>
+
+  <rect x="36" y="486" width="410" height="158" rx="16" fill="#0E1B2C" stroke="#20334D"/>
+  <rect x="474" y="486" width="410" height="158" rx="16" fill="#0E1B2C" stroke="#20334D"/>
+
+  <text x="62" y="522" fill="#9FB4CC" font-family="Arial" font-size="14">Creative Test Winners</text>
+  <rect x="62" y="544" width="324" height="12" rx="6" fill="#14263B"/>
+  <rect x="62" y="544" width="243" height="12" rx="6" fill="#74F5C8"/>
+  <rect x="62" y="568" width="324" height="12" rx="6" fill="#14263B"/>
+  <rect x="62" y="568" width="188" height="12" rx="6" fill="#54D8A8"/>
+  <rect x="62" y="592" width="324" height="12" rx="6" fill="#14263B"/>
+  <rect x="62" y="592" width="277" height="12" rx="6" fill="#FF8F5A"/>
+
+  <text x="500" y="522" fill="#9FB4CC" font-family="Arial" font-size="14">Funnel Drop-Off (Weekly)</text>
+  <circle cx="548" cy="580" r="44" stroke="#264265" stroke-width="16"/>
+  <circle cx="548" cy="580" r="44" stroke="#74F5C8" stroke-width="16" stroke-dasharray="182 94" transform="rotate(-90 548 580)"/>
+  <text x="530" y="587" fill="#F2F8FF" font-family="Arial" font-size="20" font-weight="700">66%</text>
+
+  <rect x="618" y="552" width="238" height="14" rx="7" fill="#14263B"/>
+  <rect x="618" y="552" width="144" height="14" rx="7" fill="#74F5C8"/>
+  <rect x="618" y="576" width="238" height="14" rx="7" fill="#14263B"/>
+  <rect x="618" y="576" width="182" height="14" rx="7" fill="#FF8F5A"/>
+  <rect x="618" y="600" width="238" height="14" rx="7" fill="#14263B"/>
+  <rect x="618" y="600" width="121" height="14" rx="7" fill="#53B9F4"/>
+</svg>

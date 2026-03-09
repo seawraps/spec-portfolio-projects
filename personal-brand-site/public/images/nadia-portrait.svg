@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Editorial creator portrait</title>
+  <desc id="desc">An abstract portrait illustration with warm editorial tones, representing a creator and speaker brand.</desc>
+  <defs>
+    <linearGradient id="bg" x1="144" x2="1058" y1="98" y2="1281" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f9ecdd"/>
+      <stop offset="0.48" stop-color="#f0c4a0"/>
+      <stop offset="1" stop-color="#bb6f5f"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="354" x2="787" y1="741" y2="1227" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1d2433"/>
+      <stop offset="1" stop-color="#34455a"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="matrix(0 436 -516 0 807 261)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffaf4"/>
+      <stop offset="1" stop-color="#fffaf4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1400" rx="54" fill="url(#bg)"/>
+  <circle cx="836" cy="266" r="370" fill="url(#halo)" opacity=".85"/>
+  <path d="M117 1216c133-157 257-237 372-240 86-2 178 39 275 123 82 70 176 112 284 127v174H117Z" fill="#efe4d5"/>
+  <ellipse cx="626" cy="497" rx="246" ry="285" fill="#f3ceb1"/>
+  <path d="M469 395c34-113 119-177 234-177 120 0 217 68 243 186 26 118-41 214-144 251-69 25-157 24-223-14-113-66-145-162-110-246Z" fill="#1f2431"/>
+  <path d="M390 1094c22-114 70-197 145-249 75-52 172-78 291-78 52 0 104 6 156 18 43 10 82 29 118 58 65 53 101 136 111 251H390Z" fill="url(#coat)"/>
+  <path d="M522 770c39 55 92 83 158 83 78 0 141-33 188-98 18 63 7 121-31 174-47 66-112 99-196 99-79 0-141-29-188-87-46-58-57-129-32-213 27 20 61 34 101 42Z" fill="#e9b089"/>
+  <path d="M533 509c0-32 13-59 38-81 26-22 59-33 99-33 40 0 72 11 97 33 25 22 38 49 38 81 0 36-13 67-39 93-26 25-58 38-96 38s-70-13-96-38c-27-26-41-57-41-93Z" fill="#f3ceb1"/>
+  <path d="M571 529c17 7 33 10 48 10 16 0 31-3 46-10 15-8 29-22 41-44 14 20 21 40 21 60 0 26-10 47-29 63-20 15-46 23-79 23-31 0-57-8-77-23-21-16-31-37-31-63 0-20 6-40 18-60 11 22 25 36 42 44Z" fill="#f8dbc5"/>
+  <path d="M549 680c39 21 79 32 120 32 61 0 117-17 170-50-16 53-46 95-92 126-45 30-97 46-155 46-58 0-107-15-147-45-40-30-66-70-77-120 56 8 116 11 181 11Z" fill="#f1c09c"/>
+  <path d="M428 409c24-73 77-131 159-174 80-42 178-46 295-14 34 9 60 25 77 48-59 17-113 41-160 72-46 30-88 69-126 117-36-24-72-39-107-44-35-6-81-7-138-5Z" fill="#2f394c"/>
+  <g opacity=".55">
+    <circle cx="208" cy="292" r="54" fill="#fffaf4"/>
+    <circle cx="1012" cy="1142" r="88" fill="#fffaf4"/>
+    <circle cx="171" cy="1161" r="26" fill="#bb6f5f"/>
+  </g>
+</svg>

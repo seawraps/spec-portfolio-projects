@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Nadia Vale monogram icon</title>
+  <desc id="desc">An editorial-style monogram icon with the letters N and V.</desc>
+  <defs>
+    <linearGradient id="a" x1="14" x2="114" y1="12" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1c2433"/>
+      <stop offset="1" stop-color="#2d3f53"/>
+    </linearGradient>
+    <linearGradient id="b" x1="22" x2="97" y1="28" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2c28d"/>
+      <stop offset="1" stop-color="#bb6f5f"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="34" fill="url(#a)"/>
+  <path d="M31 95V32h12l29 39V32h25v63H84L56 57v38H31Z" fill="#fff8ef"/>
+  <path d="M84 95 66 65h14l11 18 10-18h13L96 95H84Z" fill="url(#b)"/>
+</svg>
