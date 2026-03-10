@@ -138,12 +138,12 @@ export const featuredListings: Listing[] = [
     baths: "3.5 baths",
     area: "3,240 sq ft",
     description:
-      "Quietly modern architecture with clean detailing, open-plan entertaining space, and the kind of calm interior finish buyers rarely find turnkey.",
+      "A double-height living room, tailored millwork, and warm natural textures give this residence the kind of serene, turnkey atmosphere buyers struggle to find intact.",
     label: "Private preview",
-    feature: "Architectural lines, custom millwork, and marina access within a few minutes on foot.",
+    feature: "A softly lit interior story with custom joinery, indoor-outdoor flow, and marina access within a few minutes on foot.",
     imageSrc: "/images/listing-residence.jpg",
     imageAlt:
-      "A modern residential property with striking architecture and landscaped surroundings.",
+      "A refined modern living room with double-height ceilings, warm wood accents, and soft daylight.",
   },
   {
     name: "The Avery Penthouse",
@@ -174,9 +174,9 @@ export const neighborhoods: Neighborhood[] = [
     story:
       "Where new waterfront residences meet established tree-lined blocks and a polished local scene.",
     highlights: ["Promenade access", "Chef-led cafés", "Private fitness clubs"],
-    imageSrc: "/images/neighborhood-northpoint.jpg",
+    imageSrc: "/images/listing-penthouse.jpg",
     imageAlt:
-      "An upscale waterfront neighborhood street with elegant residences and a polished urban feel.",
+      "A polished penthouse living room that reinforces Northpoint's waterfront sophistication and design-led housing mix.",
   },
   {
     name: "Lakemont",
@@ -216,9 +216,9 @@ export const neighborhoods: Neighborhood[] = [
     story:
       "Ridgeline living with larger homesites, layered landscaping, and a club-like sense of privacy.",
     highlights: ["Country club access", "City-light views", "Estate renovation activity"],
-    imageSrc: "/images/neighborhood-cedar-heights.jpg",
+    imageSrc: "/images/hero-estate.jpg",
     imageAlt:
-      "A premium hillside residential neighborhood with expansive views and large luxury homes.",
+      "A modern hillside estate that conveys Cedar Heights' view-driven residential character.",
   },
 ];
 

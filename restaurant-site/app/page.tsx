@@ -19,10 +19,10 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
-      <FeaturedDishes />
       <StorySection />
+      <FeaturedDishes />
       <MenuHighlightsSection />
-      <GallerySection />
+      <GallerySection theme="light" />
       <TestimonialsSection />
       <HoursLocationSection />
       <ReservationCta />

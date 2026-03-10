@@ -8,7 +8,7 @@ export function CtaGridSection() {
     <section className="py-14 md:py-18 lg:py-24">
       <Container>
         <div className="grid gap-6 lg:grid-cols-2">
-          <article className="relative min-h-[320px] overflow-hidden rounded-[34px]">
+          <article className="image-reveal reveal-up relative min-h-[320px] overflow-hidden rounded-[34px] delay-1">
             <Image
               src="/images/listing-estate.jpg"
               alt="A premium estate exterior used as the backdrop for the valuation call to action."
@@ -36,10 +36,10 @@ export function CtaGridSection() {
             </div>
           </article>
 
-          <article className="relative min-h-[320px] overflow-hidden rounded-[34px]">
+          <article className="image-reveal reveal-up relative min-h-[320px] overflow-hidden rounded-[34px] delay-2">
             <Image
               src="/images/contact-consultation.jpg"
-              alt="A refined client consultation image used for the booking call to action."
+              alt="A refined luxury interior used as the backdrop for the consultation call to action."
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"

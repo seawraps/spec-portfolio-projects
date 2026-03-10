@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
+import { Reveal } from "@/components/motion/reveal";
 import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -23,9 +24,10 @@ export const metadata: Metadata = createPageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section className="pb-12 pt-10 md:pb-16 md:pt-14 lg:pb-20">
-        <Container className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
-          <div className="surface-card-strong rounded-[2.4rem] p-7 sm:p-9">
+      <section id="about-overview" className="pb-16 pt-8 md:pb-20 md:pt-10 lg:pb-24">
+        <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
+          <Reveal>
+            <div className="surface-card-strong rounded-[2.4rem] p-7 sm:p-9">
             <SectionHeading
               eyebrow="About Blue Oak"
               title="A local remodeling studio built around trust, taste, and homes people actually live in"
@@ -55,9 +57,10 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </div>
+            </div>
+          </Reveal>
 
-          <div className="grid gap-5 md:grid-cols-[1.12fr_0.88fr]">
+          <Reveal delay={100} className="grid gap-5 md:grid-cols-[1.12fr_0.88fr]">
             <div className="image-frame relative min-h-[500px] rounded-[2.4rem]">
               <Image
                 src="/images/dining-room.jpg"
@@ -89,13 +92,14 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
 
-      <section className="py-12 md:py-16 lg:py-20">
+      <section id="about-approach" className="py-16 md:py-20 lg:py-24">
         <Container className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <div>
+          <Reveal>
+            <div>
             <SectionHeading
               eyebrow="How We Work"
               title="Good renovation work is equal parts judgment, craft, and communication"
@@ -104,11 +108,12 @@ export default function AboutPage() {
             <ButtonLink href="/contact" variant="secondary" className="mt-7">
               Talk Through Your Project
             </ButtonLink>
-          </div>
+            </div>
+          </Reveal>
 
           <div className="space-y-4">
             {aboutHighlights.map((item) => (
-              <article
+              <Reveal
                 key={item.title}
                 className="surface-card rounded-[1.8rem] p-6"
               >
@@ -118,15 +123,16 @@ export default function AboutPage() {
                 <p className="mt-3 text-sm leading-8 text-[var(--color-muted)] sm:text-base">
                   {item.description}
                 </p>
-              </article>
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="py-12 md:py-16 lg:py-20">
+      <section id="about-referrals" className="py-16 md:py-20 lg:py-24">
         <Container className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div className="image-frame relative min-h-[440px] rounded-[2.4rem]">
+          <Reveal>
+            <div className="image-frame relative min-h-[440px] rounded-[2.4rem]">
             <Image
               src="/images/stair-detail.jpg"
               alt="Warm stair detailing and residential millwork inside a renovated home."
@@ -135,9 +141,11 @@ export default function AboutPage() {
               sizes="(max-width: 1024px) 100vw, 48vw"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.06),rgba(22,36,52,0.36))]" />
-          </div>
+            </div>
+          </Reveal>
 
-          <div className="surface-card-strong rounded-[2.4rem] p-6 sm:p-8">
+          <Reveal delay={100}>
+            <div className="surface-card-strong rounded-[2.4rem] p-6 sm:p-8">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
               Why Clients Refer Us
             </p>
@@ -164,7 +172,8 @@ export default function AboutPage() {
                 intentionally realistic.
               </p>
             </div>
-          </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

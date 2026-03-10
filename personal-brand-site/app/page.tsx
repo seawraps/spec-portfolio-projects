@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { ExpertiseSection } from "@/components/sections/expertise-section";
 import { FeaturedMediaSection } from "@/components/sections/featured-media-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { NewsletterSection } from "@/components/sections/newsletter-section";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <HeroSection />
       <SocialProofSection />
       <PositioningSection />
+      <ExpertiseSection />
       <FeaturedMediaSection />
       <OfferingsSection />
       <TestimonialsSection />

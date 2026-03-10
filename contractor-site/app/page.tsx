@@ -22,8 +22,8 @@ export default function Home() {
     <>
       <HeroSection />
       <TrustIndicators />
-      <FeaturedServices />
       <ProjectsSection />
+      <FeaturedServices />
       <ProcessSection />
       <TestimonialsSection />
       <ServiceAreasSection />

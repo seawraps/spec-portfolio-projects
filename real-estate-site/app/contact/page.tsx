@@ -23,8 +23,8 @@ export default function ContactPage() {
         title="Start with a conversation, not a sales script."
         description="Tell us what you are considering, whether that is a spring listing launch, a relocation search, or a valuation before making plans. We will come back with thoughtful next steps and a clear recommendation."
         imageSrc="/images/contact-consultation.jpg"
-        imageAlt="A refined client consultation in a premium real estate office."
-        imageCaption="Private consultations for buyers, sellers, and owners planning their next move."
+        imageAlt="A polished residential interior used to convey the calm tone of a private consultation."
+        imageCaption="A calm, polished setting for buyers, sellers, and owners planning their next move."
         highlights={[
           "Typically replies within one business day",
           "Consultations available in person or by video",

@@ -35,12 +35,12 @@ export function PageHero({
   return (
     <section className="py-8 md:py-10 lg:py-12">
       <Container>
-        <div className="grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
-          <div className="soft-card rounded-[34px] p-8 sm:p-10 lg:p-12">
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="soft-card reveal-up rounded-[36px] p-8 sm:p-10 lg:p-12">
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze)]">
               {eyebrow}
             </p>
-            <h1 className="mt-5 font-display text-[clamp(2.9rem,7vw,5.9rem)] leading-[0.9] text-[var(--color-ink)]">
+            <h1 className="mt-5 font-display text-[clamp(2.95rem,7vw,6rem)] leading-[0.88] text-[var(--color-ink)]">
               {title}
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--color-muted)] sm:text-lg">
@@ -69,11 +69,11 @@ export function PageHero({
               </div>
             ) : null}
 
-            <ul className="mt-8 grid gap-3">
+            <ul className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {highlights.map((item) => (
                 <li
                   key={item}
-                  className="rounded-[22px] border border-[var(--color-line)] bg-white px-5 py-4 text-sm leading-7 text-[var(--color-muted-strong)]"
+                  className="rounded-[22px] border border-[var(--color-line)] bg-white/82 px-5 py-4 text-sm leading-7 text-[var(--color-muted-strong)]"
                 >
                   {item}
                 </li>
@@ -81,7 +81,7 @@ export function PageHero({
             </ul>
           </div>
 
-          <div className="image-frame relative min-h-[360px] lg:min-h-[580px]">
+          <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[360px] lg:min-h-[620px]">
             <Image
               src={imageSrc}
               alt={imageAlt}
@@ -90,9 +90,12 @@ export function PageHero({
               sizes="(min-width: 1024px) 56vw, 100vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/74 via-[#10171d]/14 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/78 via-[#10171d]/12 to-transparent" />
+            <div className="absolute left-5 top-5 rounded-full bg-white/92 px-4 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-navy)]">
+              {eyebrow}
+            </div>
             {imageCaption ? (
-              <div className="absolute inset-x-5 bottom-5 rounded-[24px] border border-white/12 bg-black/24 p-5 text-white backdrop-blur-md sm:max-w-[420px]">
+              <div className="absolute inset-x-5 bottom-5 rounded-[26px] border border-white/12 bg-black/24 p-5 text-white backdrop-blur-md sm:max-w-[440px]">
                 <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-white/68">
                   Crescent Vale
                 </p>

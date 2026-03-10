@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #120d0a;
-  --background-soft: #1a1310;
-  --foreground: #f6ecdf;
-  --foreground-muted: #d4c3b0;
-  --surface-light: #efe2d1;
-  --surface-light-strong: #f8f0e5;
-  --surface-dark: rgba(27, 19, 15, 0.82);
-  --surface-dark-strong: rgba(17, 12, 9, 0.92);
-  --border-soft: rgba(255, 233, 204, 0.16);
-  --accent: #d1a364;
-  --accent-strong: #f1ddbf;
+  --background: #090604;
+  --background-soft: #120d0a;
+  --foreground: #f5e7d6;
+  --foreground-muted: #d0bea8;
+  --surface-light: #ecddd0;
+  --surface-light-strong: #f5ecdf;
+  --surface-dark: rgba(22, 15, 11, 0.84);
+  --surface-dark-strong: rgba(12, 8, 6, 0.94);
+  --border-soft: rgba(255, 231, 204, 0.14);
+  --accent: #c88b47;
+  --accent-strong: #f0d6b3;
 }
 
 @theme inline {
@@ -34,30 +34,43 @@ body {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top, rgba(173, 116, 51, 0.18), transparent 30%),
-    radial-gradient(circle at 80% 18%, rgba(96, 49, 28, 0.18), transparent 24%),
-    linear-gradient(180deg, #1a120e 0%, #120d0a 22%, #0f0a08 100%);
+    radial-gradient(circle at 18% 8%, rgba(200, 139, 71, 0.18), transparent 24%),
+    radial-gradient(circle at 82% 0%, rgba(92, 52, 36, 0.28), transparent 28%),
+    radial-gradient(circle at 50% 38%, rgba(50, 31, 24, 0.18), transparent 34%),
+    linear-gradient(180deg, #16100d 0%, #090604 34%, #120d0a 100%);
   color: var(--foreground);
   font-family: var(--font-body), "Source Sans 3", sans-serif;
   line-height: 1.5;
 }
 
-body::before {
+body::before,
+body::after {
   content: "";
   pointer-events: none;
   position: fixed;
   inset: 0;
   z-index: -1;
-  opacity: 0.2;
+}
+
+body::before {
+  opacity: 0.14;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 120px 120px;
-  mask-image: radial-gradient(circle at center, black, transparent 85%);
+    radial-gradient(rgba(255, 255, 255, 0.08) 0.8px, transparent 0.9px),
+    radial-gradient(rgba(255, 214, 170, 0.06) 0.8px, transparent 0.9px);
+  background-position: 0 0, 18px 14px;
+  background-size: 26px 26px, 34px 34px;
+  mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
+  animation: grainShift 18s steps(8) infinite;
+}
+
+body::after {
+  background:
+    radial-gradient(circle at center, transparent 44%, rgba(0, 0, 0, 0.38) 100%),
+    linear-gradient(180deg, rgba(9, 6, 4, 0.12), rgba(9, 6, 4, 0.42));
 }
 
 .font-display {
-  font-family: var(--font-display), "Cormorant Garamond", serif;
+  font-family: var(--font-display), "Bodoni Moda", serif;
 }
 
 a {
@@ -76,61 +89,146 @@ textarea {
     color 180ms ease,
     background-color 180ms ease,
     border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    opacity 220ms ease;
+}
+
+.page-shell {
+  padding-top: 8.4rem;
+}
+
+.section-dark,
+.section-light {
+  position: relative;
+}
+
+.section-dark {
+  color: var(--foreground);
+}
+
+.section-light {
+  color: #20140f;
+  background:
+    radial-gradient(circle at top right, rgba(200, 139, 71, 0.14), transparent 22%),
+    linear-gradient(180deg, rgba(247, 239, 230, 0.98), rgba(233, 219, 204, 0.98));
+}
+
+.section-light::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(92, 69, 54, 0.04) 1px, transparent 1px);
+  background-size: 100% 11px;
+  opacity: 0.12;
 }
 
 .surface-card {
-  border: 1px solid rgba(88, 61, 46, 0.18);
+  border: 1px solid rgba(106, 74, 52, 0.16);
   background:
-    linear-gradient(180deg, rgba(255, 248, 240, 0.98), rgba(239, 226, 209, 0.94));
-  box-shadow: 0 28px 70px -34px rgba(13, 8, 6, 0.5);
+    linear-gradient(180deg, rgba(252, 246, 240, 0.98), rgba(234, 219, 204, 0.94));
+  box-shadow: 0 32px 90px -38px rgba(17, 10, 8, 0.42);
+  backdrop-filter: blur(18px);
 }
 
 .surface-card-soft {
   border: 1px solid var(--border-soft);
   background:
-    linear-gradient(180deg, rgba(29, 20, 16, 0.82), rgba(18, 13, 10, 0.92));
-  box-shadow: 0 30px 80px -42px rgba(0, 0, 0, 0.82);
-  backdrop-filter: blur(16px);
+    linear-gradient(180deg, rgba(23, 16, 12, 0.84), rgba(11, 8, 6, 0.94));
+  box-shadow: 0 36px 90px -46px rgba(0, 0, 0, 0.84);
+  backdrop-filter: blur(20px);
 }
 
 .editorial-kicker {
   color: var(--accent-strong);
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.36em;
   text-transform: uppercase;
 }
 
-.page-shell {
-  padding-top: 5.5rem;
+.luxury-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(240, 214, 179, 0.72), transparent);
 }
 
 .image-shell {
   overflow: hidden;
-  border: 1px solid rgba(255, 234, 205, 0.18);
-  box-shadow: 0 28px 80px -36px rgba(0, 0, 0, 0.72);
+  border: 1px solid rgba(255, 231, 204, 0.18);
+  box-shadow: 0 34px 90px -40px rgba(0, 0, 0, 0.78);
+  background: rgba(9, 6, 4, 0.18);
 }
 
 .image-shell img {
   transition:
-    transform 500ms ease,
-    filter 260ms ease;
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 320ms ease;
 }
 
 .image-shell:hover img {
-  transform: scale(1.03);
+  transform: scale(1.08);
+  filter: saturate(1.04);
 }
 
-.section-light {
-  color: #201511;
-  background:
-    linear-gradient(180deg, rgba(248, 240, 229, 0.98), rgba(239, 226, 209, 0.98));
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance, 32px), 0) scale(0.985);
+  transition:
+    opacity 760ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 760ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 }
 
-.section-dark {
-  color: var(--foreground);
+.reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.interactive-panel {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  position: relative;
+  transform: perspective(1200px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+  transform-style: preserve-3d;
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+
+.interactive-panel::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    rgba(255, 230, 196, 0.18),
+    transparent 36%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.interactive-panel:hover::before {
+  opacity: 1;
+}
+
+.hero-drift {
+  animation: drift 12s ease-in-out infinite;
+}
+
+.hero-drift-delayed {
+  animation: drift 14s ease-in-out infinite -5s;
+}
+
+.ambient-pan {
+  animation: ambientPan 18s ease-in-out infinite;
 }
 
 ::selection {
@@ -145,4 +243,83 @@ input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes ambientPan {
+  0%,
+  100% {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: scale(1.08) translate3d(-1.4%, -1.2%, 0);
+  }
+}
+
+@keyframes grainShift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  20% {
+    transform: translate3d(-1.6%, 1.4%, 0);
+  }
+
+  40% {
+    transform: translate3d(1.1%, -1.4%, 0);
+  }
+
+  60% {
+    transform: translate3d(1.3%, 1%, 0);
+  }
+
+  80% {
+    transform: translate3d(-1%, -1.1%, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .page-shell {
+    padding-top: 7.2rem;
+  }
+}
+
+@media (hover: none) {
+  .interactive-panel {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
 }

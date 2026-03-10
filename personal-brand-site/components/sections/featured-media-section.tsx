@@ -20,21 +20,39 @@ export function FeaturedMediaSection() {
           </ButtonLink>
         </div>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 lg:grid-cols-[1.12fr_0.88fr]">
           {featuredContent.map((item, index) => (
             <article
               key={item.title}
-              className={index === 0 ? "paper-panel overflow-hidden lg:col-span-2" : "paper-panel overflow-hidden"}
+              className={
+                index === 0
+                  ? "paper-panel image-lift overflow-hidden lg:row-span-2"
+                  : "paper-panel image-lift overflow-hidden"
+              }
             >
-              <div className={index === 0 ? "grid gap-0 lg:grid-cols-[1.15fr_0.85fr]" : ""}>
-                <div className="relative min-h-[18rem] overflow-hidden">
+              <div className={index === 0 ? "grid gap-0 lg:grid-cols-[1.06fr_0.94fr]" : ""}>
+                <div className={index === 0 ? "relative min-h-[24rem] overflow-hidden" : "relative min-h-[18rem] overflow-hidden"}>
                   <Image
                     src={item.image}
                     alt={`${item.format} visual for ${item.outlet}.`}
                     fill
-                    sizes={index === 0 ? "(min-width: 1024px) 42vw, 100vw" : "(min-width: 1024px) 28vw, 100vw"}
-                    className="object-cover"
+                    sizes={index === 0 ? "(min-width: 1024px) 36vw, 100vw" : "(min-width: 1024px) 30vw, 100vw"}
+                    className={index === 0 ? "object-cover object-center" : "object-cover object-center"}
                   />
+
+                  {index === 0 ? (
+                    <div className="absolute inset-x-0 bottom-0 z-10 p-6 sm:p-8">
+                      <div className="max-w-md rounded-[1.7rem] border border-white/14 bg-[rgb(17_11_10/0.6)] p-5 text-white backdrop-blur-md">
+                        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/68">
+                          Lead story
+                        </p>
+                        <p className="mt-3 text-lg leading-8 text-white/88">
+                          Premium visibility works when the thesis is strong enough to hold a room and still sound like
+                          the same person in the recap.
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
 
                 <div className="p-7 sm:p-8">
@@ -46,6 +64,9 @@ export function FeaturedMediaSection() {
                   <h3 className="mt-4 text-4xl text-ink sm:text-[3rem]">{item.title}</h3>
                   <p className="mt-3 text-sm font-semibold uppercase tracking-[0.2em] text-plum">{item.outlet}</p>
                   <p className="mt-5 max-w-xl text-sm leading-7 text-mocha/88">{item.summary}</p>
+                  <p className="mt-6 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-mocha/72">
+                    Designed to feel like the kind of media proof that makes an introduction easier.
+                  </p>
                 </div>
               </div>
             </article>

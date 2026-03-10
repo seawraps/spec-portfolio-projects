@@ -44,7 +44,7 @@ export function ButtonLink({
   const content = (
     <>
       <span>{children}</span>
-      {arrow ? <span aria-hidden="true" className="text-base leading-none">-&gt;</span> : null}
+      {arrow ? <span aria-hidden="true" className="translate-y-[-1px] text-base leading-none">-&gt;</span> : null}
     </>
   );
 

@@ -81,8 +81,13 @@ export function ContactForm() {
   }
 
   return (
-    <div className="surface-card rounded-[2rem] p-6 sm:p-8">
-      <h2 className="font-display text-4xl leading-none text-[#201511]">Send us a message</h2>
+    <div className="surface-card rounded-[2.2rem] p-6 sm:p-8">
+      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[#9a6435]">
+        Guest Relations
+      </p>
+      <h2 className="mt-4 font-display text-[2.7rem] leading-[0.92] text-[#201511]">
+        Send us a message
+      </h2>
       <p className="mt-3 text-base leading-relaxed text-[#5b4538]">
         Use this form for reservations above eight guests, private events, collaborations, or
         general questions about the dining room.
@@ -90,7 +95,7 @@ export function ContactForm() {
 
       {submitted ? (
         <div
-          className="mt-6 rounded-[1.4rem] border border-emerald-200 bg-emerald-50 p-4 text-sm leading-relaxed text-emerald-900"
+          className="mt-6 rounded-[1.6rem] border border-emerald-200 bg-emerald-50 p-4 text-sm leading-relaxed text-emerald-900"
           role="status"
         >
           <p className="font-semibold uppercase tracking-[0.14em]">Message sent successfully.</p>
@@ -109,7 +114,10 @@ export function ContactForm() {
 
       <form className="mt-6 space-y-5" onSubmit={handleSubmit} noValidate>
         <div>
-          <label htmlFor="name" className="block text-sm font-semibold uppercase tracking-[0.16em] text-[#6c4a31]">
+          <label
+            htmlFor="name"
+            className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#6c4a31]"
+          >
             Name
           </label>
           <input
@@ -119,7 +127,7 @@ export function ContactForm() {
             autoComplete="name"
             value={values.name}
             onChange={(event) => updateField("name", event.target.value)}
-            className="mt-2 w-full rounded-[1.1rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+            className="mt-2 w-full rounded-[1.2rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? "name-error" : undefined}
             required
@@ -133,7 +141,10 @@ export function ContactForm() {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="email" className="block text-sm font-semibold uppercase tracking-[0.16em] text-[#6c4a31]">
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#6c4a31]"
+            >
               Email
             </label>
             <input
@@ -143,7 +154,7 @@ export function ContactForm() {
               autoComplete="email"
               value={values.email}
               onChange={(event) => updateField("email", event.target.value)}
-              className="mt-2 w-full rounded-[1.1rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+              className="mt-2 w-full rounded-[1.2rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? "email-error" : undefined}
               required
@@ -156,7 +167,10 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-sm font-semibold uppercase tracking-[0.16em] text-[#6c4a31]">
+            <label
+              htmlFor="phone"
+              className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#6c4a31]"
+            >
               Phone <span className="text-[#8a6a52]">(optional)</span>
             </label>
             <input
@@ -166,7 +180,7 @@ export function ContactForm() {
               autoComplete="tel"
               value={values.phone}
               onChange={(event) => updateField("phone", event.target.value)}
-              className="mt-2 w-full rounded-[1.1rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+              className="mt-2 w-full rounded-[1.2rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
               aria-invalid={Boolean(errors.phone)}
               aria-describedby={errors.phone ? "phone-error" : undefined}
             />
@@ -179,7 +193,10 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-semibold uppercase tracking-[0.16em] text-[#6c4a31]">
+          <label
+            htmlFor="message"
+            className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#6c4a31]"
+          >
             Message
           </label>
           <textarea
@@ -188,7 +205,7 @@ export function ContactForm() {
             rows={6}
             value={values.message}
             onChange={(event) => updateField("message", event.target.value)}
-            className="mt-2 w-full rounded-[1.1rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+            className="mt-2 w-full rounded-[1.2rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
             required

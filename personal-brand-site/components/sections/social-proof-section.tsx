@@ -6,8 +6,8 @@ export function SocialProofSection() {
     <section className="section-shell pt-6 md:pt-8 lg:pt-10">
       <Container>
         <div className="section-rule pt-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div>
+          <div className="paper-panel flex flex-col gap-6 px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+            <div className="max-w-2xl">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-mocha/72">
                 Selected Rooms and Collaborations
               </p>
@@ -21,7 +21,7 @@ export function SocialProofSection() {
               {socialProofLogos.map((logo) => (
                 <div
                   key={logo}
-                  className="rounded-full border border-ink/10 bg-white/70 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_16px_28px_-24px_rgba(35,24,20,0.22)]"
+                  className="rounded-full border border-ink/10 bg-white/86 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_16px_28px_-24px_rgba(35,24,20,0.22)]"
                 >
                   {logo}
                 </div>

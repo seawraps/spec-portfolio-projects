@@ -21,7 +21,7 @@ export function TestimonialsSection({
           title={title}
           description={description}
         />
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-3 reveal-up delay-1">
           {testimonials.map((testimonial) => (
             <TestimonialCard key={testimonial.name} testimonial={testimonial} />
           ))}

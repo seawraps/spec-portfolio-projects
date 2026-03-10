@@ -17,7 +17,7 @@ type ProcessColumnProps = {
 
 function ProcessColumn({ eyebrow, title, steps }: ProcessColumnProps) {
   return (
-    <article className="rounded-[30px] border border-white/10 bg-white/6 p-6 backdrop-blur-sm sm:p-8">
+    <article className="reveal-up rounded-[30px] border border-white/10 bg-white/6 p-6 backdrop-blur-sm sm:p-8">
       <p className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze-soft)]">
         {eyebrow}
       </p>
@@ -69,7 +69,7 @@ export function ProcessSection({
               steps={buyingProcess}
             />
 
-            <div className="image-frame relative min-h-[340px] xl:min-h-full">
+            <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[340px] xl:min-h-full">
               <Image
                 src="/images/services-interior.jpg"
                 alt="A refined luxury interior staged for a premium residential listing."

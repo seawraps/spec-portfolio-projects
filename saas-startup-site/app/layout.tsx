@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { IBM_Plex_Mono, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -11,8 +11,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -80,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.variable} ${manrope.variable} ${ibmPlexMono.variable} min-h-screen bg-white font-sans text-slate-900 antialiased`}
+        className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable} min-h-screen bg-white font-sans text-slate-900 antialiased`}
       >
         <div className="relative flex min-h-screen flex-col">
           <a href="#main-content" className="skip-link">

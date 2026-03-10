@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { Stat } from "@/lib/data";
@@ -7,9 +9,10 @@ type PageIntroProps = {
   title: string;
   description: string;
   stats?: Stat[];
+  aside?: ReactNode;
 };
 
-export function PageIntro({ eyebrow, title, description, stats }: PageIntroProps) {
+export function PageIntro({ eyebrow, title, description, stats, aside }: PageIntroProps) {
   return (
     <section className="section-shell pt-16 md:pt-20 lg:pt-24">
       <Container>
@@ -26,6 +29,8 @@ export function PageIntro({ eyebrow, title, description, stats }: PageIntroProps
                   </article>
                 ))}
               </div>
+            ) : aside ? (
+              aside
             ) : (
               <div className="paper-panel p-6 sm:p-8">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">

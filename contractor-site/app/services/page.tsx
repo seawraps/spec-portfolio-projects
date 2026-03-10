@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
+import { Reveal } from "@/components/motion/reveal";
 import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -35,9 +36,10 @@ const planningNotes = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="pb-12 pt-10 md:pb-16 md:pt-14 lg:pb-20">
-        <Container className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-          <div className="surface-card-strong rounded-[2.4rem] p-7 sm:p-9">
+      <section id="services-overview" className="pb-16 pt-8 md:pb-20 md:pt-10 lg:pb-24">
+        <Container className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+          <Reveal>
+            <div className="surface-card-strong rounded-[2.4rem] p-7 sm:p-9">
             <SectionHeading
               eyebrow="Services"
               title="Focused renovation work for kitchens, baths, interiors, and the details that tie them together"
@@ -61,9 +63,11 @@ export default function ServicesPage() {
                 Serving {company.primaryServiceArea}
               </p>
             </div>
-          </div>
+            </div>
+          </Reveal>
 
-          <div className="image-frame relative min-h-[520px] rounded-[2.4rem]">
+          <Reveal delay={100}>
+            <div className="image-frame relative min-h-[520px] rounded-[2.4rem]">
             <Image
               src="/images/hero-kitchen.jpg"
               alt="A premium kitchen remodel with warm cabinetry and a large island."
@@ -72,19 +76,19 @@ export default function ServicesPage() {
               sizes="(max-width: 1024px) 100vw, 48vw"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.1),rgba(22,36,52,0.48))]" />
-          </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
-      <section className="py-12 md:py-16 lg:py-20">
+      <section id="service-list" className="py-16 md:py-20 lg:py-24">
         <Container className="space-y-6">
           {services.map((service, index) => (
-            <article
+            <Reveal
               key={service.id}
-              id={service.id}
               className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-center"
             >
-              <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+              <div id={service.id} className={index % 2 === 1 ? "lg:order-2" : ""}>
                 <div className="image-frame relative min-h-[420px] rounded-[2.2rem]">
                   <Image
                     src={service.image}
@@ -137,14 +141,15 @@ export default function ServicesPage() {
                   </ul>
                 </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </Container>
       </section>
 
-      <section className="py-12 md:py-16 lg:py-20">
+      <section id="planning-standards" className="py-16 md:py-20 lg:py-24">
         <Container>
-          <div className="surface-card rounded-[2.4rem] p-6 sm:p-8">
+          <Reveal>
+            <div className="surface-card rounded-[2.4rem] p-6 sm:p-8">
             <SectionHeading
               eyebrow="Planning Standards"
               title="The way we scope work matters just as much as the work itself"
@@ -163,9 +168,10 @@ export default function ServicesPage() {
                     {note.description}
                   </p>
                 </article>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
 

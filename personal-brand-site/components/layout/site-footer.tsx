@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { navItems, projectNote, siteConfig } from "@/lib/data";
 
@@ -20,6 +21,15 @@ export function SiteFooter() {
 
           <p className="mt-6 max-w-xl text-sm leading-7 text-mocha/92">{siteConfig.shortBio}</p>
           <p className="mt-4 max-w-xl text-sm leading-7 text-mocha/84">{projectNote}</p>
+
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="/contact?type=advisory" arrow>
+              Request availability
+            </ButtonLink>
+            <ButtonLink href="/services" variant="ghost" arrow>
+              Review offers
+            </ButtonLink>
+          </div>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2">

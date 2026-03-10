@@ -35,7 +35,7 @@ export default function AboutPage() {
       <section className="section-shell">
         <Container className="grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
           <div className="space-y-5">
-            <div className="media-frame relative aspect-[4/4.5] overflow-hidden rounded-[2.3rem]">
+            <div className="media-frame image-lift relative aspect-[4/4.7] overflow-hidden rounded-[2.5rem]">
               <Image
                 src="/images/nadia-whiteboard-portrait.jpg"
                 alt="Nadia Vale standing in front of a whiteboard in an editorial workspace."
@@ -44,6 +44,17 @@ export default function AboutPage() {
                 className="object-cover"
                 priority
               />
+
+              <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-6">
+                <div className="max-w-sm rounded-[1.5rem] border border-white/14 bg-[rgb(17_11_10/0.58)] p-5 text-white backdrop-blur-md">
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/68">
+                    What clients feel
+                  </p>
+                  <p className="mt-3 text-lg leading-7 text-white/88">
+                    Stronger language, calmer presence, and a clearer line between expertise and market trust.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="paper-panel p-6">
@@ -189,9 +200,14 @@ export default function AboutPage() {
                 The fastest path is a concise note with the audience, timing, and the shift you want the room or brand
                 to make.
               </p>
-              <ButtonLink href={`mailto:${siteConfig.email}`} className="mt-6">
-                {siteConfig.email}
-              </ButtonLink>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href="/contact?type=speaking" arrow>
+                  Request availability
+                </ButtonLink>
+                <ButtonLink href={`mailto:${siteConfig.email}`} variant="secondary">
+                  {siteConfig.email}
+                </ButtonLink>
+              </div>
             </div>
           </div>
         </Container>

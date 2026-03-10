@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
-import { siteConfig } from "@/lib/data";
+import { bookingSignals, siteConfig } from "@/lib/data";
 
 export function PartnershipCtaSection() {
   return (
@@ -30,11 +30,35 @@ export function PartnershipCtaSection() {
                 ideas, strong rooms, and polished public-facing execution.
               </p>
 
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                {bookingSignals.map((signal) => (
+                  <div
+                    key={signal}
+                    className="rounded-[1.35rem] border border-white/12 bg-white/6 px-4 py-4 text-sm leading-7 text-white/76"
+                  >
+                    {signal}
+                  </div>
+                ))}
+              </div>
+
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <ButtonLink href="/contact" arrow>
-                  Start an Inquiry
+                <ButtonLink href="/contact?type=speaking" arrow>
+                  Request availability
                 </ButtonLink>
-                <ButtonLink href={`mailto:${siteConfig.email}`} variant="secondary" arrow className="border-white/20 bg-white/12 text-white hover:bg-white/18 hover:text-white">
+                <ButtonLink
+                  href="/services"
+                  variant="secondary"
+                  arrow
+                  className="border-white/20 bg-white/12 text-white hover:bg-white/18 hover:text-white"
+                >
+                  Review the offers
+                </ButtonLink>
+                <ButtonLink
+                  href={`mailto:${siteConfig.email}`}
+                  variant="ghost"
+                  arrow
+                  className="justify-start text-white hover:text-white"
+                >
                   Email {siteConfig.email}
                 </ButtonLink>
               </div>

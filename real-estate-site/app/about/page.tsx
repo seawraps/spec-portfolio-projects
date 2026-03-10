@@ -24,9 +24,9 @@ export default function AboutPage() {
         eyebrow="About The Agency"
         title="A boutique advisory built for thoughtful moves, stronger launches, and quieter confidence."
         description="Crescent Vale Realty blends neighborhood intelligence, editorial presentation, and direct senior-level service for buyers and sellers who want counsel that feels steady from first strategy session to final signature."
-        imageSrc="/images/story-advisory.jpg"
-        imageAlt="A refined advisory meeting in a premium residential office setting."
-        imageCaption="Calm, highly personal representation for clients making consequential residential moves."
+        imageSrc="/images/hero-estate.jpg"
+        imageAlt="A modern hillside estate that reflects the agency's architecture-led point of view."
+        imageCaption="A calm, design-aware perspective on how premium homes should be positioned."
         primaryAction={{ href: "/contact", label: "Meet the team" }}
         secondaryAction={{ href: "/services", label: "View services", variant: "secondary" }}
         highlights={[
@@ -42,7 +42,7 @@ export default function AboutPage() {
             <div className="image-frame relative min-h-[380px] lg:min-h-[680px]">
               <Image
                 src="/images/contact-consultation.jpg"
-                alt="A luxury real estate consultation between an advisor and clients."
+                alt="A refined residential interior used to reinforce the agency's calm, considered approach."
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"

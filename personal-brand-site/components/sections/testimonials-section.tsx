@@ -16,6 +16,7 @@ export function TestimonialsSection() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
           <article className="ink-panel p-8 sm:p-10">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-gold">{lead.outcome}</p>
             <p className="text-6xl leading-none text-gold">&quot;</p>
             <p className="mt-6 max-w-3xl text-2xl leading-9 text-white/88 sm:text-[2rem] sm:leading-10">
               {lead.quote}
@@ -30,7 +31,10 @@ export function TestimonialsSection() {
 
           <div className="grid gap-5">
             {rest.map((testimonial) => (
-              <article key={testimonial.name} className="paper-panel p-7 sm:p-8">
+              <article key={testimonial.name} className="paper-panel sequence-card p-7 sm:p-8">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-plum">
+                  {testimonial.outcome}
+                </p>
                 <p className="text-5xl leading-none text-plum">&quot;</p>
                 <p className="mt-5 text-base leading-8 text-mocha/92">{testimonial.quote}</p>
                 <div className="mt-6 border-t border-ink/8 pt-4">

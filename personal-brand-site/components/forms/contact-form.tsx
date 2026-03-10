@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 
 import { buttonClassName } from "@/components/ui/button-link";
 
@@ -8,6 +8,7 @@ type FormState = {
   name: string;
   email: string;
   company: string;
+  timeline: string;
   inquiryType: string;
   message: string;
 };
@@ -18,9 +19,16 @@ const initialState: FormState = {
   name: "",
   email: "",
   company: "",
+  timeline: "",
   inquiryType: "",
   message: "",
 };
+
+const inquiryTypeMap = {
+  speaking: "speaking",
+  advisory: "advisory",
+  partnership: "partnership",
+} as const;
 
 function validate(values: FormState): ErrorState {
   const errors: ErrorState = {};
@@ -48,6 +56,19 @@ export function ContactForm() {
   const [values, setValues] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<ErrorState>({});
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const preset = new URLSearchParams(window.location.search).get("type");
+
+    if (!preset || !Object.hasOwn(inquiryTypeMap, preset) || values.inquiryType) {
+      return;
+    }
+
+    setValues((current) => ({
+      ...current,
+      inquiryType: inquiryTypeMap[preset as keyof typeof inquiryTypeMap],
+    }));
+  }, [values.inquiryType]);
 
   function updateField<K extends keyof FormState>(field: K, value: FormState[K]) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -139,19 +160,32 @@ export function ContactForm() {
         </label>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        <label className="block">
-          <span className="mb-2 block text-sm font-medium text-mocha/84">Company or project</span>
-          <input
+        <div className="grid gap-6 sm:grid-cols-2">
+          <label className="block">
+            <span className="mb-2 block text-sm font-medium text-mocha/84">Company or project</span>
+            <input
             type="text"
             name="company"
             autoComplete="organization"
             placeholder="Brand, team, or event"
             value={values.company}
             onChange={(event) => updateField("company", event.target.value)}
-          />
-        </label>
+            />
+          </label>
 
+          <label className="block">
+            <span className="mb-2 block text-sm font-medium text-mocha/84">Timing or event date</span>
+            <input
+              type="text"
+              name="timeline"
+              placeholder="September offsite, Q4 launch, or flexible"
+              value={values.timeline}
+              onChange={(event) => updateField("timeline", event.target.value)}
+            />
+          </label>
+        </div>
+
+      <div className="grid gap-6 sm:grid-cols-2">
         <label className="block">
           <span className="mb-2 block text-sm font-medium text-mocha/84">Inquiry type</span>
           <select
@@ -172,6 +206,16 @@ export function ContactForm() {
             </p>
           ) : null}
         </label>
+
+        <div className="rounded-[1.5rem] border border-ink/8 bg-white/70 p-5">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
+            Helpful context
+          </p>
+          <p className="mt-3 text-sm leading-7 text-mocha/86">
+            Budget ranges, room size, audience sophistication, and what a strong outcome sounds like make the first
+            reply more useful.
+          </p>
+        </div>
       </div>
 
       <label className="block">
@@ -199,7 +243,7 @@ export function ContactForm() {
           type="submit"
           className={buttonClassName("primary")}
         >
-          Send Inquiry
+          Send booking note
         </button>
       </div>
     </form>

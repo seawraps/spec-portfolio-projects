@@ -1,114 +1,173 @@
+"use client";
+
 import { Container } from "@/components/layout/Container";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { InteractiveCard } from "@/components/ui/InteractiveCard";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { pricingPlans } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
-const includedItems = [
-  "Guided rollout planning",
-  "Secure data handling",
-  "Biweekly product updates",
-  "Customer success support",
+const dealSupport = [
+  "Guided rollout planning and architecture review",
+  "Security and procurement response support",
+  "Customer success involvement from evaluation onward",
+  "Quarterly optimization guidance on larger plans",
 ];
 
 export function PricingSection() {
   return (
-    <section className="bg-[#f4f8fd] py-14 md:py-20 lg:py-24" id="pricing">
+    <section className="section-shell-dark py-16 md:py-20 lg:py-24" id="pricing">
       <Container>
-        <div className="grid gap-10 xl:grid-cols-[0.78fr_1.22fr] xl:items-start">
-          <div>
+        <div className="grid gap-10 xl:grid-cols-[0.8fr_1.2fr] xl:items-start">
+          <Reveal>
             <SectionHeading
               eyebrow="Pricing"
-              title="Plans built for teams standardizing real operational work."
-              description="Start with a focused deployment, then expand into broader orchestration once the platform is proving value in production."
+              title="Structured for serious deployment, not just seat expansion."
+              description="Start with one high-impact workflow cluster, prove the operating model, then expand the control plane across more teams and higher-governance use cases."
+              tone="dark"
             />
-            <div className="surface-panel-muted mt-7 px-6 py-6">
-              <p className="data-label text-slate-500">Procurement and rollout</p>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-700">
-                <li>Annual plans available for Business and Enterprise customers.</li>
-                <li>Security review support and architecture guidance included for larger deals.</li>
-                <li>We can scope around one workflow cluster first, then expand by function.</li>
+
+            <div className="surface-panel-dark mt-7 px-6 py-6">
+              <p className="data-label text-sky-200">Included with every evaluation</p>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
+                {dealSupport.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-2 inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
-              <ButtonLink href="/contact" variant="secondary" className="mt-5">
-                Request pricing guidance
+              <ButtonLink href="/contact" variant="light" className="mt-6">
+                Request rollout guidance
               </ButtonLink>
             </div>
-          </div>
+          </Reveal>
 
           <div className="grid gap-6 lg:grid-cols-3">
-            {pricingPlans.map((plan) => (
-              <article
-                key={plan.name}
-                className={cn(
-                  "flex h-full flex-col rounded-[1.75rem] border px-6 py-6 shadow-[0_24px_58px_-40px_rgba(8,15,31,0.22)]",
-                  plan.featured
-                    ? "surface-panel-dark border-sky-400/25 text-white"
-                    : "surface-panel text-slate-950",
-                )}
-              >
-                <div>
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-display text-2xl font-semibold tracking-[-0.04em]">
-                      {plan.name}
-                    </h3>
-                    {plan.featured ? (
-                      <span className="rounded-full bg-sky-400/12 px-3 py-1 text-xs font-semibold text-sky-200">
-                        Most popular
-                      </span>
-                    ) : null}
-                  </div>
-                  <p className={cn("mt-3 text-sm leading-6", plan.featured ? "text-slate-300" : "text-slate-600")}>
-                    {plan.description}
-                  </p>
-                </div>
-
-                <div className="mt-7 border-t border-white/10 pt-6">
-                  <p className="font-display text-5xl font-semibold tracking-[-0.06em]">
-                    {plan.price}
-                  </p>
-                  <p className={cn("mt-2 text-sm", plan.featured ? "text-slate-300" : "text-slate-500")}>
-                    {plan.price.startsWith("$")
-                      ? "Per workspace / month"
-                      : "Structured around deployment scope and governance requirements"}
-                  </p>
-                </div>
-
-                <ul className="mt-7 space-y-3 text-sm leading-6">
-                  {plan.featureList.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <span
-                        aria-hidden="true"
+            {pricingPlans.map((plan, index) => (
+              <Reveal key={plan.name} delay={index * 0.05}>
+                <InteractiveCard
+                  className={cn(
+                    "h-full rounded-[2rem] border p-6",
+                    plan.featured
+                      ? "surface-panel-dark border-sky-400/20"
+                      : "surface-panel border-white/60",
+                  )}
+                >
+                  <div className="flex h-full flex-col">
+                    <div>
+                      <div className="flex items-start justify-between gap-4">
+                        <h3
+                          className={cn(
+                            "font-display text-2xl font-semibold tracking-[-0.05em]",
+                            plan.featured ? "text-white" : "text-slate-950",
+                          )}
+                        >
+                          {plan.name}
+                        </h3>
+                        {plan.featured ? (
+                          <span className="rounded-full bg-[linear-gradient(135deg,rgba(101,226,255,0.18),rgba(22,184,255,0.12))] px-3 py-1 text-xs font-semibold text-sky-100 ring-1 ring-white/10">
+                            Recommended
+                          </span>
+                        ) : null}
+                      </div>
+                      <p
                         className={cn(
-                          "mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[0.65rem] font-semibold",
-                          plan.featured ? "bg-sky-400/14 text-sky-200" : "bg-slate-950 text-white",
+                          "mt-4 text-sm leading-6",
+                          plan.featured ? "text-slate-300" : "text-slate-600",
                         )}
                       >
-                        +
-                      </span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                        {plan.description}
+                      </p>
+                    </div>
 
-                <ButtonLink
-                  href="/contact"
-                  variant={plan.featured ? "light" : "primary"}
-                  className="mt-8 w-full"
-                >
-                  {plan.ctaLabel}
-                </ButtonLink>
-              </article>
+                    <div
+                      className={cn(
+                        "mt-7 rounded-[1.4rem] border px-4 py-4",
+                        plan.featured
+                          ? "border-white/10 bg-white/5"
+                          : "border-slate-200 bg-white",
+                      )}
+                    >
+                      <p
+                        className={cn(
+                          "font-display text-5xl font-semibold tracking-[-0.08em]",
+                          plan.featured ? "text-white" : "text-slate-950",
+                        )}
+                      >
+                        {plan.price}
+                      </p>
+                      <p
+                        className={cn(
+                          "mt-2 text-sm",
+                          plan.featured ? "text-slate-300" : "text-slate-500",
+                        )}
+                      >
+                        {plan.price.startsWith("$")
+                          ? "Per workspace / month"
+                          : "Scoped around security, deployment, and support requirements"}
+                      </p>
+                    </div>
+
+                    <ul className="mt-7 space-y-3 text-sm leading-6">
+                      {plan.featureList.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3">
+                          <span
+                            aria-hidden="true"
+                            className={cn(
+                              "mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[0.65rem] font-semibold",
+                              plan.featured
+                                ? "bg-sky-400/14 text-sky-100"
+                                : "bg-slate-950 text-white",
+                            )}
+                          >
+                            +
+                          </span>
+                          <span className={plan.featured ? "text-slate-200" : "text-slate-700"}>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-7 rounded-[1.2rem] border border-white/8 bg-white/5 px-4 py-4 text-sm leading-6 text-slate-300">
+                      {plan.featured
+                        ? "Best fit for teams replacing cross-functional process sprawl with a governed operational platform."
+                        : plan.name === "Team"
+                          ? "Designed for smaller teams proving value inside one operational lane."
+                          : "Built for multi-region, compliance-heavy rollout and procurement involvement."}
+                    </div>
+
+                    <ButtonLink
+                      href="/contact"
+                      variant={plan.featured ? "light" : "primary"}
+                      className="mt-8 w-full"
+                    >
+                      {plan.ctaLabel}
+                    </ButtonLink>
+                  </div>
+                </InteractiveCard>
+              </Reveal>
             ))}
           </div>
         </div>
 
-        <div className="surface-panel mt-8 grid gap-4 px-6 py-5 md:grid-cols-4">
-          {includedItems.map((item) => (
-            <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm font-medium text-slate-700">
+        <Reveal className="surface-panel mt-8 grid gap-4 px-6 py-6 md:grid-cols-4" delay={0.1}>
+          {[
+            "Annual procurement paths available",
+            "Usage generous enough for real deployment",
+            "Security review support included",
+            "Expand from one workflow cluster to many",
+          ].map((item) => (
+            <div
+              key={item}
+              className="rounded-[1.25rem] border border-slate-200 bg-white px-4 py-4 text-sm font-medium text-slate-700"
+            >
               {item}
             </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

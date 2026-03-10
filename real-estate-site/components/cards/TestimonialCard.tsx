@@ -6,7 +6,7 @@ type TestimonialCardProps = {
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <article className="soft-card h-full rounded-[30px] p-7 sm:p-8">
+    <article className="soft-card reveal-up delay-2 h-full rounded-[30px] p-7 sm:p-8">
       <p className="font-display text-6xl leading-none text-[var(--color-bronze)]" aria-hidden="true">
         &ldquo;
       </p>

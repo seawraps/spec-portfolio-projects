@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
+import { Reveal } from "@/components/motion/reveal";
 import { ContactForm } from "@/components/forms/contact-form";
 import { Container } from "@/components/layout/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -27,9 +28,10 @@ const nextSteps = [
 export default function ContactPage() {
   return (
     <>
-      <section className="pb-12 pt-10 md:pb-16 md:pt-14 lg:pb-20">
-        <Container className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
-          <div className="surface-card-strong rounded-[2.4rem] p-7 sm:p-9">
+      <section id="contact-overview" className="pb-16 pt-8 md:pb-20 md:pt-10 lg:pb-24">
+        <Container className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+          <Reveal>
+            <div className="surface-card-strong rounded-[2.4rem] p-7 sm:p-9">
             <SectionHeading
               eyebrow="Contact"
               title="Tell us about the home, the rooms involved, and what you want to improve"
@@ -65,9 +67,11 @@ export default function ContactPage() {
                 ))}
               </ul>
             </div>
-          </div>
+            </div>
+          </Reveal>
 
-          <div className="image-frame relative min-h-[520px] rounded-[2.4rem]">
+          <Reveal delay={100}>
+            <div className="image-frame relative min-h-[520px] rounded-[2.4rem]">
             <Image
               src="/images/bathroom-shower.jpg"
               alt="A premium bathroom remodel with a warm vanity and walk-in shower."
@@ -84,13 +88,15 @@ export default function ContactPage() {
                 Most first visits can be scheduled within 7 to 10 business days.
               </p>
             </div>
-          </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
-      <section className="py-12 md:py-16 lg:py-20">
+      <section id="contact-form" className="py-16 md:py-20 lg:py-24">
         <Container className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <div className="surface-card-strong rounded-[2.4rem] p-6 sm:p-8">
+          <Reveal>
+            <div className="surface-card-strong rounded-[2.4rem] p-6 sm:p-8">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
               Request a Consultation
             </p>
@@ -104,10 +110,11 @@ export default function ContactPage() {
             <div className="mt-7">
               <ContactForm />
             </div>
-          </div>
+            </div>
+          </Reveal>
 
           <div className="space-y-6">
-            <div className="surface-card rounded-[2rem] p-6">
+            <Reveal className="surface-card rounded-[2rem] p-6">
               <h2 className="font-display text-3xl leading-tight text-[var(--color-brand)]">
                 What happens next
               </h2>
@@ -116,9 +123,9 @@ export default function ContactPage() {
                   <li key={step}>{step}</li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
 
-            <div className="surface-card rounded-[2rem] p-6">
+            <Reveal delay={80} className="surface-card rounded-[2rem] p-6">
               <h2 className="font-display text-3xl leading-tight text-[var(--color-brand)]">
                 Office details
               </h2>
@@ -137,9 +144,9 @@ export default function ContactPage() {
                   <li key={hour}>{hour}</li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
 
-            <div className="surface-card rounded-[2rem] p-6">
+            <Reveal delay={160} className="surface-card rounded-[2rem] p-6">
               <h2 className="font-display text-3xl leading-tight text-[var(--color-brand)]">
                 Quick answers
               </h2>
@@ -155,7 +162,7 @@ export default function ContactPage() {
                   </div>
                 ))}
               </dl>
-            </div>
+            </Reveal>
           </div>
         </Container>
       </section>

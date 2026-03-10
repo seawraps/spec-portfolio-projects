@@ -50,13 +50,23 @@ export type MenuItem = {
 export type MenuCategory = {
   id: string;
   title: string;
+  courseLabel: string;
   description: string;
+  ritual: string;
+  pairing: string;
+  image: PhotoAsset;
   items: MenuItem[];
 };
 
 export type ExperienceHighlight = {
   title: string;
   description: string;
+};
+
+export type HeroMoment = {
+  label: string;
+  value: string;
+  note: string;
 };
 
 export type MenuHighlight = {
@@ -79,105 +89,128 @@ export const navLinks: NavLink[] = [
 export const siteImages = {
   heroTableWine: {
     src: "/images/hero-table-wine.jpg",
-    alt: "A candlelit dinner table layered with plates, wine glasses, and warm evening light.",
+    alt: "A moody dining table lit by candlelight with polished wine glasses and warm reflections.",
     photographer: "D Z",
     sourceUrl:
       "https://unsplash.com/photos/a-table-topped-with-plates-and-glasses-of-wine-BiajbI99xTo",
   },
   heroFeast: {
     src: "/images/hero-feast.jpg",
-    alt: "An editorial overhead of shared dishes, wine, and candlelight across a restaurant table.",
+    alt: "An editorial overhead of seafood, citrus, and wine spread across a richly layered dinner table.",
     photographer: "Andrej Lisakov",
     sourceUrl:
       "https://unsplash.com/photos/a-table-topped-with-plates-and-bowls-of-food-iS0SGSMUJNA",
   },
   heroOccasion: {
     src: "/images/hero-occasion.jpg",
-    alt: "Guests gathered around a candlelit dinner table during service.",
+    alt: "Guests gathered around a dramatic dinner table during evening service.",
     photographer: "Andrew Solok",
     sourceUrl:
       "https://unsplash.com/photos/people-gathered-around-a-table-with-food-and-candles-Woue_isymNU",
   },
   featuredMussels: {
     src: "/images/featured-mussels.jpg",
-    alt: "A shallow bowl of Mediterranean mussels with sauce and herbs.",
+    alt: "Mediterranean mussels in a glossy broth finished with herbs and olive oil.",
     photographer: "Ivana Cajina",
     sourceUrl:
       "https://unsplash.com/photos/a-dish-of-food-with-mussels-and-sauce--dqJt_xZUcM",
   },
   featuredPasta: {
     src: "/images/featured-pasta.jpg",
-    alt: "Seafood pasta with clams and shrimp plated in a white bowl.",
+    alt: "Seafood pasta plated with clams and shellfish in a bright white bowl.",
     photographer: "Sarda Bamberg",
     sourceUrl:
       "https://unsplash.com/photos/a-plate-of-pasta-with-clams-and-shrimp-igtFLRG0tQc",
   },
   featuredCalamari: {
     src: "/images/featured-calamari.jpg",
-    alt: "Grilled calamari finished with herbs and olive oil beside the coast.",
+    alt: "Grilled calamari finished with herbs, olive oil, and citrus.",
     photographer: "blackieshoot",
     sourceUrl:
       "https://unsplash.com/photos/grilled-calamari-served-with-herbs-and-oil-by-the-sea-zgotbaQZvFo",
   },
   storyChef: {
     src: "/images/story-chef.jpg",
-    alt: "A chef plating a finished dish in a restaurant kitchen.",
+    alt: "A chef finishing a composed plate in a dark restaurant kitchen.",
     photographer: "Giulia Squillace",
     sourceUrl:
       "https://unsplash.com/photos/a-man-in-a-kitchen-preparing-food-on-a-plate-J1RKeY6Kv8c",
   },
   diningRoom: {
     src: "/images/dining-room.jpg",
-    alt: "A warm fine-dining room with moody lighting and dressed tables.",
+    alt: "A low-lit dining room with dressed tables, amber light, and a polished bar atmosphere.",
     photographer: "Hakim Menikh",
     sourceUrl:
       "https://unsplash.com/photos/cozy-restaurant-dining-area-with-elegant-decor-PGbiUKbJpoM",
   },
   cocktailService: {
     src: "/images/cocktail-service.jpg",
-    alt: "A bartender pouring a cocktail into a glass at the bar.",
+    alt: "A bartender pouring a cocktail with focused, polished service.",
     photographer: "Louis Hansel",
     sourceUrl:
       "https://unsplash.com/photos/person-pouring-liquor-in-clear-drinking-glass-yLUvnCFI500",
   },
   patioOcean: {
     src: "/images/patio-ocean.jpg",
-    alt: "An open-air restaurant terrace overlooking the ocean.",
+    alt: "An open-air terrace positioned above the coast for late afternoon and dusk dining.",
     photographer: "Roberta Sant'Anna",
     sourceUrl:
       "https://unsplash.com/photos/outdoor-cafe-seating-with-ocean-view-2rTG2fxKcZ8",
   },
   terraceNight: {
     src: "/images/terrace-night.jpg",
-    alt: "A string-lit restaurant terrace at night prepared for dinner service.",
+    alt: "A restaurant terrace glowing after dark and set for evening service.",
     photographer: "Nikita Kulikov",
     sourceUrl:
       "https://unsplash.com/photos/outdoor-restaurant-seating-area-at-night-with-string-lights-bQo3HO8HdgY",
   },
   wineToast: {
     src: "/images/wine-toast.jpg",
-    alt: "A guest holding a glass of red wine over a candlelit dinner table.",
+    alt: "A glass of red wine lifted over a warm candlelit table.",
     photographer: "Phakphoom Srinorajan",
     sourceUrl:
       "https://unsplash.com/photos/person-holding-wine-glass-with-red-wine-hPkUQ30hvRA",
   },
   menuPlated: {
     src: "/images/menu-plated.jpg",
-    alt: "A Mediterranean appetizer plate with cheese, bread, and vegetables.",
+    alt: "A composed Mediterranean plate styled with linens, tableware, and warm service light.",
     photographer: "Snappr",
     sourceUrl:
       "https://unsplash.com/photos/a-plate-of-food-on-a-table-with-utensils-nQfrAaPsQq8",
   },
 } as const satisfies Record<string, PhotoAsset>;
 
+export const serviceMoments: HeroMoment[] = [
+  {
+    label: "Arrival",
+    value: "Aperitivo at the marble bar",
+    note: "Cold martinis, oysters, and a first pour before the table is ready.",
+  },
+  {
+    label: "Dining Room",
+    value: "Low light and linen textures",
+    note: "Tables are paced for conversation, not turnover.",
+  },
+  {
+    label: "From The Pass",
+    value: "Seafood, charcoal, and restraint",
+    note: "Fire-led cooking finished with brightness instead of excess.",
+  },
+  {
+    label: "Late Evening",
+    value: "Dessert, cellar reds, and one last round",
+    note: "The room is designed to get more magnetic after dark.",
+  },
+];
+
 export const featuredDishes: FeaturedDish[] = [
   {
     name: "Saffron Mussels",
     description:
-      "White wine broth, Calabrian chili, grilled country bread, and charred fennel pollen butter.",
+      "White wine broth, Calabrian chili, grilled country bread, and fennel pollen butter for the table.",
     price: "$24",
     course: "Raw & Warm Starters",
-    image: siteImages.featuredMussels,
+    image: siteImages.menuPlated,
   },
   {
     name: "Linguine Vongole",
@@ -221,7 +254,7 @@ export const menuHighlights: MenuHighlight[] = [
     eyebrow: "Tonight's Ritual",
     title: "Five-course chef's tasting",
     description:
-      "A market-driven progression built around seafood, live-fire mains, and composed desserts.",
+      "A market-driven progression built around seafood, live-fire mains, and citrus-led desserts.",
     detail: "$98 per guest, nightly from 6 PM",
     image: siteImages.menuPlated,
   },
@@ -235,37 +268,37 @@ export const menuHighlights: MenuHighlight[] = [
   },
   {
     eyebrow: "Preferred Seating",
-    title: "Sunset terrace tables",
+    title: "Late terrace tables",
     description:
-      "Ocean air, candlelight, and the full dinner menu served outside when the evening stays calm.",
+      "Open-air seating, candlelight, and the full dinner menu served outside when the evening stays calm.",
     detail: "Request terrace seating when reserving",
-    image: siteImages.patioOcean,
+    image: siteImages.terraceNight,
   },
 ];
 
 export const galleryImages: GalleryImage[] = [
   {
     ...siteImages.diningRoom,
-    title: "The dining room",
-    caption: "A low-lit room tuned for second bottles and unhurried conversation.",
+    title: "The room after dusk",
+    caption: "Amber light, dressed tables, and the kind of depth that rewards a second bottle.",
     layout: "wide",
   },
   {
     ...siteImages.cocktailService,
-    title: "Bar service",
-    caption: "A cocktail list driven by citrus, herbs, bitter aperitivi, and polished technique.",
+    title: "Bar choreography",
+    caption: "A polished bar program driven by citrus, bitter aperitivi, and confident hands.",
     layout: "tall",
   },
   {
-    ...siteImages.patioOcean,
-    title: "Ocean terrace",
-    caption: "Open-air seating with coastal light in the late afternoon and dusk service.",
+    ...siteImages.heroOccasion,
+    title: "Dinner service",
+    caption: "The room fills with candlelight, plates, and a social charge that never becomes loud.",
     layout: "tall",
   },
   {
     ...siteImages.terraceNight,
     title: "After dark",
-    caption: "String-lit tables hold the energy once the room gives way to night.",
+    caption: "The terrace holds a different energy once the room gives way to the night.",
     layout: "wide",
   },
 ];
@@ -273,13 +306,13 @@ export const galleryImages: GalleryImage[] = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Astera lands exactly where a modern restaurant should: polished enough for an occasion, relaxed enough for a second reservation that same week.",
+      "Astera feels cinematic without becoming theatrical. Every detail supports the appetite, the room, and the pace of the night.",
     author: "Marina Howell",
     role: "Editor, West Coast Table",
   },
   {
     quote:
-      "The room feels cinematic, the service feels precise, and the menu knows when to be generous and when to stay restrained.",
+      "The best hospitality sites sell a feeling before they sell a reservation. Astera manages to do both.",
     author: "Darren Liu",
     role: "Dining Writer, Harbor Journal",
   },
@@ -320,8 +353,13 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "mezze",
     title: "Opening Plates",
+    courseLabel: "Course One",
     description:
-      "A first round built for the table: citrus, spice, chilled seafood, and warm bread.",
+      "The first pass is bright, chilled, and shareable, built around salt, citrus, spice, and warm bread.",
+    ritual:
+      "Best ordered as a layered first round: two bright starters, one shellfish dish, and something to tear into with the table.",
+    pairing: "Pair with an Assyrtiko pour or the Harbor Martini.",
+    image: siteImages.menuPlated,
     items: [
       {
         name: "Whipped Feta",
@@ -353,8 +391,13 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "sea",
     title: "From The Harbor",
+    courseLabel: "Course Two",
     description:
-      "Seafood is treated with as little interference as possible and finished with heat or brightness.",
+      "Seafood is treated with very little interference and finished with smoke, acid, or olive oil rather than heavy garnish.",
+    ritual:
+      "This is where the room slows down. A pasta and a fish course together make the strongest center of the meal.",
+    pairing: "Built for saline whites, cold rose, or a second martini.",
+    image: siteImages.featuredPasta,
     items: [
       {
         name: "Linguine Vongole",
@@ -386,8 +429,13 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "fire",
     title: "From The Hearth",
+    courseLabel: "Course Three",
     description:
-      "Live-fire mains designed for dinner tables that want depth, smoke, and generous sides.",
+      "The live-fire mains are warmer, deeper, and built for tables that want smoke, jus, and a little generosity.",
+    ritual:
+      "Order a hearth main once the table is settled. It is the most indulgent chapter of the dinner and the one that lingers.",
+    pairing: "Best with cellar reds or a fig leaf old fashioned.",
+    image: siteImages.featuredCalamari,
     items: [
       {
         name: "Pistachio Lamb Chops",
@@ -419,8 +467,13 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "dessert",
     title: "Desserts",
+    courseLabel: "Finale",
     description:
-      "Plated sweets with citrus, nuts, olive oil, and enough bitterness to close dinner cleanly.",
+      "Desserts stay precise and clean, leaning into citrus, olive oil, nuts, and enough bitterness to close dinner well.",
+    ritual:
+      "The last course is meant to reset the palate, extend the conversation, and invite one more drink without weight.",
+    pairing: "Order with espresso, amaro, or a final glass of Bandol rose.",
+    image: siteImages.menuPlated,
     items: [
       {
         name: "Orange Blossom Basque Cheesecake",
@@ -447,8 +500,13 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "bar",
     title: "Cocktails & Cellar",
+    courseLabel: "Last Call",
     description:
-      "Mediterranean aperitivi, savory martinis, coastal whites, and a short list of cellar reds.",
+      "Mediterranean aperitivi, savory martinis, coastal whites, and a short list of cellar reds anchor the drinks program.",
+    ritual:
+      "The bar is part of the meal from the first round onward. Drinks are designed to shift from bright to structured as the room deepens.",
+    pairing: "Start with the saffron spritz, finish with the fig leaf old fashioned.",
+    image: siteImages.cocktailService,
     items: [
       {
         name: "Saffron Spritz",

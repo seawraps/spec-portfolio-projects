@@ -6,7 +6,7 @@ type ServiceCardProps = {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <article className="soft-card h-full rounded-[30px] p-7 sm:p-8">
+    <article className="soft-card reveal-up delay-2 h-full rounded-[30px] p-7 sm:p-8">
       <p className="text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze)]">
         {service.emphasis}
       </p>

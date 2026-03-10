@@ -21,7 +21,7 @@ export function ServicesGridSection({
           title={title}
           description={description}
         />
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 reveal-up delay-1">
           {serviceOfferings.map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}

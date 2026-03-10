@@ -7,9 +7,10 @@ import { PageIntro } from "@/components/sections/page-intro";
 import { PartnershipCtaSection } from "@/components/sections/partnership-cta-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { serviceFaq, serviceFormats } from "@/lib/data";
+import { bookingSignals, serviceFaq, serviceFormats } from "@/lib/data";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildMetadata(
@@ -25,6 +26,26 @@ export default function ServicesPage() {
         eyebrow="Offerings"
         title="Strategy, speaking, and packaging work for experts building public trust with intention."
         description="Whether you need an editorial repositioning sprint or a keynote that gives a room language it keeps repeating afterward, each engagement is designed to create clarity that lasts."
+        aside={
+          <div className="ink-panel p-6 sm:p-8">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/62">
+              Booking Note
+            </p>
+            <div className="mt-5 space-y-3 text-sm leading-7 text-white/78">
+              {bookingSignals.map((signal) => (
+                <p key={signal}>{signal}</p>
+              ))}
+            </div>
+            <ButtonLink
+              href="/contact?type=advisory"
+              variant="secondary"
+              className="mt-6 border-white/16 bg-white/12 text-white hover:bg-white/18 hover:text-white"
+              arrow
+            >
+              Start a scoped inquiry
+            </ButtonLink>
+          </div>
+        }
       />
 
       <OfferingsSection compact={false} />

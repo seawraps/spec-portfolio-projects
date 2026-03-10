@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -29,7 +31,11 @@ export function OfferingsSection({ compact = true }: OfferingsSectionProps) {
 
         <div className="space-y-5">
           {visibleOfferings.map((offering, index) => (
-            <article key={offering.title} className="paper-panel overflow-hidden p-6 sm:p-8">
+            <article
+              key={offering.title}
+              className="paper-panel sequence-card overflow-hidden p-6 sm:p-8"
+              style={{ "--sequence-index": index + 1 } as CSSProperties}
+            >
               <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr]">
                 <div className="space-y-5">
                   <div className="flex items-center justify-between gap-3 lg:block">
@@ -46,12 +52,20 @@ export function OfferingsSection({ compact = true }: OfferingsSectionProps) {
                   <div>
                     <p className="text-sm font-medium text-mocha/84">{offering.format}</p>
                     <p className="mt-4 text-sm leading-7 text-mocha/88">{offering.result}</p>
+                    <p className="mt-4 rounded-[1.3rem] border border-ink/8 bg-white/70 px-4 py-4 text-sm leading-7 text-mocha/86">
+                      {offering.spotlight}
+                    </p>
                   </div>
                 </div>
 
                 <div>
                   <h3 className="text-4xl text-ink sm:text-[3rem]">{offering.title}</h3>
                   <p className="mt-4 max-w-2xl text-base leading-8 text-mocha/92">{offering.summary}</p>
+                  <p className="mt-4 text-sm leading-7 text-mocha/84">
+                    Best fit:
+                    {" "}
+                    {offering.bestFit}
+                  </p>
 
                   <ul className="mt-6 grid gap-3 text-sm leading-7 text-mocha/88 sm:grid-cols-2">
                     {offering.deliverables.map((item) => (
@@ -61,6 +75,15 @@ export function OfferingsSection({ compact = true }: OfferingsSectionProps) {
                       </li>
                     ))}
                   </ul>
+
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <ButtonLink href={`/contact?type=${offering.inquiryType}`} arrow>
+                      Ask about this offer
+                    </ButtonLink>
+                    <ButtonLink href="/contact" variant="ghost" arrow>
+                      Request a custom scope
+                    </ButtonLink>
+                  </div>
                 </div>
               </div>
             </article>

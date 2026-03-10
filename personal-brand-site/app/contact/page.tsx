@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { ContactForm } from "@/components/forms/contact-form";
 import { PageIntro } from "@/components/sections/page-intro";
+import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { contactReasons, siteConfig } from "@/lib/data";
@@ -21,6 +22,21 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Tell me what you are building, booking, or trying to sharpen in public."
         description="Share a few practical details and I will point you toward the best-fit format, timing, and next step. The form below is frontend-only for demo portability, so the success state is simulated in-browser."
+        aside={
+          <div className="paper-panel p-6 sm:p-8">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
+              Best inquiry ingredients
+            </p>
+            <div className="mt-5 space-y-3 text-sm leading-7 text-mocha/88">
+              <p>Audience, room, or market context</p>
+              <p>Timing, launch date, or event window</p>
+              <p>What should feel different after the work lands</p>
+            </div>
+            <ButtonLink href={`mailto:${siteConfig.email}`} variant="ghost" className="mt-5" arrow>
+              Email instead
+            </ButtonLink>
+          </div>
+        }
       />
 
       <section className="section-shell pt-0">
@@ -42,6 +58,7 @@ export default function ContactPage() {
                 src="/images/nadia-desk-portrait.jpg"
                 alt="Nadia Vale seated at a desk in a bright workspace."
                 fill
+                priority
                 sizes="(min-width: 1024px) 38vw, 100vw"
                 className="object-cover"
               />

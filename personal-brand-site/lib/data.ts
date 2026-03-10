@@ -14,6 +14,9 @@ export type Offering = {
   format: string;
   investment: string;
   result: string;
+  bestFit: string;
+  spotlight: string;
+  inquiryType: "speaking" | "advisory" | "partnership";
   deliverables: string[];
 };
 
@@ -22,6 +25,7 @@ export type Testimonial = {
   name: string;
   role: string;
   company: string;
+  outcome: string;
 };
 
 export type MediaHighlight = {
@@ -36,6 +40,14 @@ export type MediaHighlight = {
 export type FAQItem = {
   question: string;
   answer: string;
+};
+
+export type ExpertiseLane = {
+  label: string;
+  title: string;
+  description: string;
+  signatureMove: string;
+  result: string;
 };
 
 export const siteConfig = {
@@ -106,6 +118,9 @@ export const offerings: Offering[] = [
     format: "2-week strategy sprint",
     investment: "From $6,000",
     result: "Best when the work is credible, but the market still remembers you as a collection of topics instead of a clear body of thought.",
+    bestFit: "Founders, authors, and operators whose reputation is becoming a growth lever.",
+    spotlight: "Frequently booked before launches, fundraising narratives, book campaigns, or major brand refreshes.",
+    inquiryType: "advisory",
     deliverables: [
       "Positioning memo and audience thesis",
       "Signature framework, phrases, and story architecture",
@@ -120,6 +135,9 @@ export const offerings: Offering[] = [
     format: "Monthly advisory retainer",
     investment: "From $7,500 / month",
     result: "Ideal when visibility is becoming part of the business model and the voice needs to stay consistent across launches, hiring, and market education.",
+    bestFit: "Leadership teams that need steady editorial judgment, not just occasional copy clean-up.",
+    spotlight: "Best for public-facing executives managing interviews, hiring signal, market education, and revenue pressure at once.",
+    inquiryType: "advisory",
     deliverables: [
       "Monthly editorial direction and visibility priorities",
       "Interview prep, keynote notes, and story shaping",
@@ -134,6 +152,9 @@ export const offerings: Offering[] = [
     format: "Custom speaking engagement",
     investment: "From $8,500",
     result: "For clients who want more than motivational polish and need a keynote that translates into hallway conversation, social clips, and follow-up demand.",
+    bestFit: "Conference teams, offsites, private communities, and founders building signature talks.",
+    spotlight: "Often paired with fireside moderation, workshop design, and post-event message packaging.",
+    inquiryType: "speaking",
     deliverables: [
       "Narrative arc, opening, and closing sequence",
       "Story shaping, transitions, and anchor lines",
@@ -148,6 +169,9 @@ export const offerings: Offering[] = [
     format: "Campaign and partner sprint",
     investment: "From $4,200",
     result: "Used when the audience is there, the trust is there, and the gap is the story buyers, sponsors, and collaborators need in order to say yes.",
+    bestFit: "Creators, newsletter operators, hosts, and media-adjacent brands preparing for better partnership conversations.",
+    spotlight: "Useful when you need sponsor decks, partner narratives, or campaign hooks that still sound like your own brand.",
+    inquiryType: "partnership",
     deliverables: [
       "Partnership positioning and sponsor narrative",
       "Media kit copy and host-read messaging angles",
@@ -164,6 +188,7 @@ export const testimonials: Testimonial[] = [
     name: "Maya Chen",
     role: "Chief Marketing Officer",
     company: "Northstar Ledger",
+    outcome: "Warmer sales calls and repeatable language",
   },
   {
     quote:
@@ -171,6 +196,7 @@ export const testimonials: Testimonial[] = [
     name: "Elise Romero",
     role: "Head of Community",
     company: "Beacon House",
+    outcome: "Quoted keynote moments after the room",
   },
   {
     quote:
@@ -178,6 +204,7 @@ export const testimonials: Testimonial[] = [
     name: "Jordan Patel",
     role: "Co-founder",
     company: "Atlas Loop",
+    outcome: "Visibility strategy reset with executive buy-in",
   },
 ];
 
@@ -215,6 +242,39 @@ export const newsletterStats = [
   "31K weekly readers",
   "52% average open rate",
   "Tuesdays at 7:30 a.m.",
+];
+
+export const bookingSignals = [
+  "Selective keynote and workshop calendar each quarter",
+  "Advisory retained at a small roster for senior attention",
+  "Speaking topics, availability notes, and media angles shared on request",
+];
+
+export const expertiseLanes: ExpertiseLane[] = [
+  {
+    label: "Speaking",
+    title: "Rooms that need a sentence worth repeating on the way home",
+    description:
+      "Talks, workshops, and moderated conversations designed to feel intelligent, warm, and quotable instead of polished-but-forgettable.",
+    signatureMove: "Narrative shaping, anchor lines, transitions, and audience-aware rehearsal.",
+    result: "The room remembers the idea, not just the energy level.",
+  },
+  {
+    label: "Advisory",
+    title: "A public thesis the market can carry without diluting it",
+    description:
+      "Positioning work for founders and experts whose name now influences trust, demand, hiring, and category perception.",
+    signatureMove: "Homepage voice, media bios, signature frameworks, editorial direction, and executive message review.",
+    result: "The brand sounds authored across interviews, launches, and leadership moments.",
+  },
+  {
+    label: "Partnerships",
+    title: "Commercial packaging that still sounds like a person",
+    description:
+      "Narrative packaging for creators, hosts, and expert-led brands translating audience trust into sponsor-ready materials and sharper offers.",
+    signatureMove: "Partner decks, media kits, campaign hooks, host-read messaging, and sponsor story architecture.",
+    result: "Buyers understand the value quickly without flattening the brand into generic creator language.",
+  },
 ];
 
 export const aboutValues = [
