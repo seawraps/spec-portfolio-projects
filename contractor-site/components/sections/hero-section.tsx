@@ -7,7 +7,7 @@ import { company, featuredStats } from "@/lib/data";
 
 export function HeroSection() {
   return (
-    <section id="home-hero" className="relative overflow-hidden pb-18 pt-4 sm:pt-6 md:pb-22 lg:pb-26">
+    <section id="home-hero" className="relative overflow-hidden pb-18 pt-3 sm:pt-5 md:pb-22 lg:pb-25">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[linear-gradient(180deg,rgba(255,250,243,0.66),rgba(244,237,227,0))]"
@@ -22,15 +22,15 @@ export function HeroSection() {
       />
 
       <Container className="relative">
-        <div className="grid gap-10 xl:grid-cols-[0.8fr_1.2fr] xl:items-start">
-          <Reveal className="relative z-10 xl:max-w-[38rem] xl:pt-10">
+        <div className="grid gap-8 xl:grid-cols-[0.92fr_1.08fr] xl:items-start xl:gap-10">
+          <Reveal className="relative z-10 max-w-[36rem] xl:pt-8">
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
               Nashville Design-Build Contractor
             </p>
-            <h1 className="mt-5 max-w-3xl font-display text-[2.7rem] leading-[0.97] text-[var(--color-brand)] sm:text-[4.45rem] lg:text-[5.35rem]">
+            <h1 className="mt-5 max-w-[11ch] font-display text-[2.75rem] leading-[0.95] text-[var(--color-brand)] sm:text-[4rem] lg:text-[4.85rem] xl:text-[5.1rem]">
               Renovations that feel calm, collected, and worth coming home to.
             </h1>
-            <p className="mt-6 max-w-2xl text-[0.98rem] leading-8 text-[var(--color-muted)] sm:text-[1.08rem]">
+            <p className="mt-6 max-w-[33rem] text-[1rem] leading-8 text-[var(--color-muted)] sm:text-[1.07rem]">
               {company.name} plans and builds premium kitchens, bathrooms, and interior
               renovations for homeowners who want a warmer material palette, clearer communication,
               and a finish level that reads custom without feeling showy.
@@ -59,7 +59,7 @@ export function HeroSection() {
               ].map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.76)] px-4 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]"
+                  className="rounded-full border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.74)] px-4 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]"
                 >
                   {item}
                 </span>
@@ -68,70 +68,68 @@ export function HeroSection() {
           </Reveal>
 
           <Reveal delay={100} className="relative">
-            <div className="grid gap-4 lg:grid-cols-[1.08fr_0.62fr] lg:items-start">
-              <div className="relative">
-                <div className="image-frame relative min-h-[420px] rounded-[2.5rem] sm:min-h-[560px] xl:min-h-[690px]">
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start xl:gap-6">
+              <div className="space-y-4 sm:space-y-5">
+                <div className="image-frame relative min-h-[420px] rounded-[2.45rem] sm:min-h-[540px] xl:min-h-[620px]">
                   <Image
                     src="/images/hero-kitchen.jpg"
                     alt="A premium renovated kitchen with wood cabinetry, a large island, and soft natural light."
                     fill
                     priority
-                    className="object-cover"
+                    className="object-cover object-[58%_center]"
                     sizes="(max-width: 1280px) 100vw, 46vw"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.02),rgba(22,36,52,0.48))]" />
-                  <div className="absolute left-5 top-5 rounded-full border border-[color:rgba(255,255,255,0.26)] bg-[color:rgba(22,36,52,0.72)] px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)] shadow-[0_20px_42px_-24px_rgba(0,0,0,0.45)] sm:left-7 sm:top-7">
-                    Est. {company.foundedYear} | Design-build
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.02),rgba(22,36,52,0.24)_54%,rgba(22,36,52,0.62)_100%)]" />
+                  <div className="absolute left-5 top-5 rounded-full border border-[color:rgba(255,255,255,0.18)] bg-[color:rgba(22,36,52,0.58)] px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)] shadow-[0_20px_42px_-24px_rgba(0,0,0,0.38)] sm:left-7 sm:top-7">
+                    Featured project
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-6 text-[var(--color-surface)] sm:p-8">
                     <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
-                      Featured project
+                      Belle Meade kitchen renewal
                     </p>
-                    <p className="mt-3 max-w-sm font-display text-[2rem] leading-[1.04] sm:text-[2.7rem]">
-                      Belle Meade kitchen renewal with quieter detailing and better flow.
+                    <p className="mt-3 max-w-[18rem] font-display text-[1.8rem] leading-[1.06] sm:text-[2.2rem]">
+                      Quieter detailing and better flow for the whole house.
                     </p>
-                    <p className="mt-4 max-w-md text-sm leading-7 text-[color:rgba(255,250,243,0.82)] sm:text-base">
+                    <p className="mt-4 max-w-md text-sm leading-7 text-[color:rgba(255,250,243,0.84)] sm:text-base">
                       Opened sight lines, warmer cabinetry, and a plan that finally let the island
                       become the center of daily life.
                     </p>
                   </div>
                 </div>
 
-                <div className="absolute bottom-5 left-5 right-5 rounded-[1.55rem] border border-[color:rgba(36,54,75,0.1)] bg-[color:rgba(255,250,243,0.95)] p-4 shadow-[0_28px_68px_-38px_rgba(18,29,40,0.48)] sm:bottom-7 sm:left-7 sm:max-w-[18rem] sm:p-5">
+                <div className="surface-card rounded-[1.85rem] p-5 sm:p-6">
                   <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
                     Homeowner experience
                   </p>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
-                    Protected job sites, documented milestones, and decisions surfaced early
-                    instead of becoming surprises later.
+                    Protected job sites, documented milestones, and one lead contact who surfaces
+                    decisions early instead of letting them turn into surprises later.
                   </p>
+                  <div className="editorial-rule mt-5" />
+                  <ul className="mt-5 space-y-2 text-sm leading-7 text-[var(--color-muted)]">
+                    <li>Occupied-home protection from demo through handoff</li>
+                    <li>Weekly progress updates with clean decision tracking</li>
+                    <li>Material guidance designed to age well with the house</li>
+                  </ul>
                   <a
                     href={`tel:${company.phoneRaw}`}
-                    className={buttonClassName("primary", "mt-4 w-full")}
+                    className={buttonClassName("primary", "mt-5 w-full sm:w-auto")}
                   >
                     Call {company.phoneDisplay}
                   </a>
                 </div>
               </div>
 
-              <div className="grid gap-4 lg:pt-12">
-                <div className="image-frame relative min-h-[220px] rounded-[2rem] sm:min-h-[260px]">
+              <div className="grid gap-5 lg:pt-12">
+                <div className="image-frame relative min-h-[240px] rounded-[2rem] sm:min-h-[300px]">
                   <Image
                     src="/images/cabinet-detail.jpg"
                     alt="A custom cabinet detail with rich wood grain and premium hardware."
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 24vw"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.04),rgba(22,36,52,0.42))]" />
-                  <div className="absolute inset-x-0 bottom-0 p-5 text-[var(--color-surface)]">
-                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
-                      Millwork detail
-                    </p>
-                    <p className="mt-2 max-w-[12rem] text-sm leading-6 text-[color:rgba(255,250,243,0.82)]">
-                      Cabinetry and trim that reads closer to furniture than stock construction.
-                    </p>
-                  </div>
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.02),rgba(22,36,52,0.2)_72%,rgba(22,36,52,0.34)_100%)]" />
                 </div>
 
                 <div className="surface-card rounded-[2rem] p-5 sm:p-6">
@@ -149,7 +147,7 @@ export function HeroSection() {
           </Reveal>
 
           <Reveal delay={180} className="xl:col-span-2">
-            <div className="grid gap-4 lg:grid-cols-[1.2fr_0.95fr_0.95fr]">
+            <div className="grid gap-4 lg:grid-cols-[1.15fr_0.95fr_0.95fr]">
               <div className="surface-card-strong rounded-[2.1rem] p-5 sm:p-6">
                 <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
                   What clients notice first

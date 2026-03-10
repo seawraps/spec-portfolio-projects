@@ -3,7 +3,7 @@ import { socialProofLogos } from "@/lib/data";
 
 export function SocialProofSection() {
   return (
-    <section className="section-shell pt-6 md:pt-8 lg:pt-10">
+    <section id="proof" className="anchor-section section-shell pt-4 md:pt-6 lg:pt-7">
       <Container>
         <div className="section-rule pt-8">
           <div className="paper-panel flex flex-col gap-6 px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">

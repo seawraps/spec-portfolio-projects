@@ -16,20 +16,13 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <div className="page-shell">
-      <section className="section-dark pb-18 md:pb-22 lg:pb-26">
-        <div className="pointer-events-none absolute inset-0 sm:hidden">
-          <Image
-            src={siteImages.menuPlated.src}
-            alt=""
-            fill
-            className="object-cover object-[center_72%] opacity-[0.28]"
-            priority
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,6,4,0.84)_0%,rgba(9,6,4,0.5)_42%,rgba(9,6,4,0.94)_100%)]" />
+      <section className="section-dark overflow-hidden pb-18 md:pb-22 lg:pb-26">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(200,139,71,0.16),transparent_28%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,6,4,0.16)_0%,rgba(9,6,4,0.02)_24%,rgba(9,6,4,0.3)_100%)]" />
         </div>
-
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-10 xl:grid-cols-[0.84fr_1.16fr] xl:items-end">
+          <div className="grid gap-12 xl:grid-cols-[0.82fr_1.18fr] xl:items-end">
             <Reveal className="max-w-3xl pt-6">
               <SectionHeading
                 eyebrow="Dinner Menu"
@@ -49,21 +42,8 @@ export default function MenuPage() {
               </div>
             </Reveal>
 
-            <div className="grid gap-4 sm:grid-cols-[0.38fr_0.62fr] sm:items-end xl:min-h-[39rem] xl:grid-cols-[0.4fr_0.6fr]">
-              <Reveal
-                delay={140}
-                className="order-3 rounded-[1.7rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(12,8,6,0.76)] p-5 text-[#f6ecdf] shadow-[0_24px_70px_-34px_rgba(0,0,0,0.82)] backdrop-blur-xl sm:order-1 sm:self-start xl:mr-3"
-              >
-                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
-                  Format
-                </p>
-                <p className="mt-3 text-base leading-relaxed">
-                  Best experienced over several shared starters, one pasta, one fire-led main, and
-                  a bar round involved early.
-                </p>
-              </Reveal>
-
-              <Reveal className="order-1 sm:order-2 sm:row-span-2">
+            <div className="grid gap-4 md:grid-cols-[0.38fr_0.62fr] md:items-end xl:min-h-[39rem] xl:grid-cols-[0.4fr_0.6fr]">
+              <Reveal className="order-1 md:order-2 md:row-span-2">
                 <InteractivePanel className="rounded-[2.2rem]">
                   <figure className="image-shell rounded-[2.2rem]">
                     <Image
@@ -71,7 +51,7 @@ export default function MenuPage() {
                       alt={siteImages.menuPlated.alt}
                       width={1800}
                       height={2700}
-                      className="h-[18rem] w-full object-cover object-[center_56%] sm:h-[26rem] xl:h-[39rem]"
+                      className="h-[20rem] w-full object-cover object-[center_56%] sm:h-[28rem] xl:h-[39rem]"
                       priority
                     />
                   </figure>
@@ -80,7 +60,7 @@ export default function MenuPage() {
 
               <Reveal
                 delay={240}
-                className="order-2 max-w-[14rem] hero-drift-delayed sm:order-3 sm:justify-self-start xl:ml-8 xl:self-end"
+                className="order-2 hero-drift-delayed md:order-1 md:self-end"
               >
                 <InteractivePanel className="rounded-[1.9rem]">
                   <figure className="image-shell rounded-[1.9rem]">
@@ -89,15 +69,28 @@ export default function MenuPage() {
                       alt={siteImages.cocktailService.alt}
                       width={1800}
                       height={1260}
-                      className="h-[13rem] w-full object-cover sm:h-[16rem] xl:h-[18rem]"
+                      className="h-[13rem] w-full object-cover object-[center_44%] sm:h-[16rem] xl:h-[17.8rem]"
                     />
                   </figure>
                 </InteractivePanel>
               </Reveal>
+
+              <Reveal
+                delay={140}
+                className="order-3 rounded-[1.7rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(12,8,6,0.72)] p-5 text-[#f6ecdf] shadow-[0_24px_70px_-34px_rgba(0,0,0,0.82)] backdrop-blur-xl md:self-start md:p-6"
+              >
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
+                  Format
+                </p>
+                <p className="mt-3 text-base leading-relaxed text-[#e5d8c8]">
+                  Best experienced over several shared starters, one pasta, one fire-led main, and
+                  a bar round involved early.
+                </p>
+              </Reveal>
             </div>
           </div>
 
-          <div className="mt-12 grid gap-4 lg:grid-cols-3">
+          <div className="mt-14 grid gap-4 lg:grid-cols-3">
             {menuHighlights.map((highlight, index) => (
               <Reveal key={highlight.title} delay={120 + index * 70}>
                 <article className="rounded-[1.8rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(255,255,255,0.04)] p-6">

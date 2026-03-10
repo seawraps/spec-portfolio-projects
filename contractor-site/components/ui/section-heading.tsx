@@ -32,13 +32,13 @@ export function SectionHeading({
           <p>{eyebrow}</p>
         </div>
       ) : null}
-      <HeadingTag className="mt-4 max-w-4xl font-display text-[2.55rem] leading-[1.01] text-[var(--color-brand)] sm:text-[3.4rem]">
+      <HeadingTag className="mt-4 max-w-4xl font-display text-[2.1rem] leading-[1.05] text-[var(--color-brand)] sm:text-[3.05rem]">
         {title}
       </HeadingTag>
       {description ? (
         <p
           className={cn(
-            "mt-5 max-w-3xl text-base leading-8 text-[var(--color-muted)] sm:text-[1.05rem]",
+            "mt-5 max-w-3xl text-[0.98rem] leading-8 text-[var(--color-muted)] sm:text-[1.04rem]",
             centered ? "mx-auto" : "",
           )}
         >

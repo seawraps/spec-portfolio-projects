@@ -2,14 +2,21 @@ import Image from "next/image";
 
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import type { Listing } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 type ListingCardProps = {
   listing: Listing;
   featured?: boolean;
+  layout?: "default" | "compact";
 };
 
-export function ListingCard({ listing, featured = false }: ListingCardProps) {
+export function ListingCard({
+  listing,
+  featured = false,
+  layout = "default",
+}: ListingCardProps) {
   const stats = [listing.beds, listing.baths, listing.area];
+  const isCompact = layout === "compact";
 
   if (featured) {
     return (
@@ -102,48 +109,80 @@ export function ListingCard({ listing, featured = false }: ListingCardProps) {
 
   return (
     <article className="group reveal-up delay-2 flex h-full flex-col overflow-hidden rounded-[30px] border border-[var(--color-line)] bg-[var(--color-surface-strong)] shadow-[0_28px_64px_-42px_rgba(17,23,29,0.28)]">
-      <div className="image-frame image-reveal relative min-h-[300px] rounded-none border-0">
+      <div
+        className={cn(
+          "image-frame image-reveal relative rounded-none border-0",
+          isCompact ? "min-h-[220px]" : "min-h-[260px] sm:min-h-[300px]",
+        )}
+      >
         <Image
           src={listing.imageSrc}
           alt={listing.imageAlt}
           fill
           sizes="(min-width: 1280px) 30vw, (min-width: 768px) 48vw, 100vw"
-          className="object-cover"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/74 via-[#10171d]/8 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/78 via-[#10171d]/14 to-transparent" />
         <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-navy)]">
           {listing.label}
         </div>
         <div className="absolute inset-x-4 bottom-4 rounded-[22px] border border-white/12 bg-black/28 p-4 text-white backdrop-blur-md">
-          <p className="font-display text-4xl leading-none">{listing.price}</p>
+          <p
+            className={cn(
+              "font-display leading-none",
+              isCompact ? "text-[2.2rem]" : "text-4xl",
+            )}
+          >
+            {listing.price}
+          </p>
           <p className="mt-2 text-sm uppercase tracking-[0.2em] text-white/72">
             {listing.neighborhood}
           </p>
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-6 sm:p-7">
+      <div className={cn("flex flex-1 flex-col", isCompact ? "p-5 sm:p-6" : "p-6 sm:p-7")}>
         <div>
           <p className="text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze)]">
             Listing note
           </p>
-          <h3 className="mt-3 font-display text-4xl leading-[0.94] text-[var(--color-ink)]">
+          <h3
+            className={cn(
+              "mt-3 font-display leading-[0.94] text-[var(--color-ink)]",
+              isCompact ? "text-[2.4rem]" : "text-4xl",
+            )}
+          >
             {listing.name}
           </h3>
-          <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+          <p
+            className={cn(
+              "mt-3 text-sm text-[var(--color-muted)]",
+              isCompact ? "leading-6" : "leading-7",
+            )}
+          >
             {listing.description}
           </p>
-          <div className="mt-5 rounded-[22px] border border-[var(--color-line)] bg-[var(--color-cream)] p-5">
+          <div
+            className={cn(
+              "mt-5 rounded-[22px] border border-[var(--color-line)] bg-[var(--color-cream)]",
+              isCompact ? "p-4" : "p-5",
+            )}
+          >
             <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-bronze)]">
               Why it lingers
             </p>
-            <p className="mt-3 text-sm leading-7 text-[var(--color-muted-strong)]">
+            <p
+              className={cn(
+                "mt-3 text-sm text-[var(--color-muted-strong)]",
+                isCompact ? "leading-6" : "leading-7",
+              )}
+            >
               {listing.feature}
             </p>
           </div>
         </div>
 
-        <div className="mt-6 border-t border-[var(--color-line)] pt-5">
+        <div className="mt-auto border-t border-[var(--color-line)] pt-5">
           <div className="flex flex-wrap gap-2">
             {stats.map((item) => (
               <span
@@ -154,14 +193,29 @@ export function ListingCard({ listing, featured = false }: ListingCardProps) {
               </span>
             ))}
           </div>
-          <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
-            <p className="max-w-[17rem] text-sm leading-6 text-[var(--color-muted-strong)]">
+          <div
+            className={cn(
+              "mt-5 flex gap-4",
+              isCompact
+                ? "flex-col"
+                : "flex-wrap items-center justify-between",
+            )}
+          >
+            <p
+              className={cn(
+                "text-sm leading-6 text-[var(--color-muted-strong)]",
+                isCompact ? "max-w-none" : "max-w-[17rem]",
+              )}
+            >
               {listing.address}
             </p>
             <ButtonLink
               href="/contact"
               variant="secondary"
-              className="h-10 px-4 text-[0.62rem] tracking-[0.24em]"
+              className={cn(
+                "h-10 px-4 text-[0.62rem] tracking-[0.24em]",
+                isCompact && "w-full justify-center sm:w-auto",
+              )}
             >
               Request Details
             </ButtonLink>

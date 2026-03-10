@@ -29,8 +29,8 @@ export function GallerySection({
       : "border border-[rgba(255,233,204,0.12)] bg-[rgba(255,255,255,0.03)]";
   const captionCardClass =
     theme === "light"
-      ? "border border-[rgba(255,233,204,0.2)] bg-[rgba(21,13,10,0.66)]"
-      : "border border-[rgba(255,233,204,0.12)] bg-[rgba(12,8,6,0.62)]";
+      ? "border border-[rgba(255,233,204,0.18)] bg-[rgba(21,13,10,0.54)]"
+      : "border border-[rgba(255,233,204,0.12)] bg-[rgba(12,8,6,0.52)]";
   const captionColor = "text-[#f7efe7]";
   const copyColor = "text-[#e5d6c6]";
 
@@ -63,20 +63,20 @@ export function GallerySection({
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.06]"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,6,4,0.05)_0%,rgba(9,6,4,0.16)_48%,rgba(9,6,4,0.82)_100%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,6,4,0)_0%,rgba(9,6,4,0.12)_52%,rgba(9,6,4,0.74)_100%)]" />
 
                   <figcaption
-                    className={`absolute bottom-4 left-4 right-4 rounded-[1.55rem] p-5 backdrop-blur-xl sm:bottom-5 sm:left-5 sm:right-auto sm:max-w-[18rem] ${captionCardClass}`}
+                    className={`absolute bottom-4 left-4 right-4 rounded-[1.45rem] p-4 backdrop-blur-lg sm:bottom-5 sm:left-5 sm:right-auto sm:max-w-[16rem] ${captionCardClass}`}
                   >
                     <p className="text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
                       {image.title}
                     </p>
                     <p
-                      className={`mt-3 max-w-md text-base leading-relaxed transition-transform duration-500 group-hover:-translate-y-1 ${captionColor}`}
+                      className={`mt-3 max-w-md text-[0.96rem] leading-relaxed transition-transform duration-500 group-hover:-translate-y-1 ${captionColor}`}
                     >
                       {image.caption}
                     </p>
-                    <p className={`mt-4 text-xs uppercase tracking-[0.28em] ${copyColor}`}>
+                    <p className={`mt-3 text-xs uppercase tracking-[0.28em] ${copyColor}`}>
                       Astera atmosphere study
                     </p>
                   </figcaption>

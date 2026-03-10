@@ -6,7 +6,7 @@ export function TestimonialsSection() {
   const [lead, ...rest] = testimonials;
 
   return (
-    <section className="section-shell">
+    <section id="testimonials" className="anchor-section section-shell">
       <Container>
         <SectionHeading
           eyebrow="Client Notes"

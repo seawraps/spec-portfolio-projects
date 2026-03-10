@@ -14,10 +14,10 @@ function isActiveLink(currentPath: string, href: string) {
 function desktopLinkClasses(currentPath: string, href: string) {
   const active = isActiveLink(currentPath, href);
 
-  return `group relative inline-flex items-center gap-2 py-1 pl-4 pr-1 text-[0.68rem] font-semibold uppercase tracking-[0.28em] transition-all ${
+  return `group relative inline-flex items-center gap-2 rounded-full px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.3em] transition-all ${
     active
-      ? "text-[#fff2df]"
-      : "text-[#cdb8a0] hover:text-[#fff2df]"
+      ? "bg-[rgba(255,255,255,0.06)] text-[#fff2df]"
+      : "text-[#cdb8a0] hover:bg-[rgba(255,255,255,0.04)] hover:text-[#fff2df]"
   }`;
 }
 
@@ -57,14 +57,16 @@ export function SiteHeader() {
         }`}
       >
         <div className="hidden items-center justify-between border-b border-[rgba(255,233,204,0.1)] px-6 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-[#bda78f] md:flex">
-          <p>Santa Monica Harbor</p>
-          <p className="text-center text-[#ddc9b2]">Dinner service from 5 PM • Terrace on request</p>
+          <p>Host Stand</p>
+          <p className="text-center text-[#ddc9b2]">
+            Reservations, terrace requests, and private dining nightly
+          </p>
           <a href={`tel:${contactDetails.phone}`} className="transition-colors hover:text-[#fff2df]">
             {contactDetails.phone}
           </a>
         </div>
 
-        <div className="flex items-center gap-3 px-4 py-4 md:px-6">
+        <div className="flex items-center gap-3 px-4 py-4 md:px-6 md:py-5">
           <Link
             href="/"
             className="flex shrink-0 items-center gap-3"
@@ -84,18 +86,28 @@ export function SiteHeader() {
             </span>
           </Link>
 
-          <nav className="hidden flex-1 justify-center lg:flex" aria-label="Primary navigation">
-            <div className="flex items-center gap-4 rounded-[1.5rem] border border-[rgba(255,233,204,0.14)] bg-[rgba(255,255,255,0.03)] px-5 py-3 shadow-[inset_0_1px_0_rgba(255,245,234,0.08)]">
-              <span className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#8f7057]">
-                Tonight
-              </span>
-              <span className="h-5 w-px bg-[rgba(255,233,204,0.12)]" />
-              {navLinks.map((link, index) => {
-                const active = isActiveLink(pathname, link.href);
+          <div className="hidden flex-1 lg:grid lg:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] lg:items-center lg:gap-3 xl:grid-cols-[minmax(0,14rem)_minmax(0,1fr)]">
+            <div className="rounded-[1.45rem] border border-[rgba(255,233,204,0.14)] bg-[rgba(255,255,255,0.03)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,245,234,0.08)]">
+              <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#c99558]">
+                Tonight&apos;s Seating
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-[#dbc6af] xl:text-sm">
+                Dining room from 5 PM. Terrace requests welcomed.
+              </p>
+            </div>
 
-                return (
-                  <div key={link.href} className="flex items-center gap-4">
+            <nav className="flex justify-center" aria-label="Primary navigation">
+              <div className="flex items-center gap-2 rounded-[1.5rem] border border-[rgba(255,233,204,0.14)] bg-[rgba(255,255,255,0.03)] px-3 py-3 shadow-[inset_0_1px_0_rgba(255,245,234,0.08)] xl:gap-3 xl:px-4">
+                <span className="hidden text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#8f7057] xl:block">
+                  Host Desk
+                </span>
+                <span className="hidden h-5 w-px bg-[rgba(255,233,204,0.12)] xl:block" />
+                {navLinks.map((link) => {
+                  const active = isActiveLink(pathname, link.href);
+
+                  return (
                     <Link
+                      key={link.href}
                       href={link.href}
                       className={desktopLinkClasses(pathname, link.href)}
                       aria-current={active ? "page" : undefined}
@@ -108,20 +120,12 @@ export function SiteHeader() {
                         }`}
                       />
                       <span>{link.label}</span>
-                      <span
-                        className={`absolute -bottom-2 left-4 h-px w-[calc(100%-1rem)] origin-left bg-[linear-gradient(90deg,rgba(216,175,121,0.92),transparent)] transition-transform duration-300 ${
-                          active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                        }`}
-                      />
                     </Link>
-                    {index < navLinks.length - 1 ? (
-                      <span className="h-4 w-px bg-[rgba(255,233,204,0.1)]" />
-                    ) : null}
-                  </div>
-                );
-              })}
-            </div>
-          </nav>
+                  );
+                })}
+              </div>
+            </nav>
+          </div>
 
           <div className="ml-auto hidden items-center gap-3 sm:flex">
             <a

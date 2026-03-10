@@ -23,7 +23,7 @@ const tickerItems = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-white/10 pb-16 pt-12 md:pb-22 md:pt-16 lg:pb-24 lg:pt-20">
+    <section className="relative overflow-hidden border-b border-white/10 pb-16 pt-24 sm:pt-16 md:pb-22 md:pt-16 lg:pb-24 lg:pt-20">
       <div className="pointer-events-none absolute inset-0 -z-20 bg-hero-grid opacity-70" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-radial-glow editorial-stripes" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/28 to-transparent" aria-hidden="true" />

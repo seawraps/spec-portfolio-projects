@@ -24,7 +24,7 @@ export function SectionIntro({
         </p>
       ) : null}
       <h2
-        className={`text-balance font-display text-[clamp(3.2rem,7vw,5.75rem)] uppercase leading-[0.86] ${
+        className={`text-balance font-display text-[clamp(2.95rem,6vw,5.1rem)] uppercase leading-[0.88] ${
           isLight ? "text-ink" : "text-white"
         }`}
       >

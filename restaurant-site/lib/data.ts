@@ -80,10 +80,10 @@ export type MenuHighlight = {
 export const restaurantName = "Astera Coastal Bistro";
 
 export const navLinks: NavLink[] = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/menu", label: "Menu" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Arrival" },
+  { href: "/about", label: "Story" },
+  { href: "/menu", label: "Dinner" },
+  { href: "/contact", label: "Visit" },
 ];
 
 export const siteImages = {
@@ -256,7 +256,7 @@ export const menuHighlights: MenuHighlight[] = [
     description:
       "A market-driven progression built around seafood, live-fire mains, and citrus-led desserts.",
     detail: "$98 per guest, nightly from 6 PM",
-    image: siteImages.diningRoom,
+    image: siteImages.heroTableWine,
   },
   {
     eyebrow: "Bar Program",

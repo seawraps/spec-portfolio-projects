@@ -61,11 +61,15 @@ export function Header() {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   return (
     <header className="sticky top-0 z-50">
       <div className="border-b border-white/10 bg-coal/92 shadow-[0_22px_48px_-40px_rgba(0,0,0,0.92)] backdrop-blur-2xl">
         <div className="border-b border-white/8">
-          <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 text-[0.58rem] font-semibold uppercase tracking-[0.24em] text-white/50 sm:px-6">
+          <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 text-[0.56rem] font-semibold uppercase tracking-[0.24em] text-white/50 sm:px-6">
             <div className="inline-flex items-center gap-3">
               <span className="inline-flex items-center gap-2 text-white/70">
                 <span className="h-2 w-2 rounded-full bg-volt shadow-[0_0_18px_rgba(217,255,70,0.75)]" />
@@ -77,32 +81,36 @@ export function Header() {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6">
-          <div className="grid gap-4 lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center">
-            <Link href="/" className="inline-flex items-center gap-3 text-white" aria-label={`${agency.name} home`}>
+        <div className="mx-auto w-full max-w-7xl px-4 py-3 sm:px-6">
+          <div className="grid gap-4 xl:grid-cols-[auto_minmax(0,1fr)_auto] xl:items-center">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3 self-start text-white xl:self-center"
+              aria-label={`${agency.name} home`}
+            >
               <span className="relative flex flex-col gap-1.5" aria-hidden="true">
                 <span className="h-1.5 w-8 rounded-full bg-signal" />
                 <span className="h-1.5 w-5 rounded-full bg-volt" />
                 <span className="absolute -inset-2 rounded-full bg-signal/12 blur-xl" />
               </span>
               <span>
-                <span className="block font-display text-[2.05rem] uppercase tracking-[-0.02em] sm:text-[2.15rem]">{agency.name}</span>
-                <span className="mt-0.5 block text-[0.6rem] font-semibold uppercase tracking-[0.26em] text-white/52">
+                <span className="block font-display text-[1.95rem] uppercase tracking-[-0.02em] sm:text-[2.1rem]">{agency.name}</span>
+                <span className="mt-0.5 block text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-white/52">
                   Performance Creative
                 </span>
               </span>
             </Link>
 
-            <div className="hidden lg:grid lg:gap-2 lg:px-4">
+            <div className="hidden lg:grid lg:gap-2 xl:px-4">
               <div className="flex items-center justify-between px-1 text-[0.56rem] font-semibold uppercase tracking-[0.22em] text-white/42">
                 <span className="inline-flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-signal" />
-                  Strategy Paths
+                  Control routes
                 </span>
                 <span>Route 01-04</span>
               </div>
               <nav
-                className="grid grid-cols-4 gap-2 rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-2"
+                className="grid grid-cols-4 gap-1 rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(10,10,12,0.92))] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
                 aria-label="Primary navigation"
               >
                 {navItems.map((item, index) => {
@@ -113,35 +121,54 @@ export function Header() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`group rounded-[1.15rem] border px-4 py-3 ${
+                      className={`group grid min-h-[4.4rem] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-[1rem] border px-3 py-3 ${
                         active
-                          ? "border-signal/40 bg-white text-coal shadow-[0_16px_34px_-24px_rgba(255,255,255,0.85)]"
-                          : "border-white/8 bg-white/4 text-white/66 hover:border-white/24 hover:bg-white/8 hover:text-white"
+                          ? "border-signal/48 bg-paper text-ink shadow-[0_18px_36px_-26px_rgba(255,245,235,0.86)]"
+                          : "border-transparent bg-black/18 text-white/68 hover:border-white/10 hover:bg-white/[0.07] hover:text-white"
                       }`}
                       aria-current={active ? "page" : undefined}
                     >
                       <span
-                        className={`block text-[0.56rem] font-semibold uppercase tracking-[0.24em] ${
-                          active ? "text-coal/48" : "text-white/34"
+                        className={`inline-flex h-9 w-9 items-center justify-center rounded-[0.9rem] text-[0.56rem] font-semibold uppercase tracking-[0.2em] ${
+                          active
+                            ? "bg-ink text-paper"
+                            : "border border-white/10 bg-white/[0.05] text-white/38 group-hover:border-white/14 group-hover:text-white/54"
                         }`}
                       >
                         {`0${index + 1}`}
                       </span>
-                      <span className="mt-2 block text-[0.68rem] font-semibold uppercase tracking-[0.2em]">{item.label}</span>
+                      <span className="min-w-0">
+                        <span className={`block text-[0.68rem] font-semibold uppercase tracking-[0.2em] ${active ? "text-ink" : "text-white"}`}>
+                          {item.label}
+                        </span>
+                        <span
+                          className={`mt-1 block text-[0.52rem] font-semibold uppercase tracking-[0.18em] ${
+                            active ? "text-ink/56" : "text-white/34"
+                          }`}
+                        >
+                          {active ? "Current route" : "Open route"}
+                        </span>
+                      </span>
+                      <span
+                        className={`h-2.5 w-2.5 rounded-full ${
+                          active ? "bg-signal shadow-[0_0_18px_rgba(255,91,55,0.72)]" : "bg-white/14 group-hover:bg-volt/76"
+                        }`}
+                        aria-hidden="true"
+                      />
                     </Link>
                   );
                 })}
               </nav>
             </div>
 
-            <div className="flex items-center justify-end gap-3">
-              <Link href="/contact" className="button-primary hidden md:inline-flex">
+            <div className="flex flex-wrap items-center justify-end gap-3">
+              <Link href="/contact" className="button-primary inline-flex min-w-[8.8rem]">
                 Start Brief
               </Link>
 
               <button
                 type="button"
-                className="inline-flex h-12 items-center justify-center gap-3 rounded-[1.2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] px-4 text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-white hover:border-white/30 hover:bg-white/10"
+                className="inline-flex h-12 min-w-[8.6rem] items-center justify-center gap-3 rounded-[1.05rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] px-4 text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-white hover:border-white/30 hover:bg-white/10"
                 onClick={() => setIsMenuOpen((current) => !current)}
                 aria-expanded={isMenuOpen}
                 aria-controls="site-menu-overlay"
@@ -192,15 +219,17 @@ export function Header() {
               </button>
             </div>
 
-            <div className="grid flex-1 gap-6 py-8 xl:grid-cols-[1.06fr_0.94fr]">
+            <div className="grid flex-1 gap-5 py-7 xl:grid-cols-[1.08fr_0.92fr]">
               <nav aria-label="Expanded site navigation" className="grid gap-4 md:grid-cols-2">
                 {navPanels.map((item, index) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`surface-panel group flex flex-col gap-5 p-6 sm:p-7 ${
-                      isActive(pathname, item.href) ? "border-signal/42 bg-white/9" : ""
+                    className={`group relative flex min-h-[12rem] flex-col gap-4 rounded-[1.65rem] border p-5 transition sm:p-6 ${
+                      isActive(pathname, item.href)
+                        ? "border-signal/55 bg-paper text-ink shadow-[0_28px_54px_-38px_rgba(255,245,235,0.65)]"
+                        : "surface-panel text-white"
                     }`}
                     data-tilt
                     data-reveal="left"
@@ -208,16 +237,32 @@ export function Header() {
                     aria-current={isActive(pathname, item.href) ? "page" : undefined}
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <span className="font-display text-6xl uppercase leading-none text-white/18">{item.number}</span>
-                      <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-white/52">
+                      <span className={`font-display text-5xl uppercase leading-none ${isActive(pathname, item.href) ? "text-ink/22" : "text-white/16"}`}>
+                        {item.number}
+                      </span>
+                      <span
+                        className={`rounded-full border px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.18em] ${
+                          isActive(pathname, item.href)
+                            ? "border-ink/10 bg-ink text-paper"
+                            : "border-white/10 bg-white/6 text-white/52"
+                        }`}
+                      >
                         {isActive(pathname, item.href) ? "Current route" : "Open route"}
                       </span>
                     </div>
-                    <div>
-                      <h2 className="font-display text-5xl uppercase leading-[0.9] text-white transition group-hover:text-volt sm:text-6xl">
+                    <div className="space-y-3">
+                      <h2
+                        className={`font-display text-4xl uppercase leading-[0.92] transition sm:text-5xl ${
+                          isActive(pathname, item.href)
+                            ? "text-ink"
+                            : "text-white group-hover:text-volt"
+                        }`}
+                      >
                         {item.label}
                       </h2>
-                      <p className="mt-3 max-w-xl text-sm leading-7 text-white/68 sm:text-base">{item.summary}</p>
+                      <p className={`max-w-md text-sm leading-7 sm:text-base ${isActive(pathname, item.href) ? "text-ink/72" : "text-white/68"}`}>
+                        {item.summary}
+                      </p>
                     </div>
                   </Link>
                 ))}
