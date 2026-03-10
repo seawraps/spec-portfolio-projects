@@ -10,13 +10,13 @@ type ButtonLinkProps = ComponentProps<typeof Link> & {
 
 const variantClasses: Record<NonNullable<ButtonLinkProps["variant"]>, string> = {
   primary:
-    "bg-[var(--color-brand)] text-white shadow-[0_18px_40px_-24px_rgba(23,54,77,0.8)] hover:-translate-y-0.5 hover:bg-[#1f4a68] hover:shadow-[0_24px_48px_-26px_rgba(23,54,77,0.9)] focus-visible:outline-[var(--color-brand)]",
+    "bg-[var(--color-brand)] !text-white shadow-[0_18px_40px_-24px_rgba(23,54,77,0.8)] hover:-translate-y-0.5 hover:bg-[#1f4a68] hover:shadow-[0_24px_48px_-26px_rgba(23,54,77,0.9)] focus-visible:outline-[var(--color-brand)]",
   secondary:
-    "bg-white text-[var(--color-brand)] ring-1 ring-inset ring-[var(--color-brand)] shadow-[0_16px_34px_-28px_rgba(23,54,77,0.55)] hover:-translate-y-0.5 hover:bg-[var(--color-brand-soft)] hover:shadow-[0_22px_42px_-28px_rgba(23,54,77,0.65)] focus-visible:outline-[var(--color-brand)]",
+    "bg-white !text-[var(--color-brand)] ring-1 ring-inset ring-[var(--color-brand)] shadow-[0_16px_34px_-28px_rgba(23,54,77,0.55)] hover:-translate-y-0.5 hover:bg-[var(--color-brand-soft)] hover:shadow-[0_22px_42px_-28px_rgba(23,54,77,0.65)] focus-visible:outline-[var(--color-brand)]",
   light:
-    "bg-[var(--color-accent)] text-[var(--color-ink)] shadow-[0_18px_40px_-26px_rgba(201,127,44,0.75)] hover:-translate-y-0.5 hover:bg-[#d9954a] hover:shadow-[0_24px_48px_-28px_rgba(201,127,44,0.82)] focus-visible:outline-[var(--color-accent)]",
+    "bg-[var(--color-accent)] !text-[var(--color-ink)] shadow-[0_18px_40px_-26px_rgba(201,127,44,0.75)] hover:-translate-y-0.5 hover:bg-[#d9954a] hover:shadow-[0_24px_48px_-28px_rgba(201,127,44,0.82)] focus-visible:outline-[var(--color-accent)]",
   outline:
-    "border border-[color:rgba(255,255,255,0.34)] bg-transparent text-white hover:-translate-y-0.5 hover:bg-[color:rgba(255,255,255,0.1)] focus-visible:outline-white",
+    "border border-[color:rgba(255,255,255,0.34)] bg-transparent !text-white hover:-translate-y-0.5 hover:bg-[color:rgba(255,255,255,0.1)] focus-visible:outline-white",
 };
 
 export function buttonClassName(
