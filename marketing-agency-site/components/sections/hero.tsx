@@ -23,20 +23,20 @@ const tickerItems = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-white/10 pb-18 pt-12 md:pb-24 md:pt-16 lg:pb-28 lg:pt-20">
+    <section className="relative overflow-hidden border-b border-white/10 pb-16 pt-12 md:pb-22 md:pt-16 lg:pb-24 lg:pt-20">
       <div className="pointer-events-none absolute inset-0 -z-20 bg-hero-grid opacity-70" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-radial-glow editorial-stripes" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/28 to-transparent" aria-hidden="true" />
 
       <div className="mx-auto w-full max-w-7xl px-6">
-        <div className="grid gap-10 xl:grid-cols-[1.02fr_0.98fr] xl:items-start">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] xl:items-start">
           <div className="space-y-8">
             <div className="space-y-5" data-reveal="left">
               <p className="eyebrow-label">Independent Growth Agency</p>
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-white/44">
                 Paid media / CRO / landing pages / creative systems
               </p>
-              <h1 className="max-w-5xl font-display text-[clamp(4.4rem,11vw,9rem)] uppercase leading-[0.82] text-white">
+              <h1 className="max-w-5xl font-display text-[clamp(4rem,9vw,8.35rem)] uppercase leading-[0.84] text-white">
                 Campaign pressure.
                 <span className="block text-signal">Creative conviction.</span>
                 <span className="block text-white">Revenue movement.</span>
@@ -56,18 +56,23 @@ export function Hero() {
               </Link>
             </div>
 
-            <div className="grid gap-5 lg:grid-cols-[1.06fr_0.94fr]">
-              <div className="surface-panel p-6" data-tilt data-reveal="left" style={{ "--reveal-delay": "160ms" } as CSSProperties}>
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/42">Where momentum usually breaks</p>
-                <ul className="mt-5 grid gap-3 text-sm leading-7 text-white/74 sm:grid-cols-2">
+            <div className="grid gap-5 lg:grid-cols-[1.04fr_0.96fr]">
+              <article className="surface-panel p-6 sm:p-7" data-tilt data-reveal="left" style={{ "--reveal-delay": "160ms" } as CSSProperties}>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/42">Where momentum usually breaks</p>
+                  <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-white/46">
+                    High-friction signals
+                  </span>
+                </div>
+                <ul className="mt-5 grid gap-3 text-sm leading-7 text-white/76 sm:grid-cols-2">
                   {pressurePoints.map((point) => (
-                    <li key={point} className="flex gap-3">
+                    <li key={point} className="flex gap-3 rounded-[1.1rem] border border-white/10 bg-white/5 px-4 py-4">
                       <span className="mt-2 h-1.5 w-6 rounded-full bg-signal" aria-hidden="true" />
                       <span>{point}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </article>
 
               <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
                 {metrics.slice(0, 3).map((metric, index) => (
@@ -80,54 +85,70 @@ export function Hero() {
                   >
                     <p className="font-display text-5xl uppercase leading-none text-white">{metric.value}</p>
                     <h2 className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-white">{metric.label}</h2>
-                    <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/42">{metric.benchmark}</p>
+                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/42">{metric.benchmark}</p>
                   </article>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="relative min-h-[44rem] xl:min-h-[48rem]">
-            <div className="absolute inset-x-4 bottom-0 top-16 hidden overflow-hidden rounded-[2rem] border border-white/10 xl:block">
-              <Image
-                src="/media/strategy-session.jpg"
-                alt="Agency team reviewing campaign strategy together"
-                fill
-                className="object-cover grayscale-[0.18] saturate-[0.72]"
-                sizes="(min-width: 1280px) 40vw, 100vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-coal via-coal/42 to-transparent" />
-            </div>
+          <div className="grid gap-5 xl:pt-4">
+            <HeroSignalBoard />
 
-            <div className="relative z-10 pt-8 xl:pl-10">
-              <HeroSignalBoard />
-            </div>
+            <div className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+              <article className="surface-panel overflow-hidden" data-tilt data-reveal="right" style={{ "--reveal-delay": "260ms" } as CSSProperties}>
+                <div className="relative aspect-[1.42]">
+                  <Image
+                    src="/media/strategy-session.jpg"
+                    alt="Agency team reviewing campaign strategy together"
+                    fill
+                    className="object-cover grayscale-[0.08] saturate-[0.8]"
+                    sizes="(min-width: 1280px) 28vw, 100vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-coal via-coal/40 to-transparent" />
+                </div>
+                <div className="border-t border-white/10 px-5 py-5 sm:px-6">
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-volt">Creative review cadence</p>
+                  <p className="mt-3 text-sm leading-7 text-white/74">
+                    Strategy, assets, and landing-page moves stay inside one weekly decision loop instead of drifting into separate workstreams.
+                  </p>
+                </div>
+              </article>
 
-            <div
-              className="absolute left-0 top-18 hidden max-w-[15rem] rounded-[1.4rem] border border-white/14 bg-coal/86 p-5 shadow-[0_20px_48px_-32px_rgba(0,0,0,0.9)] lg:block"
-              data-reveal="right"
-              style={{ "--reveal-delay": "220ms" } as CSSProperties}
-            >
-              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-volt">Creative review cadence</p>
-              <p className="mt-3 text-sm leading-6 text-white/72">
-                Strategy, assets, and landing-page moves stay in one weekly decision loop.
-              </p>
-            </div>
+              <div className="grid gap-4">
+                <article className="surface-panel p-5 sm:p-6" data-tilt data-reveal="right" style={{ "--reveal-delay": "320ms" } as CSSProperties}>
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-white/42">Launch velocity</p>
+                  <p className="mt-4 font-display text-6xl uppercase leading-none text-white">14D</p>
+                  <p className="mt-3 text-sm leading-7 text-white/72">
+                    Average window to go from pressure audit to live campaign testing.
+                  </p>
+                </article>
 
-            <div
-              className="absolute bottom-8 right-0 hidden max-w-[16rem] rounded-[1.4rem] border border-white/14 bg-white/8 p-5 backdrop-blur xl:block"
-              data-reveal="right"
-              style={{ "--reveal-delay": "300ms" } as CSSProperties}
-            >
-              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-white/40">Launch velocity</p>
-              <p className="mt-3 font-display text-6xl uppercase leading-none text-white">14D</p>
-              <p className="mt-2 text-sm text-white/72">Average window to go from pressure audit to live campaign testing.</p>
+                <article className="paper-panel p-5 sm:p-6" data-tilt data-reveal="right" style={{ "--reveal-delay": "380ms" } as CSSProperties}>
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-signal">Signal room</p>
+                  <p className="mt-3 font-display text-4xl uppercase leading-[0.9] text-ink">Weekly decision architecture.</p>
+                  <ul className="mt-4 space-y-3 text-sm leading-7 text-ink/74">
+                    <li className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-6 rounded-full bg-signal" aria-hidden="true" />
+                      <span>Performance, page, and creative moves reviewed together.</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-6 rounded-full bg-signal" aria-hidden="true" />
+                      <span>Clear readout before budget or launch pressure increases.</span>
+                    </li>
+                  </ul>
+                </article>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 overflow-hidden rounded-full border border-white/10 bg-white/4 px-4 py-3" data-reveal="up" style={{ "--reveal-delay": "320ms" } as CSSProperties}>
+        <div
+          className="mt-10 overflow-hidden rounded-[1.3rem] border border-white/10 bg-white/4 px-4 py-3"
+          data-reveal="up"
+          style={{ "--reveal-delay": "420ms" } as CSSProperties}
+        >
           <div className="campaign-ticker">
             {[...tickerItems, ...tickerItems].map((item, index) => (
               <span key={`${item}-${index}`} className="campaign-ticker-item text-white/64">

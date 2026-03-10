@@ -215,12 +215,12 @@ export function ContactForm() {
         <textarea
           id="message"
           name="message"
-          rows={7}
+          rows={6}
           value={values.message}
           onChange={handleChange}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : "message-help"}
-          className={fieldClassName(Boolean(errors.message))}
+          className={`${fieldClassName(Boolean(errors.message))} resize-y`}
         />
         <p id="message-help" className="mt-2 text-sm text-[var(--color-muted)]">
           A few details about timing, property type, or the neighborhood you are

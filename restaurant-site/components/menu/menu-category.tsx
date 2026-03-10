@@ -10,6 +10,16 @@ type MenuCategoryProps = {
 
 export function MenuCategory({ category, index }: MenuCategoryProps) {
   const reverse = index % 2 === 1;
+  const imagePosition =
+    category.id === "mezze"
+      ? "object-[center_58%]"
+      : category.id === "sea"
+        ? "object-[center_48%]"
+        : category.id === "fire"
+          ? "object-[center_42%]"
+          : category.id === "dessert"
+            ? "object-[center_44%]"
+            : "object-center";
 
   return (
     <Reveal
@@ -19,7 +29,7 @@ export function MenuCategory({ category, index }: MenuCategoryProps) {
       className="scroll-mt-36"
       delay={index * 70}
     >
-      <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+      <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-8">
         <InteractivePanel className={`rounded-[2.4rem] ${reverse ? "lg:order-2" : ""}`}>
           <div className="surface-card-soft rounded-[2.4rem] p-7 sm:p-8">
             <div className="flex items-start justify-between gap-6">
@@ -29,12 +39,12 @@ export function MenuCategory({ category, index }: MenuCategoryProps) {
                 </p>
                 <h2
                   id={`${category.id}-title`}
-                  className="mt-4 font-display text-[3rem] leading-[0.88] tracking-[-0.03em] text-[#f8efe4]"
+                  className="mt-4 font-display text-[2.6rem] leading-[0.88] tracking-[-0.03em] text-[#f8efe4] sm:text-[3rem]"
                 >
                   {category.title}
                 </h2>
               </div>
-              <p className="font-display text-[4.6rem] leading-none text-[rgba(255,233,204,0.14)]">
+              <p className="font-display text-[3.6rem] leading-none text-[rgba(255,233,204,0.14)] sm:text-[4.6rem]">
                 {String(index + 1).padStart(2, "0")}
               </p>
             </div>
@@ -57,7 +67,7 @@ export function MenuCategory({ category, index }: MenuCategoryProps) {
                 alt={category.image.alt}
                 width={1800}
                 height={2000}
-                className="h-[18rem] w-full object-cover sm:h-[22rem]"
+                className={`h-[15rem] w-full object-cover sm:h-[22rem] ${imagePosition}`}
               />
             </figure>
           </div>

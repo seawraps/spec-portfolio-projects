@@ -57,12 +57,10 @@ export default function ServicesPage() {
 
       <section className="section-spacing bg-paper text-ink">
         <div className="mx-auto w-full max-w-7xl space-y-6 px-6">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <article
               key={service.slug}
-              className={`paper-panel grid gap-6 p-6 md:grid-cols-[0.44fr_0.56fr] md:p-8 ${
-                index % 2 === 1 ? "md:translate-x-6" : "md:-translate-x-6"
-              } lg:translate-x-0`}
+              className="paper-panel grid gap-6 p-6 md:grid-cols-[0.42fr_0.58fr] md:p-8"
             >
               <div className="space-y-5">
                 <div>

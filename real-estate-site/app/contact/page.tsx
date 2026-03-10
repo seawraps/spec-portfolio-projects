@@ -34,7 +34,7 @@ export default function ContactPage() {
 
       <section className="py-12 md:py-16 lg:py-24">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
             <div className="min-w-0 soft-card rounded-[32px] p-8 sm:p-10">
               <SectionHeading
                 eyebrow="Get In Touch"
@@ -82,7 +82,7 @@ export default function ContactPage() {
                       </p>
                       <a
                         href={method.href}
-                        className="mt-2 block break-all font-display text-3xl text-white hover:text-white/80"
+                        className="mt-2 block break-words font-display text-[clamp(1.95rem,2.9vw,2.8rem)] leading-[0.94] text-white hover:text-white/80"
                       >
                         {method.value}
                       </a>

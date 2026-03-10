@@ -284,8 +284,8 @@ export const agents: Agent[] = [
     experience: "16 years advising sellers, relocating executives, and repeat referral clients.",
     specialties: ["Pricing strategy", "Luxury transitions", "Design-forward presentation"],
     metric: "16 years",
-    imageSrc: "/images/agent-lena.jpg",
-    imageAlt: "Portrait of a polished female real estate advisor in professional attire.",
+    imageSrc: "/images/hero-estate.jpg",
+    imageAlt: "A luxury hillside estate used to reinforce the firm's calm, architecture-led brand point of view.",
   },
   {
     name: "Marcus Avery",
@@ -294,8 +294,8 @@ export const agents: Agent[] = [
     experience: "11 years leading private buyer searches and competitive acquisitions.",
     specialties: ["Private search", "Negotiation", "Family relocations"],
     metric: "Buyer lead",
-    imageSrc: "/images/agent-marcus.jpg",
-    imageAlt: "Portrait of a professional male real estate advisor in a tailored blazer.",
+    imageSrc: "/images/listing-residence.jpg",
+    imageAlt: "A warm, design-led luxury living room used to support the buyer advisory story.",
   },
   {
     name: "Priya Desai",
@@ -304,8 +304,8 @@ export const agents: Agent[] = [
     experience: "9 years directing pre-listing execution for premium residential properties.",
     specialties: ["Prep oversight", "Vendor management", "Launch planning"],
     metric: "Launch strategy",
-    imageSrc: "/images/agent-priya.jpg",
-    imageAlt: "Portrait of a composed female property marketing strategist in a studio setting.",
+    imageSrc: "/images/services-interior.jpg",
+    imageAlt: "A polished interior used to reflect listing preparation and launch presentation standards.",
   },
 ];
 

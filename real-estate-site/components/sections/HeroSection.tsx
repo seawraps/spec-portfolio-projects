@@ -11,7 +11,7 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden py-6 md:py-8 lg:py-10">
       <Container>
-        <div className="grid gap-6 lg:grid-cols-[0.76fr_1.24fr] xl:grid-cols-[0.74fr_1.26fr]">
+        <div className="grid gap-6 lg:grid-cols-[0.74fr_1.26fr] xl:grid-cols-[0.7fr_1.3fr]">
           <div className="dark-panel reveal-up rounded-[38px] p-8 text-white sm:p-10 lg:p-12">
             <div className="flex flex-wrap items-center gap-3 text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-white/60">
               <span>Harbor City boutique brokerage</span>
@@ -72,8 +72,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[1.18fr_0.62fr]">
-            <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[480px] lg:col-span-2 lg:min-h-[650px]">
+          <div className="grid gap-6 lg:grid-cols-[1.04fr_0.78fr] lg:grid-rows-[minmax(0,1fr)_minmax(0,0.78fr)]">
+            <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[480px] lg:row-span-2 lg:min-h-[760px]">
               <Image
                 src={spotlightListing.imageSrc}
                 alt={spotlightListing.imageAlt}
@@ -119,21 +119,47 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="soft-card reveal-up delay-2 rounded-[30px] p-6 sm:p-7">
-              <p className="text-[0.64rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze)]">
-                Launch note
-              </p>
-              <h2 className="mt-4 font-display text-4xl leading-[0.94] text-[var(--color-ink)]">
-                Presentation is handled with restraint, not noise.
-              </h2>
-              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                Every listing is treated like a small editorial production with
-                stronger sequencing, more considered imagery, and a buyer story
-                that feels composed from the very first touchpoint.
-              </p>
+            <div className="soft-card reveal-up delay-2 flex h-full flex-col justify-between rounded-[30px] p-6 sm:p-7">
+              <div>
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze)]">
+                  Launch note
+                </p>
+                <h2 className="mt-4 font-display text-4xl leading-[0.94] text-[var(--color-ink)]">
+                  Presentation is handled with restraint, not noise.
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                  Every listing is treated like a small editorial production
+                  with stronger sequencing, more considered imagery, and a
+                  buyer story that feels composed from the first touchpoint.
+                </p>
+              </div>
+
+              <div className="mt-8 space-y-4">
+                {[
+                  "Private preview outreach is paced around buyer readiness rather than volume.",
+                  "Photography, floor plans, and launch notes are shaped to feel quiet and unmistakable.",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[22px] border border-[var(--color-line)] bg-[var(--color-cream)] p-4 text-sm leading-7 text-[var(--color-muted-strong)]"
+                  >
+                    {item}
+                  </div>
+                ))}
+
+                <div className="rounded-[24px] border border-[var(--color-line)] bg-white/82 p-5">
+                  <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-bronze)]">
+                    Editorial standard
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-muted-strong)]">
+                    Stronger image direction, clearer pacing, and a calmer tour
+                    experience all work together before negotiations even begin.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="image-frame image-reveal reveal-up delay-3 relative min-h-[320px]">
+            <div className="image-frame image-reveal reveal-up delay-3 relative min-h-[320px] lg:min-h-full">
               <Image
                 src={insetListing.imageSrc}
                 alt={insetListing.imageAlt}

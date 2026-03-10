@@ -104,7 +104,7 @@ export default function ContactPage() {
 
           <div className="grid gap-5 md:grid-cols-3">
             {startingPoints.map((point, index) => (
-              <article key={point.title} className={`surface-panel p-6 ${index === 1 ? "md:-translate-y-4" : index === 2 ? "md:translate-y-6" : ""}`}>
+              <article key={point.title} className="surface-panel p-6">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/42">0{index + 1}</p>
                 <h3 className="mt-4 font-display text-4xl font-semibold uppercase leading-none text-white">{point.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/72">{point.text}</p>

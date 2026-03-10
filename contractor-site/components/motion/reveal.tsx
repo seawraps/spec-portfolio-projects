@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties, ReactNode } from "react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -21,30 +21,64 @@ export function Reveal({
   once = true,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
 
-    if (!node) {
+    if (!node || typeof window === "undefined") {
       return;
     }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    let hasAnimated = false;
+
+    const runAnimation = () => {
+      if (hasAnimated) {
+        return;
+      }
+
+      hasAnimated = true;
+
+      node.animate(
+        [
+          {
+            opacity: 0,
+            transform: `translate3d(0, ${distance}px, 0)`,
+            filter: "blur(8px)",
+          },
+          {
+            opacity: 1,
+            transform: "translate3d(0, 0, 0)",
+            filter: "blur(0)",
+          },
+        ],
+        {
+          duration: 820,
+          delay,
+          easing: "cubic-bezier(0.2, 0.65, 0.22, 1)",
+          fill: "both",
+        },
+      );
+    };
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          setIsVisible(true);
+          runAnimation();
 
           if (once) {
             observer.disconnect();
           }
         } else if (!once) {
-          setIsVisible(false);
+          hasAnimated = false;
         }
       },
       {
-        rootMargin: "0px 0px -12% 0px",
-        threshold: 0.18,
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.14,
       },
     );
 
@@ -56,7 +90,7 @@ export function Reveal({
   return (
     <div
       ref={ref}
-      className={cn("reveal", isVisible && "is-visible", className)}
+      className={cn("reveal", className)}
       style={
         {
           "--reveal-delay": `${delay}ms`,

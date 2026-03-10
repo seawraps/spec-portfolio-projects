@@ -32,8 +32,8 @@ export default function ContactPage() {
               <p>Timing, launch date, or event window</p>
               <p>What should feel different after the work lands</p>
             </div>
-            <ButtonLink href={`mailto:${siteConfig.email}`} variant="ghost" className="mt-5" arrow>
-              Email instead
+            <ButtonLink href={`mailto:${siteConfig.email}`} variant="secondary" className="mt-5" arrow>
+              Email directly
             </ButtonLink>
           </div>
         }

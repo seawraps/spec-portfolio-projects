@@ -1,12 +1,13 @@
 import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
+import { ButtonLink, buttonClassName } from "@/components/ui/button-link";
 import { company, navLinks, serviceAreas, services } from "@/lib/data";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-[color:rgba(255,255,255,0.08)] bg-[var(--color-brand-deep)] text-[color:rgba(255,250,243,0.82)]">
-      <Container className="grid gap-10 py-16 md:grid-cols-[1.2fr_0.9fr_0.9fr]">
+      <Container className="grid gap-10 py-16 lg:grid-cols-[1.2fr_0.82fr_0.98fr] lg:gap-12 lg:py-20">
         <div>
           <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
             Blue Oak Remodeling Co.
@@ -22,6 +23,15 @@ export function SiteFooter() {
           <p className="mt-6 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-soft)]">
             {company.license}
           </p>
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <ButtonLink href="/contact" variant="light">
+              Request Consultation
+            </ButtonLink>
+            <a href={`tel:${company.phoneRaw}`} className={buttonClassName("outline")}>
+              Call {company.phoneDisplay}
+            </a>
+          </div>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-1">
@@ -53,30 +63,41 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
-            Contact
-          </h3>
-          <address className="mt-4 space-y-2 text-sm not-italic text-[color:rgba(255,250,243,0.74)] sm:text-base">
-            <p>{company.addressLine}</p>
-            <p>{company.cityStateZip}</p>
-            <p>
-              <a className="transition hover:text-white" href={`tel:${company.phoneRaw}`}>
-                {company.phoneDisplay}
-              </a>
-            </p>
-            <p>
-              <a className="transition hover:text-white" href={`mailto:${company.email}`}>
-                {company.email}
-              </a>
-            </p>
-          </address>
+          <div className="rounded-[2rem] border border-[color:rgba(255,255,255,0.1)] bg-[color:rgba(255,250,243,0.05)] p-5 sm:p-6">
+            <h3 className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
+              Contact
+            </h3>
+            <address className="mt-4 space-y-2 text-sm not-italic text-[color:rgba(255,250,243,0.74)] sm:text-base">
+              <p>{company.addressLine}</p>
+              <p>{company.cityStateZip}</p>
+              <p>
+                <a className="transition hover:text-white" href={`tel:${company.phoneRaw}`}>
+                  {company.phoneDisplay}
+                </a>
+              </p>
+              <p>
+                <a className="transition hover:text-white" href={`mailto:${company.email}`}>
+                  {company.email}
+                </a>
+              </p>
+            </address>
 
-          <p className="mt-6 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
-            Service Area
-          </p>
-          <p className="mt-3 text-sm leading-7 text-[color:rgba(255,250,243,0.74)] sm:text-base">
-            {serviceAreas.slice(0, 4).join(" • ")} and nearby neighborhoods.
-          </p>
+            <p className="mt-6 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
+              Studio Hours
+            </p>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[color:rgba(255,250,243,0.74)]">
+              {company.hours.map((hours) => (
+                <li key={hours}>{hours}</li>
+              ))}
+            </ul>
+
+            <p className="mt-6 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
+              Service Area
+            </p>
+            <p className="mt-3 text-sm leading-7 text-[color:rgba(255,250,243,0.74)] sm:text-base">
+              {serviceAreas.slice(0, 4).join(" • ")} and nearby neighborhoods.
+            </p>
+          </div>
         </div>
       </Container>
 

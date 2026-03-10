@@ -27,8 +27,12 @@ export function GallerySection({
     theme === "light"
       ? "border border-[rgba(77,50,29,0.1)] bg-[rgba(255,255,255,0.64)]"
       : "border border-[rgba(255,233,204,0.12)] bg-[rgba(255,255,255,0.03)]";
-  const captionColor = theme === "light" ? "text-[#f7efe7]" : "text-[#f6ecdf]";
-  const copyColor = theme === "light" ? "text-[#e5d6c6]" : "text-[#d4c3b0]";
+  const captionCardClass =
+    theme === "light"
+      ? "border border-[rgba(255,233,204,0.2)] bg-[rgba(21,13,10,0.66)]"
+      : "border border-[rgba(255,233,204,0.12)] bg-[rgba(12,8,6,0.62)]";
+  const captionColor = "text-[#f7efe7]";
+  const copyColor = "text-[#e5d6c6]";
 
   return (
     <section className={`${sectionClass} py-18 md:py-22 lg:py-26`}>
@@ -57,13 +61,13 @@ export function GallerySection({
                     alt={image.alt}
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
-                    className={`object-cover transition-transform duration-700 group-hover:scale-[1.06] ${
-                      image.layout === "tall" ? "object-center" : "object-center"
-                    }`}
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.06]"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,6,4,0.08)_0%,rgba(9,6,4,0.7)_76%,rgba(9,6,4,0.92)_100%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,6,4,0.05)_0%,rgba(9,6,4,0.16)_48%,rgba(9,6,4,0.82)_100%)]" />
 
-                  <figcaption className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                  <figcaption
+                    className={`absolute bottom-4 left-4 right-4 rounded-[1.55rem] p-5 backdrop-blur-xl sm:bottom-5 sm:left-5 sm:right-auto sm:max-w-[18rem] ${captionCardClass}`}
+                  >
                     <p className="text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
                       {image.title}
                     </p>

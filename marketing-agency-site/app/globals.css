@@ -136,8 +136,8 @@ summary {
 }
 
 .section-spacing {
-  padding-top: clamp(4rem, 7vw, 7.5rem);
-  padding-bottom: clamp(4rem, 7vw, 7.5rem);
+  padding-top: clamp(4rem, 6vw, 6.75rem);
+  padding-bottom: clamp(4rem, 6vw, 6.75rem);
 }
 
 .button-primary,
@@ -149,11 +149,11 @@ summary {
   justify-content: center;
   gap: 0.65rem;
   overflow: hidden;
-  border-radius: 1rem;
-  padding: 0.92rem 1.35rem;
-  font-size: 0.72rem;
+  border-radius: 1.1rem;
+  padding: 0.92rem 1.4rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   isolation: isolate;
 }
@@ -254,12 +254,12 @@ summary {
 }
 
 .surface-panel {
-  border: 1px solid rgb(255 255 255 / 0.12);
+  border: 1px solid rgb(255 255 255 / 0.13);
   background:
-    linear-gradient(180deg, rgb(255 255 255 / 0.08) 0%, rgb(15 16 20 / 0.92) 100%),
-    linear-gradient(125deg, rgb(255 91 55 / 0.08), transparent 30%);
+    linear-gradient(180deg, rgb(255 255 255 / 0.085) 0%, rgb(12 13 18 / 0.96) 100%),
+    linear-gradient(125deg, rgb(255 91 55 / 0.1), transparent 30%);
   box-shadow:
-    0 30px 72px -42px rgb(0 0 0 / 0.78),
+    0 30px 72px -42px rgb(0 0 0 / 0.82),
     inset 0 1px 0 rgb(255 255 255 / 0.08);
 }
 
@@ -286,12 +286,12 @@ summary {
 }
 
 .paper-panel {
-  border: 1px solid rgb(18 19 23 / 0.1);
+  border: 1px solid rgb(18 19 23 / 0.12);
   background:
-    linear-gradient(180deg, rgb(255 255 255 / 0.8) 0%, rgb(238 229 217 / 0.98) 100%),
-    linear-gradient(135deg, rgb(255 91 55 / 0.06), transparent 36%);
+    linear-gradient(180deg, rgb(255 255 255 / 0.92) 0%, rgb(238 229 217 / 0.98) 100%),
+    linear-gradient(135deg, rgb(255 91 55 / 0.08), transparent 36%);
   box-shadow:
-    0 26px 62px -36px rgb(18 19 23 / 0.22),
+    0 26px 62px -36px rgb(18 19 23 / 0.2),
     inset 0 1px 0 rgb(255 255 255 / 0.46);
   color: #121317;
 }

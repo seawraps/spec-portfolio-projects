@@ -116,7 +116,7 @@ export default function AboutPage() {
 
           <div className="grid gap-5 md:grid-cols-2">
             {aboutValues.map((value, index) => (
-              <article key={value.title} className={`surface-panel p-6 sm:p-8 ${index % 2 === 1 ? "md:translate-y-8" : ""}`}>
+              <article key={value.title} className="surface-panel p-6 sm:p-8">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/40">0{index + 1}</p>
                 <h3 className="mt-4 font-display text-4xl font-semibold uppercase leading-none text-white">{value.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/72">{value.text}</p>

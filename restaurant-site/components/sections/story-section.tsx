@@ -27,12 +27,12 @@ export function StorySection() {
 
             <Reveal
               delay={180}
-              className="absolute bottom-5 left-5 max-w-[18rem] rounded-[1.6rem] border border-[rgba(255,233,204,0.14)] bg-[rgba(10,7,5,0.74)] p-5 shadow-[0_24px_70px_-34px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+              className="mt-4 max-w-[15rem] rounded-[1.5rem] border border-[rgba(255,233,204,0.14)] bg-[rgba(10,7,5,0.74)] p-5 shadow-[0_24px_70px_-34px_rgba(0,0,0,0.8)] backdrop-blur-xl sm:absolute sm:bottom-5 sm:left-5 sm:mt-0"
             >
               <p className="text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
                 Interior Mood
               </p>
-              <p className="mt-3 font-display text-[2rem] leading-[0.92] text-[#f7ead7]">
+              <p className="mt-3 font-display text-[1.7rem] leading-[0.94] text-[#f7ead7]">
                 The room is tuned to move from glow to hush as the night deepens.
               </p>
             </Reveal>

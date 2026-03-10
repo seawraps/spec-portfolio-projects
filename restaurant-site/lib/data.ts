@@ -205,20 +205,20 @@ export const serviceMoments: HeroMoment[] = [
 
 export const featuredDishes: FeaturedDish[] = [
   {
-    name: "Saffron Mussels",
-    description:
-      "White wine broth, Calabrian chili, grilled country bread, and fennel pollen butter for the table.",
-    price: "$24",
-    course: "Raw & Warm Starters",
-    image: siteImages.menuPlated,
-  },
-  {
     name: "Linguine Vongole",
     description:
       "Little neck clams, preserved lemon, bottarga, and a glossy shellfish emulsion finished to order.",
     price: "$36",
     course: "Seafood Pasta",
     image: siteImages.featuredPasta,
+  },
+  {
+    name: "Saffron Mussels",
+    description:
+      "White wine broth, Calabrian chili, grilled country bread, and fennel pollen butter for the table.",
+    price: "$24",
+    course: "Raw & Warm Starters",
+    image: siteImages.menuPlated,
   },
   {
     name: "Coal-Kissed Calamari",
@@ -256,7 +256,7 @@ export const menuHighlights: MenuHighlight[] = [
     description:
       "A market-driven progression built around seafood, live-fire mains, and citrus-led desserts.",
     detail: "$98 per guest, nightly from 6 PM",
-    image: siteImages.menuPlated,
+    image: siteImages.diningRoom,
   },
   {
     eyebrow: "Bar Program",
@@ -435,7 +435,7 @@ export const menuCategories: MenuCategory[] = [
     ritual:
       "Order a hearth main once the table is settled. It is the most indulgent chapter of the dinner and the one that lingers.",
     pairing: "Best with cellar reds or a fig leaf old fashioned.",
-    image: siteImages.featuredCalamari,
+    image: siteImages.diningRoom,
     items: [
       {
         name: "Pistachio Lamb Chops",
@@ -473,7 +473,7 @@ export const menuCategories: MenuCategory[] = [
     ritual:
       "The last course is meant to reset the palate, extend the conversation, and invite one more drink without weight.",
     pairing: "Order with espresso, amaro, or a final glass of Bandol rose.",
-    image: siteImages.menuPlated,
+    image: siteImages.wineToast,
     items: [
       {
         name: "Orange Blossom Basque Cheesecake",

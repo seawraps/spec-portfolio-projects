@@ -50,8 +50,13 @@ export function NeighborhoodCard({
                 {neighborhood.name}
               </h3>
             </div>
-            <div className="rounded-full border border-[var(--color-line)] bg-white/82 px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              {neighborhood.commute}
+            <div className="max-w-[20rem] rounded-[24px] border border-[var(--color-line)] bg-white/82 px-5 py-4">
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-bronze)]">
+                Commute context
+              </p>
+              <p className="mt-2 text-sm leading-6 text-[var(--color-muted-strong)]">
+                {neighborhood.commute}
+              </p>
             </div>
           </div>
 

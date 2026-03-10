@@ -9,7 +9,7 @@ import { services } from "@/lib/data";
 
 export function FeaturedServices() {
   return (
-    <section id="services-preview" className="py-16 md:py-20 lg:py-24">
+    <section id="services-preview" className="py-18 md:py-22 lg:py-26">
       <Container>
         <div className="grid gap-6 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
           <Reveal>
@@ -23,8 +23,8 @@ export function FeaturedServices() {
 
               <div className="image-frame relative mt-8 min-h-[280px] rounded-[2rem]">
                 <Image
-                  src="/images/bathroom-vanity.jpg"
-                  alt="A tailored bathroom renovation with a long vanity, warm lighting, and layered stone."
+                  src="/images/cabinet-detail.jpg"
+                  alt="A close-up of refined custom cabinetry and premium hardware."
                   fill
                   className="object-cover"
                   sizes="(max-width: 1280px) 100vw, 34vw"
@@ -48,19 +48,24 @@ export function FeaturedServices() {
             </div>
           </Reveal>
 
-          <div className="grid gap-4">
+          <div className="grid gap-4 lg:gap-5">
             {services.map((service, index) => (
               <Reveal key={service.id} delay={index * 80}>
                 <Link
                   href={`/services#${service.id}`}
-                  className="group surface-card block rounded-[2rem] p-5 sm:p-6"
+                  className="group surface-card block rounded-[1.9rem] p-4 sm:p-5 lg:p-6"
                 >
-                  <div className="grid gap-5 lg:grid-cols-[auto_1fr_auto] lg:items-center">
-                    <div className="flex items-start gap-4">
+                  <div className="grid gap-4 lg:grid-cols-[auto_1fr_auto] lg:items-start">
+                    <div className="flex items-center justify-between gap-4 sm:justify-start">
                       <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface-strong)] text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
                         0{index + 1}
                       </span>
+                      <p className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)] lg:hidden">
+                        {service.timeline}
+                      </p>
+                    </div>
 
+                    <div className="grid gap-4 sm:grid-cols-[auto_1fr] sm:items-start">
                       <div className="image-frame relative hidden h-28 w-28 rounded-[1.3rem] sm:block">
                         <Image
                           src={service.image}
@@ -70,38 +75,38 @@ export function FeaturedServices() {
                           sizes="112px"
                         />
                       </div>
-                    </div>
 
-                    <div>
-                      <div className="flex flex-wrap items-start justify-between gap-3">
-                        <div>
-                          <h3 className="font-display text-[2.2rem] leading-[1.02] text-[var(--color-brand)] sm:text-[2.6rem]">
-                            {service.name}
-                          </h3>
-                          <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--color-muted)] sm:text-base">
-                            {service.shortDescription}
+                      <div>
+                        <div className="flex flex-wrap items-start justify-between gap-3">
+                          <div>
+                            <h3 className="font-display text-[1.75rem] leading-[1.05] text-[var(--color-brand)] sm:text-[2.15rem] lg:text-[2.3rem]">
+                              {service.name}
+                            </h3>
+                            <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--color-muted)] sm:text-base">
+                              {service.shortDescription}
+                            </p>
+                          </div>
+
+                          <p className="hidden text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)] lg:block">
+                            {service.timeline}
                           </p>
                         </div>
 
-                        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
-                          {service.timeline}
-                        </p>
-                      </div>
-
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {service.highlights.map((highlight) => (
-                          <span
-                            key={highlight}
-                            className="rounded-full border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.7)] px-3 py-1.5 text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand)]"
-                          >
-                            {highlight}
-                          </span>
-                        ))}
+                        <div className="mt-5 flex flex-wrap gap-2">
+                          {service.highlights.map((highlight) => (
+                            <span
+                              key={highlight}
+                              className="rounded-full border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.7)] px-3 py-1.5 text-[0.64rem] font-semibold uppercase tracking-[0.15em] text-[var(--color-brand)]"
+                            >
+                              {highlight}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
 
                     <div className="hidden lg:block">
-                      <span className="inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
+                      <span className="inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-brand)]">
                         See scope
                         <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] transition group-hover:translate-x-0.5">
                           →

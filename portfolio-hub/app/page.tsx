@@ -1,8 +1,9 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionHeading } from "@/components/SectionHeading";
-import { projects } from "@/lib/projects";
+import { projectThemes, projects } from "@/lib/projects";
 
 const technologies = [
   {
@@ -89,6 +90,20 @@ const capabilityCards = [
 
 const featuredProjects = projects.slice(0, 3);
 
+function getProjectThemeStyle(themeKey: keyof typeof projectThemes): CSSProperties {
+  const theme = projectThemes[themeKey];
+
+  return {
+    "--project-accent": theme.accent,
+    "--project-accent-soft": theme.accentSoft,
+    "--project-accent-surface": theme.accentSurface,
+    "--project-accent-strong": theme.accentStrong,
+    "--project-accent-glow": theme.accentGlow,
+    "--project-overlay-mid": theme.overlayMid,
+    "--project-overlay-end": theme.overlayEnd,
+  } as CSSProperties;
+}
+
 export default function Home() {
   return (
     <>
@@ -170,26 +185,33 @@ export default function Home() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-3 transition duration-200 hover:-translate-y-1 hover:border-emerald-200/30 hover:bg-white/[0.05]"
+                    className="project-featured group flex items-center gap-4 rounded-[1.5rem] p-3 transition duration-200 hover:-translate-y-1"
+                    style={getProjectThemeStyle(project.theme)}
                   >
-                    <div className="relative h-24 w-32 shrink-0 overflow-hidden rounded-[1.15rem] border border-white/10 bg-slate-950/80">
+                    <div className="project-featured-thumbnail relative h-24 w-32 shrink-0 overflow-hidden rounded-[1.15rem] bg-slate-950/80">
                       <Image
                         src={project.imageSrc}
                         alt={project.imageAlt}
                         fill
                         sizes="128px"
                         className="object-cover object-top transition duration-500 group-hover:scale-[1.04]"
+                        style={{ objectPosition: project.previewPosition }}
                       />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0),rgba(2,6,23,0.75))]" />
+                      <div className="project-preview-overlay absolute inset-0" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-emerald-100/[0.85]">
-                        {project.category}
-                      </p>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="project-chip rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.28em]">
+                          {project.category}
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+                          {project.identity}
+                        </span>
+                      </div>
                       <h3 className="mt-2 truncate font-display text-xl tracking-tight text-white">
                         {project.title}
                       </h3>
-                      <p className="mt-2 text-sm leading-6 text-slate-300">
+                      <p className="project-kicker mt-2 text-sm leading-6">
                         {project.highlight}
                       </p>
                     </div>
@@ -225,12 +247,12 @@ export default function Home() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               eyebrow="Selected Work"
-              title="Six live sites built to prove range without sacrificing polish."
-              description="Different business categories, one standard: clear positioning, premium visual hierarchy, and front-end execution that feels finished in-browser."
+              title="Six live sites with six intentionally different tones."
+              description="Warm residential, cinematic hospitality, futuristic product marketing, luxury editorial real estate, aggressive agency strategy, and premium human positioning in one curated showcase."
             />
             <p className="max-w-md text-sm leading-7 text-slate-400 lg:text-right">
-              Each card opens a live site in a new tab so the demos remain the
-              stars.
+              The hub stays restrained, but the cards now carry more category
+              signal so the diversity is obvious before you click through.
             </p>
           </div>
           <div className="mt-12 grid gap-7 md:grid-cols-2 xl:grid-cols-3">

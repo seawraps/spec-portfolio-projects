@@ -17,7 +17,7 @@ export function SectionIntro({
   const isLight = tone === "light";
 
   return (
-    <header className={`max-w-3xl space-y-5 ${isCentered ? "mx-auto text-center" : ""}`}>
+    <header className={`max-w-4xl space-y-5 ${isCentered ? "mx-auto text-center" : ""}`}>
       {eyebrow ? (
         <p className={`eyebrow-label ${isLight ? "eyebrow-label-light" : ""}`}>
           {eyebrow}
@@ -30,7 +30,7 @@ export function SectionIntro({
       >
         {title}
       </h2>
-      <p className={`text-pretty text-base leading-7 sm:text-lg ${isLight ? "text-ink/70" : "text-white/70"}`}>
+      <p className={`max-w-3xl text-pretty text-base leading-7 sm:text-lg ${isLight ? "text-ink/70" : "text-white/70"}`}>
         {description}
       </p>
     </header>

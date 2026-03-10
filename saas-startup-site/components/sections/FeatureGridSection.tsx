@@ -4,12 +4,19 @@ import { Container } from "@/components/layout/Container";
 import { InteractiveCard } from "@/components/ui/InteractiveCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { homeFeatureCards } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 const orchestrationFlow = [
   "Detect demand from CRM, billing, support, and product signals",
   "Apply owner logic, policy rules, and approval windows automatically",
   "Route work to the next best human or autonomous path",
   "Package outcomes back to systems and leadership reports",
+];
+
+const architectureSignals = [
+  "Live queue telemetry",
+  "Versioned workflow releases",
+  "Audit coverage by default",
 ];
 
 export function FeatureGridSection() {
@@ -29,7 +36,7 @@ export function FeatureGridSection() {
             </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {["Adaptive routing", "AI recommendations", "Approval controls", "Audit timelines"].map(
               (item) => (
                 <div
@@ -43,8 +50,8 @@ export function FeatureGridSection() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 xl:grid-cols-12">
-          <Reveal className="xl:col-span-5">
+        <div className="mt-12 grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+          <Reveal>
             <div className="surface-panel-dark animated-grid relative h-full overflow-hidden p-6">
               <div className="relative z-[1]">
                 <p className="data-label text-sky-200">Orchestration architecture</p>
@@ -68,25 +75,79 @@ export function FeatureGridSection() {
                     </div>
                   ))}
                 </div>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                  {architectureSignals.map((signal) => (
+                    <div
+                      key={signal}
+                      className="rounded-[1.15rem] border border-white/8 bg-white/5 px-3 py-3 text-sm text-slate-200"
+                    >
+                      {signal}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </Reveal>
 
-          <div className="grid gap-6 xl:col-span-7 md:grid-cols-2">
-            {homeFeatureCards.map((feature, index) => (
-              <Reveal key={feature.title} delay={index * 0.05}>
-                <InteractiveCard className="surface-panel h-full p-6">
+          <div className="grid gap-6 md:grid-cols-2">
+            {homeFeatureCards.slice(0, 4).map((feature, index) => (
+              <Reveal
+                key={feature.title}
+                delay={index * 0.05}
+                className={index === 0 ? "md:col-span-2" : undefined}
+              >
+                <InteractiveCard
+                  className={cn(
+                    "h-full p-6",
+                    index === 0
+                      ? "surface-panel-dark border border-sky-400/18"
+                      : "surface-panel",
+                  )}
+                >
                   <div className="flex items-start justify-between gap-4">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-[1.2rem] bg-slate-950 text-sm font-semibold text-white shadow-[0_20px_38px_-28px_rgba(8,15,31,0.45)]">
+                    <span
+                      className={cn(
+                        "inline-flex h-12 w-12 items-center justify-center rounded-[1.2rem] text-sm font-semibold shadow-[0_20px_38px_-28px_rgba(8,15,31,0.45)]",
+                        index === 0 ? "bg-white/10 text-white" : "bg-slate-950 text-white",
+                      )}
+                    >
                       0{index + 1}
                     </span>
-                    <span className="data-label text-slate-400">Product module</span>
+                    <span
+                      className={cn(
+                        "data-label",
+                        index === 0 ? "text-sky-200" : "text-slate-400",
+                      )}
+                    >
+                      Product module
+                    </span>
                   </div>
-                  <h3 className="mt-5 font-display text-2xl font-semibold tracking-[-0.05em] text-slate-950">
+
+                  <h3
+                    className={cn(
+                      "mt-5 font-display text-2xl font-semibold tracking-[-0.05em]",
+                      index === 0 ? "text-white" : "text-slate-950",
+                    )}
+                  >
                     {feature.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">{feature.description}</p>
-                  <div className="mt-5 rounded-[1.2rem] border border-slate-200 bg-white px-4 py-4 text-sm font-medium leading-6 text-slate-800">
+                  <p
+                    className={cn(
+                      "mt-3 text-sm leading-7",
+                      index === 0 ? "max-w-3xl text-slate-300" : "text-slate-600",
+                    )}
+                  >
+                    {feature.description}
+                  </p>
+                  <div
+                    className={cn(
+                      "mt-5 rounded-[1.2rem] border px-4 py-4 text-sm font-medium leading-6",
+                      index === 0
+                        ? "border-white/10 bg-white/5 text-slate-200"
+                        : "border-slate-200 bg-white text-slate-800",
+                    )}
+                  >
                     {feature.detail}
                   </div>
                 </InteractiveCard>

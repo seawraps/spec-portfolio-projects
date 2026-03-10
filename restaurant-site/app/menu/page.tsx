@@ -17,8 +17,19 @@ export default function MenuPage() {
   return (
     <div className="page-shell">
       <section className="section-dark pb-18 md:pb-22 lg:pb-26">
+        <div className="pointer-events-none absolute inset-0 sm:hidden">
+          <Image
+            src={siteImages.menuPlated.src}
+            alt=""
+            fill
+            className="object-cover object-[center_72%] opacity-[0.28]"
+            priority
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,6,4,0.84)_0%,rgba(9,6,4,0.5)_42%,rgba(9,6,4,0.94)_100%)]" />
+        </div>
+
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-10 xl:grid-cols-[0.88fr_1.12fr] xl:items-end">
+          <div className="grid gap-10 xl:grid-cols-[0.84fr_1.16fr] xl:items-end">
             <Reveal className="max-w-3xl pt-6">
               <SectionHeading
                 eyebrow="Dinner Menu"
@@ -38,39 +49,10 @@ export default function MenuPage() {
               </div>
             </Reveal>
 
-            <div className="relative h-[30rem] sm:h-[36rem] xl:h-[42rem]">
-              <Reveal className="absolute right-0 top-0 z-20 w-[72%] hero-drift">
-                <InteractivePanel className="rounded-[2.2rem]">
-                  <figure className="image-shell rounded-[2.2rem]">
-                    <Image
-                      src={siteImages.menuPlated.src}
-                      alt={siteImages.menuPlated.alt}
-                      width={1800}
-                      height={2700}
-                      className="h-[22rem] w-full object-cover sm:h-[30rem] xl:h-[37rem]"
-                      priority
-                    />
-                  </figure>
-                </InteractivePanel>
-              </Reveal>
-
-              <Reveal delay={140} className="absolute bottom-0 left-0 z-30 w-[44%] hero-drift-delayed">
-                <InteractivePanel className="rounded-[1.9rem]">
-                  <figure className="image-shell rounded-[1.9rem]">
-                    <Image
-                      src={siteImages.cocktailService.src}
-                      alt={siteImages.cocktailService.alt}
-                      width={1800}
-                      height={1260}
-                      className="h-[14rem] w-full object-cover sm:h-[17rem] xl:h-[19rem]"
-                    />
-                  </figure>
-                </InteractivePanel>
-              </Reveal>
-
+            <div className="grid gap-4 sm:grid-cols-[0.38fr_0.62fr] sm:items-end xl:min-h-[39rem] xl:grid-cols-[0.4fr_0.6fr]">
               <Reveal
-                delay={240}
-                className="absolute left-[10%] top-[8%] z-40 max-w-[16rem] rounded-[1.7rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(12,8,6,0.76)] p-5 text-[#f6ecdf] shadow-[0_24px_70px_-34px_rgba(0,0,0,0.82)] backdrop-blur-xl"
+                delay={140}
+                className="order-3 rounded-[1.7rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(12,8,6,0.76)] p-5 text-[#f6ecdf] shadow-[0_24px_70px_-34px_rgba(0,0,0,0.82)] backdrop-blur-xl sm:order-1 sm:self-start xl:mr-3"
               >
                 <p className="text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
                   Format
@@ -79,6 +61,38 @@ export default function MenuPage() {
                   Best experienced over several shared starters, one pasta, one fire-led main, and
                   a bar round involved early.
                 </p>
+              </Reveal>
+
+              <Reveal className="order-1 sm:order-2 sm:row-span-2">
+                <InteractivePanel className="rounded-[2.2rem]">
+                  <figure className="image-shell rounded-[2.2rem]">
+                    <Image
+                      src={siteImages.menuPlated.src}
+                      alt={siteImages.menuPlated.alt}
+                      width={1800}
+                      height={2700}
+                      className="h-[18rem] w-full object-cover object-[center_56%] sm:h-[26rem] xl:h-[39rem]"
+                      priority
+                    />
+                  </figure>
+                </InteractivePanel>
+              </Reveal>
+
+              <Reveal
+                delay={240}
+                className="order-2 max-w-[14rem] hero-drift-delayed sm:order-3 sm:justify-self-start xl:ml-8 xl:self-end"
+              >
+                <InteractivePanel className="rounded-[1.9rem]">
+                  <figure className="image-shell rounded-[1.9rem]">
+                    <Image
+                      src={siteImages.cocktailService.src}
+                      alt={siteImages.cocktailService.alt}
+                      width={1800}
+                      height={1260}
+                      className="h-[13rem] w-full object-cover sm:h-[16rem] xl:h-[18rem]"
+                    />
+                  </figure>
+                </InteractivePanel>
               </Reveal>
             </div>
           </div>
@@ -123,17 +137,28 @@ export default function MenuPage() {
           <Reveal delay={80}>
             <nav
               aria-label="Menu categories"
-              className="flex flex-wrap gap-3 rounded-[2rem] border border-[#d8c4b0] bg-[rgba(255,255,255,0.6)] p-3"
+              className="rounded-[2rem] border border-[#d8c4b0] bg-[rgba(255,255,255,0.6)] p-3 sm:p-4"
             >
-              {menuCategories.map((category) => (
-                <Link
-                  key={category.id}
-                  href={`#${category.id}`}
-                  className="rounded-full border border-[#c8aa8b] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#6d4c34] transition-all hover:-translate-y-0.5 hover:border-[#9a6435] hover:text-[#9a6435]"
-                >
-                  {category.title}
-                </Link>
-              ))}
+              <ol className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+                {menuCategories.map((category, index) => (
+                  <li key={category.id}>
+                    <Link
+                      href={`#${category.id}`}
+                      className="group flex h-full flex-col gap-2 rounded-[1.45rem] border border-[#dbc8b5] bg-[rgba(255,255,255,0.58)] px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b98956] hover:bg-white"
+                    >
+                      <span className="text-[0.58rem] font-semibold uppercase tracking-[0.32em] text-[#a06c3d]">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-display text-[1.45rem] leading-[0.92] text-[#342319] transition-colors group-hover:text-[#1f140f]">
+                        {category.title}
+                      </span>
+                      <span className="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[#87634a]">
+                        {category.courseLabel}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
             </nav>
           </Reveal>
         </div>

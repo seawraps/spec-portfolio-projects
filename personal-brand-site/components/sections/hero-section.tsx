@@ -6,8 +6,8 @@ import { heroStats, siteConfig } from "@/lib/data";
 
 export function HeroSection() {
   return (
-    <section className="section-shell overflow-hidden pt-10 sm:pt-14 md:pt-16 lg:pt-18">
-      <Container className="grid gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+    <section id="hero" className="section-shell overflow-hidden pt-8 sm:pt-12 md:pt-14 lg:pt-16">
+      <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <div className="reveal-up">
           <span className="eyebrow">Editorial Brand Studio</span>
 
@@ -21,7 +21,7 @@ export function HeroSection() {
             <span>Media Partnerships</span>
           </div>
 
-          <h1 className="mt-6 max-w-5xl text-balance text-[3.9rem] text-ink sm:text-[5.2rem] lg:text-[7rem]">
+          <h1 className="mt-5 max-w-[10ch] text-[3.85rem] leading-[0.92] text-ink sm:text-[5.2rem] lg:text-[6.35rem] xl:text-[6.9rem]">
             Build the kind of personal brand people
             {" "}
             <span className="text-plum italic">quote in the room</span>
@@ -29,27 +29,32 @@ export function HeroSection() {
             and book after the room.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-8 text-mocha/92 sm:text-lg">
+          <p className="mt-5 max-w-xl text-base leading-8 text-mocha/92 sm:text-lg">
             I help founders, authors, and expert-led teams shape the public version of their expertise so it feels
             warmer, sharper, and more commercially useful across keynote rooms, podcasts, and flagship content.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-mocha/80">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="/contact?type=speaking" className="w-full justify-center sm:w-auto" arrow>
+              Request availability
+            </ButtonLink>
+            <ButtonLink
+              href="/services"
+              variant="secondary"
+              className="w-full justify-center sm:w-auto"
+              arrow
+            >
+              See speaking + advisory
+            </ButtonLink>
+          </div>
+
+          <div className="mt-7 flex flex-wrap gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-mocha/80">
             <span className="rounded-full border border-ink/10 bg-white/72 px-4 py-2">Editorial positioning</span>
             <span className="rounded-full border border-ink/10 bg-white/72 px-4 py-2">Signature talks</span>
             <span className="rounded-full border border-ink/10 bg-white/72 px-4 py-2">Sponsor-ready packaging</span>
           </div>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/contact?type=speaking" className="w-full sm:w-auto" arrow>
-              Request availability
-            </ButtonLink>
-            <ButtonLink href="/services" variant="secondary" className="w-full sm:w-auto" arrow>
-              See speaking + advisory
-            </ButtonLink>
-          </div>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             <article className="note-card p-5">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">For founders</p>
               <p className="mt-3 text-lg leading-7 text-ink">
@@ -64,7 +69,7 @@ export function HeroSection() {
               </p>
             </article>
 
-            <article className="note-card p-5 md:col-span-1">
+            <article className="note-card p-5 md:col-span-2 xl:col-span-1">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">For media brands</p>
               <p className="mt-3 text-lg leading-7 text-ink">
                 Package trust into sponsor stories and premium offers without losing the voice people showed up for.
@@ -72,27 +77,27 @@ export function HeroSection() {
             </article>
           </div>
 
-          <div className="mt-10 grid gap-4 border-t border-ink/10 pt-6 sm:grid-cols-2">
+          <div className="mt-8 grid gap-3 border-t border-ink/10 pt-6 sm:grid-cols-2">
             {heroStats.map((stat) => (
-              <article key={stat.label} className="rounded-[1.4rem] border border-ink/8 bg-white/54 px-5 py-5">
-                <p className="text-3xl leading-none text-ink sm:text-[2.15rem]">{stat.value}</p>
+              <article key={stat.label} className="rounded-[1.4rem] border border-ink/8 bg-white/58 px-5 py-5">
+                <p className="text-3xl leading-none text-ink sm:text-[2.05rem]">{stat.value}</p>
                 <p className="mt-3 max-w-xs text-sm leading-6 text-mocha/84">{stat.label}</p>
               </article>
             ))}
           </div>
         </div>
 
-        <div className="relative reveal-up-delay lg:pl-10">
-          <div className="absolute -top-6 left-10 hidden h-28 w-28 rounded-full bg-gold/18 blur-3xl md:block" />
-          <div className="absolute bottom-16 right-0 hidden h-32 w-32 rounded-full bg-plum/15 blur-3xl md:block" />
+        <div className="relative reveal-up-delay lg:pl-4">
+          <div className="absolute -top-4 left-10 hidden h-28 w-28 rounded-full bg-gold/18 blur-3xl md:block" />
+          <div className="absolute bottom-16 right-8 hidden h-32 w-32 rounded-full bg-plum/15 blur-3xl md:block" />
 
-          <div className="grid gap-5 lg:grid-cols-[0.64fr_0.36fr]">
-            <div className="media-frame portrait-reveal grain relative aspect-[4/5.15] overflow-hidden rounded-[2.8rem]">
+          <div className="grid gap-5 md:grid-cols-[minmax(0,1.08fr)_minmax(15rem,0.72fr)]">
+            <div className="media-frame portrait-reveal grain relative aspect-[4/4.95] overflow-hidden rounded-[2.8rem] md:row-span-2">
               <Image
                 src="/images/nadia-desk-portrait.jpg"
                 alt="Nadia Vale seated at a desk in a bright editorial workspace."
                 fill
-                sizes="(min-width: 1024px) 38vw, 100vw"
+                sizes="(min-width: 1024px) 42vw, 100vw"
                 className="object-cover object-center"
                 priority
               />
@@ -112,21 +117,23 @@ export function HeroSection() {
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="pointer-events-none absolute right-0 top-8 z-10 hidden w-64 lg:block">
-            <div className="note-card drift p-5">
+            <div className="note-card drift self-start p-5 sm:p-6">
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
                 Now Booking
               </p>
-              <p className="mt-3 text-xl text-ink">Speaking dates, founder workshops, and selective advisory partnerships.</p>
-              <p className="mt-3 text-sm leading-6 text-mocha/84">
-                Best fit for teams that want sharp ideas with editorial polish, not generic inspiration theater.
+              <p className="mt-3 text-xl leading-8 text-ink">
+                Speaking dates, founder workshops, and selective advisory partnerships.
               </p>
+              <p className="mt-3 text-sm leading-6 text-mocha/84">
+                Best for teams that want sharp ideas with editorial taste, not generic inspiration theater.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-mocha/72">
+                <span className="rounded-full border border-ink/10 bg-white/82 px-3 py-2">Founder offsites</span>
+                <span className="rounded-full border border-ink/10 bg-white/82 px-3 py-2">Media hosts</span>
+              </div>
             </div>
-          </div>
 
-          <div className="reveal-up-late relative z-10 mt-5 grid gap-5 sm:grid-cols-[0.78fr_0.22fr] lg:-mt-14 lg:ml-14">
             <div className="paper-panel overflow-hidden p-5 sm:p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
@@ -151,14 +158,19 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="ink-panel flex flex-col justify-between p-5 sm:p-6">
+            <div className="ink-panel reveal-up-late flex flex-col justify-between p-5 sm:p-6">
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/62">
                 Booking Desk
               </p>
               <p className="mt-4 text-lg leading-7 text-white/86">
                 Prefer events, launches, and partner moments where the message has to do real work after the applause.
               </p>
-              <ButtonLink href="/contact?type=advisory" variant="secondary" className="mt-6 border-white/16 bg-white/12 text-white hover:bg-white/18 hover:text-white" arrow>
+              <ButtonLink
+                href="/contact?type=advisory"
+                variant="secondary"
+                className="mt-6 border-white/16 bg-white/12 text-white hover:bg-white/18 hover:text-white"
+                arrow
+              >
                 Start a booking note
               </ButtonLink>
             </div>

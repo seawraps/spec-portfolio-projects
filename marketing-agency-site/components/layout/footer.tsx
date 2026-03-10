@@ -9,14 +9,18 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-coal">
       <div className="mx-auto w-full max-w-7xl px-6 py-12">
         <div className="surface-panel px-6 py-8 sm:px-8 sm:py-10">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.4fr_0.55fr]">
+          <div className="grid gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(14rem,0.38fr)_minmax(16rem,0.52fr)]">
             <div className="space-y-5">
               <p className="eyebrow-label">{agency.name}</p>
-              <h2 className="max-w-2xl font-display text-[clamp(3.8rem,7vw,6.5rem)] uppercase leading-[0.82] text-white">
+              <h2 className="max-w-3xl font-display text-[clamp(3.6rem,6vw,6rem)] uppercase leading-[0.82] text-white">
                 Campaign-first growth systems with real commercial pressure behind them.
               </h2>
-              <p className="max-w-xl text-sm leading-7 text-white/68">{agency.description}</p>
-              <p className="text-sm text-white/42">{agency.location}</p>
+              <p className="max-w-2xl text-sm leading-7 text-white/68">{agency.description}</p>
+              <div className="flex flex-wrap gap-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/42">
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Paid media</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Creative systems</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Conversion pressure</span>
+              </div>
             </div>
 
             <nav aria-label="Footer" className="space-y-3">
@@ -32,17 +36,21 @@ export function Footer() {
               </ul>
             </nav>
 
-            <div className="space-y-3 text-sm text-white/66">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/46">Direct line</p>
-              <a href={`mailto:${agency.email}`} className="block transition hover:text-white">
-                {agency.email}
-              </a>
-              <a href={`tel:${agency.phone}`} className="block transition hover:text-white">
-                {agency.phone}
-              </a>
-              <p className="pt-4 text-xs leading-6 text-white/36">
+            <div className="grid gap-4">
+              <div className="rounded-[1.4rem] border border-white/10 bg-white/5 p-5 text-sm text-white/68">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-volt">Direct line</p>
+                <a href={`mailto:${agency.email}`} className="mt-4 block transition hover:text-white">
+                  {agency.email}
+                </a>
+                <a href={`tel:${agency.phone}`} className="mt-2 block transition hover:text-white">
+                  {agency.phone}
+                </a>
+                <p className="mt-2">{agency.location}</p>
+              </div>
+
+              <div className="rounded-[1.4rem] border border-white/10 bg-coal/72 p-5 text-xs leading-6 text-white/42">
                 Portfolio concept project. Brand, numbers, and client names are realistic placeholders built for demo-safe use.
-              </p>
+              </div>
             </div>
           </div>
         </div>

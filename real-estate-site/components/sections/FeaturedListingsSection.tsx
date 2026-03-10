@@ -40,9 +40,9 @@ export function FeaturedListingsSection() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 xl:grid-cols-[1.18fr_0.82fr]">
+        <div className="mt-10 space-y-6">
           <ListingCard listing={leadListing} featured />
-          <div className="grid gap-6">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {secondaryListings.map((listing) => (
               <ListingCard key={listing.name} listing={listing} />
             ))}

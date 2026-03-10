@@ -9,8 +9,8 @@ export function ProjectsSection() {
   const [featuredProject, ...galleryProjects] = projectHighlights;
 
   return (
-    <section id="projects" className="py-16 md:py-20 lg:py-24">
-      <Container className="space-y-10">
+    <section id="projects" className="py-18 md:py-22 lg:py-26">
+      <Container className="space-y-8 sm:space-y-10">
         <div className="grid gap-8 xl:grid-cols-[0.8fr_1.2fr] xl:items-start">
           <Reveal>
             <SectionHeading
@@ -19,11 +19,11 @@ export function ProjectsSection() {
               description="We write case studies the same way clients describe successful work: what felt unresolved before, what changed structurally, and why the finished space now feels calmer every day."
             />
 
-            <div className="surface-card-strong mt-8 rounded-[2.2rem] p-6 sm:p-7">
+            <div className="surface-card-strong mt-8 rounded-[2.2rem] p-5 sm:p-7">
               <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
                 Featured story
               </p>
-              <h3 className="mt-4 font-display text-[2.25rem] leading-[1.04] text-[var(--color-brand)] sm:text-[2.9rem]">
+              <h3 className="mt-4 font-display text-[2rem] leading-[1.05] text-[var(--color-brand)] sm:text-[2.75rem]">
                 {featuredProject.title}
               </h3>
               <p className="mt-2 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
@@ -67,7 +67,7 @@ export function ProjectsSection() {
 
           <Reveal delay={120}>
             <div className="grid gap-4 md:grid-cols-[0.67fr_0.33fr]">
-              <div className="image-frame relative min-h-[380px] rounded-[2.5rem] sm:min-h-[560px]">
+              <div className="image-frame relative min-h-[340px] rounded-[2.5rem] sm:min-h-[540px]">
                 <Image
                   src={featuredProject.image}
                   alt={featuredProject.imageAlt}
@@ -80,14 +80,14 @@ export function ProjectsSection() {
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
                     {featuredProject.category}
                   </p>
-                  <p className="mt-3 max-w-sm font-display text-[2.15rem] leading-[1.02] sm:text-[2.85rem]">
+                  <p className="mt-3 max-w-sm font-display text-[1.95rem] leading-[1.04] sm:text-[2.55rem]">
                     {featuredProject.summary}
                   </p>
                 </div>
               </div>
 
               <div className="grid gap-4">
-                <div className="image-frame relative min-h-[230px] rounded-[2rem]">
+                <div className="image-frame relative min-h-[200px] rounded-[2rem]">
                   <Image
                     src="/images/bathroom-vanity.jpg"
                     alt="A premium bathroom vanity with warm wood tones and polished stone."
@@ -116,7 +116,7 @@ export function ProjectsSection() {
           {galleryProjects.map((project, index) => (
             <Reveal key={project.title} delay={index * 80}>
               <article className="surface-card overflow-hidden rounded-[2.1rem]">
-                <div className="relative h-80 w-full">
+                <div className="relative h-[240px] w-full sm:h-72">
                   <Image
                     src={project.image}
                     alt={project.imageAlt}
@@ -136,7 +136,7 @@ export function ProjectsSection() {
                     </p>
                   </div>
 
-                  <h3 className="mt-4 font-display text-[2.2rem] leading-[1.03] text-[var(--color-brand)]">
+                  <h3 className="mt-4 font-display text-[1.95rem] leading-[1.05] text-[var(--color-brand)] sm:text-[2.2rem]">
                     {project.title}
                   </h3>
                   <p className="mt-2 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">

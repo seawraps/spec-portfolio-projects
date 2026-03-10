@@ -16,13 +16,13 @@ export function ReservationCta({ compact = false }: ReservationCtaProps) {
         <Reveal>
           <div className="relative overflow-hidden rounded-[2.6rem] border border-[rgba(255,233,204,0.12)]">
             <Image
-              src={siteImages.heroOccasion.src}
-              alt={siteImages.heroOccasion.alt}
+              src={siteImages.terraceNight.src}
+              alt={siteImages.terraceNight.alt}
               fill
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(240,198,144,0.18),transparent_30%)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(92deg,rgba(9,6,4,0.92)_0%,rgba(9,6,4,0.84)_44%,rgba(9,6,4,0.48)_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(240,198,144,0.18),transparent_32%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(96deg,rgba(9,6,4,0.94)_0%,rgba(9,6,4,0.84)_52%,rgba(9,6,4,0.42)_100%)]" />
 
             <div className="relative grid gap-8 px-8 py-10 sm:px-10 sm:py-12 lg:grid-cols-[0.96fr_0.64fr] lg:px-14 lg:py-14">
               <div>
@@ -42,11 +42,14 @@ export function ReservationCta({ compact = false }: ReservationCtaProps) {
                     href={contactDetails.reservationsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={buttonClassName("accent")}
+                    className={buttonClassName("accent", "rounded-[1.15rem]")}
                   >
                     Book Online
                   </a>
-                  <Link href="/contact" className={buttonClassName("secondaryInverse")}>
+                  <Link
+                    href="/contact"
+                    className={buttonClassName("secondaryInverse", "rounded-[1.15rem]")}
+                  >
                     Plan A Private Evening
                   </Link>
                 </div>

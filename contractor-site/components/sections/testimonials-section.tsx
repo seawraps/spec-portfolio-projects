@@ -7,7 +7,7 @@ export function TestimonialsSection() {
   const [leadTestimonial, ...supportingTestimonials] = testimonials;
 
   return (
-    <section id="reviews" className="py-16 md:py-20 lg:py-24">
+    <section id="reviews" className="py-18 md:py-22 lg:py-26">
       <Container className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
         <Reveal>
           <div className="surface-card-strong rounded-[2.6rem] p-6 sm:p-8">
@@ -19,7 +19,7 @@ export function TestimonialsSection() {
 
             <blockquote className="mt-8 rounded-[2rem] bg-[var(--color-surface-strong)] p-6 sm:p-7">
               <p className="text-[0.74rem] tracking-[0.24em] text-[var(--color-accent)]">★★★★★</p>
-              <p className="mt-4 font-display text-[2.35rem] leading-[1.1] text-[var(--color-brand)] sm:text-[3rem]">
+              <p className="mt-4 font-display text-[2rem] leading-[1.12] text-[var(--color-brand)] sm:text-[2.75rem]">
                 “{leadTestimonial.quote}”
               </p>
               <footer className="mt-6 border-t border-[var(--color-border)] pt-4 text-sm leading-7 text-[var(--color-muted)]">
@@ -50,11 +50,11 @@ export function TestimonialsSection() {
         <div className="grid gap-5">
           {supportingTestimonials.map((testimonial, index) => (
             <Reveal key={testimonial.customerName} delay={index * 80}>
-              <blockquote className="surface-card rounded-[2.1rem] p-6 sm:p-7">
+              <blockquote className="surface-card rounded-[2.1rem] p-5 sm:p-6">
                 <p className="text-[0.74rem] tracking-[0.24em] text-[var(--color-accent)]">
                   ★★★★★
                 </p>
-                <p className="mt-4 font-display text-[2rem] leading-[1.12] text-[var(--color-brand)] sm:text-[2.55rem]">
+                <p className="mt-4 font-display text-[1.75rem] leading-[1.14] text-[var(--color-brand)] sm:text-[2.25rem]">
                   “{testimonial.quote}”
                 </p>
                 <footer className="mt-6 border-t border-[var(--color-border)] pt-4 text-sm leading-7 text-[var(--color-muted)]">
