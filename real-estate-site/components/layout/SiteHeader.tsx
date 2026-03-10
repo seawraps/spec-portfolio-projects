@@ -21,29 +21,29 @@ export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[rgba(248,243,236,0.82)] backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-3 sm:py-4">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[rgba(246,240,232,0.84)] backdrop-blur-2xl">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-4">
         <Link
           href="/"
-          className="flex min-w-0 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)]"
+          className="flex min-w-0 items-center gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-bronze)]"
           onClick={() => setIsOpen(false)}
           aria-label="Crescent Vale Realty home"
         >
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-forest)] font-display text-xl text-white">
-            CV
+          <span className="flex h-12 w-12 items-center justify-center rounded-[16px] border border-[rgba(19,26,33,0.14)] bg-[var(--color-navy)] font-display text-xl text-white">
+            C
           </span>
           <span className="min-w-0">
-            <span className="block text-2xl leading-none text-[var(--color-ink)] sm:text-3xl">
+            <span className="block font-display text-[1.85rem] leading-none text-[var(--color-ink)] sm:text-[2.1rem]">
               Crescent Vale
             </span>
-            <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted)] sm:tracking-[0.32em]">
-              Realty
+            <span className="block text-[0.64rem] font-semibold uppercase tracking-[0.38em] text-[var(--color-bronze)]">
+              Private Real Estate Advisory
             </span>
           </span>
         </Link>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <nav aria-label="Primary navigation" className="flex items-center gap-2">
+        <div className="hidden items-center gap-5 lg:flex">
+          <nav aria-label="Primary navigation" className="flex items-center gap-6">
             {navigationLinks.map((link) => {
               const active = isActiveLink(pathname, link.href);
 
@@ -52,10 +52,10 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)]",
+                    "border-b border-transparent pb-1 text-[0.72rem] font-semibold uppercase tracking-[0.28em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-bronze)]",
                     active
-                      ? "bg-[var(--color-forest)] text-white"
-                      : "text-[var(--color-muted)] hover:bg-white/70 hover:text-[var(--color-ink)]",
+                      ? "border-[var(--color-bronze)] text-[var(--color-ink)]"
+                      : "text-[var(--color-muted)] hover:text-[var(--color-ink)]",
                   )}
                   aria-current={active ? "page" : undefined}
                 >
@@ -64,17 +64,14 @@ export function SiteHeader() {
               );
             })}
           </nav>
-          <Link
-            href="/contact"
-            className={buttonClassName("primary")}
-          >
+          <Link href="/contact" className={buttonClassName("primary")}>
             Book A Consultation
           </Link>
         </div>
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line-strong)] bg-white/70 text-[var(--color-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)] lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-[14px] border border-[var(--color-line-strong)] bg-white/72 text-[var(--color-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-bronze)] lg:hidden"
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -101,7 +98,7 @@ export function SiteHeader() {
       {isOpen ? (
         <div
           id="mobile-navigation"
-          className="border-t border-[var(--color-line)] bg-[rgba(248,243,236,0.94)] px-5 py-5 lg:hidden"
+          className="border-t border-[var(--color-line)] bg-[rgba(246,240,232,0.96)] px-5 py-5 lg:hidden"
         >
           <nav aria-label="Mobile primary navigation" className="flex flex-col gap-2">
             {navigationLinks.map((link) => {
@@ -113,10 +110,10 @@ export function SiteHeader() {
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "rounded-[18px] px-4 py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)]",
+                    "rounded-[18px] px-4 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.24em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-bronze)]",
                     active
-                      ? "bg-[var(--color-forest)] text-white"
-                      : "bg-white/65 text-[var(--color-ink)]",
+                      ? "bg-[var(--color-navy)] text-white"
+                      : "bg-white/74 text-[var(--color-ink)]",
                   )}
                   aria-current={active ? "page" : undefined}
                 >

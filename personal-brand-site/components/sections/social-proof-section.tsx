@@ -1,27 +1,32 @@
 import { Container } from "@/components/ui/container";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { socialProofLogos } from "@/lib/data";
 
 export function SocialProofSection() {
   return (
     <section className="section-shell pt-6 md:pt-8 lg:pt-10">
       <Container>
-        <div className="surface-card px-6 py-8 sm:px-8 sm:py-10">
-          <SectionHeading
-            eyebrow="Social Proof"
-            title="Trusted by founder-led teams, modern media brands, and rooms that expect substance."
-            description="This concept brand is positioned for advisory, speaking, and sponsorship opportunities, so the proof points are designed to feel commercially believable and easy to scan."
-          />
+        <div className="section-rule pt-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-mocha/72">
+                Selected Rooms and Collaborations
+              </p>
+              <p className="mt-3 max-w-2xl text-base leading-8 text-mocha/92">
+                Positioned for founder-led brands, modern media properties, and events that want a sharper blend of
+                substance, warmth, and commercial clarity.
+              </p>
+            </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            {socialProofLogos.map((logo) => (
-              <div
-                key={logo}
-                className="rounded-full border border-ink/10 bg-sand/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-ink/68"
-              >
-                {logo}
-              </div>
-            ))}
+            <div className="flex flex-wrap gap-3 lg:max-w-3xl lg:justify-end">
+              {socialProofLogos.map((logo) => (
+                <div
+                  key={logo}
+                  className="rounded-full border border-ink/10 bg-white/70 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_16px_28px_-24px_rgba(35,24,20,0.22)]"
+                >
+                  {logo}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Container>

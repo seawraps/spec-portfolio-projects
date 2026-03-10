@@ -3,24 +3,33 @@ import { SectionIntro } from "@/components/ui/section-intro";
 
 export function EngagementModels() {
   return (
-    <section className="section-spacing border-y border-white/10 bg-deep-2/70">
+    <section className="section-spacing bg-paper text-ink">
       <div className="mx-auto w-full max-w-7xl space-y-10 px-6">
         <SectionIntro
           eyebrow="Engagement Models"
-          title="Flexible ways to partner"
-          description="Pick a model based on your stage, team capacity, and urgency. Every engagement starts with a strategic kickoff and shared success metrics."
+          title="Flexible structures, but always one sharp operating standard."
+          description="You can bring us in for a single pressure point or a broader growth system. Either way, the model starts with clear KPIs, senior ownership, and a decision cadence your team can trust."
+          tone="light"
         />
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {engagementModels.map((model) => (
-            <article key={model.name} className="surface-panel flex h-full flex-col p-6">
-              <h3 className="text-xl font-semibold text-white">{model.name}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300">{model.bestFor}</p>
-              <p className="mt-4 text-lg font-semibold text-mint">{model.investment}</p>
-              <ul className="mt-5 space-y-2 border-t border-white/10 pt-4 text-sm text-slate-200">
+        <div className="grid gap-5 lg:grid-cols-3">
+          {engagementModels.map((model, index) => (
+            <article
+              key={model.name}
+              className={`paper-panel flex h-full flex-col p-6 md:p-8 ${
+                index === 1 ? "lg:-translate-y-5" : index === 2 ? "lg:translate-y-6" : ""
+              }`}
+            >
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-signal">
+                {index === 0 ? "Fastest way in" : index === 1 ? "Most common model" : "High-stakes rollout"}
+              </p>
+              <h3 className="mt-4 font-display text-4xl font-semibold uppercase leading-none text-ink">{model.name}</h3>
+              <p className="mt-4 text-sm leading-7 text-ink/72">{model.bestFor}</p>
+              <p className="mt-6 font-display text-5xl font-semibold uppercase leading-none text-ink">{model.investment}</p>
+              <ul className="mt-6 space-y-3 border-t border-ink/10 pt-5 text-sm text-ink/78">
                 {model.includes.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-mint" aria-hidden="true" />
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-6 rounded-full bg-signal" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}

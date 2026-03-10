@@ -10,6 +10,8 @@ export type Service = {
   description: string;
   outcomes: string[];
   deliverables: string[];
+  tagline: string;
+  cadence: string;
 };
 
 export type CaseStudy = {
@@ -18,12 +20,16 @@ export type CaseStudy = {
   challenge: string;
   approach: string;
   outcomes: string[];
+  headlineMetric: string;
+  headlineLabel: string;
+  channelMix: string[];
 };
 
 export type Metric = {
   value: string;
   label: string;
   detail: string;
+  benchmark: string;
 };
 
 export type ProcessStep = {
@@ -47,10 +53,10 @@ export type EngagementModel = {
 
 export const agency = {
   name: "Signal & Stone",
-  tagline: "Performance-led creative for growth-stage teams.",
+  tagline: "Performance-led creative for teams that need faster revenue movement.",
   description:
-    "Signal & Stone is a strategy and creative marketing agency helping ambitious teams turn demand into revenue.",
-  location: "Austin, TX",
+    "Signal & Stone is a senior-led growth agency pairing paid media, campaign creative, and conversion systems to turn demand into measurable revenue.",
+  location: "Austin, TX + remote client teams",
   email: "hello@signalandstone.agency",
   phone: "+1 (512) 555-0184",
 };
@@ -65,111 +71,123 @@ export const navItems: NavItem[] = [
 export const services: Service[] = [
   {
     slug: "paid-ads",
-    name: "Paid Ads",
-    short: "Full-funnel media buying and creative testing across search, social, and video.",
+    name: "Paid Media",
+    short: "Acquisition systems with tighter targeting, harder creative testing, and clearer revenue accountability.",
     description:
-      "We build paid acquisition systems that scale with discipline, not guesswork. Every campaign is paired with intentional messaging, weekly optimization cycles, and transparent reporting.",
+      "We build channel structures around pipeline and margin targets, not vanity metrics. Every sprint pairs media optimization with landing-page and creative decisions so performance compounds instead of plateauing.",
     outcomes: [
-      "Lower customer acquisition cost without volume loss",
-      "Faster learning loops through creative and audience testing",
-      "Clear visibility from first click to closed revenue",
+      "Lower CAC without stalling qualified volume",
+      "Faster read on audience and creative winners",
+      "Weekly visibility from spend to closed revenue",
     ],
     deliverables: [
-      "Channel and budget strategy",
-      "Campaign architecture and tracking plan",
-      "Ad creative direction and testing matrix",
-      "Weekly pacing, optimization, and insights",
+      "Media strategy and forecast model",
+      "Channel architecture and tracking spec",
+      "Creative testing matrix and briefing system",
+      "Weekly optimization notes with decision log",
     ],
+    tagline: "Acquisition Systems",
+    cadence: "Weekly optimization",
   },
   {
     slug: "branding",
-    name: "Branding",
-    short: "Positioning, voice, and visual systems that make teams instantly recognizable.",
+    name: "Brand Strategy",
+    short: "Sharper positioning, proof, and art direction for teams that need to look and sound category-defining.",
     description:
-      "Your brand should remove friction from every sale. We sharpen positioning and translate it into visual and verbal systems your team can deploy across campaigns, decks, and product touchpoints.",
+      "We tighten the market story before scaling traffic. Positioning, proof hierarchy, and visual direction are translated into campaign-ready systems your team can deploy across ads, decks, site pages, and launch moments.",
     outcomes: [
-      "Clear market positioning against crowded competitors",
-      "Consistent voice and art direction across channels",
-      "Higher conversion from message-market alignment",
+      "Clearer differentiation in crowded categories",
+      "Stronger conversion from sharper message-market fit",
+      "A brand system that travels across channels cleanly",
     ],
     deliverables: [
-      "Category and competitor landscape",
-      "Messaging framework and proof stack",
-      "Visual direction, design toolkit, and usage rules",
-      "Launch story for internal and external rollout",
+      "Category audit and competitive tension map",
+      "Narrative framework and proof stack",
+      "Visual direction boards and art direction rules",
+      "Messaging toolkit for campaign and site teams",
     ],
+    tagline: "Category Pressure",
+    cadence: "Narrative + art direction",
   },
   {
     slug: "web-strategy",
     name: "Web Strategy",
-    short: "Conversion-focused site strategy, UX architecture, and high-impact page planning.",
+    short: "Revenue-oriented site architecture for teams that need pages to sell, not just explain.",
     description:
-      "Websites are revenue systems, not digital brochures. We architect journeys around buyer intent, prioritize high-impact pages, and align site content with pipeline goals.",
+      "We treat the site like a performance surface. Journey mapping, page prioritization, and copy structure are all built around where demand enters, where trust breaks, and where the business needs movement most.",
     outcomes: [
-      "Improved lead quality through tighter journey mapping",
+      "Better lead quality from tighter journeys",
       "Stronger demo and contact conversion rates",
-      "Faster page iteration with measurable hypotheses",
+      "Cleaner measurement for future iteration",
     ],
     deliverables: [
-      "Journey mapping by audience and intent",
-      "Information architecture and page briefs",
-      "Wireframes and copy priorities",
-      "Measurement framework for optimization",
+      "Journey map by audience and buying intent",
+      "Page stack and information architecture",
+      "Wireframes, messaging hierarchy, and proof plan",
+      "Measurement model for page and funnel changes",
     ],
+    tagline: "Revenue UX",
+    cadence: "Page architecture sprints",
   },
   {
     slug: "cro",
     name: "CRO",
-    short: "Structured conversion experiments to turn more sessions into qualified pipeline.",
+    short: "An experiment engine designed to unlock more pipeline from the traffic you already paid for.",
     description:
-      "We run CRO like product teams run feature delivery: by priority, evidence, and iteration speed. Every experiment is tied to a business KPI and documented for future learning.",
+      "We run CRO like operators, not guessers. Funnel diagnostics feed a prioritized backlog, experiments ship with a clear hypothesis, and each readout closes the loop between behavior, offer, and performance.",
     outcomes: [
-      "More qualified conversions from existing traffic",
-      "Reduced friction in key on-site actions",
-      "Documented experimentation backlog and wins",
+      "Higher conversion from existing paid and organic traffic",
+      "Less friction in the core user journey",
+      "A documented testing backlog your team can keep using",
     ],
     deliverables: [
-      "Funnel diagnostics and drop-off analysis",
+      "Funnel analysis and leak diagnosis",
       "Experiment roadmap with impact scoring",
-      "Copy, layout, and offer testing",
-      "Monthly performance and learning review",
+      "Offer, copy, layout, and UX testing support",
+      "Monthly learning report with next-bet recommendations",
     ],
+    tagline: "Experiment Engine",
+    cadence: "Rolling test cadence",
   },
   {
     slug: "content-strategy",
     name: "Content Strategy",
-    short: "Editorial and lifecycle content aligned to demand capture and sales enablement.",
+    short: "Editorial systems that support demand capture, nurture, sales enablement, and retention.",
     description:
-      "We plan and produce content that supports each stage of the buyer journey, from discovery to decision. The result is a system that drives compounding organic and outbound performance.",
+      "We connect content to the buying journey instead of publishing into the void. Topic strategy, lifecycle messaging, and channel distribution are aligned so content drives revenue conversations, not just traffic charts.",
     outcomes: [
-      "Content themes tied to revenue opportunities",
-      "Better sales conversion through sharper enablement assets",
-      "Cross-channel consistency from one strategic narrative",
+      "Content themes tied directly to revenue opportunities",
+      "Better enablement for sales and lifecycle teams",
+      "One strategic narrative carried across every touchpoint",
     ],
     deliverables: [
-      "Topic and intent map",
-      "Editorial roadmap and content operations",
-      "Landing page and lifecycle messaging",
-      "Enablement content for sales conversations",
+      "Topic map by intent, proof, and audience stage",
+      "Editorial calendar and production operations",
+      "Lifecycle messaging for nurture and retention",
+      "Enablement assets for sales conversations",
     ],
+    tagline: "Editorial Demand",
+    cadence: "Content operations",
   },
   {
     slug: "creative-campaigns",
     name: "Creative Campaigns",
-    short: "Big campaign ideas with execution systems built for speed and scale.",
+    short: "Launchable campaign systems built for speed, consistency, and measurable downstream impact.",
     description:
-      "When growth stalls, teams need a bold campaign that cuts through. We develop the concept, channel rollout, and production toolkit so your team can execute without chaos.",
+      "When teams need a sharper market moment, we build the concept, rollout logic, and production system together. That means stronger campaign cut-through without the chaos that usually follows ambitious creative.",
     outcomes: [
-      "Higher engagement and branded search lift",
-      "Unified campaign execution across channels",
-      "Faster production with reusable creative systems",
+      "More memorable campaigns with tighter rollout discipline",
+      "Reusable creative systems for channel teams",
+      "Higher engagement and branded demand around key launches",
     ],
     deliverables: [
       "Campaign concept and narrative arc",
-      "Channel rollout and launch timeline",
-      "Creative direction and production briefs",
-      "Post-launch analysis and iteration plan",
+      "Rollout plan across media, site, and lifecycle",
+      "Creative production briefs and review system",
+      "Post-launch analysis with iteration roadmap",
     ],
+    tagline: "Launch Pressure",
+    cadence: "Concept to rollout",
   },
 ];
 
@@ -178,40 +196,49 @@ export const caseStudies: CaseStudy[] = [
     client: "Northline Health",
     sector: "Digital Healthcare",
     challenge:
-      "Lead costs were rising while qualified demo volume dropped quarter-over-quarter.",
+      "Lead costs kept climbing while the sales team reported a drop in qualified demo conversations.",
     approach:
-      "Rebuilt paid search structure, launched new value-led landing pages, and introduced a weekly CRO sprint.",
+      "We rebuilt paid search around higher-intent demand, launched new landing pages for the top service lines, and ran a weekly CRO sprint tied to sales feedback.",
     outcomes: [
       "42% decrease in cost per qualified lead in 90 days",
       "2.1x increase in booked demos from paid traffic",
-      "$1.3M in pipeline attributed within one quarter",
+      "$1.3M in influenced pipeline within one quarter",
     ],
+    headlineMetric: "42%",
+    headlineLabel: "lower cost per qualified lead",
+    channelMix: ["Paid search", "Landing pages", "CRO sprint"],
   },
   {
     client: "Beacon Freight",
     sector: "Logistics SaaS",
     challenge:
-      "Strong product-market fit but weak category story limited enterprise sales velocity.",
+      "The product was strong, but the market story was weak and enterprise opportunities were stalling.",
     approach:
-      "Refined positioning, rebuilt the website narrative, and launched an integrated LinkedIn and search campaign.",
+      "We reframed the positioning, rebuilt the website around operational proof, and launched a LinkedIn plus search program for enterprise demand capture.",
     outcomes: [
       "67% growth in enterprise inbound opportunities",
       "31% lift in proposal win rate",
-      "Sales cycle shortened by 18 days on average",
+      "Average sales cycle shortened by 18 days",
     ],
+    headlineMetric: "67%",
+    headlineLabel: "more enterprise inbound",
+    channelMix: ["Positioning", "Website narrative", "Paid social + search"],
   },
   {
     client: "Luma Commerce",
     sector: "DTC Retail",
     challenge:
-      "Acquisition was scaling, but retention and repeat purchase lagged behind targets.",
+      "Acquisition spend was working, but repeat purchase and lifecycle contribution were under target.",
     approach:
-      "Built a lifecycle content strategy, refreshed creative cadence, and tested post-purchase offer journeys.",
+      "We refreshed the creative cadence, rewired the lifecycle offer flow, and built a content system for promotional and retention moments.",
     outcomes: [
       "28% increase in repeat purchase rate",
       "39% lift in email-driven revenue",
-      "3.6x blended ROAS during holiday campaign window",
+      "3.6x blended ROAS during the holiday campaign window",
     ],
+    headlineMetric: "3.6x",
+    headlineLabel: "holiday blended ROAS",
+    channelMix: ["Lifecycle content", "Creative refresh", "Offer testing"],
   },
 ];
 
@@ -219,71 +246,75 @@ export const metrics: Metric[] = [
   {
     value: "3.4x",
     label: "Average ROAS lift",
-    detail: "Across paid media engagements after initial optimization window.",
+    detail: "Across paid media programs once new creative and landing-page testing are in motion.",
+    benchmark: "First 90 days",
   },
   {
     value: "43%",
     label: "Median CAC reduction",
-    detail: "Measured across B2B and DTC accounts in first 120 days.",
+    detail: "Measured across B2B and DTC accounts after restructuring spend, messaging, and conversion flow.",
+    benchmark: "First 120 days",
   },
   {
     value: "$4.8M",
     label: "Pipeline influenced",
-    detail: "Attributed to campaign and web optimization work in the last 12 months.",
+    detail: "Attributed to campaign, web, and CRO work across the last twelve months of representative client engagements.",
+    benchmark: "Trailing 12 months",
   },
   {
     value: "11 days",
     label: "Average test velocity",
-    detail: "From experiment brief to decision-ready readout.",
+    detail: "From experiment brief to decision-ready readout, including build, QA, and reporting.",
+    benchmark: "Current operating average",
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
-    title: "01. Align",
+    title: "Align around revenue",
     summary:
-      "We map growth goals, funnel constraints, and team capacity into a practical 90-day focus plan.",
+      "We translate company goals, funnel pressure, and team constraints into one focused 90-day operating plan.",
   },
   {
-    title: "02. Diagnose",
+    title: "Diagnose the leaks",
     summary:
-      "Analytics, audience, and creative audits surface where performance is leaking and where upside is highest.",
+      "Analytics, audience, creative, and page audits reveal what is blocking efficient growth and where upside is concentrated.",
   },
   {
-    title: "03. Build",
+    title: "Build the new system",
     summary:
-      "We launch channel, messaging, and web improvements with clear owners and KPI definitions.",
+      "Campaigns, offers, creative, and site changes launch with clear owners, measurement rules, and review points.",
   },
   {
-    title: "04. Experiment",
+    title: "Pressure-test weekly",
     summary:
-      "A rolling test backlog drives conversion and efficiency gains every sprint.",
+      "We run structured experiments, review signals fast, and reallocate effort toward the bets proving traction.",
   },
   {
-    title: "05. Scale",
+    title: "Document what scales",
     summary:
-      "Winning patterns are documented into repeatable playbooks your team can keep compounding.",
+      "Winning patterns are translated into playbooks so your team keeps the gains instead of depending on memory.",
   },
 ];
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Signal & Stone feels like an elite in-house growth team. They brought clarity to our message and discipline to our media performance.",
+      "Signal & Stone felt less like an agency vendor and more like a growth pod with actual commercial judgment.",
     name: "Maya Patel",
     role: "VP of Marketing",
     company: "Northline Health",
   },
   {
     quote:
-      "We hired them for paid ads and ended up overhauling our go-to-market narrative. The impact showed up in pipeline fast.",
+      "They sharpened our story, tightened our conversion path, and made paid media easier to defend at the executive level.",
     name: "Chris Alden",
     role: "Chief Revenue Officer",
     company: "Beacon Freight",
   },
   {
     quote:
-      "Their process is unusually sharp. Every recommendation had a rationale, a metric, and an owner.",
+      "The difference was the operating rhythm. Every week we knew the decision, the metric, and the next test.",
     name: "Sierra Robinson",
     role: "Head of Growth",
     company: "Luma Commerce",
@@ -293,32 +324,32 @@ export const testimonials: Testimonial[] = [
 export const engagementModels: EngagementModel[] = [
   {
     name: "Growth Sprint",
-    bestFor: "Teams that need rapid wins in one channel or funnel stage.",
+    bestFor: "Teams that need fast movement in one critical channel, page, or conversion stage.",
     investment: "$8k-$12k / month",
     includes: [
-      "One strategic focus area",
-      "Weekly optimization cadence",
-      "Biweekly stakeholder readout",
+      "Single strategic focus area",
+      "Weekly optimization and reporting cadence",
+      "Lean senior team with direct decision access",
     ],
   },
   {
     name: "Integrated Retainer",
-    bestFor: "Companies ready to align paid, web, and creative under one growth plan.",
+    bestFor: "Companies aligning paid media, site performance, and campaign creative under one growth plan.",
     investment: "$15k-$28k / month",
     includes: [
-      "Cross-channel strategy and execution",
-      "Dedicated pod: strategist, media lead, creative lead",
-      "Monthly executive performance review",
+      "Cross-channel strategy and execution pod",
+      "Shared KPI dashboard and decision log",
+      "Monthly executive review with budget guidance",
     ],
   },
   {
-    name: "Campaign Launch Partner",
-    bestFor: "Product launches, rebrands, or seasonal campaigns with fixed timelines.",
+    name: "Launch Partner",
+    bestFor: "High-stakes rebrands, launches, or seasonal pushes that need a controlled campaign system.",
     investment: "$25k+ per launch",
     includes: [
-      "Campaign concept and rollout plan",
-      "Creative production system",
-      "Launch analytics and postmortem",
+      "Campaign concept and launch architecture",
+      "Creative production structure and reviews",
+      "Post-launch analysis and next-phase recommendations",
     ],
   },
 ];
@@ -326,36 +357,36 @@ export const engagementModels: EngagementModel[] = [
 export const aboutValues = [
   {
     title: "Strategy before channels",
-    text: "We do not start with platform tactics. We start with business outcomes, buyer context, and a measurable plan.",
+    text: "We start with commercial pressure, buyer context, and offer strength before we touch platform tactics.",
   },
   {
     title: "Creative with accountability",
-    text: "Strong ideas should also perform. We pair creative decisions with explicit hypotheses and KPI targets.",
+    text: "Art direction should change behavior. We pair creative decisions with explicit hypotheses and performance targets.",
   },
   {
     title: "Senior-led execution",
-    text: "Our client team includes experienced strategists and operators, not a rotating cast of juniors.",
+    text: "The people framing the strategy stay close to the work. There is no bait-and-switch operating model here.",
   },
   {
     title: "Transparent partnership",
-    text: "You will always know what is changing, why it matters, and what we are testing next.",
+    text: "You see the score, the rationale, and the next move. Sharp work should be explainable work.",
   },
 ];
 
 export const faqs = [
   {
-    question: "How quickly can we start?",
+    question: "How quickly can an engagement start?",
     answer:
-      "Most engagements begin in 2-3 weeks, including onboarding, baseline audit, and first sprint planning.",
+      "Most projects start within two to three weeks. That includes onboarding, baseline diagnostics, and the first sprint plan.",
   },
   {
-    question: "Do you work with in-house teams?",
+    question: "Do you work alongside in-house teams?",
     answer:
-      "Yes. We often embed into existing marketing and design teams, then fill strategic and execution gaps.",
+      "Yes. We often plug into existing growth, brand, and product marketing teams and fill the strategic or execution gaps slowing momentum.",
   },
   {
-    question: "What does reporting look like?",
+    question: "What does reporting actually include?",
     answer:
-      "You receive a live KPI dashboard, weekly performance notes, and a monthly executive summary with decisions and next bets.",
+      "A shared KPI dashboard, weekly performance notes, and a monthly executive readout covering what changed, what was learned, and what ships next.",
   },
 ];

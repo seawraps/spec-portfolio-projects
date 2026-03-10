@@ -7,7 +7,7 @@ export const siteUrl =
 
 const baseTitle = `${company.name} | Premium Home Remodeling in Nashville, TN`;
 const baseDescription =
-  "Blue Oak Remodeling Co. delivers premium kitchen, bathroom, and whole-home renovations across Nashville, Brentwood, and Franklin.";
+  "Blue Oak Remodeling Co. delivers warm, premium kitchen, bathroom, millwork, and whole-home renovations across Nashville, Brentwood, and Franklin.";
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,7 +21,7 @@ export const siteMetadata: Metadata = {
     "Nashville remodeling contractor",
     "kitchen remodel Nashville",
     "bathroom renovation Brentwood",
-    "home services contractor",
+    "custom millwork Nashville",
     "premium home remodeling",
   ],
   alternates: {

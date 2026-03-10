@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useState } from "react";
 
 import { buttonClassName } from "@/components/ui/button-styles";
 
@@ -51,7 +51,7 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
 
-  const hasErrors = useMemo(() => Object.keys(errors).length > 0, [errors]);
+  const hasErrors = Object.keys(errors).length > 0;
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -81,34 +81,35 @@ export function ContactForm() {
   }
 
   return (
-    <div className="surface-card-soft rounded-3xl p-6 sm:p-8">
-      <h2 className="font-display text-3xl text-stone-900">Send us a message</h2>
-      <p className="mt-2 text-sm text-stone-600">
-        We respond within one business day for reservations, private events, and general inquiries.
+    <div className="surface-card rounded-[2rem] p-6 sm:p-8">
+      <h2 className="font-display text-4xl leading-none text-[#201511]">Send us a message</h2>
+      <p className="mt-3 text-base leading-relaxed text-[#5b4538]">
+        Use this form for reservations above eight guests, private events, collaborations, or
+        general questions about the dining room.
       </p>
 
       {submitted ? (
         <div
-          className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-relaxed text-emerald-800"
+          className="mt-6 rounded-[1.4rem] border border-emerald-200 bg-emerald-50 p-4 text-sm leading-relaxed text-emerald-900"
           role="status"
         >
-          <p className="font-semibold">Message sent successfully.</p>
-          <p className="mt-1">
-            Thank you for contacting Astera. A team member will reply soon.
+          <p className="font-semibold uppercase tracking-[0.14em]">Message sent successfully.</p>
+          <p className="mt-2">
+            Thank you for contacting Astera. A member of the team will reply shortly.
           </p>
           <button
             type="button"
             onClick={() => setSubmitted(false)}
-            className={buttonClassName("secondary", "mt-3")}
+            className={buttonClassName("secondary", "mt-4")}
           >
             Send another message
           </button>
         </div>
       ) : null}
 
-      <form className="mt-6 space-y-4" onSubmit={handleSubmit} noValidate>
+      <form className="mt-6 space-y-5" onSubmit={handleSubmit} noValidate>
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-stone-800">
+          <label htmlFor="name" className="block text-sm font-semibold uppercase tracking-[0.16em] text-[#6c4a31]">
             Name
           </label>
           <input
@@ -118,94 +119,95 @@ export function ContactForm() {
             autoComplete="name"
             value={values.name}
             onChange={(event) => updateField("name", event.target.value)}
-            className="mt-1 w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-stone-800 outline-none ring-amber-500 transition focus:ring-2"
+            className="mt-2 w-full rounded-[1.1rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? "name-error" : undefined}
             required
           />
           {errors.name ? (
-            <p id="name-error" className="mt-1 text-xs text-red-700">
+            <p id="name-error" className="mt-2 text-xs text-red-700">
               {errors.name}
             </p>
           ) : null}
         </div>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-stone-800">
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            value={values.email}
-            onChange={(event) => updateField("email", event.target.value)}
-            className="mt-1 w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-stone-800 outline-none ring-amber-500 transition focus:ring-2"
-            aria-invalid={Boolean(errors.email)}
-            aria-describedby={errors.email ? "email-error" : undefined}
-            required
-          />
-          {errors.email ? (
-            <p id="email-error" className="mt-1 text-xs text-red-700">
-              {errors.email}
-            </p>
-          ) : null}
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor="email" className="block text-sm font-semibold uppercase tracking-[0.16em] text-[#6c4a31]">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              value={values.email}
+              onChange={(event) => updateField("email", event.target.value)}
+              className="mt-2 w-full rounded-[1.1rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? "email-error" : undefined}
+              required
+            />
+            {errors.email ? (
+              <p id="email-error" className="mt-2 text-xs text-red-700">
+                {errors.email}
+              </p>
+            ) : null}
+          </div>
+
+          <div>
+            <label htmlFor="phone" className="block text-sm font-semibold uppercase tracking-[0.16em] text-[#6c4a31]">
+              Phone <span className="text-[#8a6a52]">(optional)</span>
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              value={values.phone}
+              onChange={(event) => updateField("phone", event.target.value)}
+              className="mt-2 w-full rounded-[1.1rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+              aria-invalid={Boolean(errors.phone)}
+              aria-describedby={errors.phone ? "phone-error" : undefined}
+            />
+            {errors.phone ? (
+              <p id="phone-error" className="mt-2 text-xs text-red-700">
+                {errors.phone}
+              </p>
+            ) : null}
+          </div>
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-stone-800">
-            Phone <span className="text-stone-500">(optional)</span>
-          </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            value={values.phone}
-            onChange={(event) => updateField("phone", event.target.value)}
-            className="mt-1 w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-stone-800 outline-none ring-amber-500 transition focus:ring-2"
-            aria-invalid={Boolean(errors.phone)}
-            aria-describedby={errors.phone ? "phone-error" : undefined}
-          />
-          {errors.phone ? (
-            <p id="phone-error" className="mt-1 text-xs text-red-700">
-              {errors.phone}
-            </p>
-          ) : null}
-        </div>
-
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-stone-800">
+          <label htmlFor="message" className="block text-sm font-semibold uppercase tracking-[0.16em] text-[#6c4a31]">
             Message
           </label>
           <textarea
             id="message"
             name="message"
-            rows={5}
+            rows={6}
             value={values.message}
             onChange={(event) => updateField("message", event.target.value)}
-            className="mt-1 w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-stone-800 outline-none ring-amber-500 transition focus:ring-2"
+            className="mt-2 w-full rounded-[1.1rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
             required
           />
           {errors.message ? (
-            <p id="message-error" className="mt-1 text-xs text-red-700">
+            <p id="message-error" className="mt-2 text-xs text-red-700">
               {errors.message}
             </p>
           ) : null}
         </div>
 
-        <button
-          type="submit"
-          className={buttonClassName("primary")}
-        >
+        <button type="submit" className={buttonClassName("primary")}>
           Send Message
         </button>
 
         {hasErrors ? (
-          <p className="text-xs text-stone-500">Please correct the highlighted fields and submit again.</p>
+          <p className="text-xs text-[#7a5c46]">
+            Please correct the highlighted fields and submit again.
+          </p>
         ) : null}
       </form>
     </div>

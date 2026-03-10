@@ -19,20 +19,30 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-deep/85 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-coal/88 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] text-white"
+          className="inline-flex items-center gap-3 text-white"
           aria-label={`${agency.name} home`}
         >
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-sun" aria-hidden="true" />
-          <span>{agency.name}</span>
+          <span className="flex flex-col gap-1" aria-hidden="true">
+            <span className="h-1.5 w-8 rounded-full bg-signal" />
+            <span className="h-1.5 w-5 rounded-full bg-volt" />
+          </span>
+          <span>
+            <span className="block font-display text-2xl font-semibold uppercase leading-none tracking-[-0.04em]">
+              {agency.name}
+            </span>
+            <span className="mt-1 block text-[0.6rem] font-semibold uppercase tracking-[0.24em] text-white/55">
+              Performance Creative
+            </span>
+          </span>
         </Link>
 
         <button
           type="button"
-          className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 px-4 text-sm font-semibold text-white transition hover:border-white/50 hover:bg-white/10 md:hidden"
+          className="inline-flex h-11 items-center justify-center rounded-2xl border border-white/16 px-4 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white transition hover:border-white/40 hover:bg-white/10 md:hidden"
           onClick={() => setIsMenuOpen((current) => !current)}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
@@ -46,10 +56,10 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition ${
+              className={`text-[0.7rem] font-semibold uppercase tracking-[0.18em] transition ${
                 isActive(pathname, item.href)
                   ? "text-white"
-                  : "text-slate-300 hover:text-white"
+                  : "text-white/62 hover:text-white"
               }`}
               aria-current={isActive(pathname, item.href) ? "page" : undefined}
             >
@@ -66,7 +76,7 @@ export function Header() {
         <nav
           id="mobile-navigation"
           aria-label="Mobile primary navigation"
-          className="border-t border-white/10 bg-deep/95 px-4 py-4 md:hidden sm:px-6"
+          className="border-t border-white/10 bg-coal/95 px-4 py-4 md:hidden sm:px-6"
         >
           <ul className="space-y-3">
             {navItems.map((item) => (
@@ -74,10 +84,10 @@ export function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block rounded-full px-4 py-2.5 text-sm font-medium transition ${
+                  className={`block rounded-2xl px-4 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] transition ${
                     isActive(pathname, item.href)
                       ? "bg-white/10 text-white"
-                      : "text-slate-300 hover:bg-white/10 hover:text-white"
+                      : "text-white/66 hover:bg-white/10 hover:text-white"
                   }`}
                   aria-current={isActive(pathname, item.href) ? "page" : undefined}
                 >

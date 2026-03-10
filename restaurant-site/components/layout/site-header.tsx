@@ -7,12 +7,16 @@ import { useState } from "react";
 import { buttonClassName } from "@/components/ui/button-styles";
 import { navLinks } from "@/lib/data";
 
-function linkClasses(currentPath: string, href: string) {
-  const isActive = href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+function isActiveLink(currentPath: string, href: string) {
+  return href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+}
 
-  return `transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 hover:text-amber-700 ${
-    isActive ? "text-amber-700" : "text-stone-700"
-  }`;
+function linkClasses(currentPath: string, href: string) {
+  const active = isActiveLink(currentPath, href);
+
+  return `relative px-1 py-2 text-sm font-medium tracking-[0.14em] uppercase transition-colors ${
+    active ? "text-[#f6ecdf]" : "text-[#d4c3b0]"
+  } hover:text-[#f6ecdf]`;
 }
 
 export function SiteHeader() {
@@ -20,31 +24,28 @@ export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-stone-200/70 bg-[rgba(248,244,236,0.92)] backdrop-blur-lg">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-[rgba(255,233,204,0.12)] bg-[rgba(11,8,6,0.68)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="flex items-end gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700"
+          className="flex items-end gap-3"
           onClick={() => setIsOpen(false)}
           aria-label="Astera Coastal Bistro home"
         >
-          <span className="font-display text-2xl font-semibold leading-none text-stone-900">
-            Astera
-          </span>
-          <span className="pb-0.5 text-xs font-semibold uppercase tracking-[0.18em] text-amber-700">
+          <span className="font-display text-3xl leading-none text-[#f8efe4]">Astera</span>
+          <span className="pb-1 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-[#d1a364]">
             Coastal Bistro
           </span>
         </Link>
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-stone-300 text-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(255,233,204,0.18)] text-[#f6ecdf] md:hidden"
           onClick={() => setIsOpen((value) => !value)}
           aria-expanded={isOpen}
           aria-controls="mobile-nav"
           aria-label={isOpen ? "Close primary navigation" : "Open primary navigation"}
         >
-          <span className="sr-only">Toggle menu</span>
           <svg
             className="h-5 w-5"
             viewBox="0 0 24 24"
@@ -61,26 +62,29 @@ export function SiteHeader() {
           </svg>
         </button>
 
-        <nav className="hidden items-center gap-7 text-sm font-medium md:flex" aria-label="Primary navigation">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={linkClasses(pathname, link.href)}
-              aria-current={
-                (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href))
-                  ? "page"
-                  : undefined
-              }
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/#reservations"
-            className={buttonClassName("primary")}
-          >
-            Book A Table
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary navigation">
+          {navLinks.map((link) => {
+            const active = isActiveLink(pathname, link.href);
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={linkClasses(pathname, link.href)}
+                aria-current={active ? "page" : undefined}
+              >
+                {link.label}
+                <span
+                  aria-hidden="true"
+                  className={`absolute inset-x-0 -bottom-0.5 h-px transition-opacity ${
+                    active ? "bg-[#d1a364] opacity-100" : "bg-[#d1a364] opacity-0"
+                  }`}
+                />
+              </Link>
+            );
+          })}
+          <Link href="/#reservations" className={buttonClassName("primary")}>
+            Reserve
           </Link>
         </nav>
       </div>
@@ -88,31 +92,33 @@ export function SiteHeader() {
       {isOpen ? (
         <nav
           id="mobile-nav"
-          className="border-t border-stone-200 bg-[rgba(248,244,236,0.98)] px-4 py-4 md:hidden"
+          className="border-t border-[rgba(255,233,204,0.12)] bg-[rgba(11,8,6,0.96)] px-6 py-5 md:hidden"
           aria-label="Mobile primary navigation"
         >
-          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 text-base font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={linkClasses(pathname, link.href)}
-                onClick={() => setIsOpen(false)}
-                aria-current={
-                  (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href))
-                    ? "page"
-                    : undefined
-                }
-              >
-                {link.label}
-              </Link>
-            ))}
+          <div className="mx-auto flex max-w-7xl flex-col gap-4">
+            {navLinks.map((link) => {
+              const active = isActiveLink(pathname, link.href);
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-base font-medium uppercase tracking-[0.18em] ${
+                    active ? "text-[#f6ecdf]" : "text-[#d4c3b0]"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/#reservations"
               onClick={() => setIsOpen(false)}
               className={buttonClassName("primary", "mt-2 w-full")}
             >
-              Book A Table
+              Reserve
             </Link>
           </div>
         </nav>

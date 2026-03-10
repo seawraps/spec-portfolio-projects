@@ -16,8 +16,8 @@ export default function HomePage() {
       <ProductPreviewSection />
       <FeatureGridSection />
       <IntegrationsSection />
-      <PricingSection />
       <TestimonialsSection />
+      <PricingSection />
       <FaqSection />
       <FinalCtaSection />
     </>

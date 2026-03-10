@@ -13,9 +13,9 @@ export default function HomePage() {
       <HeroSection />
       <FeaturedListingsSection />
       <NeighborhoodsSection />
+      <TeamSection />
       <ServicesGridSection />
       <ProcessSection />
-      <TeamSection />
       <TestimonialsSection />
       <CtaGridSection />
     </>

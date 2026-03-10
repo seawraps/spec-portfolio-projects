@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, Space_Grotesk } from "next/font/google";
+import { Barlow_Condensed, IBM_Plex_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { Footer } from "@/components/layout/footer";
@@ -7,16 +7,16 @@ import { Header } from "@/components/layout/header";
 
 import "./globals.css";
 
-const bodyFont = Sora({
+const bodyFont = IBM_Plex_Sans({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const headingFont = Space_Grotesk({
+const headingFont = Barlow_Condensed({
   subsets: ["latin"],
   variable: "--font-heading",
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {

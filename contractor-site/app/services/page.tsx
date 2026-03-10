@@ -1,87 +1,177 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { services } from "@/lib/data";
+import { company, services } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Services",
   description:
-    "Explore kitchen, bathroom, whole-home, and outdoor remodeling services from Blue Oak Remodeling Co. in Nashville.",
+    "Explore kitchen, bathroom, whole-home, and custom millwork renovation services from Blue Oak Remodeling Co. in Nashville.",
   path: "/services",
 });
+
+const planningNotes = [
+  {
+    title: "Clear scope before demo",
+    description:
+      "We do the planning and selection work up front so materials, allowances, and sequencing are not being guessed at mid-project.",
+  },
+  {
+    title: "High-touch homeowner communication",
+    description:
+      "Occupied homes need rhythm and visibility. We keep updates predictable so you know what is happening in the house each week.",
+  },
+  {
+    title: "Material guidance with restraint",
+    description:
+      "We help clients avoid expensive mistakes by focusing on durability, warmth, and finishes that feel timeless in local homes.",
+  },
+];
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="py-12 md:py-16 lg:py-24">
-        <Container>
-          <SectionHeading
-            eyebrow="Services"
-            title="Comprehensive remodeling services for modern Tennessee homes"
-            description="We scope every project with transparent pricing guidance, schedule clarity, and craftsmanship standards built for long-term value."
-            as="h1"
-          />
+      <section className="pb-12 pt-10 md:pb-16 md:pt-14 lg:pb-20">
+        <Container className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+          <div className="surface-card-strong rounded-[2.4rem] p-7 sm:p-9">
+            <SectionHeading
+              eyebrow="Services"
+              title="Focused renovation work for kitchens, baths, interiors, and the details that tie them together"
+              description="We keep the service mix disciplined so the work stays residential, premium, and craftsmanship-heavy. That allows us to deliver better guidance and better results."
+              as="h1"
+            />
+            <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
+              Most of our projects happen in lived-in homes across Nashville, Brentwood, Franklin,
+              and Belle Meade. We help clients scope the right level of transformation, whether
+              that means a single high-impact room or a phased interior renovation.
+            </p>
+            <div className="mt-8 rounded-[1.6rem] bg-[var(--color-surface-strong)] p-5">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+                Best fit for Blue Oak
+              </p>
+              <p className="mt-3 text-sm leading-8 text-[var(--color-muted)] sm:text-base">
+                Homeowners who value design guidance, durable materials, realistic scheduling, and
+                crews that understand how to work respectfully inside occupied homes.
+              </p>
+              <p className="mt-4 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
+                Serving {company.primaryServiceArea}
+              </p>
+            </div>
+          </div>
 
-          <div className="mt-10 grid gap-6">
-            {services.map((service) => (
-              <article
-                key={service.id}
-                className="surface-card rounded-3xl p-6 sm:p-8"
-              >
-                <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-                  <div>
-                    <h2 className="font-display text-4xl leading-tight text-[var(--color-brand)]">
-                      {service.name}
-                    </h2>
-                    <p className="mt-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
-                      {service.fullDescription}
-                    </p>
-                    <p className="mt-4 text-sm font-medium text-[var(--color-brand)]">
-                      {service.timeline}
-                    </p>
-                    <p className="mt-2 text-sm text-[var(--color-muted)]">Ideal for: {service.idealFor}</p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
-                      Typical Scope Includes
-                    </h3>
-                    <ul className="mt-4 space-y-2">
-                      {service.includes.map((item) => (
-                        <li
-                          key={item}
-                          className="rounded-xl bg-[var(--color-brand-soft)] px-4 py-2.5 text-sm text-[var(--color-muted)]"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            ))}
+          <div className="image-frame relative min-h-[520px] rounded-[2.4rem]">
+            <Image
+              src="/images/hero-kitchen.jpg"
+              alt="A premium kitchen remodel with warm cabinetry and a large island."
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 48vw"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.1),rgba(22,36,52,0.48))]" />
           </div>
         </Container>
       </section>
 
-      <section className="bg-white py-12 md:py-16 lg:py-24">
+      <section className="py-12 md:py-16 lg:py-20">
+        <Container className="space-y-6">
+          {services.map((service, index) => (
+            <article
+              key={service.id}
+              id={service.id}
+              className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-center"
+            >
+              <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                <div className="image-frame relative min-h-[420px] rounded-[2.2rem]">
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 48vw"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.04),rgba(22,36,52,0.28))]" />
+                </div>
+              </div>
+
+              <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                <div className="surface-card-strong rounded-[2.2rem] p-6 sm:p-8">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
+                    {service.timeline}
+                  </p>
+                  <h2 className="mt-4 font-display text-4xl leading-tight text-[var(--color-brand)] sm:text-[3.1rem]">
+                    {service.name}
+                  </h2>
+                  <p className="mt-5 text-sm leading-8 text-[var(--color-muted)] sm:text-base">
+                    {service.fullDescription}
+                  </p>
+                  <p className="mt-5 text-sm leading-7 text-[var(--color-brand)] sm:text-base">
+                    <span className="font-semibold">Ideal for:</span> {service.idealFor}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {service.highlights.map((highlight) => (
+                      <span
+                        key={highlight}
+                        className="rounded-full bg-[var(--color-surface-strong)] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand)]"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="editorial-rule mt-6" />
+
+                  <ul className="mt-6 space-y-3">
+                    {service.includes.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-[1.1rem] border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.72)] px-4 py-3 text-sm leading-7 text-[var(--color-muted)]"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </article>
+          ))}
+        </Container>
+      </section>
+
+      <section className="py-12 md:py-16 lg:py-20">
         <Container>
-          <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-brand-soft)] p-6 sm:p-8">
-            <h2 className="font-display text-4xl text-[var(--color-brand)]">Need a custom scope?</h2>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--color-muted)] sm:text-base">
-              Some homeowners combine multiple service categories into one phased renovation
-              strategy. We can build a tailored scope and sequencing plan around your priorities.
-            </p>
+          <div className="surface-card rounded-[2.4rem] p-6 sm:p-8">
+            <SectionHeading
+              eyebrow="Planning Standards"
+              title="The way we scope work matters just as much as the work itself"
+              description="Premium residential renovation succeeds when layout, material decisions, and sequencing are handled with discipline before the first day on site."
+            />
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <article
+                  key={note.title}
+                  className="rounded-[1.5rem] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-5"
+                >
+                  <h2 className="font-display text-3xl leading-tight text-[var(--color-brand)]">
+                    {note.title}
+                  </h2>
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                    {note.description}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
 
       <CtaSection
-        title="Get a clear service recommendation for your home"
-        description="We can walk through your goals, prioritize improvements, and suggest the right renovation approach for your timeline and budget."
+        title="Need help deciding what scope makes sense for your house?"
+        description="We can walk through what is worth changing now, what can be phased later, and where design-build guidance will create the most value."
       />
     </>
   );

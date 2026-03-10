@@ -5,41 +5,52 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function FeaturedDishes() {
   return (
-    <section className="py-12 md:py-16 lg:py-24">
+    <section className="section-light py-16 md:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="flex flex-wrap items-end justify-between gap-5">
           <SectionHeading
-            eyebrow="Featured"
-            title="Signature plates from tonight’s kitchen"
-            description="A rotating selection of guest favorites and seasonal highlights from our open-fire menu."
+            eyebrow="From The Pass"
+            title="Signature plates with appetite, smoke, and restraint"
+            description="The menu moves with market produce and the fish board, but these are the dishes guests ask about before they sit down."
           />
           <Link
             href="/menu"
-            className="text-sm font-semibold uppercase tracking-[0.12em] text-stone-700 underline decoration-amber-600 underline-offset-4 transition-colors hover:text-amber-700"
+            className="text-sm font-semibold uppercase tracking-[0.18em] text-[#7f5634] underline decoration-[#b98956] underline-offset-8"
           >
-            Full Menu
+            View Full Menu
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {featuredDishes.map((dish) => (
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.15fr_0.95fr_0.95fr]">
+          {featuredDishes.map((dish, index) => (
             <article
               key={dish.name}
-              className="surface-card-soft overflow-hidden rounded-3xl"
+              className={`surface-card overflow-hidden rounded-[2rem] ${
+                index === 0 ? "lg:translate-y-4" : index === 2 ? "lg:translate-y-8" : ""
+              }`}
             >
-              <Image
-                src={dish.image}
-                alt={dish.alt}
-                width={720}
-                height={480}
-                className="h-52 w-full object-cover"
-              />
-              <div className="space-y-3 p-6">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-display text-2xl text-stone-900">{dish.name}</h3>
-                  <p className="pt-1 text-sm font-semibold text-amber-700">{dish.price}</p>
+              <div className="overflow-hidden">
+                <Image
+                  src={dish.image.src}
+                  alt={dish.image.alt}
+                  width={1800}
+                  height={1800}
+                  className="h-72 w-full object-cover"
+                />
+              </div>
+              <div className="space-y-4 p-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#9a6435]">
+                  {dish.course}
+                </p>
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="font-display text-[2rem] leading-none text-[#201511]">
+                    {dish.name}
+                  </h3>
+                  <p className="pt-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#8d5d35]">
+                    {dish.price}
+                  </p>
                 </div>
-                <p className="text-sm leading-relaxed text-stone-600">{dish.description}</p>
+                <p className="text-base leading-relaxed text-[#5b4538]">{dish.description}</p>
               </div>
             </article>
           ))}

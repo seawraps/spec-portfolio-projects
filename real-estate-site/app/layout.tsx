@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Bodoni_Moda, Instrument_Sans } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { siteConfig, siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
 });
 
-const cormorantGaramond = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const bodoniModa = Bodoni_Moda({
+  variable: "--font-bodoni",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#23352e",
+  themeColor: "#131a21",
 };
 
 export default function RootLayout({
@@ -70,7 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${cormorantGaramond.variable} min-h-screen font-sans antialiased`}
+        className={`${instrumentSans.variable} ${bodoniModa.variable} min-h-screen font-sans antialiased`}
       >
         <div className="relative flex min-h-screen flex-col">
           <a href="#main-content" className="skip-link">

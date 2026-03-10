@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { NeighborhoodsSection } from "@/components/sections/NeighborhoodsSection";
 import { PageHero } from "@/components/sections/PageHero";
@@ -21,60 +22,68 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About The Agency"
-        title="A boutique team built for thoughtful moves and stronger outcomes."
-        description="Crescent Vale Realty blends neighborhood intelligence, design-led marketing, and direct partner-level service for buyers and sellers who want clear strategy from first conversation to final signature."
+        title="A boutique advisory built for thoughtful moves, stronger launches, and quieter confidence."
+        description="Crescent Vale Realty blends neighborhood intelligence, editorial presentation, and direct senior-level service for buyers and sellers who want counsel that feels steady from first strategy session to final signature."
+        imageSrc="/images/story-advisory.jpg"
+        imageAlt="A refined advisory meeting in a premium residential office setting."
+        imageCaption="Calm, highly personal representation for clients making consequential residential moves."
         primaryAction={{ href: "/contact", label: "Meet the team" }}
         secondaryAction={{ href: "/services", label: "View services", variant: "secondary" }}
         highlights={[
-          "Hands-on guidance from principal-level advisors",
-          "Editorial listing launches tailored to each property",
-          "Calm, informed negotiation across premium price points",
+          "Direct access to principal-level advisors from start to close",
+          "Editorial listing launches tailored to the property and buyer profile",
+          "Measured negotiation across premium price points and timing-sensitive moves",
         ]}
       />
 
       <section className="py-12 md:py-16 lg:py-24">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="soft-card rounded-[32px] p-8 sm:p-10">
-              <SectionHeading
-                eyebrow="Our Point Of View"
-                title="Small by design, deliberate in execution."
-                description="The team is structured to stay selective. That means tighter communication, sharper prep, and a better experience for clients navigating meaningful financial decisions."
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="image-frame relative min-h-[380px] lg:min-h-[680px]">
+              <Image
+                src="/images/contact-consultation.jpg"
+                alt="A luxury real estate consultation between an advisor and clients."
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
               />
-              <div className="mt-8 space-y-6 text-base leading-8 text-[var(--color-muted)]">
-                <p>
-                  Crescent Vale Realty was shaped around a simple belief: the
-                  best real estate representation is highly personal, deeply
-                  local, and backed by disciplined execution. We prefer fewer
-                  clients at a time so every search, valuation, and launch plan
-                  receives real attention.
+              <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/72 via-transparent to-transparent" />
+              <div className="absolute inset-x-5 bottom-5 rounded-[24px] border border-white/12 bg-black/24 p-5 text-white backdrop-blur-md">
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-white/68">
+                  Our Philosophy
                 </p>
-                <p>
-                  For sellers, that means positioning homes with clarity and
-                  polish, coordinating every prep detail, and knowing how to
-                  price for momentum without leaving value behind. For buyers,
-                  it means honest guidance, creative sourcing, and a negotiation
-                  strategy built around the full picture, not just the headline
-                  number.
+                <p className="mt-3 font-display text-4xl leading-[0.94] text-white">
+                  Small by design so the advice can stay personal, specific,
+                  and well prepared.
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              {valuePoints.map((item) => (
-                <article
-                  key={item.title}
-                  className="soft-card rounded-[28px] p-6"
-                >
-                  <h3 className="font-display text-3xl text-[var(--color-ink)]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
-                    {item.description}
-                  </p>
-                </article>
-              ))}
-              <div className="soft-card rounded-[28px] p-6 sm:col-span-2">
+            <div className="soft-card rounded-[32px] p-8 sm:p-10">
+              <SectionHeading
+                eyebrow="Our Point Of View"
+                title="Selective by design, deliberate in execution."
+                description="The team is structured to keep the client roster narrow. That means faster answers, more thoughtful prep, and the kind of continuity that matters when transactions involve meaningful financial and lifestyle decisions."
+              />
+              <div className="mt-8 space-y-6 text-base leading-8 text-[var(--color-muted)]">
+                <p>
+                  Crescent Vale Realty was built around a simple belief: premium
+                  real estate work should feel composed, highly personal, and
+                  grounded in actual market nuance. We prefer fewer clients at a
+                  time so each search, valuation, and launch receives close
+                  attention.
+                </p>
+                <p>
+                  For sellers, that means positioning homes with restraint,
+                  polish, and a launch sequence that makes the property feel
+                  memorable before buyers even walk through the door. For buyers,
+                  it means a clear search brief, honest review of every
+                  opportunity, and negotiation advice calibrated to the full
+                  picture rather than just the headline number.
+                </p>
+              </div>
+
+              <div className="mt-8 rounded-[28px] border border-[var(--color-line)] bg-[var(--color-cream)] p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
                   Market Snapshot
                 </p>
@@ -82,7 +91,7 @@ export default function AboutPage() {
                   {aboutStats.map((stat) => (
                     <div
                       key={stat.label}
-                      className="rounded-[22px] border border-[var(--color-line)] bg-white/70 p-6"
+                      className="rounded-[22px] border border-[var(--color-line)] bg-white p-6"
                     >
                       <p className="font-display text-4xl text-[var(--color-ink)]">
                         {stat.value}
@@ -100,22 +109,35 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            {valuePoints.map((item) => (
+              <article key={item.title} className="soft-card rounded-[28px] p-6">
+                <h3 className="font-display text-3xl text-[var(--color-ink)]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </Container>
       </section>
 
       <TeamSection
-        title="The Advisors"
+        title="The advisors behind every search, launch, and negotiation."
         description="Every client works directly with a senior advisor. The team combines pricing rigor, polished presentation, and grounded local counsel."
       />
 
       <NeighborhoodsSection
-        title="Neighborhood Expertise"
-        description="From walkable historic blocks to view-driven family neighborhoods, our guidance is shaped by block-level patterns and the buyer profiles that drive each micro-market."
+        title="Neighborhood expertise shaped by real buyer behavior."
+        description="From walkable historic districts to view-driven family neighborhoods, our recommendations are informed by buyer patterns, pricing nuance, and the subtleties that do not show up in generic market summaries."
       />
 
       <TestimonialsSection
-        title="Why Clients Refer Us"
-        description="The most valuable feedback is often about how the process felt: steady, well-run, and informed at every step."
+        title="Why referral clients continue to send people our way."
+        description="The strongest feedback is usually about the process itself: steady advice, thoughtful preparation, and decisions that never feel rushed or theatrical."
       />
     </>
   );

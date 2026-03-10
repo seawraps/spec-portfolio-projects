@@ -4,29 +4,42 @@ import { testimonials } from "@/lib/data";
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-[var(--color-brand)] py-12 md:py-16 lg:py-24">
-      <Container>
-        <SectionHeading
-          eyebrow="Client Reviews"
-          title="Trusted by homeowners across Nashville"
-          description="Our clients value clear communication, on-time delivery, and craftsmanship that raises the standard of their home."
-          className="[&_h2]:text-white [&_p]:text-[color:rgba(255,255,255,0.8)]"
-        />
+    <section className="py-12 md:py-16 lg:py-20">
+      <Container className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+        <div>
+          <SectionHeading
+            eyebrow="Client Reviews"
+            title="Homeowners remember the communication as much as the finish work"
+            description="That is intentional. These projects are personal, often disruptive, and almost always tied to how a family wants to live for years."
+          />
+          <div className="surface-card mt-8 rounded-[1.8rem] p-6">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+              Average homeowner sentiment
+            </p>
+            <p className="mt-3 font-display text-5xl leading-none text-[var(--color-brand)]">4.9 / 5</p>
+            <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+              Most reviews mention clear scheduling, respectful crews, and the way the finished
+              rooms feel tailored instead of over-designed.
+            </p>
+          </div>
+        </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
+        <div className="grid gap-6 md:grid-cols-2">
+          {testimonials.map((testimonial, index) => (
             <blockquote
               key={testimonial.customerName}
-              className="rounded-2xl border border-[color:rgba(255,255,255,0.18)] bg-[color:rgba(255,255,255,0.05)] p-6"
+              className={`surface-card rounded-[2rem] p-6 ${
+                index === testimonials.length - 1 ? "md:col-span-2" : ""
+              }`}
             >
-              <p className="text-sm tracking-[0.2em] text-[var(--color-accent-soft)]">★★★★★</p>
-              <p className="mt-4 text-sm leading-7 text-[color:rgba(255,255,255,0.9)] sm:text-base">
+              <p className="text-[0.74rem] tracking-[0.22em] text-[var(--color-accent)]">★★★★★</p>
+              <p className="mt-4 font-display text-3xl leading-snug text-[var(--color-brand)]">
                 “{testimonial.quote}”
               </p>
-              <footer className="mt-5 border-t border-[color:rgba(255,255,255,0.16)] pt-4 text-sm text-[color:rgba(255,255,255,0.8)]">
-                <p className="font-semibold text-white">{testimonial.customerName}</p>
+              <footer className="mt-6 border-t border-[var(--color-border)] pt-4 text-sm leading-7 text-[var(--color-muted)]">
+                <p className="font-semibold text-[var(--color-brand)]">{testimonial.customerName}</p>
                 <p>
-                  {testimonial.location} · {testimonial.project}
+                  {testimonial.location} | {testimonial.project}
                 </p>
               </footer>
             </blockquote>

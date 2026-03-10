@@ -1,23 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #f6f4ef;
-  --color-ink: #182531;
-  --color-muted: #5a6672;
-  --color-border: #dbe3ea;
-  --color-brand: #17364d;
-  --color-brand-soft: #e6edf3;
-  --color-accent: #c97f2c;
-  --color-accent-soft: #ffd8ab;
-  --color-surface: #ffffff;
-  --color-error: #b42318;
+  --color-bg: #f4ede3;
+  --color-bg-deep: #e5d8c8;
+  --color-ink: #1d2530;
+  --color-muted: #645b52;
+  --color-border: rgba(63, 49, 31, 0.14);
+  --color-line-strong: rgba(29, 37, 48, 0.18);
+  --color-brand: #24364b;
+  --color-brand-deep: #162434;
+  --color-brand-soft: #dde4ea;
+  --color-accent: #b48848;
+  --color-accent-deep: #8d6635;
+  --color-accent-soft: #eadbc1;
+  --color-stone: #d0baa0;
+  --color-surface: #fffaf3;
+  --color-surface-strong: #f0e6d9;
+  --color-error: #a8322a;
 }
 
 @theme inline {
   --color-background: var(--color-bg);
   --color-foreground: var(--color-ink);
-  --font-sans: var(--font-manrope);
-  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-public-sans);
+  --font-display: var(--font-newsreader);
 }
 
 * {
@@ -32,12 +38,29 @@ body {
 
 body {
   background:
-    radial-gradient(circle at 10% 12%, rgba(201, 127, 44, 0.12), transparent 30%),
-    radial-gradient(circle at 90% 10%, rgba(23, 54, 77, 0.09), transparent 28%),
+    radial-gradient(circle at 0% 10%, rgba(180, 136, 72, 0.14), transparent 28%),
+    radial-gradient(circle at 85% 0%, rgba(36, 54, 75, 0.12), transparent 26%),
+    linear-gradient(180deg, rgba(229, 216, 200, 0.52), transparent 24%),
     var(--color-bg);
   color: var(--color-ink);
-  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
   line-height: 1.5;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
+  opacity: 0.22;
+  z-index: -1;
 }
 
 a {
@@ -60,10 +83,20 @@ textarea {
     transform 180ms ease;
 }
 
+img {
+  display: block;
+}
+
+::selection {
+  background: rgba(180, 136, 72, 0.2);
+  color: var(--color-brand-deep);
+}
+
 .surface-card {
   border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 20px 48px -32px rgba(24, 37, 49, 0.28);
+  background: rgba(255, 250, 243, 0.88);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 32px 80px -56px rgba(18, 29, 40, 0.45);
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease,
@@ -71,18 +104,29 @@ textarea {
 }
 
 .surface-card-strong {
-  border: 1px solid var(--color-border);
-  background: #ffffff;
-  box-shadow: 0 24px 56px -30px rgba(24, 37, 49, 0.34);
+  border: 1px solid rgba(29, 37, 48, 0.12);
+  background: linear-gradient(180deg, rgba(255, 250, 243, 0.98), rgba(248, 241, 231, 0.98));
+  box-shadow: 0 34px 88px -56px rgba(18, 29, 40, 0.5);
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease,
     transform 180ms ease;
 }
 
+.editorial-rule {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(180, 136, 72, 0.7), rgba(180, 136, 72, 0));
+}
+
+.image-frame {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  box-shadow: 0 28px 80px -44px rgba(18, 29, 40, 0.58);
+}
+
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-  outline: 2px solid var(--color-brand);
+  outline: 2px solid var(--color-accent-deep);
   outline-offset: 3px;
 }

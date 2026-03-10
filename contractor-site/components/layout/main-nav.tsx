@@ -27,16 +27,16 @@ export function MainNav({ links }: MainNavProps) {
   return (
     <div className="flex shrink-0 items-center gap-3">
       <nav aria-label="Primary navigation" className="hidden lg:block">
-        <ul className="flex items-center gap-2">
+        <ul className="flex items-center gap-1">
           {links.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]",
+                  "rounded-full px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.18em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]",
                   isActiveRoute(pathname, link.href)
-                    ? "bg-[var(--color-brand-soft)] text-[var(--color-brand)]"
-                    : "text-[var(--color-muted)] hover:bg-[var(--color-brand-soft)] hover:text-[var(--color-brand)]",
+                    ? "bg-[color:rgba(36,54,75,0.08)] text-[var(--color-brand)]"
+                    : "text-[var(--color-muted)] hover:bg-[color:rgba(36,54,75,0.05)] hover:text-[var(--color-brand)]",
                 )}
                 aria-current={isActiveRoute(pathname, link.href) ? "page" : undefined}
               >
@@ -49,13 +49,13 @@ export function MainNav({ links }: MainNavProps) {
 
       <div className="hidden lg:block">
         <ButtonLink href="/contact" variant="light">
-          Request Estimate
+          Book Consultation
         </ButtonLink>
       </div>
 
       <button
         type="button"
-        className="inline-flex h-10 items-center rounded-full border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-brand)] transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] lg:hidden"
+        className="inline-flex h-11 items-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)] transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] lg:hidden"
         onClick={() => setIsMobileOpen((current) => !current)}
         aria-expanded={isMobileOpen}
         aria-controls="mobile-menu"
@@ -67,7 +67,7 @@ export function MainNav({ links }: MainNavProps) {
       {isMobileOpen ? (
         <div
           id="mobile-menu"
-          className="surface-card-strong absolute inset-x-0 top-[4.25rem] rounded-2xl p-6 lg:hidden"
+          className="surface-card-strong absolute inset-x-0 top-[calc(100%+0.75rem)] rounded-[1.75rem] p-6 lg:hidden"
         >
           <nav aria-label="Mobile primary navigation">
             <ul className="space-y-2">
@@ -76,10 +76,10 @@ export function MainNav({ links }: MainNavProps) {
                   <Link
                     href={link.href}
                     className={cn(
-                      "block rounded-xl px-3 py-2.5 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]",
+                      "block rounded-2xl px-4 py-3 text-[0.74rem] font-semibold uppercase tracking-[0.18em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]",
                       isActiveRoute(pathname, link.href)
-                        ? "bg-[var(--color-brand-soft)] text-[var(--color-brand)]"
-                        : "text-[var(--color-muted)] hover:bg-[var(--color-brand-soft)] hover:text-[var(--color-brand)]",
+                        ? "bg-[color:rgba(36,54,75,0.08)] text-[var(--color-brand)]"
+                        : "text-[var(--color-muted)] hover:bg-[color:rgba(36,54,75,0.05)] hover:text-[var(--color-brand)]",
                     )}
                     aria-current={
                       isActiveRoute(pathname, link.href) ? "page" : undefined
@@ -98,7 +98,7 @@ export function MainNav({ links }: MainNavProps) {
             className="mt-4 w-full"
             onClick={() => setIsMobileOpen(false)}
           >
-            Request Estimate
+            Book Consultation
           </ButtonLink>
         </div>
       ) : null}

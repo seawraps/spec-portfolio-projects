@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Sora } from "next/font/google";
+import { IBM_Plex_Mono, Manrope, Plus_Jakarta_Sans } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -11,9 +11,15 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const sora = Sora({
-  variable: "--font-sora",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -74,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.variable} ${sora.variable} min-h-screen bg-white font-sans text-slate-900 antialiased`}
+        className={`${plusJakartaSans.variable} ${manrope.variable} ${ibmPlexMono.variable} min-h-screen bg-white font-sans text-slate-900 antialiased`}
       >
         <div className="relative flex min-h-screen flex-col">
           <a href="#main-content" className="skip-link">

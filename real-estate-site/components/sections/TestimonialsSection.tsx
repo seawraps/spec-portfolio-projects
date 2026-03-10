@@ -9,25 +9,21 @@ type TestimonialsSectionProps = {
 };
 
 export function TestimonialsSection({
-  title = "Client Testimonials",
-  description = "The strongest referral businesses are built on repeat trust. These illustrative testimonials reflect the tone of feedback the agency aims to earn.",
+  title = "Clients remember how the process felt, not just the final number.",
+  description = "These illustrative testimonials reflect the kind of feedback a trust-based boutique practice aims to earn: calm execution, honest advice, and fewer unnecessary surprises.",
 }: TestimonialsSectionProps) {
   return (
-    <section className="py-12 md:py-16 lg:py-24" aria-labelledby="testimonials-heading">
+    <section className="py-14 md:py-18 lg:py-24" aria-labelledby="testimonials-heading">
       <Container>
         <SectionHeading
           id="testimonials-heading"
-          align="center"
-          eyebrow="Testimonials"
+          eyebrow="Client Perspective"
           title={title}
           description={description}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <TestimonialCard
-              key={testimonial.name}
-              testimonial={testimonial}
-            />
+            <TestimonialCard key={testimonial.name} testimonial={testimonial} />
           ))}
         </div>
       </Container>

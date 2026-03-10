@@ -1,56 +1,77 @@
-import { cn } from "@/lib/utils";
-
 import { Container } from "@/components/layout/Container";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { heroMetrics } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
 
+const launchSignals = [
+  "SOC 2-ready controls",
+  "SSO and audit exports",
+  "Launch in 7-10 days",
+];
+
+const workflowRows = [
+  {
+    name: "Enterprise renewal approvals",
+    status: "Healthy",
+    detail: "14 requests in flight across AMER and EMEA",
+  },
+  {
+    name: "New logo onboarding handoff",
+    status: "Attention",
+    detail: "3 owner conflicts detected before kickoff",
+  },
+  {
+    name: "Support escalation governance",
+    status: "Stable",
+    detail: "99.2% SLA adherence across priority queues",
+  },
+];
+
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-white py-12 sm:py-14 md:py-20 lg:py-24">
+    <section className="relative overflow-hidden border-b border-slate-200/80 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.14),transparent_30%),linear-gradient(180deg,#f7fbff_0%,#eef4f9_48%,#f8fbff_100%)] py-12 sm:py-14 md:py-20 lg:py-24">
       <div
-        className="pointer-events-none absolute -left-10 top-10 h-40 w-40 rounded-full bg-cyan-200/40 blur-3xl sm:-left-16 sm:top-16 sm:h-52 sm:w-52"
+        className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[linear-gradient(to_bottom,rgba(8,15,31,0.04),transparent)]"
         aria-hidden="true"
       />
-      <div
-        className="pointer-events-none absolute -right-6 top-24 h-44 w-44 rounded-full bg-blue-200/40 blur-3xl sm:-right-8 sm:top-28 sm:h-64 sm:w-64"
-        aria-hidden="true"
-      />
-
       <Container>
-        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-          <div className="animate-enter">
-            <p className="mb-4 inline-flex items-center rounded-full bg-cyan-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-cyan-800">
-              AI Operations Platform
-            </p>
-            <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              Run complex operations without the spreadsheet chaos.
+        <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
+          <div className="animate-fade-up">
+            <p className="eyebrow-label">Operations orchestration platform</p>
+            <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold tracking-[-0.055em] text-slate-950 sm:text-5xl lg:text-[4.3rem] lg:leading-[0.96]">
+              The control plane for revenue, onboarding, and support operations.
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-6 text-slate-600 sm:text-lg sm:leading-7">
-              {siteConfig.name} gives B2B teams one workspace to automate recurring workflows,
-              manage exceptions, and improve process performance with live analytics.
+            <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+              {siteConfig.name} gives operators a single environment to run live workflows,
+              manage exceptions, and ship process improvements with the governance enterprise teams
+              expect.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <ButtonLink href="/contact" className="w-full sm:w-auto">
-                Book a Live Demo
+                Book a live walkthrough
               </ButtonLink>
               <ButtonLink href="/features" variant="secondary" className="w-full sm:w-auto">
-                Explore Product Features
+                Explore the platform
               </ButtonLink>
             </div>
 
-            <dl className="mt-9 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">
-              {heroMetrics.map((metric, index) => (
-                <div
-                  key={metric.label}
-                  className={cn(
-                    "rounded-xl border border-slate-200 bg-white p-4 sm:p-6",
-                    index === heroMetrics.length - 1 ? "col-span-2 sm:col-span-1" : "",
-                  )}
+            <ul className="mt-7 flex flex-wrap gap-2.5">
+              {launchSignals.map((signal) => (
+                <li
+                  key={signal}
+                  className="rounded-full border border-slate-200 bg-white/88 px-3 py-1.5 text-sm font-medium text-slate-700 shadow-[0_16px_32px_-28px_rgba(15,23,42,0.2)]"
                 >
-                  <dt className="text-sm text-slate-500">{metric.label}</dt>
-                  <dd className="mt-2 font-display text-2xl font-semibold tracking-tight text-slate-900">
+                  {signal}
+                </li>
+              ))}
+            </ul>
+
+            <dl className="mt-10 grid gap-4 sm:grid-cols-3">
+              {heroMetrics.map((metric) => (
+                <div key={metric.label} className="surface-panel px-5 py-5">
+                  <dt className="data-label text-slate-500">{metric.label}</dt>
+                  <dd className="mt-3 font-display text-[2.15rem] font-semibold tracking-[-0.05em] text-slate-950">
                     {metric.value}
                   </dd>
                 </div>
@@ -58,43 +79,116 @@ export function HeroSection() {
             </dl>
           </div>
 
-          <div className="animate-enter-delay">
-            <div className="relative rounded-2xl border border-slate-200 bg-white p-5 shadow-xl shadow-slate-900/10 sm:p-8">
-              <div className="flex flex-col gap-3 border-b border-slate-100 pb-4 min-[380px]:flex-row min-[380px]:items-center min-[380px]:justify-between">
+          <div className="animate-fade-up-delay lg:pl-4">
+            <div className="surface-panel-dark surface-grid relative overflow-hidden p-4 sm:p-6">
+              <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-700">
-                    Live Workflow Queue
-                  </p>
-                  <p className="mt-1 font-display text-xl font-semibold text-slate-900">
-                    Revenue Ops Control Room
-                  </p>
+                  <p className="data-label text-sky-300">Live control room</p>
+                  <h2 className="mt-2 font-display text-2xl font-semibold tracking-[-0.04em] text-white">
+                    Revenue and service operations
+                  </h2>
                 </div>
-                <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
-                  Healthy
-                </span>
-              </div>
-
-              <div className="mt-4 space-y-3">
-                <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                  <p className="text-sm font-semibold text-slate-900">Renewal Approval Workflow</p>
-                  <p className="mt-1 text-xs text-slate-600">24 tasks active • 6 due in next 4 hours</p>
-                </div>
-                <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
-                  <p className="text-sm font-semibold text-amber-900">Implementation Escalation</p>
-                  <p className="mt-1 text-xs text-amber-700">2 exceptions waiting owner response</p>
-                </div>
-                <div className="hidden rounded-lg border border-slate-200 bg-slate-50 p-3 sm:block">
-                  <p className="text-sm font-semibold text-slate-900">Billing Verification Sequence</p>
-                  <p className="mt-1 text-xs text-slate-600">98.9% SLA adherence this week</p>
+                <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-sm font-medium text-emerald-200">
+                  <span className="h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true" />
+                  All core workflows healthy
                 </div>
               </div>
 
-              <div className="mt-4 rounded-lg bg-slate-900 p-4 text-white sm:mt-5">
-                <p className="text-xs uppercase tracking-[0.14em] text-slate-300">AI Recommendation</p>
-                <p className="mt-2 text-sm leading-6 text-slate-100">
-                  Reassign enterprise onboarding exceptions to the AMER queue to reduce average
-                  resolution time by 19%.
-                </p>
+              <div className="mt-6 grid gap-4 xl:grid-cols-[1.18fr_0.82fr]">
+                <div className="rounded-[1.55rem] border border-white/10 bg-white/4 p-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="data-label text-slate-400">Command board</p>
+                      <p className="mt-2 text-lg font-semibold text-white">Daily workflow queue</p>
+                    </div>
+                    <span className="rounded-full bg-sky-400/12 px-3 py-1 text-sm font-medium text-sky-200">
+                      128 runs today
+                    </span>
+                  </div>
+
+                  <div className="mt-5 space-y-3">
+                    {workflowRows.map((row) => (
+                      <div
+                        key={row.name}
+                        className="rounded-2xl border border-white/8 bg-[#091221] px-4 py-3"
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <p className="text-sm font-semibold text-white">{row.name}</p>
+                          <span
+                            className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
+                              row.status === "Healthy"
+                                ? "bg-emerald-400/12 text-emerald-200"
+                                : row.status === "Attention"
+                                  ? "bg-amber-400/12 text-amber-200"
+                                  : "bg-slate-400/12 text-slate-200"
+                            }`}
+                          >
+                            {row.status}
+                          </span>
+                        </div>
+                        <p className="mt-2 text-sm text-slate-300">{row.detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="rounded-[1.55rem] border border-white/10 bg-white/4 p-4">
+                    <p className="data-label text-slate-400">Reliability</p>
+                    <div className="mt-4 space-y-3">
+                      <div>
+                        <div className="flex items-center justify-between text-sm text-slate-300">
+                          <span>SLA adherence</span>
+                          <span>99.4%</span>
+                        </div>
+                        <div className="mt-2 h-2 rounded-full bg-white/8">
+                          <div className="h-2 w-[82%] rounded-full bg-sky-300" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex items-center justify-between text-sm text-slate-300">
+                          <span>Auto-routed exceptions</span>
+                          <span>91%</span>
+                        </div>
+                        <div className="mt-2 h-2 rounded-full bg-white/8">
+                          <div className="h-2 w-[74%] rounded-full bg-emerald-300" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex items-center justify-between text-sm text-slate-300">
+                          <span>Workflow coverage</span>
+                          <span>68%</span>
+                        </div>
+                        <div className="mt-2 h-2 rounded-full bg-white/8">
+                          <div className="h-2 w-[60%] rounded-full bg-cyan-400" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-[1.55rem] border border-sky-400/20 bg-sky-400/10 p-4">
+                    <p className="data-label text-sky-200">AI recommendation</p>
+                    <p className="mt-3 text-sm leading-6 text-slate-100">
+                      Merge billing validation into onboarding kickoff for enterprise accounts to
+                      remove one handoff and recover an estimated 12 hours each week.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                <div className="rounded-2xl border border-white/8 bg-white/4 px-4 py-3">
+                  <p className="data-label text-slate-400">Queues monitored</p>
+                  <p className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-white">23</p>
+                </div>
+                <div className="rounded-2xl border border-white/8 bg-white/4 px-4 py-3">
+                  <p className="data-label text-slate-400">Escalations prevented</p>
+                  <p className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-white">146</p>
+                </div>
+                <div className="rounded-2xl border border-white/8 bg-white/4 px-4 py-3">
+                  <p className="data-label text-slate-400">Weekly change briefs</p>
+                  <p className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-white">12</p>
+                </div>
               </div>
             </div>
           </div>

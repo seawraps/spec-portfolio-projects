@@ -3,54 +3,85 @@ import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const highlights = [
-  "Unified command board for all recurring workflows",
-  "SLA risk alerts and escalation rules",
-  "Cross-tool event timeline and audit history",
-  "Export-ready weekly executive summary reports",
+const productPanels = [
+  {
+    label: "Command board",
+    title: "Workload, queue health, and account priority in one live view.",
+    detail:
+      "Managers can monitor throughput, SLA risk, and ownership across every recurring process without stitching together internal trackers.",
+  },
+  {
+    label: "Workflow studio",
+    title: "Version-controlled process design that operators can actually use.",
+    detail:
+      "Ship changes with approvals, reusable modules, and deployment discipline instead of fragile one-off automations.",
+  },
+  {
+    label: "Executive reporting",
+    title: "Performance briefs leadership can trust.",
+    detail:
+      "Translate operational reality into clean dashboards, queue summaries, and improvement recommendations with context attached.",
+  },
 ];
 
 export function ProductPreviewSection() {
   return (
-    <section className="bg-white py-12 md:py-16 lg:py-24">
+    <section className="bg-slate-950 py-14 text-white md:py-20 lg:py-24">
       <Container>
         <SectionHeading
-          eyebrow="Product Snapshot"
-          title="A control surface built for day-to-day operators"
-          description="OrbitOps combines workflow execution, exception handling, and analytics in one clear interface your team can actually use every day."
-          centered
+          eyebrow="Product walkthrough"
+          title="A serious interface for teams running high-stakes business operations."
+          description="OrbitOps combines command-board visibility, workflow design, and executive reporting in a single product system built for day-to-day operators."
+          tone="dark"
         />
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 shadow-2xl shadow-slate-900/20">
+        <div className="mt-12 grid gap-6 xl:grid-cols-[1.2fr_0.8fr] xl:items-start">
+          <div className="surface-panel-dark overflow-hidden p-3 sm:p-4">
             <Image
               src="/product-dashboard.svg"
-              alt="OrbitOps product dashboard mockup showing workflow metrics, task pipeline, and exception feed"
+              alt="OrbitOps product dashboard showing workflow throughput, queue health, and live exception routing"
               width={1600}
               height={980}
-              className="h-auto w-full"
+              className="h-auto w-full rounded-[1.4rem]"
               priority
             />
           </div>
 
-          <div className="surface-card-muted p-6">
-            <h3 className="font-display text-xl font-semibold tracking-tight text-slate-900">
-              What teams monitor in OrbitOps
-            </h3>
-            <ul className="mt-5 space-y-3">
-              {highlights.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
-                  <span
-                    className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-100 text-xs font-semibold text-cyan-800"
-                    aria-hidden="true"
-                  >
-                    ✓
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="space-y-4">
+            {productPanels.map((panel) => (
+              <article key={panel.label} className="surface-panel-dark px-5 py-5">
+                <p className="data-label text-sky-300">{panel.label}</p>
+                <h3 className="mt-3 font-display text-xl font-semibold tracking-[-0.04em] text-white">
+                  {panel.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{panel.detail}</p>
+              </article>
+            ))}
           </div>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <article className="rounded-[1.55rem] border border-white/10 bg-white/4 px-5 py-5">
+            <p className="data-label text-slate-400">Role-specific views</p>
+            <p className="mt-3 text-sm leading-6 text-slate-300">
+              Managers, operators, and executives each get the level of detail they need without
+              fragmenting workflow ownership.
+            </p>
+          </article>
+          <article className="rounded-[1.55rem] border border-white/10 bg-white/4 px-5 py-5">
+            <p className="data-label text-slate-400">Controlled change management</p>
+            <p className="mt-3 text-sm leading-6 text-slate-300">
+              Compare workflow versions, review impact, and push process updates with approval and
+              audit history preserved.
+            </p>
+          </article>
+          <article className="rounded-[1.55rem] border border-white/10 bg-white/4 px-5 py-5">
+            <p className="data-label text-slate-400">Actionable AI</p>
+            <p className="mt-3 text-sm leading-6 text-slate-300">
+              Recommendations reference actual throughput, queue pressure, and exception patterns
+              so teams can ship informed changes faster.
+            </p>
+          </article>
         </div>
       </Container>
     </section>

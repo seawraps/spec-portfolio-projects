@@ -51,7 +51,7 @@ function fieldClassName(hasError: boolean) {
     "mt-2 w-full rounded-[20px] border bg-[var(--color-surface-strong)] px-4 py-3.5 text-base text-[var(--color-ink)] outline-none",
     hasError
       ? "border-red-400 ring-4 ring-red-100"
-      : "border-[var(--color-line-strong)] focus:border-[var(--color-forest)] focus:ring-4 focus:ring-[rgba(35,53,46,0.12)]",
+      : "border-[var(--color-line-strong)] focus:border-[var(--color-bronze)] focus:ring-4 focus:ring-[rgba(158,107,61,0.12)]",
   );
 }
 

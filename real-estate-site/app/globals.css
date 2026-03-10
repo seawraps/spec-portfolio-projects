@@ -1,18 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --color-paper: #f6f0e6;
-  --color-paper-strong: #ede0cf;
-  --color-surface: rgba(255, 252, 247, 0.9);
+  --color-paper: #f6f0e8;
+  --color-paper-strong: #efe4d7;
+  --color-surface: rgba(255, 250, 244, 0.88);
   --color-surface-strong: #fffdf8;
-  --color-ink: #19231e;
-  --color-muted: #5d6a61;
-  --color-forest: #23352e;
-  --color-forest-soft: #31483f;
-  --color-sand: #ccb391;
-  --color-gold: #b18a58;
-  --color-line: rgba(25, 35, 30, 0.08);
-  --color-line-strong: rgba(25, 35, 30, 0.16);
+  --color-ink: #1d2328;
+  --color-muted: #6d6a67;
+  --color-muted-strong: #514d49;
+  --color-navy: #131a21;
+  --color-navy-soft: #20303f;
+  --color-bronze: #9e6b3d;
+  --color-bronze-soft: #c49b71;
+  --color-cream: #f8f4ed;
+  --color-line: rgba(19, 26, 33, 0.08);
+  --color-line-strong: rgba(19, 26, 33, 0.16);
   --background: var(--color-paper);
   --foreground: var(--color-ink);
 }
@@ -20,8 +22,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope);
-  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-instrument);
+  --font-display: var(--font-bodoni);
 }
 
 * {
@@ -35,15 +37,28 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(204, 179, 145, 0.26), transparent 28%),
-    radial-gradient(circle at top right, rgba(49, 72, 63, 0.14), transparent 24%),
-    linear-gradient(180deg, #fbf7f1 0%, #f6f0e6 48%, #f5eee2 100%);
+    radial-gradient(circle at top left, rgba(196, 155, 113, 0.18), transparent 30%),
+    radial-gradient(circle at top right, rgba(19, 26, 33, 0.09), transparent 24%),
+    linear-gradient(180deg, #fbf7f0 0%, #f4ede4 48%, #eee6db 100%);
   color: var(--foreground);
-  font-family: var(--font-manrope), sans-serif;
+  font-family: var(--font-instrument), sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)),
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 24%);
+  opacity: 0.65;
+  pointer-events: none;
+  content: "";
 }
 
 ::selection {
-  background: rgba(177, 138, 88, 0.2);
+  background: rgba(158, 107, 61, 0.2);
   color: var(--color-ink);
 }
 
@@ -56,13 +71,16 @@ textarea {
     background-color 180ms ease,
     border-color 180ms ease,
     opacity 180ms ease,
-    transform 180ms ease;
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 a:focus-visible,
 button:focus-visible,
-summary:focus-visible {
-  outline: 2px solid var(--color-forest);
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-bronze);
   outline-offset: 3px;
 }
 
@@ -72,7 +90,7 @@ summary:focus-visible {
   top: 1rem;
   z-index: 100;
   border-radius: 999px;
-  background: var(--color-forest);
+  background: var(--color-navy);
   color: white;
   padding: 0.75rem 1rem;
   transform: translateY(-180%);
@@ -84,32 +102,55 @@ summary:focus-visible {
 
 .section-shell {
   position: relative;
+  overflow: hidden;
 }
 
 .section-shell::before {
   position: absolute;
   inset: 0;
   z-index: -1;
-  border-radius: 32px;
+  border-radius: 36px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.2)),
-    radial-gradient(circle at top right, rgba(204, 179, 145, 0.22), transparent 40%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.6)),
+    radial-gradient(circle at top right, rgba(196, 155, 113, 0.18), transparent 40%);
   content: "";
 }
 
 .soft-card {
   border: 1px solid var(--color-line);
-  background: rgba(255, 252, 247, 0.82);
-  box-shadow: 0 22px 52px -34px rgba(28, 43, 37, 0.36);
-  backdrop-filter: blur(18px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 251, 246, 0.84)),
+    rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 60px -38px rgba(19, 26, 33, 0.34);
+  backdrop-filter: blur(16px);
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease,
     transform 180ms ease;
 }
 
+.soft-card:hover {
+  border-color: rgba(158, 107, 61, 0.22);
+  box-shadow: 0 30px 72px -42px rgba(19, 26, 33, 0.4);
+}
+
+.dark-panel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(22, 29, 36, 0.94), rgba(16, 22, 29, 0.96)),
+    var(--color-navy);
+  box-shadow: 0 30px 70px -36px rgba(12, 17, 24, 0.72);
+}
+
+.image-frame {
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .fine-print {
-  color: rgba(93, 106, 97, 0.92);
+  color: rgba(81, 77, 73, 0.9);
   font-size: 0.9rem;
   line-height: 1.7;
 }

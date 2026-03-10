@@ -90,12 +90,14 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <section className="surface-panel p-8 sm:p-10" aria-live="polite">
-        <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-mint/20 text-sm font-bold text-mint">
+      <section className="paper-panel p-8 sm:p-10" aria-live="polite">
+        <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-signal/14 text-sm font-bold text-signal">
           OK
         </div>
-        <h2 className="mt-5 text-2xl font-semibold text-white">Thanks, your inquiry is in.</h2>
-        <p className="mt-3 max-w-xl text-sm leading-7 text-slate-300">
+        <h2 className="mt-5 font-display text-4xl font-semibold uppercase leading-none text-ink">
+          Thanks, your inquiry is in.
+        </h2>
+        <p className="mt-3 max-w-xl text-sm leading-7 text-ink/70">
           This concept form is client-side only for portfolio use. In a production setup, submissions would route to your CRM,
           inbox, or form handler.
         </p>
@@ -107,7 +109,16 @@ export function ContactForm() {
   }
 
   return (
-    <form className="surface-panel grid gap-6 p-6 sm:grid-cols-2 sm:p-8" onSubmit={onSubmit} noValidate>
+    <form className="paper-panel grid gap-6 p-6 sm:grid-cols-2 sm:p-8" onSubmit={onSubmit} noValidate>
+      <div className="sm:col-span-2 space-y-4 border-b border-ink/10 pb-4">
+        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-signal">Project Intake</p>
+        <h2 className="font-display text-4xl font-semibold uppercase leading-none text-ink">Start with the pressure point.</h2>
+        <p className="max-w-2xl text-sm leading-7 text-ink/70">
+          Give us the growth target, the friction, and the timeline. We use that to recommend the right engagement shape,
+          scope, and next move.
+        </p>
+      </div>
+
       <Field
         label="Full name"
         name="name"
@@ -175,17 +186,19 @@ export function ContactForm() {
           aria-describedby={errors.message ? "message-error" : undefined}
         />
         {errors.message ? (
-          <p id="message-error" className="mt-2 text-xs text-rose-300">
+          <p id="message-error" className="mt-2 text-xs text-rose-500">
             {errors.message}
           </p>
         ) : null}
       </div>
 
-      <div className="sm:col-span-2 flex flex-wrap items-center gap-3 border-t border-white/10 pt-3">
+      <div className="sm:col-span-2 flex flex-wrap items-center gap-3 border-t border-ink/10 pt-3">
         <button type="submit" className="button-primary">
           Submit Inquiry
         </button>
-        <p className="text-xs text-slate-400">No backend is connected in this demo. Validation and success state run entirely client-side.</p>
+        <p className="text-xs text-ink/46">
+          No backend is connected in this demo. Validation and success state run entirely client-side.
+        </p>
       </div>
     </form>
   );
@@ -219,7 +232,7 @@ function Field({ label, name, value, onChange, error, placeholder, type = "text"
         aria-describedby={error ? `${name}-error` : undefined}
       />
       {error ? (
-        <p id={`${name}-error`} className="mt-2 text-xs text-rose-300">
+        <p id={`${name}-error`} className="mt-2 text-xs text-rose-500">
           {error}
         </p>
       ) : null}
@@ -259,7 +272,7 @@ function SelectField({ label, name, value, onChange, options, error }: SelectFie
         ))}
       </select>
       {error ? (
-        <p id={`${name}-error`} className="mt-2 text-xs text-rose-300">
+        <p id={`${name}-error`} className="mt-2 text-xs text-rose-500">
           {error}
         </p>
       ) : null}

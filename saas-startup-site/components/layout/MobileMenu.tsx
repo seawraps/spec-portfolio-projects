@@ -15,7 +15,7 @@ export function MobileMenu() {
     <div className="md:hidden">
       <button
         type="button"
-        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white/90 text-slate-700 shadow-[0_18px_36px_-28px_rgba(15,23,42,0.16)] transition hover:border-slate-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
         aria-expanded={isOpen}
         aria-controls="mobile-nav"
         aria-label={isOpen ? "Close primary navigation" : "Open primary navigation"}
@@ -37,7 +37,7 @@ export function MobileMenu() {
       {isOpen ? (
         <div
           id="mobile-nav"
-          className="surface-card absolute inset-x-4 top-[4.5rem] z-50 p-4"
+          className="surface-panel absolute inset-x-4 top-[5rem] z-50 p-4"
         >
           <nav aria-label="Mobile primary navigation">
             <ul className="flex flex-col gap-2">
@@ -48,10 +48,10 @@ export function MobileMenu() {
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block rounded-full px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 ${
+                      className={`block rounded-2xl px-4 py-2.5 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 ${
                         isActive
-                          ? "bg-cyan-50 text-cyan-800"
-                          : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                          ? "bg-slate-950 text-white"
+                          : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
                       }`}
                       aria-current={isActive ? "page" : undefined}
                     >
@@ -67,7 +67,7 @@ export function MobileMenu() {
             onClick={() => setIsOpen(false)}
             className={buttonClassName("primary", "mt-3 w-full px-4")}
           >
-            Request a Demo
+            Book a demo
           </Link>
         </div>
       ) : null}

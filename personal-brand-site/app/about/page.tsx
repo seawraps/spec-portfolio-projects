@@ -18,7 +18,7 @@ import { buildMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildMetadata(
   "About",
-  "Meet Nadia Vale, a content strategist, keynote speaker, and media host helping ambitious experts turn clarity into authority.",
+  "Meet Nadia Vale, an editorial advisor, speaker, and media host helping expert-led brands make their public presence feel sharper and more human.",
   "/about",
 );
 
@@ -27,30 +27,32 @@ export default function AboutPage() {
     <>
       <PageIntro
         eyebrow="About Nadia"
-        title="Editorial instincts, commercial strategy, and a stage presence built to move rooms."
-        description="I built this brand around a simple belief: expertise deserves better packaging. The most valuable founders and operators are often the least clearly understood. My work closes that gap."
+        title="Editorial instincts, live-room experience, and strategy built for people whose reputation is part of the product."
+        description="I built this studio around one belief: expertise should look and sound as considered as the work behind it. My job is to close the gap between what someone knows and how clearly the market can feel it."
         stats={heroStats}
       />
 
       <section className="section-shell">
-        <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div className="relative">
-            <div className="surface-card grain relative overflow-hidden p-3">
+        <Container className="grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
+          <div className="space-y-5">
+            <div className="media-frame relative aspect-[4/4.5] overflow-hidden rounded-[2.3rem]">
               <Image
-                src="/images/nadia-portrait.svg"
-                alt="Editorial-style portrait illustration representing Nadia Vale."
-                width={960}
-                height={1120}
-                className="h-auto w-full rounded-[1.5rem]"
+                src="/images/nadia-whiteboard-portrait.jpg"
+                alt="Nadia Vale standing in front of a whiteboard in an editorial workspace."
+                fill
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="object-cover"
                 priority
               />
             </div>
-            <div className="surface-card absolute -bottom-6 left-6 max-w-xs p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/68">
+
+            <div className="paper-panel p-6">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
                 Based in Brooklyn
               </p>
-              <p className="mt-2 text-sm leading-6 text-ink/72">
-                Advising founder-led brands, venture-backed teams, and conference organizers globally.
+              <p className="mt-3 text-sm leading-7 text-mocha/88">
+                Advising founder-led brands, expert businesses, and conference teams that want more authority without
+                losing the humanity in the message.
               </p>
             </div>
           </div>
@@ -58,24 +60,34 @@ export default function AboutPage() {
           <div className="space-y-6">
             <SectionHeading
               eyebrow="My Story"
-              title="From newsroom producer to the strategist people call when the message matters."
-              description="My background spans media production, founder storytelling, and high-trust audience development. That mix means I care as much about what feels true on stage as what performs in-market."
+              title="From editorial rooms to founder brands to keynote stages."
+              description="My background sits at the intersection of media production, messaging strategy, and public-facing leadership. That combination is why the work tends to feel both polished and grounded."
             />
 
-            <div className="space-y-5 text-base leading-8 text-ink/74">
+            <div className="space-y-5 text-base leading-8 text-mocha/92">
               <p>
-                I started in editorial environments where attention had to be earned quickly, structure mattered,
-                and vague thinking showed up instantly. Later, I brought those instincts into startup and creator
-                ecosystems where personal brands often carried sales, recruiting, fundraising, and product launches
-                all at once.
+                I started in environments where attention had to be earned quickly and weak phrasing got exposed fast.
+                That editorial training shaped how I think about public presence now: strong ideas need rhythm, structure,
+                and a voice people can actually remember.
               </p>
               <p>
-                Today, I work with leaders who need more than content volume. They need a clear thesis, repeatable
-                formats, and a presence that feels credible in boardrooms, on podcasts, and in front of live audiences.
+                Later, I brought those instincts into founder and executive storytelling, where the personal brand often
+                carries more than visibility. It carries trust, context for the company, recruiting signal, partner fit,
+                and sometimes the entire emotional tone of a category.
               </p>
               <p>
-                The result is strategy that is warm but rigorous, visually polished, and directly useful to the business
-                behind the brand.
+                Today, I work with clients who do not need more noise. They need a clearer thesis, stronger visual and
+                verbal rhythm, and a presence that feels credible in live rooms, media formats, and the quiet moments
+                when a buyer is deciding whether to lean in.
+              </p>
+            </div>
+
+            <div className="paper-panel p-6 sm:p-8">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
+                What clients usually feel
+              </p>
+              <p className="mt-4 text-xl leading-8 text-ink sm:text-2xl">
+                “We finally sound like ourselves, just sharper and easier for other people to carry.”
               </p>
             </div>
           </div>
@@ -86,18 +98,26 @@ export default function AboutPage() {
         <Container>
           <SectionHeading
             eyebrow="Working Style"
-            title="What clients remember after the strategy session."
-            description="The work is designed to feel precise, collaborative, and commercially grounded."
+            title="Three things I bring into every room."
+            description="The studio sits somewhere between editorial direction, strategy partner, and rehearsal coach."
           />
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {aboutValues.map((value) => (
-              <article key={value.title} className="surface-card h-full p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose">
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {aboutValues.map((value, index) => (
+              <article key={value.title} className={index === 1 ? "ink-panel h-full p-8" : "paper-panel h-full p-8"}>
+                <p
+                  className={
+                    index === 1
+                      ? "text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/62"
+                      : "text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72"
+                  }
+                >
                   Signature Principle
                 </p>
-                <h3 className="mt-4 text-3xl text-ink">{value.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-ink/70">{value.description}</p>
+                <h3 className={index === 1 ? "mt-4 text-3xl text-white" : "mt-4 text-3xl text-ink"}>{value.title}</h3>
+                <p className={index === 1 ? "mt-4 text-sm leading-7 text-white/78" : "mt-4 text-sm leading-7 text-mocha/88"}>
+                  {value.description}
+                </p>
               </article>
             ))}
           </div>
@@ -105,58 +125,69 @@ export default function AboutPage() {
       </section>
 
       <section className="section-shell">
-        <Container className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <Container className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr]">
           <div>
             <SectionHeading
               eyebrow="Timeline"
               title="A career shaped by editorial discipline and founder proximity."
-              description="Each chapter sharpened the same core skill: turning sharp thinking into stories people can carry forward."
+              description="Each chapter sharpened the same through-line: turning sharp thinking into stories people can repeat and rooms can trust."
             />
 
-            <div className="mt-8 space-y-5">
+            <div className="mt-8 space-y-4">
               {careerTimeline.map((item) => (
-                <article key={item.year} className="surface-card p-6">
-                  <p className="text-sm font-semibold tracking-[0.18em] text-rose">{item.year}</p>
-                  <h3 className="mt-2 text-3xl text-ink">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-ink/72">{item.description}</p>
+                <article key={item.year} className="paper-panel p-6">
+                  <p className="text-sm font-semibold tracking-[0.2em] text-plum">{item.year}</p>
+                  <h3 className="mt-3 text-3xl text-ink">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-mocha/88">{item.description}</p>
                 </article>
               ))}
             </div>
           </div>
 
           <div className="space-y-6">
-            <div className="dark-panel p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/62">
+            <div className="media-frame relative aspect-[4/3.1] overflow-hidden rounded-[2.1rem]">
+              <Image
+                src="/images/nadia-workshop.jpg"
+                alt="Nadia Vale facilitating a leadership workshop around a conference table."
+                fill
+                sizes="(min-width: 1024px) 38vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+
+            <div className="ink-panel p-8">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/62">
                 Speaking Topics
               </p>
-              <ul className="mt-5 space-y-4 text-base leading-7 text-white/82">
+              <ul className="mt-5 space-y-4 text-base leading-8 text-white/82">
                 {speakingTopics.map((topic) => (
                   <li key={topic} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-clay" />
+                    <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-gold" />
                     <span>{topic}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="surface-card p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/68">
+            <div className="paper-panel p-8">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
                 Concept Note
               </p>
-              <p className="mt-4 text-sm leading-7 text-ink/70">{projectNote}</p>
-              <p className="mt-4 text-sm leading-7 text-ink/70">
-                All names, companies, and performance details are fictionalized for presentation while staying grounded
-                in believable positioning and service design.
+              <p className="mt-4 text-sm leading-7 text-mocha/88">{projectNote}</p>
+              <p className="mt-4 text-sm leading-7 text-mocha/88">
+                All names, companies, and metrics are fictionalized for presentation, but the positioning is grounded in
+                real personal-brand, media, and speaker market patterns.
               </p>
             </div>
 
-            <div className="surface-card p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/68">
+            <div className="paper-panel p-8">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
                 Direct Contact
               </p>
-              <h3 className="mt-4 text-3xl text-ink">Need a speaker, strategist, or host?</h3>
-              <p className="mt-4 text-sm leading-7 text-ink/70">
-                The fastest path is a concise note with audience, timing, and the outcome you want to create.
+              <h3 className="mt-4 text-4xl text-ink">Need a strategist, speaker, or moderator?</h3>
+              <p className="mt-4 text-sm leading-7 text-mocha/88">
+                The fastest path is a concise note with the audience, timing, and the shift you want the room or brand
+                to make.
               </p>
               <ButtonLink href={`mailto:${siteConfig.email}`} className="mt-6">
                 {siteConfig.email}

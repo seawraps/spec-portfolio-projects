@@ -2,6 +2,8 @@
 
 import { type FormEvent, useState } from "react";
 
+import { buttonClassName } from "@/components/ui/button-link";
+
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -46,7 +48,10 @@ export function NewsletterSignup() {
 
       <button
         type="submit"
-        className="inline-flex h-11 w-full items-center justify-center rounded-full bg-clay px-5 text-sm font-semibold text-ink shadow-[0_18px_38px_-26px_rgba(216,162,123,0.62)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold hover:shadow-[0_24px_44px_-26px_rgba(242,183,102,0.64)]"
+        className={buttonClassName(
+          "secondary",
+          "w-full border-white/16 bg-white text-ink hover:bg-paper-soft",
+        )}
       >
         Join the Newsletter
       </button>

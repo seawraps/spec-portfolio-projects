@@ -76,13 +76,13 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div
-        className="rounded-[1.5rem] border border-sage/30 bg-sage/10 p-6"
+        className="rounded-[1.5rem] border border-olive/25 bg-olive/10 p-6"
         role="status"
         aria-live="polite"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose">Inquiry sent</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-plum">Inquiry sent</p>
         <h3 className="mt-3 text-3xl text-ink">Success state confirmed.</h3>
-        <p className="mt-4 max-w-xl text-sm leading-7 text-ink/72">
+        <p className="mt-4 max-w-xl text-sm leading-7 text-mocha/88">
           This concept demo keeps submissions entirely on the client, so no backend is required. In a real deployment,
           the same UI could connect to a server action, CRM, or email provider.
         </p>
@@ -101,7 +101,7 @@ export function ContactForm() {
     <form className="space-y-5" noValidate onSubmit={handleSubmit}>
       <div className="grid gap-6 sm:grid-cols-2">
         <label className="block">
-          <span className="mb-2 block text-sm font-medium text-ink/72">Name</span>
+          <span className="mb-2 block text-sm font-medium text-mocha/84">Name</span>
           <input
             type="text"
             name="name"
@@ -113,14 +113,14 @@ export function ContactForm() {
             aria-describedby={errors.name ? "contact-error-name" : undefined}
           />
           {errors.name ? (
-            <p id="contact-error-name" className="mt-2 text-sm text-rose">
+            <p id="contact-error-name" className="mt-2 text-sm text-plum">
               {errors.name}
             </p>
           ) : null}
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-sm font-medium text-ink/72">Email</span>
+          <span className="mb-2 block text-sm font-medium text-mocha/84">Email</span>
           <input
             type="email"
             name="email"
@@ -132,7 +132,7 @@ export function ContactForm() {
             aria-describedby={errors.email ? "contact-error-email" : undefined}
           />
           {errors.email ? (
-            <p id="contact-error-email" className="mt-2 text-sm text-rose">
+            <p id="contact-error-email" className="mt-2 text-sm text-plum">
               {errors.email}
             </p>
           ) : null}
@@ -141,7 +141,7 @@ export function ContactForm() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <label className="block">
-          <span className="mb-2 block text-sm font-medium text-ink/72">Company or project</span>
+          <span className="mb-2 block text-sm font-medium text-mocha/84">Company or project</span>
           <input
             type="text"
             name="company"
@@ -153,7 +153,7 @@ export function ContactForm() {
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-sm font-medium text-ink/72">Inquiry type</span>
+          <span className="mb-2 block text-sm font-medium text-mocha/84">Inquiry type</span>
           <select
             name="inquiryType"
             value={values.inquiryType}
@@ -167,7 +167,7 @@ export function ContactForm() {
             <option value="partnership">Partnership or media</option>
           </select>
           {errors.inquiryType ? (
-            <p id="contact-error-type" className="mt-2 text-sm text-rose">
+            <p id="contact-error-type" className="mt-2 text-sm text-plum">
               {errors.inquiryType}
             </p>
           ) : null}
@@ -175,7 +175,7 @@ export function ContactForm() {
       </div>
 
       <label className="block">
-        <span className="mb-2 block text-sm font-medium text-ink/72">What do you need help with?</span>
+        <span className="mb-2 block text-sm font-medium text-mocha/84">What do you need help with?</span>
         <textarea
           name="message"
           placeholder="Share the audience, timing, and what a strong outcome would look like."
@@ -185,14 +185,14 @@ export function ContactForm() {
           aria-describedby={errors.message ? "contact-error-message" : undefined}
         />
         {errors.message ? (
-          <p id="contact-error-message" className="mt-2 text-sm text-rose">
+          <p id="contact-error-message" className="mt-2 text-sm text-plum">
             {errors.message}
           </p>
         ) : null}
       </label>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm leading-7 text-ink/72">
+        <p className="text-sm leading-7 text-mocha/88">
           Frontend-only demo form. Validation and success states are included without a backend dependency.
         </p>
         <button

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { CtaGridSection } from "@/components/sections/CtaGridSection";
 import { PageHero } from "@/components/sections/PageHero";
@@ -21,8 +22,11 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Representation that balances aesthetics, analytics, and timing."
-        description="Whether you are preparing to sell, searching discreetly, or planning your next move six months out, we build a strategy around the realities of your price point, timeline, and market segment."
+        title="Representation that balances presentation, analytics, and timing."
+        description="Whether you are preparing to sell, searching discreetly, or planning your next move several months out, we shape a strategy around your price point, calendar, and the realities of the segment you are entering."
+        imageSrc="/images/services-interior.jpg"
+        imageAlt="A polished luxury interior styled for premium residential marketing."
+        imageCaption="Launch strategy, buyer representation, and valuation advice delivered with restraint."
         primaryAction={{ href: "/contact", label: "Book a consultation" }}
         secondaryAction={{ href: "/", label: "See featured listings", variant: "secondary" }}
         highlights={[
@@ -32,37 +36,63 @@ export default function ServicesPage() {
         ]}
       />
 
-      <ServicesGridSection
-        title="Signature Services"
-        description="Each engagement is tailored, but every client receives direct communication, disciplined planning, and a clear point of view."
-      />
-
-      <section className="py-12 md:py-16 lg:py-24">
+      <section className="py-12 md:py-16 lg:py-20">
         <Container>
-          <SectionHeading
-            align="center"
-            eyebrow="What Every Engagement Includes"
-            title="Consistent service standards, regardless of transaction type."
-            description="The difference between a smooth transaction and a reactive one usually comes down to prep. These standards shape how we manage every search, launch, and negotiation."
-          />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {serviceStandards.map((item) => (
-              <article key={item.title} className="soft-card rounded-[28px] p-6">
-                <h3 className="font-display text-3xl text-[var(--color-ink)]">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
-                  {item.description}
+          <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
+            <div className="soft-card rounded-[32px] p-8 sm:p-10">
+              <SectionHeading
+                eyebrow="Service Standards"
+                title="What every engagement includes."
+                description="The difference between a smooth transaction and a reactive one is usually preparation. These standards shape how we manage every search, launch, and negotiation."
+              />
+              <div className="mt-8 grid gap-4">
+                {serviceStandards.map((item) => (
+                  <article
+                    key={item.title}
+                    className="rounded-[24px] border border-[var(--color-line)] bg-[var(--color-cream)] p-6"
+                  >
+                    <h3 className="font-display text-3xl text-[var(--color-ink)]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="image-frame relative min-h-[360px] lg:min-h-[640px]">
+              <Image
+                src="/images/listing-penthouse.jpg"
+                alt="A premium penthouse living room staged for a luxury real estate marketing campaign."
+                fill
+                sizes="(min-width: 1024px) 44vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/72 via-transparent to-transparent" />
+              <div className="absolute inset-x-5 bottom-5 rounded-[24px] border border-white/12 bg-black/24 p-5 text-white backdrop-blur-md">
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-white/68">
+                  Launch Discipline
                 </p>
-              </article>
-            ))}
+                <p className="mt-3 font-display text-4xl leading-[0.94] text-white">
+                  Strong presentation only works when the pricing, timing, and
+                  outreach strategy are just as considered.
+                </p>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
 
+      <ServicesGridSection
+        title="Signature services for buyers, sellers, and owners planning ahead."
+        description="Each engagement is tailored, but every client receives direct communication, disciplined planning, and a clear point of view on what matters most."
+      />
+
       <ProcessSection
-        title="A Process Built To Remove Guesswork"
-        description="Our workflows are meant to feel calm and decisive. Buyers know exactly where they stand. Sellers know what happens next, when, and why."
+        title="A process designed to remove guesswork and protect momentum."
+        description="Our workflows are meant to feel calm and decisive. Buyers know where they stand. Sellers know what happens next, when, and why."
       />
 
       <CtaGridSection />

@@ -5,27 +5,29 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 border-t border-stone-200 bg-stone-950 text-stone-200">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-3">
+    <footer className="border-t border-[rgba(255,233,204,0.1)] bg-[#0d0907] text-[#d7c5b1]">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.2fr_0.8fr_1fr]">
         <div>
-          <h2 className="font-display text-3xl text-stone-50">{restaurantName}</h2>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-300">
-            Wood-fired Mediterranean dining by the harbor, crafted for long evenings and
-            memorable tables.
+          <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#d1a364]">
+            Santa Monica Harbor
           </p>
-          <p className="mt-6 text-xs uppercase tracking-[0.16em] text-stone-400">
-            Concept demo project for portfolio use.
+          <h2 className="mt-4 font-display text-4xl leading-none text-[#f8efe4]">
+            {restaurantName}
+          </h2>
+          <p className="mt-5 max-w-sm text-base leading-relaxed text-[#cdb8a3]">
+            A portfolio concept restaurant built to feel like a real candlelit coastal destination,
+            from first cocktail to final course.
           </p>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-stone-100">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.26em] text-[#f1ddbf]">
             Navigate
           </h3>
-          <ul className="mt-4 space-y-3 text-sm text-stone-300">
+          <ul className="mt-5 space-y-3 text-sm uppercase tracking-[0.16em]">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="transition-colors hover:text-amber-300">
+                <Link href={link.href} className="transition-colors hover:text-[#f6ecdf]">
                   {link.label}
                 </Link>
               </li>
@@ -34,30 +36,30 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-stone-100">
-            Visit
+          <h3 className="text-sm font-semibold uppercase tracking-[0.26em] text-[#f1ddbf]">
+            Reservations
           </h3>
-          <address className="mt-4 not-italic text-sm leading-relaxed text-stone-300">
+          <address className="mt-5 not-italic text-sm leading-relaxed text-[#cdb8a3]">
             <p>{contactDetails.addressLine1}</p>
             <p>{contactDetails.addressLine2}</p>
             <p className="mt-3">{contactDetails.phone}</p>
             <p>
               <a
                 href={`mailto:${contactDetails.email}`}
-                className="transition-colors hover:text-amber-300"
+                className="transition-colors hover:text-[#f6ecdf]"
               >
                 {contactDetails.email}
               </a>
             </p>
           </address>
-          <ul className="mt-5 flex gap-4 text-sm">
+          <ul className="mt-5 flex gap-5 text-sm">
             {socialLinks.map((social) => (
               <li key={social.label}>
                 <a
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-stone-300 transition-colors hover:text-amber-300"
+                  className="transition-colors hover:text-[#f6ecdf]"
                 >
                   {social.label}
                 </a>
@@ -66,9 +68,9 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-stone-800 px-4 py-5 text-center text-xs text-stone-400">
+      <div className="border-t border-[rgba(255,233,204,0.08)] px-6 py-5 text-center text-xs uppercase tracking-[0.18em] text-[#8d7460]">
         <p>
-          © {year} {restaurantName}. All rights reserved.
+          © {year} {restaurantName}. Concept site for portfolio demonstration.
         </p>
       </div>
     </footer>
