@@ -87,11 +87,11 @@ export function ContactForm() {
   if (isSubmitted) {
     return (
       <div
-        className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-brand-soft)] p-6"
+        className="rounded-[1.8rem] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-6"
         role="status"
       >
-        <h3 className="font-display text-3xl text-[var(--color-brand)]">Thanks, we got it.</h3>
-        <p className="mt-3 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
+        <h3 className="font-display text-4xl text-[var(--color-brand)]">Thanks, we got it.</h3>
+        <p className="mt-3 text-sm leading-8 text-[var(--color-muted)] sm:text-base">
           Your message was submitted successfully. A project specialist will follow up within
           one business day.
         </p>
@@ -109,7 +109,7 @@ export function ContactForm() {
   return (
     <form noValidate className="space-y-4" onSubmit={onSubmit}>
       <div>
-        <label htmlFor="name" className="text-sm font-semibold text-[var(--color-brand)]">
+        <label htmlFor="name" className="text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
           Full Name
         </label>
         <input
@@ -120,7 +120,8 @@ export function ContactForm() {
           onChange={(event) => onFieldChange("name", event.target.value)}
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? "name-error" : undefined}
-          className="mt-2 w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition focus:border-[var(--color-brand)] focus:ring-2 focus:ring-[color:rgba(23,54,77,0.18)]"
+          className="mt-2 w-full rounded-[1rem] border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.95)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition focus:border-[var(--color-brand)] focus:ring-2 focus:ring-[color:rgba(36,54,75,0.14)]"
+          placeholder="Jordan Smith"
           required
         />
         {errors.name ? (
@@ -132,7 +133,7 @@ export function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="email" className="text-sm font-semibold text-[var(--color-brand)]">
+          <label htmlFor="email" className="text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
             Email Address
           </label>
           <input
@@ -144,7 +145,8 @@ export function ContactForm() {
             onChange={(event) => onFieldChange("email", event.target.value)}
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className="mt-2 w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition focus:border-[var(--color-brand)] focus:ring-2 focus:ring-[color:rgba(23,54,77,0.18)]"
+            className="mt-2 w-full rounded-[1rem] border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.95)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition focus:border-[var(--color-brand)] focus:ring-2 focus:ring-[color:rgba(36,54,75,0.14)]"
+            placeholder="you@example.com"
             required
           />
           {errors.email ? (
@@ -155,7 +157,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="phone" className="text-sm font-semibold text-[var(--color-brand)]">
+          <label htmlFor="phone" className="text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
             Phone (Optional)
           </label>
           <input
@@ -167,7 +169,8 @@ export function ContactForm() {
             onChange={(event) => onFieldChange("phone", event.target.value)}
             aria-invalid={Boolean(errors.phone)}
             aria-describedby={errors.phone ? "phone-error" : undefined}
-            className="mt-2 w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition focus:border-[var(--color-brand)] focus:ring-2 focus:ring-[color:rgba(23,54,77,0.18)]"
+            className="mt-2 w-full rounded-[1rem] border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.95)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition focus:border-[var(--color-brand)] focus:ring-2 focus:ring-[color:rgba(36,54,75,0.14)]"
+            placeholder="(615) 555-0192"
           />
           {errors.phone ? (
             <p id="phone-error" className="mt-1 text-sm text-[var(--color-error)]">
@@ -178,7 +181,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="text-sm font-semibold text-[var(--color-brand)]">
+        <label htmlFor="message" className="text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
           Project Details
         </label>
         <textarea
@@ -189,7 +192,8 @@ export function ContactForm() {
           onChange={(event) => onFieldChange("message", event.target.value)}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : undefined}
-          className="mt-2 w-full rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-sm leading-7 text-[var(--color-ink)] outline-none transition focus:border-[var(--color-brand)] focus:ring-2 focus:ring-[color:rgba(23,54,77,0.18)]"
+          className="mt-2 w-full rounded-[1rem] border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.95)] px-4 py-3 text-sm leading-7 text-[var(--color-ink)] outline-none transition focus:border-[var(--color-brand)] focus:ring-2 focus:ring-[color:rgba(36,54,75,0.14)]"
+          placeholder="Tell us which rooms are involved, what is not working, and your preferred timing."
           required
         />
         {errors.message ? (
@@ -207,9 +211,9 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className={buttonClassName("primary")}
+        className={buttonClassName("primary", "w-full sm:w-auto")}
       >
-        Send Message
+        Request My Consultation
       </button>
     </form>
   );

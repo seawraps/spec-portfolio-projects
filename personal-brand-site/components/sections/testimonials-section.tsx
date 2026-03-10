@@ -3,28 +3,49 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { testimonials } from "@/lib/data";
 
 export function TestimonialsSection() {
+  const [lead, ...rest] = testimonials;
+
   return (
     <section className="section-shell">
       <Container>
         <SectionHeading
-          eyebrow="Testimonials"
-          title="Believable praise from the kind of clients this brand is designed to attract."
-          description="The copy is fictionalized, but the structure, tone, and outcomes are modeled on real advisory and speaking feedback."
+          eyebrow="Client Notes"
+          title="Testimonials that feel closer to a recommendation than a sales page quote wall."
+          description="The names and brands are fictionalized for the demo, but the tone, detail, and outcomes are modeled on real speaking and advisory feedback."
         />
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <article key={testimonial.name} className="dark-panel h-full p-8">
-              <p className="text-4xl leading-none text-clay">&quot;</p>
-              <p className="mt-5 text-base leading-8 text-white/82">{testimonial.quote}</p>
-              <div className="mt-8 border-t border-white/10 pt-5">
-                <p className="text-lg text-white">{testimonial.name}</p>
-                <p className="mt-1 text-sm text-white/62">
-                  {testimonial.role}, {testimonial.company}
+        <div className="mt-10 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+          <article className="ink-panel p-8 sm:p-10">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-gold">{lead.outcome}</p>
+            <p className="text-6xl leading-none text-gold">&quot;</p>
+            <p className="mt-6 max-w-3xl text-2xl leading-9 text-white/88 sm:text-[2rem] sm:leading-10">
+              {lead.quote}
+            </p>
+            <div className="mt-8 border-t border-white/10 pt-5">
+              <p className="text-xl text-white">{lead.name}</p>
+              <p className="mt-2 text-sm uppercase tracking-[0.18em] text-white/62">
+                {lead.role}, {lead.company}
+              </p>
+            </div>
+          </article>
+
+          <div className="grid gap-5">
+            {rest.map((testimonial) => (
+              <article key={testimonial.name} className="paper-panel sequence-card p-7 sm:p-8">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-plum">
+                  {testimonial.outcome}
                 </p>
-              </div>
-            </article>
-          ))}
+                <p className="text-5xl leading-none text-plum">&quot;</p>
+                <p className="mt-5 text-base leading-8 text-mocha/92">{testimonial.quote}</p>
+                <div className="mt-6 border-t border-ink/8 pt-4">
+                  <p className="text-lg text-ink">{testimonial.name}</p>
+                  <p className="mt-1 text-sm text-mocha/78">
+                    {testimonial.role}, {testimonial.company}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

@@ -18,15 +18,15 @@ export function SectionHeading({
   return (
     <div className={wrapperClassName}>
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-200/85">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-emerald-100/80">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="mt-3 font-display text-3xl tracking-tight text-white sm:text-4xl">
+      <h2 className="mt-4 max-w-3xl text-balance font-display text-3xl tracking-[-0.04em] text-white sm:text-4xl lg:text-[3rem]">
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg">
+        <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
           {description}
         </p>
       ) : null}

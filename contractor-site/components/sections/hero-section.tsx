@@ -1,86 +1,202 @@
-import { ButtonLink, buttonClassName } from "@/components/ui/button-link";
+import Image from "next/image";
+
+import { Reveal } from "@/components/motion/reveal";
 import { Container } from "@/components/layout/container";
+import { ButtonLink, buttonClassName } from "@/components/ui/button-link";
 import { company, featuredStats } from "@/lib/data";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-20 lg:py-24">
+    <section id="home-hero" className="relative overflow-hidden pb-18 pt-4 sm:pt-6 md:pb-22 lg:pb-26">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-28 right-0 h-72 w-72 rounded-full bg-[color:rgba(23,54,77,0.15)] blur-3xl"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[linear-gradient(180deg,rgba(255,250,243,0.66),rgba(244,237,227,0))]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-[-3rem] h-64 w-64 rounded-full bg-[color:rgba(201,127,44,0.16)] blur-3xl"
+        className="pointer-events-none absolute -left-16 top-24 h-64 w-64 rounded-full bg-[color:rgba(180,136,72,0.14)] blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-14 h-72 w-72 rounded-full bg-[color:rgba(36,54,75,0.1)] blur-3xl"
       />
 
-      <Container className="relative grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
-            Nashville Remodeling Specialists
-          </p>
-          <h1 className="mt-4 max-w-2xl font-display text-4xl leading-tight text-[var(--color-brand)] sm:text-5xl lg:text-6xl">
-            Premium home renovations that feel built for you.
-          </h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-[var(--color-muted)] sm:text-lg">
-            {company.name} helps homeowners upgrade kitchens, bathrooms, and living spaces
-            with a process that is organized, transparent, and detail-driven from start to
-            finish.
-          </p>
+      <Container className="relative">
+        <div className="grid gap-10 xl:grid-cols-[0.8fr_1.2fr] xl:items-start">
+          <Reveal className="relative z-10 xl:max-w-[38rem] xl:pt-10">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
+              Nashville Design-Build Contractor
+            </p>
+            <h1 className="mt-5 max-w-3xl font-display text-[2.7rem] leading-[0.97] text-[var(--color-brand)] sm:text-[4.45rem] lg:text-[5.35rem]">
+              Renovations that feel calm, collected, and worth coming home to.
+            </h1>
+            <p className="mt-6 max-w-2xl text-[0.98rem] leading-8 text-[var(--color-muted)] sm:text-[1.08rem]">
+              {company.name} plans and builds premium kitchens, bathrooms, and interior
+              renovations for homeowners who want a warmer material palette, clearer communication,
+              and a finish level that reads custom without feeling showy.
+            </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonLink href="/contact">Book a Consultation</ButtonLink>
-            <ButtonLink href="/services" variant="secondary">
-              Explore Services
-            </ButtonLink>
-          </div>
-
-          <ul className="mt-8 grid gap-6 sm:grid-cols-3">
-            {featuredStats.map((stat) => (
-              <li
-                key={stat.label}
-                className="surface-card rounded-2xl p-6"
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <ButtonLink href="/contact" variant="light">
+                Start Your Renovation
+              </ButtonLink>
+              <ButtonLink href="/services" variant="secondary">
+                Explore Signature Services
+              </ButtonLink>
+              <a
+                href={`tel:${company.phoneRaw}`}
+                className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-brand)] underline decoration-[color:rgba(180,136,72,0.68)] underline-offset-6 hover:text-[var(--color-accent-deep)]"
               >
-                <p className="font-display text-3xl leading-none text-[var(--color-brand)]">
-                  {stat.value}
+                Consultation line {company.phoneDisplay}
+              </a>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              {[
+                "Licensed design-build oversight",
+                "Occupied-home planning",
+                "Material palettes that age well",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.76)] px-4 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={100} className="relative">
+            <div className="grid gap-4 lg:grid-cols-[1.08fr_0.62fr] lg:items-start">
+              <div className="relative">
+                <div className="image-frame relative min-h-[420px] rounded-[2.5rem] sm:min-h-[560px] xl:min-h-[690px]">
+                  <Image
+                    src="/images/hero-kitchen.jpg"
+                    alt="A premium renovated kitchen with wood cabinetry, a large island, and soft natural light."
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="(max-width: 1280px) 100vw, 46vw"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.02),rgba(22,36,52,0.48))]" />
+                  <div className="absolute left-5 top-5 rounded-full border border-[color:rgba(255,255,255,0.26)] bg-[color:rgba(22,36,52,0.72)] px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)] shadow-[0_20px_42px_-24px_rgba(0,0,0,0.45)] sm:left-7 sm:top-7">
+                    Est. {company.foundedYear} | Design-build
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-6 text-[var(--color-surface)] sm:p-8">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
+                      Featured project
+                    </p>
+                    <p className="mt-3 max-w-sm font-display text-[2rem] leading-[1.04] sm:text-[2.7rem]">
+                      Belle Meade kitchen renewal with quieter detailing and better flow.
+                    </p>
+                    <p className="mt-4 max-w-md text-sm leading-7 text-[color:rgba(255,250,243,0.82)] sm:text-base">
+                      Opened sight lines, warmer cabinetry, and a plan that finally let the island
+                      become the center of daily life.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-5 left-5 right-5 rounded-[1.55rem] border border-[color:rgba(36,54,75,0.1)] bg-[color:rgba(255,250,243,0.95)] p-4 shadow-[0_28px_68px_-38px_rgba(18,29,40,0.48)] sm:bottom-7 sm:left-7 sm:max-w-[18rem] sm:p-5">
+                  <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
+                    Homeowner experience
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                    Protected job sites, documented milestones, and decisions surfaced early
+                    instead of becoming surprises later.
+                  </p>
+                  <a
+                    href={`tel:${company.phoneRaw}`}
+                    className={buttonClassName("primary", "mt-4 w-full")}
+                  >
+                    Call {company.phoneDisplay}
+                  </a>
+                </div>
+              </div>
+
+              <div className="grid gap-4 lg:pt-12">
+                <div className="image-frame relative min-h-[220px] rounded-[2rem] sm:min-h-[260px]">
+                  <Image
+                    src="/images/cabinet-detail.jpg"
+                    alt="A custom cabinet detail with rich wood grain and premium hardware."
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 24vw"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.04),rgba(22,36,52,0.42))]" />
+                  <div className="absolute inset-x-0 bottom-0 p-5 text-[var(--color-surface)]">
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
+                      Millwork detail
+                    </p>
+                    <p className="mt-2 max-w-[12rem] text-sm leading-6 text-[color:rgba(255,250,243,0.82)]">
+                      Cabinetry and trim that reads closer to furniture than stock construction.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="surface-card rounded-[2rem] p-5 sm:p-6">
+                  <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
+                    Signature priorities
+                  </p>
+                  <ul className="mt-4 space-y-3 text-sm leading-7 text-[var(--color-muted)]">
+                    <li>Cabinetry and millwork with furniture-level detail</li>
+                    <li>Warm stone, plaster tones, and finishes that age well</li>
+                    <li>Weekly communication that keeps the entire house legible</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={180} className="xl:col-span-2">
+            <div className="grid gap-4 lg:grid-cols-[1.2fr_0.95fr_0.95fr]">
+              <div className="surface-card-strong rounded-[2.1rem] p-5 sm:p-6">
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
+                  What clients notice first
                 </p>
-                <p className="mt-2 text-sm text-[var(--color-muted)]">{stat.label}</p>
-              </li>
-            ))}
-          </ul>
+                <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                  {featuredStats.map((stat) => (
+                    <div key={stat.label}>
+                      <p className="font-display text-[2.65rem] leading-none text-[var(--color-brand)]">
+                        {stat.value}
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="surface-card rounded-[2.1rem] p-5 sm:p-6">
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
+                  How we keep projects premium
+                </p>
+                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
+                  A focused project load, one lead contact, and material decisions made early
+                  enough to keep the build clean.
+                </p>
+                <div className="editorial-rule mt-5" />
+                <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
+                  Occupied-home friendly from demo through handoff
+                </p>
+              </div>
+
+              <div className="rounded-[2.1rem] bg-[linear-gradient(160deg,var(--color-brand-deep),var(--color-brand))] p-5 text-[var(--color-surface)] shadow-[0_34px_88px_-50px_rgba(18,29,40,0.84)] sm:p-6">
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
+                  Project cadence
+                </p>
+                <p className="mt-4 font-display text-[2rem] leading-[1.08] sm:text-[2.45rem]">
+                  Limited active-job load for tighter supervision and cleaner finish work.
+                </p>
+                <p className="mt-4 text-sm leading-7 text-[color:rgba(255,250,243,0.82)] sm:text-base">
+                  We keep the calendar disciplined so site visits, selections, and weekly updates
+                  stay direct instead of filtered through layers of handoff.
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </div>
-
-        <aside className="surface-card-strong rounded-3xl p-6 sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
-            Why Homeowners Choose Blue Oak
-          </p>
-          <h2 className="mt-3 font-display text-3xl text-[var(--color-brand)]">
-            Local expertise. Predictable execution.
-          </h2>
-          <p className="mt-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
-            We combine thoughtful design, in-house project leadership, and premium build
-            standards to deliver renovations that hold their value for years.
-          </p>
-
-          <div className="mt-6 rounded-2xl bg-[var(--color-brand-soft)] p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-brand)]">
-              Next Consultation Opening
-            </p>
-            <p className="mt-2 text-lg font-semibold text-[var(--color-brand)]">
-              Within 10 business days
-            </p>
-            <p className="mt-1 text-sm text-[var(--color-muted)]">
-              Serving {company.primaryServiceArea}
-            </p>
-          </div>
-
-          <a
-            href={`tel:${company.phoneRaw}`}
-            className={buttonClassName("primary", "mt-6")}
-          >
-            Call {company.phoneDisplay}
-          </a>
-        </aside>
       </Container>
     </section>
   );

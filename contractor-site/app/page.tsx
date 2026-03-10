@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createPageMetadata({
   title: "Home",
   description:
-    "Premium remodeling contractor in Nashville for kitchen, bathroom, and whole-home renovations with a quality-first process.",
+    "Warm, premium remodeling contractor in Nashville for kitchens, bathrooms, millwork, and whole-home interior renovations.",
   path: "/",
 });
 
@@ -22,14 +22,14 @@ export default function Home() {
     <>
       <HeroSection />
       <TrustIndicators />
+      <ProjectsSection />
       <FeaturedServices />
       <ProcessSection />
-      <ProjectsSection />
       <TestimonialsSection />
       <ServiceAreasSection />
       <CtaSection
-        title="Plan your renovation with a team that respects your home and timeline"
-        description="Tell us what you want to improve, and we will provide a clear first-step consultation with practical recommendations and transparent scope guidance."
+        title="Plan your renovation with a team that understands materials, timelines, and lived-in homes"
+        description="Tell us what you want to improve, how you use the space today, and what you want the house to feel like next. We will guide the right first step."
       />
     </>
   );

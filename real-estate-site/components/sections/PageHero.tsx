@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { ButtonLink, type ButtonVariant } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 
@@ -12,6 +14,9 @@ type PageHeroProps = {
   title: string;
   description: string;
   highlights: string[];
+  imageSrc: string;
+  imageAlt: string;
+  imageCaption?: string;
   primaryAction?: HeroAction;
   secondaryAction?: HeroAction;
 };
@@ -21,64 +26,84 @@ export function PageHero({
   title,
   description,
   highlights,
+  imageSrc,
+  imageAlt,
+  imageCaption,
   primaryAction,
   secondaryAction,
 }: PageHeroProps) {
   return (
-    <section className="py-12 md:py-16 lg:py-20">
+    <section className="py-8 md:py-10 lg:py-12">
       <Container>
-        <div className="section-shell overflow-hidden rounded-[40px] border border-[var(--color-line)] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-12 lg:py-14">
-          <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-            <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)] sm:tracking-[0.34em]">
-                {eyebrow}
-              </p>
-              <h1 className="mt-5 max-w-4xl text-balance font-display text-[clamp(2.35rem,11vw,4.2rem)] leading-[0.96] text-[var(--color-ink)] sm:mt-6 sm:text-[clamp(3rem,6vw,5.6rem)]">
-                {title}
-              </h1>
-              <p className="mt-5 max-w-2xl text-sm leading-7 text-[var(--color-muted)] sm:mt-6 sm:text-lg sm:leading-8">
-                {description}
-              </p>
-              {primaryAction || secondaryAction ? (
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  {primaryAction ? (
-                    <ButtonLink
-                      href={primaryAction.href}
-                      variant={primaryAction.variant}
-                      className="w-full sm:w-auto"
-                    >
-                      {primaryAction.label}
-                    </ButtonLink>
-                  ) : null}
-                  {secondaryAction ? (
-                    <ButtonLink
-                      href={secondaryAction.href}
-                      variant={secondaryAction.variant ?? "secondary"}
-                      className="w-full sm:w-auto"
-                    >
-                      {secondaryAction.label}
-                    </ButtonLink>
-                  ) : null}
-                </div>
-              ) : null}
-            </div>
-
-            <aside className="soft-card min-w-0 rounded-[30px] p-5 sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)] sm:tracking-[0.28em]">
-                At A Glance
-              </p>
-              <ul className="mt-6 space-y-4">
-                {highlights.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 rounded-[22px] border border-[var(--color-line)] bg-white/76 p-5 text-sm leading-7 text-[var(--color-ink)] sm:p-6"
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="soft-card reveal-up rounded-[36px] p-8 sm:p-10 lg:p-12">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze)]">
+              {eyebrow}
+            </p>
+            <h1 className="mt-5 font-display text-[clamp(2.95rem,7vw,6rem)] leading-[0.88] text-[var(--color-ink)]">
+              {title}
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--color-muted)] sm:text-lg">
+              {description}
+            </p>
+            {primaryAction || secondaryAction ? (
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                {primaryAction ? (
+                  <ButtonLink
+                    href={primaryAction.href}
+                    variant={primaryAction.variant}
+                    className="w-full sm:w-auto"
                   >
-                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </aside>
+                    {primaryAction.label}
+                  </ButtonLink>
+                ) : null}
+                {secondaryAction ? (
+                  <ButtonLink
+                    href={secondaryAction.href}
+                    variant={secondaryAction.variant ?? "secondary"}
+                    className="w-full sm:w-auto"
+                  >
+                    {secondaryAction.label}
+                  </ButtonLink>
+                ) : null}
+              </div>
+            ) : null}
+
+            <ul className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+              {highlights.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-[22px] border border-[var(--color-line)] bg-white/82 px-5 py-4 text-sm leading-7 text-[var(--color-muted-strong)]"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[360px] lg:min-h-[620px]">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 56vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/78 via-[#10171d]/12 to-transparent" />
+            <div className="absolute left-5 top-5 rounded-full bg-white/92 px-4 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-navy)]">
+              {eyebrow}
+            </div>
+            {imageCaption ? (
+              <div className="absolute inset-x-5 bottom-5 rounded-[26px] border border-white/12 bg-black/24 p-5 text-white backdrop-blur-md sm:max-w-[440px]">
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-white/68">
+                  Crescent Vale
+                </p>
+                <p className="mt-3 font-display text-4xl leading-[0.94] text-white">
+                  {imageCaption}
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
       </Container>

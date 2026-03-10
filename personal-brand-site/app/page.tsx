@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { ExpertiseSection } from "@/components/sections/expertise-section";
 import { FeaturedMediaSection } from "@/components/sections/featured-media-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { NewsletterSection } from "@/components/sections/newsletter-section";
@@ -11,8 +12,8 @@ import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildMetadata(
-  "Creator Strategist and Keynote Speaker",
-  "Authority-led content strategy, speaking design, and partnership positioning for founders and expert-led brands.",
+  "Editorial Advisor and Speaker",
+  "Editorial strategy, keynote development, and partnership positioning for founders and expert-led brands.",
   "/",
 );
 
@@ -22,8 +23,9 @@ export default function HomePage() {
       <HeroSection />
       <SocialProofSection />
       <PositioningSection />
-      <OfferingsSection />
+      <ExpertiseSection />
       <FeaturedMediaSection />
+      <OfferingsSection />
       <TestimonialsSection />
       <NewsletterSection />
       <PartnershipCtaSection />

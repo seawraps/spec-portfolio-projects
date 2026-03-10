@@ -14,10 +14,10 @@ type ButtonLinkProps = {
 
 const variants = {
   primary:
-    "bg-ink text-white shadow-[0_18px_40px_-24px_rgba(28,36,51,0.65)] hover:-translate-y-0.5 hover:bg-ink-soft hover:shadow-[0_24px_50px_-26px_rgba(28,36,51,0.72)]",
+    "border border-plum/80 bg-plum text-white shadow-[0_22px_46px_-28px_rgba(122,63,55,0.7)] hover:-translate-y-0.5 hover:bg-[#68322c] hover:shadow-[0_28px_56px_-30px_rgba(122,63,55,0.76)]",
   secondary:
-    "border border-ink/12 bg-white/78 text-ink shadow-[0_16px_36px_-28px_rgba(28,36,51,0.2)] hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_22px_44px_-30px_rgba(28,36,51,0.24)]",
-  ghost: "text-ink hover:-translate-y-0.5 hover:text-rose",
+    "border border-ink/12 bg-white/78 text-ink shadow-[0_18px_40px_-30px_rgba(35,24,20,0.28)] hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_24px_46px_-32px_rgba(35,24,20,0.34)]",
+  ghost: "text-ink hover:-translate-y-0.5 hover:text-plum",
 } as const;
 
 export function buttonClassName(
@@ -25,7 +25,7 @@ export function buttonClassName(
   className?: string,
 ) {
   return cn(
-    "inline-flex h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+    "inline-flex h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
     variants[variant],
     className,
   );
@@ -44,7 +44,7 @@ export function ButtonLink({
   const content = (
     <>
       <span>{children}</span>
-      {arrow ? <span aria-hidden="true" className="text-base leading-none">-&gt;</span> : null}
+      {arrow ? <span aria-hidden="true" className="translate-y-[-1px] text-base leading-none">-&gt;</span> : null}
     </>
   );
 

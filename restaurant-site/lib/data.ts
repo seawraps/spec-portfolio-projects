@@ -3,17 +3,25 @@ export type NavLink = {
   label: string;
 };
 
+export type PhotoAsset = {
+  src: string;
+  alt: string;
+  photographer: string;
+  sourceUrl: string;
+};
+
 export type FeaturedDish = {
   name: string;
   description: string;
   price: string;
-  image: string;
-  alt: string;
+  course: string;
+  image: PhotoAsset;
 };
 
-export type GalleryImage = {
-  src: string;
-  alt: string;
+export type GalleryImage = PhotoAsset & {
+  title: string;
+  caption: string;
+  layout: "wide" | "tall";
 };
 
 export type Testimonial = {
@@ -42,8 +50,31 @@ export type MenuItem = {
 export type MenuCategory = {
   id: string;
   title: string;
+  courseLabel: string;
   description: string;
+  ritual: string;
+  pairing: string;
+  image: PhotoAsset;
   items: MenuItem[];
+};
+
+export type ExperienceHighlight = {
+  title: string;
+  description: string;
+};
+
+export type HeroMoment = {
+  label: string;
+  value: string;
+  note: string;
+};
+
+export type MenuHighlight = {
+  title: string;
+  eyebrow: string;
+  description: string;
+  detail: string;
+  image: PhotoAsset;
 };
 
 export const restaurantName = "Astera Coastal Bistro";
@@ -55,85 +86,256 @@ export const navLinks: NavLink[] = [
   { href: "/contact", label: "Contact" },
 ];
 
+export const siteImages = {
+  heroTableWine: {
+    src: "/images/hero-table-wine.jpg",
+    alt: "A moody dining table lit by candlelight with polished wine glasses and warm reflections.",
+    photographer: "D Z",
+    sourceUrl:
+      "https://unsplash.com/photos/a-table-topped-with-plates-and-glasses-of-wine-BiajbI99xTo",
+  },
+  heroFeast: {
+    src: "/images/hero-feast.jpg",
+    alt: "An editorial overhead of seafood, citrus, and wine spread across a richly layered dinner table.",
+    photographer: "Andrej Lisakov",
+    sourceUrl:
+      "https://unsplash.com/photos/a-table-topped-with-plates-and-bowls-of-food-iS0SGSMUJNA",
+  },
+  heroOccasion: {
+    src: "/images/hero-occasion.jpg",
+    alt: "Guests gathered around a dramatic dinner table during evening service.",
+    photographer: "Andrew Solok",
+    sourceUrl:
+      "https://unsplash.com/photos/people-gathered-around-a-table-with-food-and-candles-Woue_isymNU",
+  },
+  featuredMussels: {
+    src: "/images/featured-mussels.jpg",
+    alt: "Mediterranean mussels in a glossy broth finished with herbs and olive oil.",
+    photographer: "Ivana Cajina",
+    sourceUrl:
+      "https://unsplash.com/photos/a-dish-of-food-with-mussels-and-sauce--dqJt_xZUcM",
+  },
+  featuredPasta: {
+    src: "/images/featured-pasta.jpg",
+    alt: "Seafood pasta plated with clams and shellfish in a bright white bowl.",
+    photographer: "Sarda Bamberg",
+    sourceUrl:
+      "https://unsplash.com/photos/a-plate-of-pasta-with-clams-and-shrimp-igtFLRG0tQc",
+  },
+  featuredCalamari: {
+    src: "/images/featured-calamari.jpg",
+    alt: "Grilled calamari finished with herbs, olive oil, and citrus.",
+    photographer: "blackieshoot",
+    sourceUrl:
+      "https://unsplash.com/photos/grilled-calamari-served-with-herbs-and-oil-by-the-sea-zgotbaQZvFo",
+  },
+  storyChef: {
+    src: "/images/story-chef.jpg",
+    alt: "A chef finishing a composed plate in a dark restaurant kitchen.",
+    photographer: "Giulia Squillace",
+    sourceUrl:
+      "https://unsplash.com/photos/a-man-in-a-kitchen-preparing-food-on-a-plate-J1RKeY6Kv8c",
+  },
+  diningRoom: {
+    src: "/images/dining-room.jpg",
+    alt: "A low-lit dining room with dressed tables, amber light, and a polished bar atmosphere.",
+    photographer: "Hakim Menikh",
+    sourceUrl:
+      "https://unsplash.com/photos/cozy-restaurant-dining-area-with-elegant-decor-PGbiUKbJpoM",
+  },
+  cocktailService: {
+    src: "/images/cocktail-service.jpg",
+    alt: "A bartender pouring a cocktail with focused, polished service.",
+    photographer: "Louis Hansel",
+    sourceUrl:
+      "https://unsplash.com/photos/person-pouring-liquor-in-clear-drinking-glass-yLUvnCFI500",
+  },
+  patioOcean: {
+    src: "/images/patio-ocean.jpg",
+    alt: "An open-air terrace positioned above the coast for late afternoon and dusk dining.",
+    photographer: "Roberta Sant'Anna",
+    sourceUrl:
+      "https://unsplash.com/photos/outdoor-cafe-seating-with-ocean-view-2rTG2fxKcZ8",
+  },
+  terraceNight: {
+    src: "/images/terrace-night.jpg",
+    alt: "A restaurant terrace glowing after dark and set for evening service.",
+    photographer: "Nikita Kulikov",
+    sourceUrl:
+      "https://unsplash.com/photos/outdoor-restaurant-seating-area-at-night-with-string-lights-bQo3HO8HdgY",
+  },
+  wineToast: {
+    src: "/images/wine-toast.jpg",
+    alt: "A glass of red wine lifted over a warm candlelit table.",
+    photographer: "Phakphoom Srinorajan",
+    sourceUrl:
+      "https://unsplash.com/photos/person-holding-wine-glass-with-red-wine-hPkUQ30hvRA",
+  },
+  menuPlated: {
+    src: "/images/menu-plated.jpg",
+    alt: "A composed Mediterranean plate styled with linens, tableware, and warm service light.",
+    photographer: "Snappr",
+    sourceUrl:
+      "https://unsplash.com/photos/a-plate-of-food-on-a-table-with-utensils-nQfrAaPsQq8",
+  },
+} as const satisfies Record<string, PhotoAsset>;
+
+export const serviceMoments: HeroMoment[] = [
+  {
+    label: "Arrival",
+    value: "Aperitivo at the marble bar",
+    note: "Cold martinis, oysters, and a first pour before the table is ready.",
+  },
+  {
+    label: "Dining Room",
+    value: "Low light and linen textures",
+    note: "Tables are paced for conversation, not turnover.",
+  },
+  {
+    label: "From The Pass",
+    value: "Seafood, charcoal, and restraint",
+    note: "Fire-led cooking finished with brightness instead of excess.",
+  },
+  {
+    label: "Late Evening",
+    value: "Dessert, cellar reds, and one last round",
+    note: "The room is designed to get more magnetic after dark.",
+  },
+];
+
 export const featuredDishes: FeaturedDish[] = [
   {
-    name: "Charred Octopus",
+    name: "Linguine Vongole",
     description:
-      "Crisp potato confit, smoked paprika aioli, lemon herb salad, and caper chimichurri.",
-    price: "$24",
-    image: "/images/dish-octopus.svg",
-    alt: "Plated charred octopus with potatoes and green herbs",
-  },
-  {
-    name: "Saffron Seafood Risotto",
-    description:
-      "Carnaroli rice with mussels, prawns, squid, preserved lemon, and fennel pollen.",
+      "Little neck clams, preserved lemon, bottarga, and a glossy shellfish emulsion finished to order.",
     price: "$36",
-    image: "/images/dish-risotto.svg",
-    alt: "Golden saffron seafood risotto with shellfish garnish",
+    course: "Seafood Pasta",
+    image: siteImages.featuredPasta,
   },
   {
-    name: "Pistachio Lamb Chops",
+    name: "Saffron Mussels",
     description:
-      "Colorado lamb, pistachio crust, roasted carrots, and pomegranate-mint jus.",
-    price: "$42",
-    image: "/images/dish-lamb.svg",
-    alt: "Lamb chops served with roasted vegetables and sauce",
+      "White wine broth, Calabrian chili, grilled country bread, and fennel pollen butter for the table.",
+    price: "$24",
+    course: "Raw & Warm Starters",
+    image: siteImages.menuPlated,
+  },
+  {
+    name: "Coal-Kissed Calamari",
+    description:
+      "Tender calamari, olive oil, soft herbs, and citrus served with a market tomato relish.",
+    price: "$32",
+    course: "Harbor Grill",
+    image: siteImages.featuredCalamari,
+  },
+];
+
+export const storyHighlights: ExperienceHighlight[] = [
+  {
+    title: "Coastal sourcing",
+    description: "Line-caught seafood, market greens, and peak-season citrus shape the menu nightly.",
+  },
+  {
+    title: "Open-fire cooking",
+    description: "The kitchen is built around charcoal heat, clean reductions, and plated restraint.",
+  },
+  {
+    title: "Graceful service",
+    description: "Tables move at a dinner pace, with polished but intuitive hospitality throughout.",
+  },
+  {
+    title: "Long-evening atmosphere",
+    description: "Low light, linen textures, and a cellar-first drinks program set the tone.",
+  },
+];
+
+export const menuHighlights: MenuHighlight[] = [
+  {
+    eyebrow: "Tonight's Ritual",
+    title: "Five-course chef's tasting",
+    description:
+      "A market-driven progression built around seafood, live-fire mains, and citrus-led desserts.",
+    detail: "$98 per guest, nightly from 6 PM",
+    image: siteImages.diningRoom,
+  },
+  {
+    eyebrow: "Bar Program",
+    title: "Aperitivo hour at the marble counter",
+    description:
+      "Salted citrus spritzes, martinis, oysters, and small plates designed for a slow first round.",
+    detail: "Daily from 5 PM to 6 PM",
+    image: siteImages.cocktailService,
+  },
+  {
+    eyebrow: "Preferred Seating",
+    title: "Late terrace tables",
+    description:
+      "Open-air seating, candlelight, and the full dinner menu served outside when the evening stays calm.",
+    detail: "Request terrace seating when reserving",
+    image: siteImages.terraceNight,
   },
 ];
 
 export const galleryImages: GalleryImage[] = [
   {
-    src: "/images/gallery-dining.svg",
-    alt: "Warmly lit dining room with textured plaster walls and linen tables",
+    ...siteImages.diningRoom,
+    title: "The room after dusk",
+    caption: "Amber light, dressed tables, and the kind of depth that rewards a second bottle.",
+    layout: "wide",
   },
   {
-    src: "/images/gallery-bar.svg",
-    alt: "Marble cocktail bar with hanging glassware and brass lighting",
+    ...siteImages.cocktailService,
+    title: "Bar choreography",
+    caption: "A polished bar program driven by citrus, bitter aperitivi, and confident hands.",
+    layout: "tall",
   },
   {
-    src: "/images/gallery-fire.svg",
-    alt: "Open wood-fire kitchen station during evening service",
+    ...siteImages.heroOccasion,
+    title: "Dinner service",
+    caption: "The room fills with candlelight, plates, and a social charge that never becomes loud.",
+    layout: "tall",
   },
   {
-    src: "/images/gallery-patio.svg",
-    alt: "Coastal patio seating with plants and sunset tones",
+    ...siteImages.terraceNight,
+    title: "After dark",
+    caption: "The terrace holds a different energy once the room gives way to the night.",
+    layout: "wide",
   },
 ];
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Astera feels transportive without losing its California soul. Every plate arrives balanced, bright, and deeply satisfying.",
+      "Astera feels cinematic without becoming theatrical. Every detail supports the appetite, the room, and the pace of the night.",
     author: "Marina Howell",
     role: "Editor, West Coast Table",
   },
   {
     quote:
-      "A neighborhood restaurant with destination-level polish. The wood-fired branzino and citrus tart are worth the trip alone.",
+      "The best hospitality sites sell a feeling before they sell a reservation. Astera manages to do both.",
     author: "Darren Liu",
-    role: "Food Writer, Harbor Journal",
+    role: "Dining Writer, Harbor Journal",
   },
 ];
 
 export const pressMentions: PressMention[] = [
   {
-    source: "Los Angeles Dining Guide",
-    title: "Best New Coastal Dining Rooms",
-    excerpt:
-      "Astera pairs elegant Mediterranean technique with relaxed oceanfront hospitality.",
-  },
-  {
     source: "Pacific Plate",
-    title: "Where to Book Dinner This Season",
+    title: "One of the Westside's most atmospheric dining rooms",
     excerpt:
-      "Expect confident flavors, precise service, and one of the most thoughtful wine lists on the Westside.",
+      "Astera balances Mediterranean brightness with a low-lit, celebratory sense of occasion.",
   },
   {
     source: "City Weekend",
-    title: "Top Date-Night Restaurants",
+    title: "Where to book when dinner should feel like a destination",
     excerpt:
-      "The low-lit interiors and open-fire kitchen create a memorable, intimate energy.",
+      "Expect polished seafood, elegant pacing, and a cocktail hour that eases naturally into dinner.",
+  },
+  {
+    source: "Los Angeles Dining Guide",
+    title: "A coastal bistro that understands appetite and restraint",
+    excerpt:
+      "The kitchen's best work arrives when fire, acidity, and excellent seafood are allowed to speak plainly.",
   },
 ];
 
@@ -150,14 +352,29 @@ export const hours: Hour[] = [
 export const menuCategories: MenuCategory[] = [
   {
     id: "mezze",
-    title: "Mezze & Small Plates",
+    title: "Opening Plates",
+    courseLabel: "Course One",
     description:
-      "Ideal for sharing across the table. Bright herbs, citrus, and seasonal produce.",
+      "The first pass is bright, chilled, and shareable, built around salt, citrus, spice, and warm bread.",
+    ritual:
+      "Best ordered as a layered first round: two bright starters, one shellfish dish, and something to tear into with the table.",
+    pairing: "Pair with an Assyrtiko pour or the Harbor Martini.",
+    image: siteImages.menuPlated,
     items: [
       {
         name: "Whipped Feta",
-        description: "Urfa chili honey, olive oil, and grilled sourdough.",
+        description: "Urfa chili honey, toasted sesame, and grilled sourdough.",
         price: "$14",
+      },
+      {
+        name: "Yellowtail Crudo",
+        description: "Compressed melon, green olive oil, basil, and pink peppercorn.",
+        price: "$22",
+      },
+      {
+        name: "Saffron Mussels",
+        description: "White wine broth, grilled bread, and fennel pollen butter.",
+        price: "$24",
       },
       {
         name: "Crispy Halloumi",
@@ -165,75 +382,75 @@ export const menuCategories: MenuCategory[] = [
         price: "$16",
       },
       {
-        name: "Harissa Shrimp",
-        description: "Cast-iron prawns, tomato confit, and charred lemon.",
-        price: "$19",
-      },
-      {
-        name: "Roasted Beet Carpaccio",
-        description: "Pistachio dukkah, yogurt labneh, and dill.",
-        price: "$15",
-      },
-      {
-        name: "Fried Chickpea Fritters",
-        description: "Herb tahini, cucumber, and pickled shallot.",
-        price: "$13",
+        name: "Heirloom Tomato Salad",
+        description: "Stracciatella, basil stem oil, and grilled lemon.",
+        price: "$18",
       },
     ],
   },
   {
     id: "sea",
-    title: "From The Sea",
+    title: "From The Harbor",
+    courseLabel: "Course Two",
     description:
-      "Line-caught seafood and shellfish, prepared over live fire or slow braise.",
+      "Seafood is treated with very little interference and finished with smoke, acid, or olive oil rather than heavy garnish.",
+    ritual:
+      "This is where the room slows down. A pasta and a fish course together make the strongest center of the meal.",
+    pairing: "Built for saline whites, cold rose, or a second martini.",
+    image: siteImages.featuredPasta,
     items: [
       {
-        name: "Wood-Fired Branzino",
-        description: "Salsa verde, fennel slaw, and caper-lemon butter.",
-        price: "$38",
-      },
-      {
-        name: "Saffron Seafood Risotto",
-        description: "Prawns, mussels, squid, and preserved lemon.",
+        name: "Linguine Vongole",
+        description: "Little neck clams, preserved lemon, bottarga, and parsley.",
         price: "$36",
       },
       {
-        name: "Seared Scallops",
-        description: "Cauliflower puree, currants, and brown butter hazelnuts.",
+        name: "Wood-Fired Branzino",
+        description: "Salsa verde, shaved fennel, and caper butter.",
         price: "$39",
       },
       {
-        name: "Black Garlic Tuna",
-        description: "Crushed olive tapenade, confit tomatoes, and arugula.",
+        name: "Seared Scallops",
+        description: "Cauliflower puree, brown butter, currants, and toasted hazelnuts.",
         price: "$41",
       },
       {
-        name: "Mussels In White Wine",
-        description: "Garlic, chili threads, parsley, and toasted country bread.",
-        price: "$28",
+        name: "Coal-Kissed Calamari",
+        description: "Soft herbs, citrus oil, and market tomato relish.",
+        price: "$32",
+      },
+      {
+        name: "Charred Prawn Skewers",
+        description: "Ajo blanco, basil, and lemon ash.",
+        price: "$34",
       },
     ],
   },
   {
     id: "fire",
-    title: "Wood-Fired Mains",
+    title: "From The Hearth",
+    courseLabel: "Course Three",
     description:
-      "Signature hearth dishes inspired by Mediterranean coasts and inland markets.",
+      "The live-fire mains are warmer, deeper, and built for tables that want smoke, jus, and a little generosity.",
+    ritual:
+      "Order a hearth main once the table is settled. It is the most indulgent chapter of the dinner and the one that lingers.",
+    pairing: "Best with cellar reds or a fig leaf old fashioned.",
+    image: siteImages.diningRoom,
     items: [
       {
         name: "Pistachio Lamb Chops",
         description: "Pomegranate-mint jus and roasted rainbow carrots.",
-        price: "$42",
+        price: "$44",
       },
       {
-        name: "Citrus Chicken Tagine",
-        description: "Green olives, saffron couscous, and preserved lemon.",
-        price: "$33",
+        name: "Citrus Chicken",
+        description: "Green olives, saffron couscous, and preserved lemon pan jus.",
+        price: "$34",
       },
       {
-        name: "Aged Ribeye",
-        description: "14 oz prime cut, rosemary potatoes, and peppercorn jus.",
-        price: "$52",
+        name: "Prime Ribeye",
+        description: "14 oz cut, rosemary potatoes, and green peppercorn jus.",
+        price: "$56",
       },
       {
         name: "Wild Mushroom Mafalda",
@@ -241,8 +458,8 @@ export const menuCategories: MenuCategory[] = [
         price: "$29",
       },
       {
-        name: "Charred Cauliflower Steak",
-        description: "Tahini emulsion, lentil ragout, and toasted almonds.",
+        name: "Charred Cauliflower",
+        description: "Tahini emulsion, lentil ragout, toasted almonds, and dill.",
         price: "$27",
       },
     ],
@@ -250,59 +467,71 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "dessert",
     title: "Desserts",
-    description: "Housemade pastries and plated sweets, balanced and not overly sweet.",
+    courseLabel: "Finale",
+    description:
+      "Desserts stay precise and clean, leaning into citrus, olive oil, nuts, and enough bitterness to close dinner well.",
+    ritual:
+      "The last course is meant to reset the palate, extend the conversation, and invite one more drink without weight.",
+    pairing: "Order with espresso, amaro, or a final glass of Bandol rose.",
+    image: siteImages.wineToast,
     items: [
       {
         name: "Orange Blossom Basque Cheesecake",
         description: "Candied citrus and pistachio praline.",
-        price: "$12",
+        price: "$13",
       },
       {
         name: "Dark Chocolate Olive Oil Cake",
         description: "Espresso creme fraiche and sea salt caramel.",
-        price: "$13",
+        price: "$14",
       },
       {
         name: "Lemon Semolina Tart",
         description: "Meringue shards and thyme syrup.",
-        price: "$11",
+        price: "$12",
       },
       {
         name: "Cardamom Affogato",
         description: "Vanilla gelato with single-origin espresso.",
-        price: "$10",
+        price: "$11",
       },
     ],
   },
   {
     id: "bar",
-    title: "Cocktails & Zero-Proof",
-    description: "Seasonal cocktails and thoughtful spirit-free serves.",
+    title: "Cocktails & Cellar",
+    courseLabel: "Last Call",
+    description:
+      "Mediterranean aperitivi, savory martinis, coastal whites, and a short list of cellar reds anchor the drinks program.",
+    ritual:
+      "The bar is part of the meal from the first round onward. Drinks are designed to shift from bright to structured as the room deepens.",
+    pairing: "Start with the saffron spritz, finish with the fig leaf old fashioned.",
+    image: siteImages.cocktailService,
     items: [
       {
         name: "Saffron Spritz",
-        description: "Aperitivo, citrus cordial, cava.",
-        price: "$16",
-      },
-      {
-        name: "Harbor Negroni",
-        description: "Gin, vermouth blend, Mediterranean bitter.",
+        description: "Aperitivo blend, citrus cordial, cava, and sea salt mist.",
         price: "$17",
       },
       {
+        name: "Harbor Martini",
+        description: "Gin, fino sherry, dry vermouth, and green olive oil.",
+        price: "$19",
+      },
+      {
         name: "Fig Leaf Old Fashioned",
-        description: "Bourbon, fig reduction, orange oils.",
+        description: "Bourbon, fig reduction, orange oils, and smoked spice.",
         price: "$18",
       },
       {
-        name: "Salted Grapefruit Fizz",
-        description: "Grapefruit, rosemary, soda, sea salt.",
-        price: "$12",
+        name: "Santorini Assyrtiko",
+        description: "Mineral, saline, and built for shellfish.",
+        price: "$19 / $72",
       },
       {
-        name: "Cucumber Mint Tonic",
-        description: "Cold-pressed cucumber, lime, mint, tonic.",
-        price: "$11",
+        name: "Bandol Rose",
+        description: "Structured, dry, and cold enough for a late-afternoon table.",
+        price: "$18 / $68",
       },
     ],
   },
@@ -323,3 +552,5 @@ export const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com" },
   { label: "Yelp", href: "https://www.yelp.com" },
 ];
+
+export const imageSources = Object.values(siteImages);

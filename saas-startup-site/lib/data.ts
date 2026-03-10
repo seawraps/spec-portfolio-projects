@@ -28,6 +28,8 @@ export type Testimonial = {
   name: string;
   role: string;
   company: string;
+  impact: string;
+  footprint: string;
 };
 
 export type FaqItem = {
@@ -68,6 +70,13 @@ export type IntegrationGroup = {
   tools: string[];
 };
 
+export type ContactChannel = {
+  title: string;
+  detail: string;
+  email: string;
+  responseTime: string;
+};
+
 export const navigationLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -76,123 +85,123 @@ export const navigationLinks: NavLink[] = [
 ];
 
 export const heroMetrics: Metric[] = [
-  { value: "38%", label: "faster operational cycle time" },
-  { value: "99.95%", label: "workflow uptime across automations" },
-  { value: "14 hrs", label: "average weekly time saved per team" },
+  { value: "42%", label: "faster handoff resolution after rollout" },
+  { value: "99.97%", label: "automation reliability across production workflows" },
+  { value: "18 hrs", label: "manager time reclaimed every week per team" },
 ];
 
 export const socialProofLogos: string[] = [
-  "Northstar Logistics",
+  "Northstar Cloud",
   "Metricly",
-  "Acorn Health",
-  "Summit Commerce",
-  "Fleetline",
-  "Arcwell Energy",
+  "Rally Commerce",
+  "Arcwell Systems",
+  "LayerFive Health",
+  "Beacon Logistics",
 ];
 
 export const homeFeatureCards: FeatureCard[] = [
   {
-    title: "Visual Workflow Builder",
+    title: "Operational control plane",
     description:
-      "Design recurring processes with smart conditions, approvals, and SLA guardrails.",
+      "Run revenue, onboarding, finance, and support workflows from one live command surface.",
     detail:
-      "Drag-and-drop logic, branching paths, and reusable templates for onboarding, renewals, and incident playbooks.",
+      "Queue ownership, SLA risk, and exception routing stay visible across every handoff without stitching together status docs.",
   },
   {
-    title: "AI Ops Assistant",
+    title: "Workflow design studio",
     description:
-      "Generate automations, summarize blockers, and suggest process optimizations in plain language.",
+      "Model complex approvals, branch logic, and service-level windows with reusable workflow modules.",
     detail:
-      "Teams can ask OrbitOps to draft workflows, detect handoff risks, and auto-document process changes.",
+      "Product, ops, and systems teams can ship standard operating flows faster without creating brittle one-off automations.",
   },
   {
-    title: "Live Performance Analytics",
+    title: "AI-guided optimization",
     description:
-      "Track throughput, cycle time, and SLA risk in a single operations dashboard.",
+      "Turn operational history into recommendations your team can act on during the same planning cycle.",
     detail:
-      "Break down workflow performance by owner, region, or account segment with export-ready reports.",
+      "OrbitOps flags delay patterns, suggests owner and policy updates, and drafts change briefs backed by actual workflow data.",
   },
   {
-    title: "Exception Management",
+    title: "Enterprise audit history",
     description:
-      "Automatically route exceptions with priority scoring and escalation paths.",
+      "Every trigger, override, approval, and policy exception is logged in one searchable timeline.",
     detail:
-      "Stop missed handoffs by pushing alert bundles to Slack, email, and ticketing tools in real time.",
+      "Security, compliance, and leadership teams get a clean record of who changed what and how workflows performed afterward.",
   },
   {
-    title: "Cross-Team Collaboration",
+    title: "Cross-stack orchestration",
     description:
-      "Coordinate sales ops, support, finance, and implementation from one command layer.",
+      "Sync data from CRM, ticketing, billing, and warehouse systems without waiting on custom internal tooling.",
     detail:
-      "Shared runbooks, accountability views, and owner-level action feeds keep distributed teams aligned.",
+      "Use native connectors, APIs, and webhooks to keep workflows grounded in the systems teams already trust.",
   },
   {
-    title: "Enterprise Security Controls",
+    title: "Executive reporting layer",
     description:
-      "Protect operations with role-based access, audit trails, and policy enforcement.",
+      "Package throughput, escalation, and reliability metrics into dashboards leadership can review every week.",
     detail:
-      "SOC 2-ready controls, SSO/SAML support, and secure data retention policies for compliance-heavy teams.",
+      "Move from anecdotal process reviews to clear operational scorecards with ownership, impact, and trend context.",
   },
 ];
 
 export const integrationGroups: IntegrationGroup[] = [
   {
-    category: "CRM & Revenue",
-    tools: ["Salesforce", "HubSpot", "Pipedrive", "Stripe"],
+    category: "Revenue & billing",
+    tools: ["Salesforce", "HubSpot", "Chargebee", "Stripe"],
   },
   {
-    category: "Work Management",
-    tools: ["Notion", "Jira", "Asana", "ClickUp"],
+    category: "Service delivery",
+    tools: ["Zendesk", "Intercom", "Jira", "Linear"],
   },
   {
-    category: "Communication",
-    tools: ["Slack", "Microsoft Teams", "Gmail", "Zendesk"],
+    category: "Collaboration",
+    tools: ["Slack", "Microsoft Teams", "Notion", "Google Workspace"],
   },
   {
-    category: "Data & BI",
-    tools: ["Snowflake", "BigQuery", "Looker", "Google Sheets"],
+    category: "Data & governance",
+    tools: ["Snowflake", "BigQuery", "dbt Cloud", "Looker"],
   },
 ];
 
 export const pricingPlans: PricingPlan[] = [
   {
-    name: "Starter",
-    price: "$59",
-    description: "For early-stage teams building repeatable internal operations.",
-    ctaLabel: "Start free trial",
+    name: "Team",
+    price: "$79",
+    description: "For operators replacing manual trackers and launching their first controlled workflows.",
+    ctaLabel: "Start evaluation",
     featureList: [
-      "Up to 8 team members",
-      "25 active workflows",
-      "Prebuilt workflow templates",
-      "Slack and HubSpot integrations",
-      "Email support",
+      "Up to 12 makers and reviewers",
+      "40 active workflows with templates",
+      "Slack, HubSpot, and Stripe connectors",
+      "Queue dashboards and SLA alerts",
+      "Email support and guided setup",
     ],
   },
   {
-    name: "Growth",
-    price: "$179",
-    description: "For scaling teams that need automation, analytics, and stronger controls.",
-    ctaLabel: "Book growth demo",
+    name: "Business",
+    price: "$249",
+    description: "For scaling B2B teams running cross-functional workflows with approvals and analytics.",
+    ctaLabel: "Book business demo",
     featured: true,
     featureList: [
-      "Up to 35 team members",
-      "Unlimited workflows",
-      "Advanced workflow logic and approvals",
-      "Custom dashboards and SLA reporting",
-      "Priority support + onboarding specialist",
+      "Unlimited workflows and environments",
+      "Advanced routing, approvals, and policy rules",
+      "Executive dashboards and workflow scorecards",
+      "Priority onboarding with solution architect",
+      "SSO, audit exports, and role-based controls",
     ],
   },
   {
-    name: "Scale",
+    name: "Enterprise",
     price: "Custom",
-    description: "For large organizations running multi-region or compliance-heavy operations.",
-    ctaLabel: "Talk to sales",
+    description: "For regional or compliance-heavy organizations standardizing operations across multiple teams.",
+    ctaLabel: "Talk to enterprise sales",
     featureList: [
-      "Unlimited seats",
-      "Dedicated success architect",
-      "SSO/SAML and audit exports",
-      "Custom security and retention policies",
-      "99.9% SLA and quarterly process reviews",
+      "Unlimited seats with procurement support",
+      "Custom data retention and governance controls",
+      "Private networking and security review assistance",
+      "Quarterly workflow architecture reviews",
+      "Dedicated success lead and response SLAs",
     ],
   },
 ];
@@ -200,96 +209,102 @@ export const pricingPlans: PricingPlan[] = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "OrbitOps replaced five disconnected tools for our revenue operations team. Our renewal process now moves in hours instead of days.",
+      "OrbitOps gave us a single operating layer for renewals, onboarding, and escalations. Leadership finally sees the same operational truth our managers do.",
     name: "Maya Chen",
-    role: "Director of Revenue Operations",
-    company: "Summit Commerce",
+    role: "VP of Revenue Operations",
+    company: "Rally Commerce",
+    impact: "Cut approval cycle time by 43% in the first quarter",
+    footprint: "240-person SaaS business across AMER and EMEA",
   },
   {
     quote:
-      "We used to run weekly incident handoff calls just to stay aligned. OrbitOps turned those into automated exception queues with clear ownership.",
+      "We replaced a tangle of Slack threads and weekly check-ins with exception queues that route automatically. The product feels designed for serious operators.",
     name: "Jordan Patel",
-    role: "VP of Customer Success",
-    company: "Northstar Logistics",
+    role: "Chief Customer Officer",
+    company: "Beacon Logistics",
+    impact: "Reduced onboarding escalations by 37%",
+    footprint: "Global implementation and support organization",
   },
   {
     quote:
-      "The workflow analytics helped us identify exactly where onboarding stalled. We cut cycle time by 41% in one quarter.",
+      "The AI change briefs are unusually useful because they are grounded in actual workflow behavior, not generic advice. Our systems team ships process updates faster now.",
     name: "Alina Romero",
-    role: "Head of Implementation",
+    role: "Head of Systems & Enablement",
     company: "Metricly",
+    impact: "Recovered 18 manager hours per week",
+    footprint: "Multi-product B2B company with 9 operational teams",
   },
 ];
 
 export const faqs: FaqItem[] = [
   {
-    question: "How long does OrbitOps take to implement?",
+    question: "How long does a typical OrbitOps rollout take?",
     answer:
-      "Most teams launch their first two workflows in less than one week. Growth and Scale plans include guided implementation to speed rollout.",
+      "Most Business customers launch their first production workflow in seven to ten days. Teams with existing process maps can move faster, while Enterprise rollouts usually phase by business function.",
   },
   {
-    question: "Can non-technical teams create workflows?",
+    question: "Can non-technical teams own workflow changes?",
     answer:
-      "Yes. OrbitOps is built for operations leaders and managers. The builder uses a visual interface, and AI can draft workflows from plain-language prompts.",
+      "Yes. Operations leaders can design and update workflows through the visual studio, while platform and security teams keep approval and governance controls in place.",
   },
   {
-    question: "Does OrbitOps support role-based permissions?",
+    question: "What security and governance controls are available?",
     answer:
-      "Yes. You can define role-based access by team, workflow, and data source. Every workflow action is logged for governance and audit visibility.",
+      "OrbitOps supports SSO, role-based access, audit exports, approval rules, and configurable retention policies. Enterprise plans include security review support during procurement.",
   },
   {
-    question: "What integrations are available out of the box?",
+    question: "Do you support custom systems or internal tools?",
     answer:
-      "OrbitOps ships with core integrations across CRM, support, communication, and data tools. You can also connect custom systems through webhooks and API endpoints.",
+      "Yes. In addition to native integrations, OrbitOps exposes APIs and webhooks so teams can ingest internal events or trigger downstream systems without rebuilding core workflows.",
   },
   {
-    question: "Is there a free trial?",
+    question: "Is pricing based on automation volume?",
     answer:
-      "Starter includes a 14-day free trial with no credit card required. You can build workflows, invite teammates, and test live automation before committing.",
+      "Team and Business plans are seat-based with generous workflow volume included. Enterprise plans can be structured around deployment footprint, governance requirements, and support needs.",
   },
   {
-    question: "Can OrbitOps work across multiple departments?",
+    question: "Which teams usually buy OrbitOps first?",
     answer:
-      "Absolutely. Many customers run cross-functional workflows between sales ops, customer success, finance, and support in one shared workspace.",
+      "Revenue operations, customer onboarding, support leadership, and finance systems teams are the most common first buyers. Most customers expand into adjacent functions after proving value in one workflow cluster.",
   },
 ];
 
 export const aboutTimeline: TimelineItem[] = [
   {
     year: "2023",
-    title: "Built with operators in the loop",
+    title: "Started inside post-sales operations",
     description:
-      "OrbitOps started as an internal toolkit for scaling post-sales operations at two high-growth SaaS companies.",
+      "OrbitOps began as an internal orchestration layer used to stabilize onboarding, renewal, and escalation workflows across two fast-growing SaaS teams.",
   },
   {
     year: "2024",
-    title: "Expanded into a unified operations platform",
+    title: "Expanded into a full operations platform",
     description:
-      "We combined workflow automation, exception handling, and analytics so teams could run every critical process in one place.",
+      "The team combined workflow execution, SLA tracking, and audit history into one product so leaders could manage operations with fewer spreadsheets and status meetings.",
   },
   {
     year: "2025",
-    title: "Launched AI-guided process optimization",
+    title: "Introduced AI-backed workflow improvement",
     description:
-      "OrbitOps introduced an AI assistant that identifies bottlenecks and proposes workflow improvements grounded in actual performance data.",
+      "OrbitOps launched AI-generated change briefs and optimization recommendations grounded in real queue and throughput performance.",
   },
 ];
 
 export const companyValues: ValueItem[] = [
   {
-    title: "Design for real operators",
+    title: "Operational clarity over automation theater",
     description:
-      "Every feature should make frontline operational work clearer, faster, and less stressful.",
+      "We build systems that make ownership, workflow state, and business impact easier to understand, not harder.",
   },
   {
-    title: "Ship measurable outcomes",
+    title: "Governance should travel with speed",
     description:
-      "We prioritize improvements that customers can verify in cycle time, reliability, and team bandwidth.",
+      "Fast-moving teams still need secure approvals, clean audit history, and policy visibility. We design for both.",
   },
   {
-    title: "Automate with accountability",
+    title: "Every workflow needs a measurable outcome",
     description:
-      "Automation should increase trust, with explicit owners, transparent logic, and complete auditability.",
+      "Cycle time, reliability, and exception reduction are baseline metrics for every launch we support.",
   },
 ];
 
@@ -297,94 +312,97 @@ export const leadershipTeam: LeadershipMember[] = [
   {
     name: "Sara Donovan",
     role: "Co-founder & CEO",
-    bio: "Former VP Ops at two Series B SaaS teams. Led global customer and revenue operations transformations.",
+    bio: "Former VP of Operations at two Series B SaaS companies. Led revenue, onboarding, and support transformation programs across global teams.",
   },
   {
     name: "Ethan Blake",
     role: "Co-founder & CTO",
-    bio: "Ex-staff engineer in workflow orchestration and systems reliability. Built distributed automation tooling at scale.",
+    bio: "Ex-staff engineer focused on workflow orchestration, systems reliability, and secure automation infrastructure for enterprise software.",
   },
   {
     name: "Priya Nanda",
     role: "Head of Product",
-    bio: "Previously led B2B platform UX teams focused on enterprise onboarding, support operations, and analytics.",
+    bio: "Previously led B2B platform UX for onboarding, service operations, and analytics products used by multi-team operators.",
   },
 ];
 
 export const featurePillars: FeaturePillar[] = [
   {
-    title: "Workflow design that scales with complexity",
+    title: "Design workflows that hold up under real complexity",
     summary:
-      "Map simple recurring tasks or multi-stage operational programs with approvals, dependencies, and dynamic routing.",
+      "Build recurring processes with approvals, branching, dependencies, and region-specific routing without creating brittle workflow sprawl.",
     bulletPoints: [
-      "Template library for onboarding, renewals, escalations, and quality checks",
-      "Conditional logic, SLA windows, and owner assignment rules",
-      "Reusable modules to standardize shared process steps",
+      "Reusable workflow modules for onboarding, renewals, billing reviews, and incident response",
+      "Conditional logic, owner rules, service windows, and policy checkpoints",
+      "Versioning support so teams can improve production flows safely over time",
     ],
   },
   {
-    title: "Execution visibility in real time",
+    title: "Run a live command layer for day-to-day execution",
     summary:
-      "Track every workflow from kickoff to completion with live progress, risk scoring, and owner-level accountability.",
+      "Give leaders and managers one place to monitor queue health, workload distribution, and time-sensitive exceptions.",
     bulletPoints: [
-      "Operational command board with queue health indicators",
-      "Exception feed with severity prioritization and auto-escalation",
-      "Time-to-resolution analytics segmented by workflow and team",
+      "Shared command board with urgency, SLA, and owner health indicators",
+      "Exception routing with escalation policies and acknowledgment tracking",
+      "Cross-tool activity history that preserves context for every workflow run",
     ],
   },
   {
-    title: "Optimization guided by data and AI",
+    title: "Improve process architecture with evidence",
     summary:
-      "Turn operational history into recommendations your team can execute immediately.",
+      "Use AI and analytics to decide which handoffs, policies, and staffing patterns need to change next.",
     bulletPoints: [
-      "AI suggestions for bottleneck removal and handoff simplification",
-      "Root-cause views for delays, retries, and policy breaches",
-      "Scenario modeling to test workflow changes before deployment",
+      "Root-cause analysis for delays, retries, and ownership gaps",
+      "AI-generated change briefs tied to actual workflow behavior",
+      "Scenario analysis to compare throughput and queue outcomes before rollout",
     ],
   },
 ];
 
 export const teamUseCases: TeamUseCase[] = [
   {
-    team: "Revenue Operations",
+    team: "Revenue operations",
     outcomes: [
-      "Automate quote approvals and renewal prep sequences",
-      "Reduce deal desk back-and-forth with rule-based assignment",
-      "Monitor pipeline hygiene workflows in one dashboard",
+      "Automate quote approvals, deal desk routing, and renewal prep with visible ownership",
+      "Track policy exceptions before they slow active pipeline movement",
+      "Package leadership scorecards around cycle time, approval load, and risk",
     ],
   },
   {
-    team: "Customer Success",
+    team: "Customer onboarding and success",
     outcomes: [
-      "Run standardized onboarding playbooks with milestone alerts",
-      "Trigger risk interventions from product usage signals",
-      "Coordinate escalations between CSM, support, and product",
+      "Run milestone-based onboarding with health signals, escalations, and stakeholder handoffs",
+      "Coordinate interventions between CSM, support, product, and services without status chasing",
+      "Measure launch risk, time-to-value, and issue response from one system of record",
     ],
   },
   {
-    team: "Finance & Support",
+    team: "Finance, support, and systems",
     outcomes: [
-      "Automate invoicing exception workflows and approvals",
-      "Route support tickets by urgency, account tier, and SLA",
-      "Create audit-ready logs for compliance and policy checks",
+      "Automate invoicing exceptions, approval chains, and policy checks with audit-ready logs",
+      "Route high-priority tickets using account tier, SLA status, and service context",
+      "Connect operational workflows to internal systems without rebuilding core orchestration logic",
     ],
   },
 ];
 
-export const contactChannels = [
+export const contactChannels: ContactChannel[] = [
   {
-    title: "Sales",
-    detail: "Talk pricing, rollout planning, and procurement timelines.",
+    title: "Sales & evaluation",
+    detail: "Talk rollout sequencing, security review, pricing, and procurement timing.",
     email: "sales@orbitops.io",
+    responseTime: "Same business day",
   },
   {
-    title: "Support",
-    detail: "Get help with product usage, onboarding, and integrations.",
+    title: "Customer success",
+    detail: "Get help with onboarding, workflow adoption, or integration planning.",
     email: "support@orbitops.io",
+    responseTime: "Within 4 business hours",
   },
   {
-    title: "Partnerships",
-    detail: "Explore channel, integration, and ecosystem opportunities.",
+    title: "Technology partnerships",
+    detail: "Discuss ecosystem integrations, partner plays, and shared customer deployments.",
     email: "partners@orbitops.io",
+    responseTime: "Within 1 business day",
   },
 ];

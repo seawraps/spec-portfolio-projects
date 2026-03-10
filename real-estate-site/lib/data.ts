@@ -18,6 +18,7 @@ export type Listing = {
   area: string;
   description: string;
   label: string;
+  feature: string;
   imageSrc: string;
   imageAlt: string;
 };
@@ -28,7 +29,10 @@ export type Neighborhood = {
   commute: string;
   housing: string;
   summary: string;
+  story: string;
   highlights: string[];
+  imageSrc: string;
+  imageAlt: string;
 };
 
 export type ProcessStep = {
@@ -43,7 +47,9 @@ export type Agent = {
   bio: string;
   experience: string;
   specialties: string[];
-  accent: string;
+  metric: string;
+  imageSrc: string;
+  imageAlt: string;
 };
 
 export type Testimonial = {
@@ -79,155 +85,194 @@ export const navigationLinks: NavLink[] = [
 ];
 
 export const heroStats: HeroStat[] = [
-  { value: "$186M", label: "illustrative annual represented volume" },
-  { value: "21 days", label: "median launch-to-contract timing" },
-  { value: "92%", label: "of sellers closing at or above asking" },
+  { value: "$242M", label: "illustrative annual represented volume" },
+  { value: "19 days", label: "typical launch-to-contract pace for well-prepared listings" },
+  { value: "84%", label: "of business generated through repeat and referral clients" },
 ];
 
 export const aboutStats: HeroStat[] = [
-  { value: "14 years", label: "average senior-level market experience" },
-  { value: "4 enclaves", label: "core neighborhoods actively served" },
-  { value: "1:1", label: "client-to-advisor communication model" },
+  { value: "15 years", label: "average senior-market experience across the core advisory team" },
+  { value: "4 enclaves", label: "premium neighborhoods tracked with block-level attention" },
+  { value: "1:1", label: "partner-level communication from first planning session to close" },
 ];
 
 export const featuredListings: Listing[] = [
   {
-    name: "Alder Row Residence",
-    address: "118 Alder Row",
+    name: "Harbor Crest Estate",
+    address: "14 Claremont View",
+    neighborhood: "Cedar Heights",
+    price: "$3,480,000",
+    beds: "5 beds",
+    baths: "5.5 baths",
+    area: "5,420 sq ft",
+    description:
+      "A hillside residence with layered terraces, gallery-scale living spaces, and a hospitality-grade kitchen designed for evening entertaining.",
+    label: "Signature listing",
+    feature: "Sunset terraces and a resort-caliber primary suite above the tree line.",
+    imageSrc: "/images/hero-estate.jpg",
+    imageAlt:
+      "A luxury hillside estate with expansive glass, layered terraces, and warm evening light.",
+  },
+  {
+    name: "Willow Lane Residence",
+    address: "88 Willow Lane",
+    neighborhood: "Lakemont",
+    price: "$2,290,000",
+    beds: "4 beds",
+    baths: "4 baths",
+    area: "3,960 sq ft",
+    description:
+      "Wide-plank oak floors, soft natural light, and a tailored indoor-outdoor layout make this one of the strongest family listings in the district.",
+    label: "Now showing",
+    feature: "Garden-facing great room with flexible guest suite and pool-ready grounds.",
+    imageSrc: "/images/listing-estate.jpg",
+    imageAlt:
+      "A refined luxury home with manicured grounds and a bright exterior facade.",
+  },
+  {
+    name: "Marlowe House",
+    address: "205 Northpoint Avenue",
     neighborhood: "Northpoint",
-    price: "$1,875,000",
+    price: "$1,975,000",
     beds: "4 beds",
     baths: "3.5 baths",
-    area: "3,180 sq ft",
+    area: "3,240 sq ft",
     description:
-      "A cedar-clad contemporary with south-facing light, a sculpted kitchen, and a private garden terrace minutes from the waterfront greenway.",
-    label: "New to market",
-    imageSrc: "/listing-residence.svg",
+      "A double-height living room, tailored millwork, and warm natural textures give this residence the kind of serene, turnkey atmosphere buyers struggle to find intact.",
+    label: "Private preview",
+    feature: "A softly lit interior story with custom joinery, indoor-outdoor flow, and marina access within a few minutes on foot.",
+    imageSrc: "/images/listing-residence.jpg",
     imageAlt:
-      "Illustrated exterior of a contemporary cedar-clad home with expansive windows and warm evening light",
+      "A refined modern living room with double-height ceilings, warm wood accents, and soft daylight.",
   },
   {
-    name: "The Briarstone",
-    address: "42 Briarstone Lane",
-    neighborhood: "Cedar Heights",
-    price: "$2,460,000",
-    beds: "5 beds",
-    baths: "4.5 baths",
-    area: "4,260 sq ft",
-    description:
-      "Classic stone architecture, mature landscaping, and a tailored renovation that balances formal entertaining rooms with family-scale comfort.",
-    label: "Private showing",
-    imageSrc: "/listing-estate.svg",
-    imageAlt:
-      "Illustrated exterior of a stone estate home with landscaped grounds and arched windows",
-  },
-  {
-    name: "Marlowe Penthouse",
-    address: "900 Harbor Boulevard, PH-3",
+    name: "The Avery Penthouse",
+    address: "30 Harbor Exchange, Residence 11A",
     neighborhood: "Old Harbor",
-    price: "$1,490,000",
+    price: "$2,140,000",
     beds: "3 beds",
     baths: "3 baths",
-    area: "2,180 sq ft",
+    area: "2,410 sq ft",
     description:
-      "A top-floor residence with skyline views, generous entertaining space, and concierge amenities in one of the district's most established full-service buildings.",
-    label: "Featured listing",
-    imageSrc: "/listing-penthouse.svg",
+      "A full-floor penthouse with a lounge-like living room, polished stone finishes, and skyline views that shift from soft mornings to dramatic city lights.",
+    label: "Concierge tower",
+    feature: "Full-service building with valet arrival, terrace seating, and sunset-facing entertaining space.",
+    imageSrc: "/images/listing-penthouse.jpg",
     imageAlt:
-      "Illustrated exterior of a luxury penthouse tower with terrace lighting and a metropolitan skyline",
+      "A polished penthouse interior with dramatic windows, lounge seating, and warm lighting.",
   },
 ];
 
 export const neighborhoods: Neighborhood[] = [
   {
     name: "Northpoint",
-    profile: "Waterfront village feel",
-    commute: "15 minutes to downtown via express line",
-    housing: "Updated colonials, townhomes, and architect-led infill",
+    profile: "Waterfront village sophistication",
+    commute: "12 minutes to downtown by express train or marina drive",
+    housing: "Modern infill, harbor cottages, and design-led renovations",
     summary:
-      "Northpoint draws buyers who want walkability, polished housing stock, and quick access to both the marina district and the urban core.",
-    highlights: ["Waterfront promenade", "Independent cafés", "Top-rated elementary schools"],
+      "Northpoint is for buyers who want a calmer rhythm without giving up polish. It pairs marina mornings, intimate dining, and strong design sensibility with easy access to the city core.",
+    story:
+      "Where new waterfront residences meet established tree-lined blocks and a polished local scene.",
+    highlights: ["Promenade access", "Chef-led cafés", "Private fitness clubs"],
+    imageSrc: "/images/listing-penthouse.jpg",
+    imageAlt:
+      "A polished penthouse living room that reinforces Northpoint's waterfront sophistication and design-led housing mix.",
   },
   {
     name: "Lakemont",
-    profile: "Family-forward and green",
-    commute: "Direct commuter rail access and easy beltway connection",
-    housing: "Generous lots, newer construction, and quiet cul-de-sacs",
+    profile: "Residential, green, and quietly elevated",
+    commute: "Direct commuter rail access plus a straightforward beltway route",
+    housing: "Generous lots, newer family homes, and discreet custom builds",
     summary:
-      "Lakemont is consistently sought after for its school reputation, generous backyards, and homes that offer room to grow without sacrificing convenience.",
-    highlights: ["Tennis and swim clubs", "Weekend farmers market", "Nature preserve trails"],
+      "Lakemont consistently attracts executive households and growing families who want scale, strong schools, and a residential setting that still feels refined rather than remote.",
+    story:
+      "A leafy, family-forward enclave defined by scale, privacy, and room to host.",
+    highlights: ["Top-ranked schools", "Club tennis", "Weekend market culture"],
+    imageSrc: "/images/neighborhood-lakemont.jpg",
+    imageAlt:
+      "A quiet upscale suburban neighborhood with mature trees and elegant residential streets.",
   },
   {
     name: "Old Harbor",
-    profile: "Historic, energetic, and walkable",
-    commute: "Moments from downtown offices and ferry access",
-    housing: "Converted lofts, brick rowhouses, and full-service condos",
+    profile: "Historic blocks with contemporary energy",
+    commute: "Walkable to downtown offices, ferry access, and gallery districts",
+    housing: "Warehouse conversions, brick townhomes, and luxury full-service condos",
     summary:
-      "Old Harbor appeals to buyers who want architecture, restaurant access, and a true neighborhood rhythm close to galleries, boutiques, and the waterfront.",
-    highlights: ["Dining corridor", "Design showrooms", "Boutique fitness studios"],
+      "Old Harbor is the choice for buyers drawn to architecture, culture, and a fully walkable lifestyle. It feels layered and established, with the strongest dining and design mix in the market.",
+    story:
+      "The district where historic facades, destination restaurants, and polished residences converge.",
+    highlights: ["Boutique hotels", "Gallery corridor", "Chef-driven dining"],
+    imageSrc: "/images/neighborhood-old-harbor.jpg",
+    imageAlt:
+      "A walkable upscale urban neighborhood with historic buildings, lively streets, and refined storefronts.",
   },
   {
     name: "Cedar Heights",
-    profile: "Private and view-driven",
-    commute: "20 minutes to downtown outside peak traffic",
-    housing: "Custom homes, estates, and gated enclaves",
+    profile: "Private, view-driven, and distinctly residential",
+    commute: "20 minutes to downtown outside peak traffic conditions",
+    housing: "Estate parcels, gated compounds, and architect-designed custom homes",
     summary:
-      "Cedar Heights offers larger homesites, elevated views, and a more private setting while still keeping daily routines practical for executive households.",
-    highlights: ["Country club access", "Ridgeline views", "High-spec renovations"],
+      "Cedar Heights is where buyers go for privacy, sweeping outlooks, and homes built for entertaining on a larger scale. It is discreet, established, and consistently in demand.",
+    story:
+      "Ridgeline living with larger homesites, layered landscaping, and a club-like sense of privacy.",
+    highlights: ["Country club access", "City-light views", "Estate renovation activity"],
+    imageSrc: "/images/hero-estate.jpg",
+    imageAlt:
+      "A modern hillside estate that conveys Cedar Heights' view-driven residential character.",
   },
 ];
 
 export const buyingProcess: ProcessStep[] = [
   {
     step: "01",
-    title: "Strategy And Search Setup",
+    title: "Briefing And Match Strategy",
     description:
-      "We clarify timing, financing, neighborhood priorities, and fit criteria so the search stays focused from day one.",
+      "We align on timing, financing posture, neighborhood fit, and the homes worth pursuing so the search starts with real clarity instead of noise.",
   },
   {
     step: "02",
-    title: "Touring And Opportunity Review",
+    title: "Curated Touring And Review",
     description:
-      "Homes are evaluated through a practical lens: resale strength, renovation scope, competitive pressure, and total acquisition cost.",
+      "Every property is evaluated for lifestyle fit, renovation exposure, long-term resale appeal, and how it sits against active competition.",
   },
   {
     step: "03",
-    title: "Offer Planning And Negotiation",
+    title: "Offer Structuring",
     description:
-      "We shape a competitive offer around price, contingencies, timing, and presentation so the full package works in your favor.",
+      "We build a complete package around terms, timing, contingencies, and presentation so the offer reads as both competitive and credible.",
   },
   {
     step: "04",
-    title: "Contract To Close",
+    title: "Contract Management",
     description:
-      "Inspections, vendor coordination, and milestone management are handled with clear communication all the way to closing day.",
+      "Inspection guidance, vendor coordination, and milestone tracking are handled with tight communication through closing day.",
   },
 ];
 
 export const sellingProcess: ProcessStep[] = [
   {
     step: "01",
-    title: "Valuation And Positioning",
+    title: "Positioning And Valuation",
     description:
-      "We assess recent comparables, buyer demand, timing, and the property's strongest narrative before setting pricing direction.",
+      "We define pricing direction, buyer profile, and narrative strategy around what will make the property feel both desirable and well judged.",
   },
   {
     step: "02",
     title: "Prep, Styling, And Production",
     description:
-      "Our team coordinates staging guidance, light improvements, photography, floor plans, and launch materials with a single plan.",
+      "From light improvements to staging and photography, every visible detail is aligned so the home enters the market with polish.",
   },
   {
     step: "03",
-    title: "Launch And Buyer Outreach",
+    title: "Launch And Private Outreach",
     description:
-      "The listing goes live with polished presentation, targeted agent outreach, and a showing schedule designed to build momentum.",
+      "We combine public presentation with discreet agent-to-agent outreach to create traction early and keep the showing flow intentional.",
   },
   {
     step: "04",
-    title: "Offer Selection And Close",
+    title: "Negotiation Through Close",
     description:
-      "We compare not just pricing, but terms, contingencies, timing, and certainty so the chosen offer truly supports your next move.",
+      "Offer review, inspection strategy, and close management stay disciplined so the chosen path supports both value and certainty.",
   },
 ];
 
@@ -235,45 +280,51 @@ export const agents: Agent[] = [
   {
     name: "Lena Hart",
     role: "Founder & Principal Broker",
-    bio: "Lena leads the firm with a measured, design-aware approach shaped by years of advising sellers, relocating executives, and repeat referral clients across the premium market.",
-    experience: "16 years in residential brokerage",
-    specialties: ["Listing strategy", "Luxury transitions", "Design-forward homes"],
-    accent: "linear-gradient(135deg, rgba(35,53,46,0.95), rgba(177,138,88,0.9))",
+    bio: "Lena leads the firm with a calm, design-aware point of view and a reputation for guiding sellers through high-visibility launches with precision.",
+    experience: "16 years advising sellers, relocating executives, and repeat referral clients.",
+    specialties: ["Pricing strategy", "Luxury transitions", "Design-forward presentation"],
+    metric: "16 years",
+    imageSrc: "/images/hero-estate.jpg",
+    imageAlt: "A luxury hillside estate used to reinforce the firm's calm, architecture-led brand point of view.",
   },
   {
     name: "Marcus Avery",
     role: "Senior Buyer Advisor",
-    bio: "Marcus is known for calm buyer representation, strong neighborhood knowledge, and sourcing opportunities that align with both lifestyle goals and long-term value.",
-    experience: "11 years in buyer advisory",
-    specialties: ["Private buyer searches", "Negotiation", "School-focused moves"],
-    accent: "linear-gradient(135deg, rgba(28,45,59,0.95), rgba(204,179,145,0.92))",
+    bio: "Marcus is known for focused buyer representation, practical counsel under pressure, and matching clients to neighborhoods with unusual efficiency.",
+    experience: "11 years leading private buyer searches and competitive acquisitions.",
+    specialties: ["Private search", "Negotiation", "Family relocations"],
+    metric: "Buyer lead",
+    imageSrc: "/images/listing-residence.jpg",
+    imageAlt: "A warm, design-led luxury living room used to support the buyer advisory story.",
   },
   {
     name: "Priya Desai",
     role: "Listing Strategist",
-    bio: "Priya manages pre-listing execution, vendor coordination, and launch planning so every seller enters the market with stronger presentation and fewer surprises.",
-    experience: "9 years in listing operations",
-    specialties: ["Prep and staging", "Vendor oversight", "Launch planning"],
-    accent: "linear-gradient(135deg, rgba(85,59,43,0.95), rgba(177,138,88,0.82))",
+    bio: "Priya coordinates the details behind every launch, from staging and photography to vendor sequencing and presentation standards.",
+    experience: "9 years directing pre-listing execution for premium residential properties.",
+    specialties: ["Prep oversight", "Vendor management", "Launch planning"],
+    metric: "Launch strategy",
+    imageSrc: "/images/services-interior.jpg",
+    imageAlt: "A polished interior used to reflect listing preparation and launch presentation standards.",
   },
 ];
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "They brought clarity to every decision and never made the process feel noisy. Our home launched beautifully and the negotiation was handled with real judgment.",
+      "They handled our listing like a brand launch, but the advice stayed practical the entire time. We always knew what mattered most and why.",
     name: "Erin & Michael S.",
     role: "Cedar Heights sellers",
   },
   {
     quote:
-      "We were relocating on a tight timeline and needed direct advice, not endless tours. Crescent Vale narrowed the field fast and helped us win the right home without overreaching.",
+      "The search felt curated instead of overwhelming. We toured fewer homes, moved faster, and ended up in the right neighborhood with complete confidence.",
     name: "Naomi R.",
     role: "Northpoint buyer",
   },
   {
     quote:
-      "The valuation meeting alone was worth it. We walked away with a realistic plan, a prep list we could actually execute, and a timeline that made sense for our family.",
+      "Their valuation session was thoughtful, measured, and specific. It gave us a real roadmap instead of generic market commentary.",
     name: "Daniel & Priya K.",
     role: "Lakemont homeowners",
   },
@@ -283,10 +334,10 @@ export const serviceOfferings: ServiceOffering[] = [
   {
     title: "Seller Representation",
     summary:
-      "Pricing, preparation, and launch strategy designed to present a property with confidence and restraint.",
-    emphasis: "Best for homeowners planning to launch within the next 12 months.",
+      "A launch strategy built around pricing discipline, polished preparation, and listing materials that feel considered rather than formulaic.",
+    emphasis: "For owners planning a market launch within the next year",
     deliverables: [
-      "Comparative pricing and positioning strategy",
+      "Comparative pricing and positioning direction",
       "Prep recommendations and vendor coordination",
       "Photography, floor plan, and editorial marketing assets",
     ],
@@ -294,33 +345,33 @@ export const serviceOfferings: ServiceOffering[] = [
   {
     title: "Buyer Representation",
     summary:
-      "A focused acquisition strategy for clients who want strong counsel in competitive or low-inventory conditions.",
-    emphasis: "Ideal for local moves, relocations, and timing-sensitive searches.",
+      "A structured acquisition plan for clients who want strong judgment, discreet sourcing, and a competitive edge in selective inventory.",
+    emphasis: "For local moves, relocations, and timing-sensitive acquisitions",
     deliverables: [
-      "Search strategy and neighborhood shortlist",
-      "Tour planning and opportunity review",
+      "Neighborhood shortlist and search strategy",
+      "Tour planning with candid property review",
       "Offer structuring and contract management",
     ],
   },
   {
     title: "Valuation Sessions",
     summary:
-      "Private consultations for owners weighing timing, renovation scope, or whether a move makes sense at all.",
-    emphasis: "Useful when you want a grounded opinion before making larger plans.",
+      "Private consultations for owners weighing timing, renovation scope, or whether a move truly makes sense before they commit to a launch.",
+    emphasis: "For homeowners wanting a grounded opinion before making larger plans",
     deliverables: [
       "Illustrative pricing range and timing guidance",
       "Prep priorities with return-on-effort context",
-      "A tailored roadmap for the next three to six months",
+      "A practical roadmap for the next three to six months",
     ],
   },
   {
     title: "Relocation Advisory",
     summary:
-      "A structured plan for clients moving into the market who need pace, local insight, and efficient decision support.",
-    emphasis: "Designed for executive moves and households with compressed timelines.",
+      "A clear framework for incoming households who need pace, local market orientation, and efficient decision support from a distance.",
+    emphasis: "For executive moves and compressed relocation timelines",
     deliverables: [
       "Market orientation and area matching",
-      "School, commute, and lifestyle-based filtering",
+      "School, commute, and lifestyle filtering",
       "Virtual tours and remote offer coordination",
     ],
   },
@@ -330,35 +381,35 @@ export const valuePoints: ValuePoint[] = [
   {
     title: "Measured Advice",
     description:
-      "We prefer clear guidance over pressure. Clients get honest recommendations grounded in market realities and personal priorities.",
+      "Clients get direct recommendations grounded in market realities, timing, and the specifics of their move rather than generic optimism.",
   },
   {
-    title: "Polished Presentation",
+    title: "Editorial Marketing",
     description:
-      "Listings are treated like brand moments, with thoughtful prep, strong visuals, and copy that actually reflects the home.",
+      "Listings are presented with restraint, warmth, and visual quality so the property feels memorable before a buyer even walks in.",
   },
   {
-    title: "Local Intelligence",
+    title: "Local Signal",
     description:
-      "We track micro-neighborhood patterns, buyer behavior, and timing shifts closely so strategy does not rely on generic averages.",
+      "We follow micro-neighborhood shifts closely so strategy reflects actual buyer behavior, not just broad-market averages.",
   },
 ];
 
 export const serviceStandards: ValuePoint[] = [
   {
-    title: "A written game plan",
+    title: "A written launch plan",
     description:
-      "Every client engagement starts with a clear sequence of priorities, milestones, and responsibilities so timing is never vague.",
+      "Every engagement starts with a sequence of priorities, milestones, and decision points so timing never feels vague.",
   },
   {
-    title: "Proactive communication",
+    title: "Concise communication",
     description:
-      "Expect regular updates, concise advice, and direct answers when conditions change or decisions need to be made quickly.",
+      "Expect direct updates, practical answers, and advice calibrated to what matters most rather than volume for its own sake.",
   },
   {
-    title: "Trusted partner network",
+    title: "Trusted specialists",
     description:
-      "We coordinate photographers, stagers, inspectors, contractors, and closing professionals to keep the experience organized.",
+      "Photographers, stagers, inspectors, and closing professionals are coordinated through one plan to keep the experience calm.",
   },
 ];
 
@@ -367,24 +418,24 @@ export const contactMethods: ContactMethod[] = [
     label: "Phone",
     value: "(206) 555-0148",
     href: "tel:+12065550148",
-    description: "For immediate questions, private tour requests, or consultation scheduling.",
+    description: "Private tour requests, consultation scheduling, and time-sensitive questions.",
   },
   {
     label: "Email",
     value: "hello@crescentvalerealty.com",
     href: "mailto:hello@crescentvalerealty.com",
-    description: "Ideal for valuation inquiries, introductions, and longer planning notes.",
+    description: "Best for valuation inquiries, introductions, and detailed planning notes.",
   },
   {
     label: "Office",
     value: "175 Mercer Lane, Suite 300",
     href: "https://maps.google.com/?q=175+Mercer+Lane+Suite+300+Harbor+City+WA+98109",
-    description: "Private meetings are available by appointment in Harbor City.",
+    description: "Private advisory meetings are available by appointment in Harbor City.",
   },
 ];
 
 export const officeHours: string[] = [
   "Monday to Friday: 9:00 AM to 6:00 PM",
-  "Saturday: By appointment for tours and consultations",
-  "Sunday: Reserved for active client needs and listing launches",
+  "Saturday: By appointment for private tours and planning sessions",
+  "Sunday: Reserved for active client launches and negotiated showings",
 ];

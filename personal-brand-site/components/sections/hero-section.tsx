@@ -6,109 +6,173 @@ import { heroStats, siteConfig } from "@/lib/data";
 
 export function HeroSection() {
   return (
-    <section className="section-shell overflow-hidden pt-12 sm:pt-16 md:pt-20 lg:pt-24">
-      <Container className="grid gap-8 sm:gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-        <div className="relative">
-          <span className="eyebrow">Creator Brand Studio</span>
-          <p className="mt-6 text-sm font-semibold uppercase tracking-[0.26em] text-rose">
-            {siteConfig.role}
-          </p>
-          <h1 className="mt-5 max-w-3xl text-balance text-[3rem] leading-[0.92] text-ink sm:text-[4.25rem] lg:text-[5.5rem]">
-            Make your expertise feel impossible to ignore.
+    <section id="hero" className="section-shell overflow-hidden pt-8 sm:pt-12 md:pt-14 lg:pt-16">
+      <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div className="reveal-up">
+          <span className="eyebrow">Editorial Brand Studio</span>
+
+          <div className="mt-6 flex flex-wrap gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-mocha/76">
+            <span>{siteConfig.location}</span>
+            <span className="h-1 w-1 self-center rounded-full bg-plum" />
+            <span>Keynotes</span>
+            <span className="h-1 w-1 self-center rounded-full bg-plum" />
+            <span>Advisory</span>
+            <span className="h-1 w-1 self-center rounded-full bg-plum" />
+            <span>Media Partnerships</span>
+          </div>
+
+          <h1 className="mt-5 max-w-[10ch] text-[3.85rem] leading-[0.92] text-ink sm:text-[5.2rem] lg:text-[6.35rem] xl:text-[6.9rem]">
+            Build the kind of personal brand people
+            {" "}
+            <span className="text-plum italic">quote in the room</span>
+            {" "}
+            and book after the room.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-ink/72 sm:text-lg sm:leading-8">
-            I help founders, executives, and expert-led brands turn sharp ideas into authority-led content systems
-            that book rooms, attract partnerships, and keep demand warm between launches.
+
+          <p className="mt-5 max-w-xl text-base leading-8 text-mocha/92 sm:text-lg">
+            I help founders, authors, and expert-led teams shape the public version of their expertise so it feels
+            warmer, sharper, and more commercially useful across keynote rooms, podcasts, and flagship content.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/contact" className="w-full sm:w-auto" arrow>
-              Book a Strategy Call
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="/contact?type=speaking" className="w-full justify-center sm:w-auto" arrow>
+              Request availability
             </ButtonLink>
-            <ButtonLink href="/services" variant="secondary" className="w-full sm:w-auto" arrow>
-              Explore Offerings
+            <ButtonLink
+              href="/services"
+              variant="secondary"
+              className="w-full justify-center sm:w-auto"
+              arrow
+            >
+              See speaking + advisory
             </ButtonLink>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-6">
+          <div className="mt-7 flex flex-wrap gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-mocha/80">
+            <span className="rounded-full border border-ink/10 bg-white/72 px-4 py-2">Editorial positioning</span>
+            <span className="rounded-full border border-ink/10 bg-white/72 px-4 py-2">Signature talks</span>
+            <span className="rounded-full border border-ink/10 bg-white/72 px-4 py-2">Sponsor-ready packaging</span>
+          </div>
+
+          <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            <article className="note-card p-5">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">For founders</p>
+              <p className="mt-3 text-lg leading-7 text-ink">
+                Clarify the point of view that should travel from homepage to intro to investor dinner.
+              </p>
+            </article>
+
+            <article className="note-card p-5">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">For event teams</p>
+              <p className="mt-3 text-lg leading-7 text-ink">
+                Book keynote rooms and workshops that sound intelligent, human, and worth repeating afterward.
+              </p>
+            </article>
+
+            <article className="note-card p-5 md:col-span-2 xl:col-span-1">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">For media brands</p>
+              <p className="mt-3 text-lg leading-7 text-ink">
+                Package trust into sponsor stories and premium offers without losing the voice people showed up for.
+              </p>
+            </article>
+          </div>
+
+          <div className="mt-8 grid gap-3 border-t border-ink/10 pt-6 sm:grid-cols-2">
             {heroStats.map((stat) => (
-              <article key={stat.label} className="surface-card p-5 sm:p-6">
-                <p className="text-3xl leading-none text-ink">{stat.value}</p>
-                <p className="mt-3 text-sm leading-6 text-ink/68">{stat.label}</p>
+              <article key={stat.label} className="rounded-[1.4rem] border border-ink/8 bg-white/58 px-5 py-5">
+                <p className="text-3xl leading-none text-ink sm:text-[2.05rem]">{stat.value}</p>
+                <p className="mt-3 max-w-xs text-sm leading-6 text-mocha/84">{stat.label}</p>
               </article>
             ))}
           </div>
         </div>
 
-        <div className="relative">
-          <div className="sm:hidden">
-            <div className="dark-panel grain relative overflow-hidden p-4">
-              <div className="flex items-center justify-between rounded-[1.2rem] border border-white/10 bg-white/6 px-4 py-2 text-[0.65rem] uppercase tracking-[0.16em] text-white/70">
-                <span>New keynote</span>
-                <span>2026</span>
+        <div className="relative reveal-up-delay lg:pl-4">
+          <div className="absolute -top-4 left-10 hidden h-28 w-28 rounded-full bg-gold/18 blur-3xl md:block" />
+          <div className="absolute bottom-16 right-8 hidden h-32 w-32 rounded-full bg-plum/15 blur-3xl md:block" />
+
+          <div className="grid gap-5 md:grid-cols-[minmax(0,1.08fr)_minmax(15rem,0.72fr)]">
+            <div className="media-frame portrait-reveal grain relative aspect-[4/4.95] overflow-hidden rounded-[2.8rem] md:row-span-2">
+              <Image
+                src="/images/nadia-desk-portrait.jpg"
+                alt="Nadia Vale seated at a desk in a bright editorial workspace."
+                fill
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="object-cover object-center"
+                priority
+              />
+
+              <div className="absolute left-5 top-5 z-10 rounded-full border border-white/18 bg-[rgb(17_11_10/0.56)] px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white backdrop-blur-md">
+                Fall keynote dates open
               </div>
 
-              <div className="relative mt-4 aspect-[4/3.15] overflow-hidden rounded-[1.5rem]">
-                <Image
-                  src="/images/nadia-portrait.svg"
-                  alt="Abstract editorial portrait illustration for Nadia Vale."
-                  fill
-                  sizes="100vw"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-
-              <div className="mt-4 rounded-[1.35rem] border border-white/10 bg-white/6 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
-                  Signature angle
-                </p>
-                <p className="mt-3 text-base leading-6 text-white">
-                  Turn founder expertise into a media brand that sells trust before the sales call.
-                </p>
+              <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7">
+                <div className="max-w-lg rounded-[1.7rem] border border-white/14 bg-[rgb(31_20_17/0.62)] p-5 text-white backdrop-blur-md">
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/72">
+                    Signature Positioning
+                  </p>
+                  <p className="mt-3 text-xl leading-7 sm:text-2xl sm:leading-8">
+                    Make expertise feel authored enough to travel from stage introduction to sales conversation.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="hidden sm:block">
-            <div className="absolute -left-4 top-8 h-24 w-24 rounded-full bg-clay/30 blur-3xl sm:-left-8 sm:h-32 sm:w-32" />
-            <div className="absolute right-0 bottom-12 h-28 w-28 rounded-full bg-sage/30 blur-3xl sm:-right-2 sm:bottom-16 sm:h-40 sm:w-40" />
+            <div className="note-card drift self-start p-5 sm:p-6">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
+                Now Booking
+              </p>
+              <p className="mt-3 text-xl leading-8 text-ink">
+                Speaking dates, founder workshops, and selective advisory partnerships.
+              </p>
+              <p className="mt-3 text-sm leading-6 text-mocha/84">
+                Best for teams that want sharp ideas with editorial taste, not generic inspiration theater.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-mocha/72">
+                <span className="rounded-full border border-ink/10 bg-white/82 px-3 py-2">Founder offsites</span>
+                <span className="rounded-full border border-ink/10 bg-white/82 px-3 py-2">Media hosts</span>
+              </div>
+            </div>
 
-            <div className="dark-panel grain relative overflow-hidden p-5 sm:p-8">
-              <div className="flex flex-col gap-2 rounded-[1.4rem] border border-white/10 bg-white/6 px-4 py-3 text-[0.65rem] uppercase tracking-[0.18em] text-white/70 min-[380px]:flex-row min-[380px]:items-center min-[380px]:justify-between sm:text-xs sm:tracking-[0.24em]">
-                <span>New keynote</span>
-                <span>2026 speaking season</span>
+            <div className="paper-panel overflow-hidden p-5 sm:p-6">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
+                    In the room
+                  </p>
+                  <h2 className="mt-2 text-2xl text-ink sm:text-[2.2rem]">Keynotes, workshops, and founder sessions.</h2>
+                </div>
+                <p className="max-w-[13rem] text-sm leading-6 text-mocha/84">
+                  Message work that holds up under real questions, real scrutiny, and real buying moments.
+                </p>
               </div>
 
-              <div className="relative mt-4 aspect-[4/4.2] overflow-hidden rounded-[1.65rem] sm:aspect-[4/4.9]">
+              <div className="mt-5 media-frame image-lift aspect-[4/2.55] rounded-[1.6rem]">
                 <Image
-                  src="/images/nadia-portrait.svg"
-                  alt="Abstract editorial portrait illustration for Nadia Vale."
+                  src="/images/nadia-workshop.jpg"
+                  alt="Nadia Vale facilitating a workshop in a conference room."
                   fill
-                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  sizes="(min-width: 1024px) 32vw, 86vw"
                   className="object-cover"
-                  priority
                 />
               </div>
+            </div>
 
-              <div className="grid gap-4 p-3 sm:grid-cols-[1.1fr_0.9fr] sm:gap-6 sm:p-4">
-                <div className="rounded-[1.4rem] border border-white/10 bg-white/6 p-5 sm:p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-clay">
-                    Positioning statement
-                  </p>
-                  <p className="mt-3 text-lg leading-7 text-white">
-                    Turn founder expertise into a media brand that sells trust before the sales call.
-                  </p>
-                </div>
-                <div className="hidden rounded-[1.4rem] border border-white/10 bg-white/6 p-5 sm:block sm:p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-clay">
-                    Current focus
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-white/78">
-                    Advisory, keynote design, sponsorship positioning, and executive visibility systems.
-                  </p>
-                </div>
-              </div>
+            <div className="ink-panel reveal-up-late flex flex-col justify-between p-5 sm:p-6">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-white/62">
+                Booking Desk
+              </p>
+              <p className="mt-4 text-lg leading-7 text-white/86">
+                Prefer events, launches, and partner moments where the message has to do real work after the applause.
+              </p>
+              <ButtonLink
+                href="/contact?type=advisory"
+                variant="secondary"
+                className="mt-6 border-white/16 bg-white/12 text-white hover:bg-white/18 hover:text-white"
+                arrow
+              >
+                Start a booking note
+              </ButtonLink>
             </div>
           </div>
         </div>

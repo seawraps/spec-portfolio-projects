@@ -10,12 +10,16 @@ export type Service = {
   fullDescription: string;
   idealFor: string;
   includes: string[];
+  highlights: string[];
   timeline: string;
+  image: string;
+  imageAlt: string;
 };
 
 export type ProcessStep = {
   title: string;
   description: string;
+  deliverable: string;
 };
 
 export type Testimonial = {
@@ -34,24 +38,26 @@ export type ProjectHighlight = {
   timeline: string;
   image: string;
   imageAlt: string;
+  summary: string;
+  scope: string[];
 };
 
 export const company = {
   name: "Blue Oak Remodeling Co.",
-  tagline: "Crafted renovations for Nashville homeowners who value quality.",
+  tagline: "Warm, detail-led renovations for Nashville homes that need to feel lived in, not staged.",
   phoneDisplay: "(615) 555-0192",
   phoneRaw: "+16155550192",
   email: "hello@blueoakremodeling.com",
   addressLine: "2451 Charlotte Ave, Suite 200",
   cityStateZip: "Nashville, TN 37203",
   hours: [
-    "Mon–Fri: 8:00 AM–6:00 PM",
-    "Saturday: 9:00 AM–2:00 PM",
-    "Sunday: By appointment",
+    "Monday-Friday: 8:00 AM-6:00 PM",
+    "Saturday: 9:00 AM-2:00 PM",
+    "Sunday: Site visits by appointment",
   ],
-  license: "Licensed & Insured · TN Contractor License #BC-54219",
+  license: "Licensed and Insured | TN Contractor License #BC-54219",
   foundedYear: "2012",
-  primaryServiceArea: "Nashville, Brentwood, Franklin, and surrounding communities",
+  primaryServiceArea: "Nashville, Brentwood, Franklin, Belle Meade, and nearby neighborhoods",
 };
 
 export const navLinks: NavLink[] = [
@@ -63,243 +69,278 @@ export const navLinks: NavLink[] = [
 
 export const trustIndicators = [
   {
-    title: "Licensed and Fully Insured",
+    title: "Licensed design-build guidance",
     detail:
-      "Code-compliant project management from permit handling through final punch list.",
+      "Selections, scheduling, permits, and build execution are coordinated under one accountable local team.",
   },
   {
-    title: "4.9-Star Client Satisfaction",
+    title: "Protected, lived-in job sites",
     detail:
-      "Consistently top-rated by homeowners for communication, cleanliness, and craftsmanship.",
+      "Dust control, daily cleanup, and clear homeowner communication are treated as part of the craft.",
   },
   {
-    title: "Dedicated In-House Team",
+    title: "Material-first recommendations",
     detail:
-      "Project leads and core trades are managed directly so your schedule stays on track.",
+      "We steer clients toward finishes that feel timeless in real homes and wear well over time.",
   },
   {
-    title: "Warranty-Backed Work",
+    title: "Documented handoff and warranty",
     detail:
-      "Every project includes a workmanship warranty and documented closeout package.",
+      "Every project closes with punch-list review, care guidance, and workmanship warranty support.",
   },
 ];
 
 export const featuredStats = [
-  { value: "380+", label: "Projects completed" },
-  { value: "14", label: "Years serving Middle Tennessee" },
-  { value: "12", label: "Average days to project kickoff" },
+  { value: "380+", label: "Residential renovations completed" },
+  { value: "14", label: "Years serving Middle Tennessee homes" },
+  { value: "4.9", label: "Average homeowner rating" },
 ];
 
 export const services: Service[] = [
   {
-    id: "kitchen-remodeling",
-    name: "Kitchen Remodeling",
+    id: "kitchen-renovations",
+    name: "Kitchen Renovations",
     shortDescription:
-      "Functional, design-forward kitchens with custom cabinetry, storage, and premium finishes.",
+      "Opening cramped layouts, elevating cabinetry, and building kitchens that feel tailored to daily life.",
     fullDescription:
-      "We redesign kitchen layouts around daily routines, then deliver expert cabinetry, durable countertops, lighting, and appliance integration for a space that works as beautifully as it looks.",
+      "We rework kitchen flow around how your household actually cooks, gathers, and entertains, then deliver custom cabinetry, durable countertops, layered lighting, and appliance integration with a furniture-level finish.",
     idealFor:
-      "Homeowners ready to modernize dated kitchens and improve flow for entertaining.",
+      "Homeowners ready to replace dated cabinetry, improve circulation, and invest in a kitchen that carries the whole house.",
     includes: [
-      "Layout planning and 3D concept review",
-      "Cabinetry, countertops, tile, and fixture installation",
-      "Electrical and lighting upgrades",
-      "Permit coordination and final quality walkthrough",
+      "Layout planning and fixture coordination",
+      "Custom or semi-custom cabinetry and hardware",
+      "Countertops, tile, lighting, and appliance installation",
+      "Permits, punch-list review, and closeout walkthrough",
     ],
-    timeline: "Typical timeline: 6–10 weeks",
+    highlights: ["White oak cabinetry", "Hidden storage planning", "Island-centered layouts"],
+    timeline: "Typical build window: 8-12 weeks",
+    image: "/images/hero-kitchen.jpg",
+    imageAlt: "A premium kitchen renovation with a large island, wood cabinetry, and warm lighting.",
   },
   {
-    id: "bathroom-renovation",
-    name: "Bathroom Renovation",
+    id: "bathroom-remodeling",
+    name: "Bathroom Remodeling",
     shortDescription:
-      "Spa-inspired bathrooms with better storage, improved ventilation, and timeless material choices.",
+      "Calm, highly functional baths with better storage, smart waterproofing, and more considered material palettes.",
     fullDescription:
-      "From compact hall baths to full primary suites, we deliver watertight construction, clean lines, and smart fixture placement that increases comfort and home value.",
+      "From primary suites to secondary baths, we deliver watertight construction, ventilation upgrades, custom vanities, and finish selections that make the room feel restorative instead of purely utilitarian.",
     idealFor:
-      "Families needing more durable, low-maintenance bathrooms with better usability.",
+      "Clients who want a cleaner daily routine, better storage, and a bathroom that raises the quality of the whole home.",
     includes: [
       "Shower and tub conversions",
-      "Vanity and storage upgrades",
-      "Tile waterproofing and ventilation improvements",
-      "Plumbing and electrical updates",
+      "Vanity, lighting, and storage improvements",
+      "Tile waterproofing and ventilation upgrades",
+      "Plumbing and electrical coordination",
     ],
-    timeline: "Typical timeline: 4–7 weeks",
+    highlights: ["Frameless shower glass", "Stone-look tile", "Layered vanity lighting"],
+    timeline: "Typical build window: 5-8 weeks",
+    image: "/images/bathroom-vanity.jpg",
+    imageAlt: "A bright bathroom with a long vanity, brass details, and a walk-in shower.",
   },
   {
-    id: "whole-home-refresh",
-    name: "Whole-Home Refresh",
+    id: "whole-home-renovation",
+    name: "Whole-Home Renovation",
     shortDescription:
-      "Coordinated updates that unify finishes, improve flow, and prepare homes for long-term living.",
+      "Multi-room planning that unifies finishes, flow, and architectural character throughout the house.",
     fullDescription:
-      "Our team phases multi-room renovations so your home transformation is organized, efficient, and cohesive from flooring and trim to lighting and paint.",
+      "For older homes and new-to-you properties, we phase renovations to keep the work organized while updating flooring, millwork, lighting, paint, and room-to-room continuity with a cohesive design language.",
     idealFor:
-      "Owners of older homes seeking a consistent, move-in-ready look without a full gut renovation.",
+      "Homeowners who want the house to feel complete and consistent rather than updated one room at a time.",
     includes: [
-      "Multi-room finish planning",
-      "Flooring, trim, and hardware replacement",
-      "Interior painting and drywall refinement",
-      "Phased scheduling for minimal disruption",
+      "Multi-room design and finish coordination",
+      "Flooring, trim, stair, and paint updates",
+      "Lighting, hardware, and architectural detail refinement",
+      "Phased scheduling for occupied homes",
     ],
-    timeline: "Typical timeline: 8–14 weeks",
+    highlights: ["Consistent trim profiles", "Room-to-room color continuity", "Architectural cleanup"],
+    timeline: "Typical build window: 10-16 weeks",
+    image: "/images/dining-room.jpg",
+    imageAlt: "A warm dining room with natural light, wood detailing, and a premium residential feel.",
   },
   {
-    id: "outdoor-living",
-    name: "Outdoor Living Upgrades",
+    id: "custom-millwork",
+    name: "Custom Millwork and Built-Ins",
     shortDescription:
-      "Deck, patio, and covered-porch builds that expand living space and boost curb appeal.",
+      "Cabinetry, mudroom storage, and finish carpentry that make renovated rooms feel settled and bespoke.",
     fullDescription:
-      "We create weather-ready outdoor spaces with durable materials, integrated lighting, and clean architectural detailing tailored to your home.",
+      "We design and install built-ins, cabinetry details, trim packages, and storage moments that elevate both utility and perceived value, especially in kitchens, entries, family rooms, and primary suites.",
     idealFor:
-      "Homeowners wanting entertainment-ready spaces for spring-through-fall gatherings.",
+      "Homes that already have a strong shell but need craftsmanship and storage details to feel finished.",
     includes: [
-      "Custom deck and patio construction",
-      "Pergolas and covered porch framing",
-      "Outdoor lighting and electrical setup",
-      "Railings, staining, and finish work",
+      "Built-in cabinetry and shelving",
+      "Trim, casing, and stair detail upgrades",
+      "Mudroom and entry storage solutions",
+      "Finish carpentry and hardware installation",
     ],
-    timeline: "Typical timeline: 3–6 weeks",
+    highlights: ["Integrated storage", "Custom trim packages", "Cabinet-ready details"],
+    timeline: "Typical build window: 3-6 weeks",
+    image: "/images/cabinet-detail.jpg",
+    imageAlt: "A dark custom cabinet detail with refined woodwork and premium hardware.",
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
-    title: "On-Site Consultation",
+    title: "Walkthrough and listening session",
     description:
-      "We assess your space, priorities, and budget in person, then confirm project goals and next-step timeline.",
+      "We start in the home, talk through what feels off, and document priorities around layout, materials, budget, and timing.",
+    deliverable: "You leave with a clear next-step recommendation and realistic scope direction.",
   },
   {
-    title: "Design and Scope Planning",
+    title: "Scope, selections, and schedule",
     description:
-      "You receive a clear scope of work, material direction, and a fixed project roadmap before construction starts.",
+      "Before demo begins, we align the work plan, material path, allowances, and sequence so decisions do not bottleneck the build.",
+    deliverable: "Detailed proposal, timeline framing, and selection guidance.",
   },
   {
-    title: "Build and Communicate",
+    title: "Construction with weekly visibility",
     description:
-      "Our crew executes with daily site standards and weekly progress updates so you always know what is happening.",
+      "Our team manages trades, protects the home, and gives consistent updates so the project stays organized and legible.",
+    deliverable: "Weekly progress communication and on-site quality control.",
   },
   {
-    title: "Final Walkthrough and Warranty",
+    title: "Punch list, styling, and handoff",
     description:
-      "We close with a detailed walkthrough, final adjustments, and documented warranty coverage.",
+      "We finish with a documented walkthrough, final touch-ups, and care notes so the home feels complete the day you move back in.",
+    deliverable: "Closeout package, warranty support, and maintenance guidance.",
   },
 ];
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Blue Oak made our kitchen remodel feel organized from day one. Communication was excellent and the craftsmanship is genuinely top-tier.",
+      "Blue Oak turned a tired kitchen into the room everyone naturally gathers in. The work feels custom, but the bigger win was how calmly they ran the project.",
     customerName: "Andrea M.",
     location: "Green Hills",
-    project: "Kitchen Renovation",
+    project: "Kitchen renovation",
   },
   {
     quote:
-      "We interviewed four contractors and chose Blue Oak because their process was transparent. They finished on schedule and the result exceeded expectations.",
+      "We chose them because their estimate felt practical and honest. The bathroom is beautiful, but the clean communication is what made us recommend them to neighbors.",
     customerName: "James and Felicia R.",
     location: "Brentwood",
-    project: "Primary Bathroom Remodel",
+    project: "Primary bath remodel",
   },
   {
     quote:
-      "Their team treated our home with respect, kept the jobsite clean, and delivered exactly what they promised. I recommend them without hesitation.",
+      "They helped us make dozens of decisions without making the process feel overwhelming. Every room now feels like it belongs to the same home.",
     customerName: "Tyler C.",
     location: "Franklin",
-    project: "Whole-Home Interior Refresh",
+    project: "Whole-home renovation",
   },
 ];
 
 export const projectHighlights: ProjectHighlight[] = [
   {
-    title: "Modern Family Kitchen",
-    location: "12 South, Nashville",
-    category: "Kitchen Remodel",
-    before:
-      "Closed layout with poor lighting and minimal prep space for everyday cooking.",
-    after:
-      "Opened floor plan, custom white oak cabinetry, quartz surfaces, and layered task lighting.",
-    timeline: "9-week build",
-    image: "/images/project-kitchen.svg",
-    imageAlt:
-      "Illustration of a bright renovated kitchen with island seating and pendant lighting.",
-  },
-  {
-    title: "Primary Bath Upgrade",
+    title: "Belle Meade kitchen opening",
     location: "Belle Meade",
-    category: "Bathroom Renovation",
+    category: "Kitchen renovation",
     before:
-      "Narrow shower, outdated tile, and limited vanity storage for a growing family.",
+      "A segmented kitchen with upper cabinets cutting off sight lines and little room for family traffic.",
     after:
-      "Frameless walk-in shower, floating vanity, and warm stone-inspired finishes.",
-    timeline: "6-week build",
-    image: "/images/project-bath.svg",
-    imageAlt:
-      "Illustration of a spa-like bathroom renovation with walk-in shower and floating vanity.",
+      "An island-centered plan with warmer wood tones, better prep storage, and layered lighting that carries into adjacent living spaces.",
+    timeline: "11-week build",
+    image: "/images/kitchen-window.jpg",
+    imageAlt: "A refined kitchen with a sink beneath a window, brass hardware, and light cabinetry.",
+    summary:
+      "This project focused on making the kitchen brighter, calmer, and easier to use every day without losing a residential, collected feel.",
+    scope: ["Cabinetry redesign", "Quartz surfaces", "Appliance wall rework"],
   },
   {
-    title: "Covered Patio Extension",
-    location: "Westhaven, Franklin",
-    category: "Outdoor Living",
+    title: "Spa bath in Brentwood",
+    location: "Brentwood",
+    category: "Bathroom remodel",
     before:
-      "Unused backyard slab with little shade and no dedicated gathering zone.",
+      "A heavy, builder-grade bath with poor vanity lighting, dated tile, and very little practical storage.",
     after:
-      "Custom covered patio with lighting, cedar accents, and integrated seating.",
-    timeline: "4-week build",
-    image: "/images/project-exterior.svg",
-    imageAlt:
-      "Illustration of a covered patio renovation with outdoor seating and warm evening lighting.",
+      "A lighter palette, custom vanity planning, brass fixtures, and a walk-in shower that feels more open and restorative.",
+    timeline: "7-week build",
+    image: "/images/bathroom-shower.jpg",
+    imageAlt: "A warm modern bathroom with a vanity, walk-in shower, and premium materials.",
+    summary:
+      "The goal was not just luxury, but a bathroom that performs better at the beginning and end of every day.",
+    scope: ["Custom vanity", "Full tile reset", "Ventilation and lighting upgrades"],
   },
+  {
+    title: "Room-to-room refresh in Franklin",
+    location: "Franklin",
+    category: "Whole-home renovation",
+    before:
+      "Multiple rooms had been updated piecemeal over time, leaving the house disconnected in tone and detailing.",
+    after:
+      "A coordinated finish palette, refined trim details, and warmer social spaces that finally make the home feel cohesive.",
+    timeline: "13-week phased build",
+    image: "/images/dining-room.jpg",
+    imageAlt: "A warm residential dining room with layered textures and natural light.",
+    summary:
+      "This scope tied together circulation spaces, dining, and family areas so the home reads as one considered environment.",
+    scope: ["Paint and trim package", "Lighting replacement", "Dining and entry refinements"],
+  },
+];
+
+export const aboutStats = [
+  { label: "Founded", value: company.foundedYear },
+  { label: "Primary market", value: "High-end residential remodels" },
+  { label: "Most common projects", value: "Kitchens, baths, and millwork-heavy interiors" },
 ];
 
 export const serviceAreas = [
   "Nashville",
+  "Belle Meade",
   "Brentwood",
   "Franklin",
-  "Belle Meade",
-  "The Nations",
-  "East Nashville",
+  "Green Hills",
+  "12 South",
   "Sylvan Park",
-  "Germantown",
+  "The Nations",
 ];
 
 export const differentiators = [
-  "Dedicated project manager from kickoff to closeout",
-  "Detailed proposals with clear allowances and schedules",
-  "Respectful crews with daily cleanup standards",
-  "Trusted local trade partners and vendor relationships",
+  "One lead contact from first meeting through closeout",
+  "Selection help rooted in budget and durability, not trend-chasing",
+  "Respectful occupied-home protocols with daily cleanup expectations",
+  "Vendor and trade relationships that support premium residential work",
 ];
 
 export const aboutHighlights = [
   {
-    title: "Built for Long-Term Value",
+    title: "Designed around real household routines",
     description:
-      "We prioritize durable materials, quality installation, and design choices that age well in real homes.",
+      "We ask how mornings work, where clutter gathers, what storage fails, and how rooms connect before proposing any layout changes.",
   },
   {
-    title: "Process-Driven Execution",
+    title: "Quiet craftsmanship over visual noise",
     description:
-      "Clear milestones, regular communication, and dependable scheduling keep projects moving smoothly.",
+      "Good renovation work should feel settled and effortless, with joinery, trim, and material transitions that do not call attention to themselves.",
   },
   {
-    title: "Local Expertise",
+    title: "Practical luxury that lasts",
     description:
-      "Our team understands Nashville permitting realities, neighborhood styles, and resale-driven renovation decisions.",
+      "We are interested in comfort, durability, and long-term value first, then layering in materials that make the home feel elevated.",
   },
+];
+
+export const consultationChecklist = [
+  "Which rooms are involved and what is not working",
+  "Preferred timing and whether the home will be occupied",
+  "Material direction, inspiration, or references you already have",
+  "Budget comfort range so we can guide scope responsibly",
 ];
 
 export const contactPageFaq = [
   {
-    question: "Do you provide free estimates?",
+    question: "Do you offer complimentary first consultations?",
     answer:
-      "Yes. Initial consultations are complimentary for homeowners in our primary service area.",
+      "Yes. For homeowners in our primary service area, the initial discovery visit is complimentary.",
   },
   {
-    question: "What project sizes do you take on?",
+    question: "Can you help with selections and finish direction?",
     answer:
-      "Most projects range from focused room remodels to multi-room home refreshes.",
+      "Yes. We regularly guide cabinetry, tile, fixture, hardware, paint, and lighting decisions as part of the planning process.",
   },
   {
-    question: "Can you help with design selections?",
+    question: "Do you work on occupied homes?",
     answer:
-      "Absolutely. We guide materials, fixtures, and finish selections to match your goals and budget.",
+      "Often. Many of our projects are phased for lived-in homes, with dust protection, daily cleanup, and schedule transparency built in.",
   },
 ];

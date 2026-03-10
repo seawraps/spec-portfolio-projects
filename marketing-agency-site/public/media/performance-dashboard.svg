@@ -1,67 +1,93 @@
 <svg width="920" height="680" viewBox="0 0 920 680" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="920" y2="680" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#111F34"/>
-      <stop offset="1" stop-color="#0A1322"/>
+      <stop stop-color="#101015" />
+      <stop offset="1" stop-color="#08080B" />
     </linearGradient>
-    <linearGradient id="line1" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#74F5C8"/>
-      <stop offset="1" stop-color="#54D8A8"/>
+    <linearGradient id="signal" x1="92" y1="0" x2="760" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF5B37" />
+      <stop offset="1" stop-color="#FFB36B" />
     </linearGradient>
-    <linearGradient id="line2" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#FF8F5A"/>
-      <stop offset="1" stop-color="#F2B15A"/>
+    <linearGradient id="volt" x1="92" y1="0" x2="760" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9FF46" />
+      <stop offset="1" stop-color="#82E861" />
     </linearGradient>
   </defs>
 
-  <rect width="920" height="680" rx="24" fill="url(#bg)"/>
+  <rect width="920" height="680" rx="28" fill="url(#bg)" />
 
-  <rect x="36" y="36" width="280" height="130" rx="14" fill="#13253B"/>
-  <rect x="332" y="36" width="280" height="130" rx="14" fill="#13253B"/>
-  <rect x="628" y="36" width="256" height="130" rx="14" fill="#13253B"/>
+  <rect x="32" y="32" width="856" height="78" rx="18" fill="#14161B" stroke="#23252C" />
+  <text x="60" y="64" fill="#878D9B" font-family="Arial" font-size="12" font-weight="700" letter-spacing="2">SIGNAL &amp; STONE / COMMAND CENTER</text>
+  <text x="60" y="92" fill="#EEE5D9" font-family="Arial" font-size="24" font-weight="700">Performance summary</text>
+  <rect x="724" y="54" width="136" height="34" rx="17" fill="#1D1F25" stroke="#2B2E36" />
+  <text x="758" y="76" fill="#D9FF46" font-family="Arial" font-size="11" font-weight="700" letter-spacing="1.5">LIVE DEMO</text>
 
-  <text x="58" y="74" fill="#9FB4CC" font-family="Arial" font-size="14">Paid Media Revenue</text>
-  <text x="58" y="124" fill="#F2F8FF" font-family="Arial" font-size="34" font-weight="700">$2.84M</text>
+  <rect x="32" y="136" width="258" height="122" rx="20" fill="#13151A" stroke="#23252C" />
+  <rect x="306" y="136" width="258" height="122" rx="20" fill="#13151A" stroke="#23252C" />
+  <rect x="580" y="136" width="308" height="122" rx="20" fill="#13151A" stroke="#23252C" />
 
-  <text x="354" y="74" fill="#9FB4CC" font-family="Arial" font-size="14">Qualified Leads</text>
-  <text x="354" y="124" fill="#F2F8FF" font-family="Arial" font-size="34" font-weight="700">4,186</text>
+  <text x="58" y="174" fill="#7F8693" font-family="Arial" font-size="12" font-weight="700" letter-spacing="1.5">PIPELINE</text>
+  <text x="58" y="224" fill="#EEE5D9" font-family="Arial" font-size="42" font-weight="700">$4.8M</text>
+  <text x="58" y="244" fill="#A7ADB8" font-family="Arial" font-size="13">Influenced in trailing 12 months</text>
 
-  <text x="650" y="74" fill="#9FB4CC" font-family="Arial" font-size="14">Blended ROAS</text>
-  <text x="650" y="124" fill="#F2F8FF" font-family="Arial" font-size="34" font-weight="700">3.6x</text>
+  <text x="332" y="174" fill="#7F8693" font-family="Arial" font-size="12" font-weight="700" letter-spacing="1.5">CAC SHIFT</text>
+  <text x="332" y="224" fill="#EEE5D9" font-family="Arial" font-size="42" font-weight="700">-43%</text>
+  <text x="332" y="244" fill="#A7ADB8" font-family="Arial" font-size="13">Median reduction after restructure</text>
 
-  <rect x="36" y="188" width="848" height="274" rx="16" fill="#0E1B2C" stroke="#20334D"/>
+  <text x="606" y="174" fill="#7F8693" font-family="Arial" font-size="12" font-weight="700" letter-spacing="1.5">CREATIVE VELOCITY</text>
+  <text x="606" y="224" fill="#EEE5D9" font-family="Arial" font-size="42" font-weight="700">18</text>
+  <text x="646" y="224" fill="#EEE5D9" font-family="Arial" font-size="18" font-weight="700">variants shipped</text>
+  <text x="606" y="244" fill="#A7ADB8" font-family="Arial" font-size="13">First 14 days of launch</text>
 
-  <path d="M80 391 C128 360, 180 364, 230 338 C282 310, 330 317, 386 278 C438 242, 488 247, 534 223 C590 193, 635 203, 694 181 C744 163, 798 148, 840 126" stroke="url(#line1)" stroke-width="4" stroke-linecap="round"/>
-  <path d="M80 420 C132 406, 182 397, 235 388 C290 377, 334 372, 389 361 C441 350, 490 346, 547 328 C602 310, 645 292, 696 284 C742 277, 790 266, 840 254" stroke="url(#line2)" stroke-width="4" stroke-linecap="round"/>
+  <rect x="32" y="282" width="558" height="366" rx="24" fill="#111319" stroke="#23252C" />
+  <rect x="614" y="282" width="274" height="176" rx="24" fill="#111319" stroke="#23252C" />
+  <rect x="614" y="472" width="274" height="176" rx="24" fill="#111319" stroke="#23252C" />
 
-  <g stroke="#233A57" stroke-width="1">
-    <line x1="80" y1="232" x2="840" y2="232"/>
-    <line x1="80" y1="284" x2="840" y2="284"/>
-    <line x1="80" y1="336" x2="840" y2="336"/>
-    <line x1="80" y1="388" x2="840" y2="388"/>
-    <line x1="80" y1="440" x2="840" y2="440"/>
+  <text x="60" y="320" fill="#EEE5D9" font-family="Arial" font-size="18" font-weight="700">Revenue response by sprint</text>
+  <text x="60" y="344" fill="#848B99" font-family="Arial" font-size="12">Signal line = qualified pipeline / Volt line = conversion efficiency</text>
+
+  <g stroke="#20242C" stroke-width="1">
+    <line x1="92" y1="388" x2="558" y2="388" />
+    <line x1="92" y1="454" x2="558" y2="454" />
+    <line x1="92" y1="520" x2="558" y2="520" />
+    <line x1="92" y1="586" x2="558" y2="586" />
+    <line x1="92" y1="652" x2="558" y2="652" />
   </g>
 
-  <rect x="36" y="486" width="410" height="158" rx="16" fill="#0E1B2C" stroke="#20334D"/>
-  <rect x="474" y="486" width="410" height="158" rx="16" fill="#0E1B2C" stroke="#20334D"/>
+  <path d="M92 598C136 590 174 544 220 518C266 492 302 508 348 450C392 394 438 418 482 352C510 312 536 308 558 300" stroke="url(#signal)" stroke-width="5" stroke-linecap="round" />
+  <path d="M92 624C136 614 174 600 220 564C264 530 302 534 348 506C392 480 436 450 482 426C516 408 538 394 558 372" stroke="url(#volt)" stroke-width="5" stroke-linecap="round" />
 
-  <text x="62" y="522" fill="#9FB4CC" font-family="Arial" font-size="14">Creative Test Winners</text>
-  <rect x="62" y="544" width="324" height="12" rx="6" fill="#14263B"/>
-  <rect x="62" y="544" width="243" height="12" rx="6" fill="#74F5C8"/>
-  <rect x="62" y="568" width="324" height="12" rx="6" fill="#14263B"/>
-  <rect x="62" y="568" width="188" height="12" rx="6" fill="#54D8A8"/>
-  <rect x="62" y="592" width="324" height="12" rx="6" fill="#14263B"/>
-  <rect x="62" y="592" width="277" height="12" rx="6" fill="#FF8F5A"/>
+  <circle cx="348" cy="450" r="7" fill="#FF5B37" />
+  <circle cx="482" cy="352" r="7" fill="#FF5B37" />
+  <circle cx="558" cy="300" r="7" fill="#FFB36B" />
+  <circle cx="348" cy="506" r="7" fill="#D9FF46" />
+  <circle cx="482" cy="426" r="7" fill="#D9FF46" />
+  <circle cx="558" cy="372" r="7" fill="#82E861" />
 
-  <text x="500" y="522" fill="#9FB4CC" font-family="Arial" font-size="14">Funnel Drop-Off (Weekly)</text>
-  <circle cx="548" cy="580" r="44" stroke="#264265" stroke-width="16"/>
-  <circle cx="548" cy="580" r="44" stroke="#74F5C8" stroke-width="16" stroke-dasharray="182 94" transform="rotate(-90 548 580)"/>
-  <text x="530" y="587" fill="#F2F8FF" font-family="Arial" font-size="20" font-weight="700">66%</text>
+  <text x="642" y="320" fill="#EEE5D9" font-family="Arial" font-size="18" font-weight="700">Channel pressure</text>
+  <text x="642" y="344" fill="#848B99" font-family="Arial" font-size="12">Weighted by spend, margin, and win rate</text>
+  <rect x="642" y="372" width="218" height="16" rx="8" fill="#1E222A" />
+  <rect x="642" y="372" width="184" height="16" rx="8" fill="#FF5B37" />
+  <rect x="642" y="408" width="218" height="16" rx="8" fill="#1E222A" />
+  <rect x="642" y="408" width="156" height="16" rx="8" fill="#D9FF46" />
+  <rect x="642" y="444" width="218" height="16" rx="8" fill="#1E222A" />
+  <rect x="642" y="444" width="130" height="16" rx="8" fill="#FFB36B" />
+  <text x="642" y="366" fill="#A7ADB8" font-family="Arial" font-size="11">Search</text>
+  <text x="642" y="402" fill="#A7ADB8" font-family="Arial" font-size="11">Paid social</text>
+  <text x="642" y="438" fill="#A7ADB8" font-family="Arial" font-size="11">Lifecycle</text>
 
-  <rect x="618" y="552" width="238" height="14" rx="7" fill="#14263B"/>
-  <rect x="618" y="552" width="144" height="14" rx="7" fill="#74F5C8"/>
-  <rect x="618" y="576" width="238" height="14" rx="7" fill="#14263B"/>
-  <rect x="618" y="576" width="182" height="14" rx="7" fill="#FF8F5A"/>
-  <rect x="618" y="600" width="238" height="14" rx="7" fill="#14263B"/>
-  <rect x="618" y="600" width="121" height="14" rx="7" fill="#53B9F4"/>
+  <text x="642" y="510" fill="#EEE5D9" font-family="Arial" font-size="18" font-weight="700">Creative signal</text>
+  <text x="642" y="534" fill="#848B99" font-family="Arial" font-size="12">Winning concepts after four review cycles</text>
+  <circle cx="694" cy="582" r="46" stroke="#232830" stroke-width="16" />
+  <circle cx="694" cy="582" r="46" stroke="#D9FF46" stroke-width="16" stroke-dasharray="206 84" transform="rotate(-90 694 582)" />
+  <text x="675" y="588" fill="#EEE5D9" font-family="Arial" font-size="22" font-weight="700">71%</text>
+  <rect x="766" y="556" width="94" height="12" rx="6" fill="#1E222A" />
+  <rect x="766" y="556" width="74" height="12" rx="6" fill="#FF5B37" />
+  <rect x="766" y="580" width="94" height="12" rx="6" fill="#1E222A" />
+  <rect x="766" y="580" width="58" height="12" rx="6" fill="#FFB36B" />
+  <rect x="766" y="604" width="94" height="12" rx="6" fill="#1E222A" />
+  <rect x="766" y="604" width="66" height="12" rx="6" fill="#D9FF46" />
+  <text x="766" y="548" fill="#A7ADB8" font-family="Arial" font-size="10">Founder proof</text>
+  <text x="766" y="572" fill="#A7ADB8" font-family="Arial" font-size="10">Outcome angle</text>
+  <text x="766" y="596" fill="#A7ADB8" font-family="Arial" font-size="10">Offer urgency</text>
 </svg>

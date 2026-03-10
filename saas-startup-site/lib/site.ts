@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "OrbitOps",
   shortName: "OrbitOps",
-  title: "OrbitOps | AI Workflow Operations Platform",
+  title: "OrbitOps | Operations Orchestration Platform",
   description:
-    "OrbitOps helps B2B operations teams automate recurring workflows, track SLA performance, and ship process improvements from one AI command center.",
+    "OrbitOps helps B2B operators orchestrate mission-critical workflows, manage exceptions, and improve process performance from one enterprise command layer.",
   url: "https://orbitops-demo.vercel.app",
   email: "hello@orbitops.io",
-  tagline: "Run every recurring operation from one AI command center.",
+  tagline: "Run every recurring operation from one enterprise control plane.",
 };

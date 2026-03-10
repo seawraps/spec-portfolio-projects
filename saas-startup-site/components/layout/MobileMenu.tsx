@@ -12,10 +12,10 @@ export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="md:hidden">
+    <div className="relative md:hidden">
       <button
         type="button"
-        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-[1.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-md transition hover:border-white/20 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
         aria-expanded={isOpen}
         aria-controls="mobile-nav"
         aria-label={isOpen ? "Close primary navigation" : "Open primary navigation"}
@@ -37,25 +37,44 @@ export function MobileMenu() {
       {isOpen ? (
         <div
           id="mobile-nav"
-          className="surface-card absolute inset-x-4 top-[4.5rem] z-50 p-4"
+          className="surface-panel-dark absolute right-0 top-[calc(100%+0.85rem)] z-50 w-[min(22rem,calc(100vw-3rem))] overflow-hidden p-4"
         >
-          <nav aria-label="Mobile primary navigation">
+          <div className="rounded-[1.35rem] border border-white/10 bg-white/5 px-4 py-4">
+            <p className="data-label text-sky-200">System snapshot</p>
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              {[
+                ["Health", "99.97%"],
+                ["Live flows", "327"],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className="rounded-[1rem] border border-white/8 bg-[#091322] px-3 py-3"
+                >
+                  <p className="data-label text-slate-500">{label}</p>
+                  <p className="mt-2 text-sm font-semibold text-white">{value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <nav aria-label="Mobile primary navigation" className="mt-4">
             <ul className="flex flex-col gap-2">
-              {navigationLinks.map((link) => {
+              {navigationLinks.map((link, index) => {
                 const isActive = pathname === link.href;
                 return (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block rounded-full px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 ${
+                      className={`flex items-center justify-between rounded-[1.2rem] px-4 py-3 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 ${
                         isActive
-                          ? "bg-cyan-50 text-cyan-800"
-                          : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                          ? "bg-[linear-gradient(135deg,rgba(101,226,255,0.2),rgba(22,184,255,0.12))] text-white ring-1 ring-white/10"
+                          : "text-slate-300 hover:bg-white/8 hover:text-white"
                       }`}
                       aria-current={isActive ? "page" : undefined}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
+                      <span className="data-label text-[0.58rem] text-slate-500">0{index + 1}</span>
                     </Link>
                   </li>
                 );
@@ -65,9 +84,9 @@ export function MobileMenu() {
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className={buttonClassName("primary", "mt-3 w-full px-4")}
+            className={buttonClassName("primary", "mt-4 w-full px-4")}
           >
-            Request a Demo
+            Start evaluation
           </Link>
         </div>
       ) : null}

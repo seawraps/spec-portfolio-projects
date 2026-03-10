@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import { Sora, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, Teko } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { SiteEffects } from "@/components/motion/site-effects";
 
 import "./globals.css";
 
-const bodyFont = Sora({
+const bodyFont = IBM_Plex_Sans({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const headingFont = Space_Grotesk({
+const headingFont = Teko({
   subsets: ["latin"],
   variable: "--font-heading",
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -58,6 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bodyFont.variable} ${headingFont.variable}`}>
       <body>
+        <SiteEffects />
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>

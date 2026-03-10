@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { FaqSection } from "@/components/sections/faq-section";
 import { OfferingsSection } from "@/components/sections/offerings-section";
@@ -6,13 +7,14 @@ import { PageIntro } from "@/components/sections/page-intro";
 import { PartnershipCtaSection } from "@/components/sections/partnership-cta-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { serviceFaq, serviceFormats } from "@/lib/data";
+import { bookingSignals, serviceFaq, serviceFormats } from "@/lib/data";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildMetadata(
-  "Services",
+  "Offerings",
   "Explore Nadia Vale's advisory, speaking, and partnership offerings for founders, executives, creators, and expert-led teams.",
   "/services",
 );
@@ -22,36 +24,65 @@ export default function ServicesPage() {
     <>
       <PageIntro
         eyebrow="Offerings"
-        title="Strategy and speaking engagements designed to strengthen authority, demand, and trust."
-        description="Whether you need a high-touch brand repositioning sprint or a keynote that gives the room language they keep quoting later, every engagement is designed to create clarity that sticks."
+        title="Strategy, speaking, and packaging work for experts building public trust with intention."
+        description="Whether you need an editorial repositioning sprint or a keynote that gives a room language it keeps repeating afterward, each engagement is designed to create clarity that lasts."
+        aside={
+          <div className="ink-panel p-6 sm:p-8">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/62">
+              Booking Note
+            </p>
+            <div className="mt-5 space-y-3 text-sm leading-7 text-white/78">
+              {bookingSignals.map((signal) => (
+                <p key={signal}>{signal}</p>
+              ))}
+            </div>
+            <ButtonLink
+              href="/contact?type=advisory"
+              variant="secondary"
+              className="mt-6 border-white/16 bg-white/12 text-white hover:bg-white/18 hover:text-white"
+              arrow
+            >
+              Start a scoped inquiry
+            </ButtonLink>
+          </div>
+        }
       />
 
       <OfferingsSection compact={false} />
 
-      <ProcessSection />
-
       <section className="section-shell">
-        <Container>
-          <SectionHeading
-            eyebrow="Formats"
-            title="Common ways clients engage."
-            description="The same core thinking can be adapted for a founder brand, an executive team, or a sponsor-facing creator business."
-          />
+        <Container className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="media-frame relative aspect-[4/4.2] overflow-hidden rounded-[2.3rem]">
+            <Image
+              src="/images/nadia-workshop.jpg"
+              alt="Nadia Vale facilitating a workshop in a meeting room."
+              fill
+              sizes="(min-width: 1024px) 42vw, 100vw"
+              className="object-cover"
+            />
+          </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {serviceFormats.map((format) => (
-              <article key={format.title} className="surface-card h-full p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose">
-                  {format.label}
-                </p>
-                <h3 className="mt-4 text-3xl text-ink">{format.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-ink/72">{format.description}</p>
-              </article>
-            ))}
+          <div className="paper-panel p-8 sm:p-10">
+            <SectionHeading
+              eyebrow="Who It Is For"
+              title="The work adapts to the room, but the goal stays the same."
+              description="A sharper, more human public-facing presence that can support the business behind it."
+            />
+
+            <div className="mt-8 space-y-5">
+              {serviceFormats.map((format, index) => (
+                <article key={format.title} className={index === 1 ? "rounded-[1.6rem] border border-ink/10 bg-paper-deep/55 p-6" : "rounded-[1.6rem] border border-ink/8 bg-white/70 p-6"}>
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-plum">{format.label}</p>
+                  <h3 className="mt-3 text-3xl text-ink">{format.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-mocha/88">{format.description}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
 
+      <ProcessSection />
       <TestimonialsSection />
       <FaqSection items={serviceFaq} />
       <PartnershipCtaSection />
