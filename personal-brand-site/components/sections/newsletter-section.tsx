@@ -4,13 +4,13 @@ import { newsletterStats, siteConfig } from "@/lib/data";
 
 export function NewsletterSection() {
   return (
-    <section id="newsletter" className="section-shell">
+    <section id="newsletter" className="anchor-section section-shell pb-3 md:pb-4 lg:pb-2">
       <Container>
         <div className="paper-panel overflow-hidden">
           <div className="grid gap-0 lg:grid-cols-[1.06fr_0.94fr] lg:items-stretch">
             <div className="px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
               <span className="eyebrow">Newsletter</span>
-              <div className="mt-6 grid gap-6 xl:grid-cols-[1.12fr_0.88fr] xl:items-start">
+              <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1.05fr)_minmax(15rem,0.95fr)] xl:items-start">
                 <div>
                   <h2 className="max-w-3xl text-5xl text-ink sm:text-[4.3rem]">{siteConfig.newsletterName}</h2>
                   <p className="mt-5 max-w-xl text-base leading-8 text-mocha/92">{siteConfig.newsletterBlurb}</p>
@@ -32,7 +32,7 @@ export function NewsletterSection() {
                   </p>
                 </div>
 
-                <div className="note-card p-5 sm:p-6">
+                <div className="note-card p-5 sm:p-6 xl:self-end">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/72">
                     Latest Note
                   </p>
@@ -47,7 +47,7 @@ export function NewsletterSection() {
               </div>
             </div>
 
-            <div className="ink-panel m-3 p-6 sm:m-4 sm:p-8 lg:m-4">
+            <div className="ink-panel m-3 p-6 sm:m-4 sm:p-8 lg:m-5 lg:p-9">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/62">
                 From the desk
               </p>

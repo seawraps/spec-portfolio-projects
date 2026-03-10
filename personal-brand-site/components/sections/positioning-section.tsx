@@ -6,9 +6,9 @@ import { positioningPillars } from "@/lib/data";
 
 export function PositioningSection() {
   return (
-    <section className="section-shell">
+    <section id="positioning" className="anchor-section section-shell">
       <Container>
-        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <div className="ink-panel p-8 sm:p-10">
             <SectionHeading
               eyebrow="What Changes"
@@ -28,7 +28,7 @@ export function PositioningSection() {
             </div>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {positioningPillars.map((pillar, index) => (
               <article
                 key={pillar.title}

@@ -7,7 +7,7 @@ import { featuredContent } from "@/lib/data";
 
 export function FeaturedMediaSection() {
   return (
-    <section className="section-shell">
+    <section id="media" className="anchor-section section-shell">
       <Container>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading

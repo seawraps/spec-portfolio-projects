@@ -8,7 +8,7 @@ import { bookingSignals, expertiseLanes } from "@/lib/data";
 
 export function ExpertiseSection() {
   return (
-    <section className="section-shell">
+    <section id="expertise" className="anchor-section section-shell">
       <Container className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="space-y-6 lg:sticky lg:top-28">
           <SectionHeading

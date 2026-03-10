@@ -6,7 +6,7 @@ import { bookingSignals, siteConfig } from "@/lib/data";
 
 export function PartnershipCtaSection() {
   return (
-    <section id="booking" className="section-shell">
+    <section id="booking" className="anchor-section section-shell pt-4 md:pt-5 lg:pt-6">
       <Container>
         <div className="ink-panel overflow-hidden">
           <div className="grid gap-0 lg:grid-cols-[1.04fr_0.96fr] lg:items-stretch">

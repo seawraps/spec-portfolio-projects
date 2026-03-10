@@ -225,6 +225,12 @@ button {
   box-shadow: 0 24px 60px -40px var(--project-accent-glow);
 }
 
+.project-preview-sheen {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 18%),
+    linear-gradient(180deg, transparent 76%, rgba(2, 6, 23, 0.14) 100%);
+}
+
 .project-preview-overlay {
   background:
     linear-gradient(180deg, rgba(2, 6, 23, 0.08), rgba(2, 6, 23, 0) 34%, var(--project-overlay-mid) 58%, var(--project-overlay-end) 100%),
@@ -240,6 +246,15 @@ button {
 
 .project-kicker {
   color: var(--project-accent-strong);
+}
+
+.project-link {
+  border-color: var(--project-accent-soft);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent),
+    var(--project-accent-surface);
+  color: var(--project-accent-strong);
+  box-shadow: 0 16px 34px -28px var(--project-accent-glow);
 }
 
 .project-card:hover {
@@ -258,6 +273,10 @@ button {
 .project-featured:hover .project-featured-thumbnail {
   border-color: var(--project-accent);
   box-shadow: 0 32px 76px -46px var(--project-accent-glow);
+}
+
+.project-card:hover .project-index {
+  color: rgba(255, 255, 255, 0.26);
 }
 
 .project-featured {

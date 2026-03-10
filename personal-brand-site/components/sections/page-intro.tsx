@@ -14,16 +14,16 @@ type PageIntroProps = {
 
 export function PageIntro({ eyebrow, title, description, stats, aside }: PageIntroProps) {
   return (
-    <section className="section-shell pt-14 md:pt-18 lg:pt-20">
+    <section className="section-shell pt-12 md:pt-14 lg:pt-16">
       <Container>
         <div className="section-rule pt-8">
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
             <SectionHeading eyebrow={eyebrow} title={title} description={description} as="h1" />
 
             {stats?.length ? (
               <div className="grid gap-4 sm:grid-cols-2">
                 {stats.map((stat) => (
-                  <article key={stat.label} className="border-b border-ink/8 pb-4">
+                  <article key={stat.label} className="rounded-[1.4rem] border border-ink/8 bg-white/34 px-4 py-4">
                     <p className="text-3xl leading-none text-ink">{stat.value}</p>
                     <p className="mt-3 text-sm leading-6 text-mocha/84">{stat.label}</p>
                   </article>

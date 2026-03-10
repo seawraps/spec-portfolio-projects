@@ -13,7 +13,10 @@ export function OfferingsSection({ compact = true }: OfferingsSectionProps) {
   const visibleOfferings = compact ? offerings.slice(0, 3) : offerings;
 
   return (
-    <section id="offerings" className={compact ? "section-shell" : "section-shell pt-4 md:pt-6 lg:pt-8"}>
+    <section
+      id="offerings"
+      className={compact ? "anchor-section section-shell" : "anchor-section section-shell pt-4 md:pt-6 lg:pt-8"}
+    >
       {compact ? (
         <Container>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

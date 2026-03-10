@@ -107,7 +107,7 @@ function getProjectThemeStyle(themeKey: keyof typeof projectThemes): CSSProperti
 export default function Home() {
   return (
     <>
-      <section id="hero" className="section-shell overflow-hidden px-6 pb-16 pt-14 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">
+      <section id="hero" className="section-shell scroll-mt-36 overflow-hidden px-6 pb-16 pt-14 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_460px] lg:items-start">
             <div className="reveal-up">
@@ -242,7 +242,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="section-shell px-6 py-14 md:py-20 lg:py-24">
+      <section id="projects" className="section-shell scroll-mt-36 px-6 py-14 md:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
@@ -263,7 +263,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="tech-stack" className="section-shell px-6 py-14 md:py-20 lg:py-24">
+      <section id="tech-stack" className="section-shell scroll-mt-36 px-6 py-14 md:py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
           <div className="glass-card reveal-up rounded-[2rem] p-8 sm:p-10">
             <SectionHeading
@@ -303,7 +303,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="section-shell px-6 py-14 md:py-20 lg:py-24">
+      <section id="about" className="section-shell scroll-mt-36 px-6 py-14 md:py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div className="glass-card reveal-up rounded-[2rem] p-8 sm:p-10">
             <SectionHeading
@@ -331,7 +331,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="section-shell px-6 pb-20 pt-14 md:pb-24 md:pt-20 lg:pb-28 lg:pt-24">
+      <section id="contact" className="section-shell scroll-mt-36 px-6 pb-20 pt-14 md:pb-24 md:pt-20 lg:pb-28 lg:pt-24">
         <div className="mx-auto max-w-7xl">
           <div className="glass-card reveal-up rounded-[2.75rem] border-emerald-200/25 bg-[linear-gradient(135deg,rgba(209,250,229,0.12),rgba(15,23,42,0.88)_36%,rgba(56,189,248,0.12)_100%)] p-8 sm:p-10 lg:p-14">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-emerald-100">
