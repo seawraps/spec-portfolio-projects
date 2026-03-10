@@ -5,8 +5,8 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function FeaturedDishes() {
   return (
-    <section className="py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
             eyebrow="Featured"
@@ -25,7 +25,7 @@ export function FeaturedDishes() {
           {featuredDishes.map((dish) => (
             <article
               key={dish.name}
-              className="overflow-hidden rounded-3xl border border-stone-200 bg-stone-50/70 shadow-sm"
+              className="surface-card-soft overflow-hidden rounded-3xl"
             >
               <Image
                 src={dish.image}
@@ -34,7 +34,7 @@ export function FeaturedDishes() {
                 height={480}
                 className="h-52 w-full object-cover"
               />
-              <div className="space-y-3 p-5">
+              <div className="space-y-3 p-6">
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-display text-2xl text-stone-900">{dish.name}</h3>
                   <p className="pt-1 text-sm font-semibold text-amber-700">{dish.price}</p>

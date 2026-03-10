@@ -16,13 +16,14 @@ export const metadata: Metadata = createPageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section className="py-16 sm:py-20">
+      <section className="py-12 md:py-16 lg:py-24">
         <Container className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
           <div>
             <SectionHeading
               eyebrow="About Us"
               title="A Nashville remodeling partner focused on quality, clarity, and trust"
               description="Founded in 2012, Blue Oak Remodeling Co. was built to give homeowners a better renovation experience: clean communication, accountable project management, and work that holds up for years."
+              as="h1"
             />
             <p className="mt-5 text-base leading-7 text-[var(--color-muted)] sm:text-lg">
               We are a local contractor serving homeowners who want thoughtful updates without
@@ -32,7 +33,7 @@ export default function AboutPage() {
             <p className="mt-5 text-sm font-medium text-[var(--color-brand)]">{company.license}</p>
           </div>
 
-          <aside className="rounded-3xl border border-[var(--color-border)] bg-white p-7 shadow-sm">
+          <aside className="surface-card rounded-3xl p-7">
             <h2 className="font-display text-3xl text-[var(--color-brand)]">At a Glance</h2>
             <dl className="mt-5 space-y-4 text-sm text-[var(--color-muted)]">
               <div className="flex items-center justify-between gap-4 border-b border-[var(--color-border)] pb-3">
@@ -56,13 +57,13 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-14 sm:py-18">
+      <section className="bg-white py-12 md:py-16 lg:py-24">
         <Container>
           <SectionHeading
             eyebrow="What Guides Our Work"
             title="Standards that shape every project"
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
             {aboutHighlights.map((item) => (
               <article
                 key={item.title}
@@ -76,7 +77,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="py-14 sm:py-18">
+      <section className="py-12 md:py-16 lg:py-24">
         <Container className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
             <SectionHeading
@@ -93,7 +94,7 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <aside className="rounded-3xl border border-[var(--color-border)] bg-white p-7 shadow-sm">
+          <aside className="surface-card rounded-3xl p-7">
             <h2 className="font-display text-3xl text-[var(--color-brand)]">Portfolio Note</h2>
             <p className="mt-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
               This website is a concept/demo project created for portfolio presentation and

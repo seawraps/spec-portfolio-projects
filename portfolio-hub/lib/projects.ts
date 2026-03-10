@@ -4,6 +4,8 @@ export type Project = {
   techStack: string[];
   category: string;
   liveUrl: string;
+  imageSrc: string;
+  imageAlt: string;
 };
 
 const sharedTechStack = [
@@ -22,6 +24,8 @@ export const projects: Project[] = [
       "A polished contractor marketing site built to communicate trust, showcase services, and convert renovation inquiries.",
     techStack: sharedTechStack,
     liveUrl: "https://contractor-site-eight.vercel.app",
+    imageSrc: "/project-previews/contractor.png",
+    imageAlt: "Homepage preview of the Contractor Site project.",
   },
   {
     title: "Restaurant Site",
@@ -30,6 +34,8 @@ export const projects: Project[] = [
       "A modern restaurant experience focused on atmosphere, menu discovery, and strong calls to action for reservations.",
     techStack: sharedTechStack,
     liveUrl: "https://restaurant-site-virid-iota.vercel.app",
+    imageSrc: "/project-previews/restaurant.png",
+    imageAlt: "Homepage preview of the Restaurant Site project.",
   },
   {
     title: "SaaS Startup Site",
@@ -38,6 +44,8 @@ export const projects: Project[] = [
       "A startup landing site designed to explain product value quickly, support conversions, and feel launch-ready.",
     techStack: sharedTechStack,
     liveUrl: "https://saas-startup-site.vercel.app",
+    imageSrc: "/project-previews/saas.png",
+    imageAlt: "Homepage preview of the SaaS Startup Site project.",
   },
   {
     title: "Real Estate Site",
@@ -46,6 +54,8 @@ export const projects: Project[] = [
       "A responsive real estate showcase built for premium presentation of listings, neighborhoods, and lead generation.",
     techStack: sharedTechStack,
     liveUrl: "https://real-estate-site-ruby-phi.vercel.app",
+    imageSrc: "/project-previews/realestate.png",
+    imageAlt: "Homepage preview of the Real Estate Site project.",
   },
   {
     title: "Marketing Agency Site",
@@ -54,6 +64,8 @@ export const projects: Project[] = [
       "A clean agency website concept that highlights services, credibility, and conversion-focused digital positioning.",
     techStack: sharedTechStack,
     liveUrl: "https://marketing-agency-site-three.vercel.app",
+    imageSrc: "/project-previews/agency.png",
+    imageAlt: "Homepage preview of the Marketing Agency Site project.",
   },
   {
     title: "Personal Brand Site",
@@ -62,5 +74,7 @@ export const projects: Project[] = [
       "A brand-forward personal site built to present expertise, sharpen positioning, and support audience trust.",
     techStack: sharedTechStack,
     liveUrl: "https://personal-brand-site-flame.vercel.app",
+    imageSrc: "/project-previews/personalbrand.png",
+    imageAlt: "Homepage preview of the Personal Brand Site project.",
   },
 ];

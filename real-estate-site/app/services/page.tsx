@@ -37,7 +37,7 @@ export default function ServicesPage() {
         description="Each engagement is tailored, but every client receives direct communication, disciplined planning, and a clear point of view."
       />
 
-      <section className="py-16 sm:py-20">
+      <section className="py-12 md:py-16 lg:py-24">
         <Container>
           <SectionHeading
             align="center"
@@ -45,7 +45,7 @@ export default function ServicesPage() {
             title="Consistent service standards, regardless of transaction type."
             description="The difference between a smooth transaction and a reactive one usually comes down to prep. These standards shape how we manage every search, launch, and negotiation."
           />
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {serviceStandards.map((item) => (
               <article key={item.title} className="soft-card rounded-[28px] p-6">
                 <h3 className="font-display text-3xl text-[var(--color-ink)]">

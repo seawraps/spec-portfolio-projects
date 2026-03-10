@@ -18,7 +18,7 @@ export function FaqSection({ items }: FaqSectionProps) {
 
         <div className="mt-10 space-y-4">
           {items.map((item) => (
-            <details key={item.question} className="surface-card px-6 py-5">
+            <details key={item.question} className="surface-card p-6">
               <summary className="flex items-center justify-between gap-4 text-left text-xl text-ink">
                 <span>{item.question}</span>
                 <span className="shrink-0 text-sm font-semibold uppercase tracking-[0.18em] text-rose">Open</span>

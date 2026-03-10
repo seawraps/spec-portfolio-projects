@@ -28,15 +28,15 @@ export function OfferingsSection({ compact = true }: OfferingsSectionProps) {
 
         <div className="mt-10 grid gap-6 xl:grid-cols-2">
           {visibleOfferings.map((offering) => (
-            <article key={offering.title} className="surface-card flex h-full flex-col p-7 sm:p-8">
+            <article key={offering.title} className="surface-card flex h-full flex-col p-6 sm:p-8">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rose">{offering.format}</p>
-                <p className="rounded-full bg-sand px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-ink/62">
+                <p className="rounded-full bg-sand px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-ink/68">
                   {offering.investment}
                 </p>
               </div>
 
-              <h2 className="mt-5 text-4xl leading-none text-ink">{offering.title}</h2>
+              <h3 className="mt-5 text-4xl leading-none text-ink">{offering.title}</h3>
               <p className="mt-4 text-base leading-8 text-ink/72">{offering.summary}</p>
 
               <ul className="mt-6 space-y-3 text-sm leading-7 text-ink/72">
@@ -48,7 +48,7 @@ export function OfferingsSection({ compact = true }: OfferingsSectionProps) {
                 ))}
               </ul>
 
-              <p className="mt-6 border-t border-ink/8 pt-5 text-sm leading-7 text-ink/62">{offering.result}</p>
+              <p className="mt-6 border-t border-ink/8 pt-5 text-sm leading-7 text-ink/72">{offering.result}</p>
             </article>
           ))}
         </div>

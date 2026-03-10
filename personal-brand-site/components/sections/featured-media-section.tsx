@@ -33,14 +33,14 @@ export function FeaturedMediaSection() {
                 />
               </div>
 
-              <div className="p-7">
+              <div className="p-8">
                 <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-rose">
                   <span>{item.format}</span>
                   <span className="h-1 w-1 rounded-full bg-rose" />
                   <span>{item.audience}</span>
                 </div>
-                <h2 className="mt-4 text-3xl text-ink">{item.title}</h2>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-ink/54">{item.outlet}</p>
+                <h3 className="mt-4 text-3xl text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-ink/68">{item.outlet}</p>
                 <p className="mt-4 text-sm leading-7 text-ink/72">{item.summary}</p>
               </div>
             </article>

@@ -3,9 +3,9 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 
 export function FinalCtaSection() {
   return (
-    <section className="bg-white pb-16 pt-10 sm:pb-20 sm:pt-12">
+    <section className="bg-white py-12 md:py-16 lg:py-24">
       <Container>
-        <div className="relative overflow-hidden rounded-3xl bg-slate-900 px-6 py-10 sm:px-10 sm:py-12">
+        <div className="surface-card-inverse relative overflow-hidden px-6 py-10 md:px-8 md:py-12 lg:px-10 lg:py-14">
           <div
             className="pointer-events-none absolute -right-10 top-0 h-48 w-48 rounded-full bg-cyan-400/25 blur-3xl"
             aria-hidden="true"
@@ -27,14 +27,10 @@ export function FinalCtaSection() {
               design a rollout plan tailored to your process complexity.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/contact" className="bg-white text-slate-900 hover:bg-slate-100">
+              <ButtonLink href="/contact" variant="light">
                 Request a Strategy Call
               </ButtonLink>
-              <ButtonLink
-                href="/about"
-                variant="ghost"
-                className="border border-slate-600 text-slate-100 hover:bg-slate-800"
-              >
+              <ButtonLink href="/about" variant="inverse">
                 Learn About OrbitOps
               </ButtonLink>
             </div>

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function FeaturesPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-cyan-50 to-white py-16 sm:py-20">
+      <section className="bg-gradient-to-b from-cyan-50 to-white py-16 md:py-20 lg:py-24">
         <Container>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-700">
             Product Features
@@ -29,7 +29,7 @@ export default function FeaturesPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-14 sm:py-16">
+      <section className="bg-white py-12 md:py-16 lg:py-24">
         <Container>
           <SectionHeading
             eyebrow="Core Pillars"
@@ -37,15 +37,15 @@ export default function FeaturesPage() {
             description="Each OrbitOps feature is designed to reduce manual overhead while preserving clear ownership across teams."
           />
 
-          <div className="mt-8 space-y-4">
+          <div className="mt-8 space-y-6">
             {featurePillars.map((pillar) => (
               <article
                 key={pillar.title}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-7"
+                className="surface-card-muted p-6 sm:p-8"
               >
-                <h2 className="font-display text-2xl font-semibold tracking-tight text-slate-900">
+                <h3 className="font-display text-2xl font-semibold tracking-tight text-slate-900">
                   {pillar.title}
-                </h2>
+                </h3>
                 <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{pillar.summary}</p>
                 <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                   {pillar.bulletPoints.map((point) => (
@@ -63,7 +63,7 @@ export default function FeaturesPage() {
         </Container>
       </section>
 
-      <section className="bg-slate-50 py-14 sm:py-16">
+      <section className="bg-slate-50 py-12 md:py-16 lg:py-24">
         <Container>
           <SectionHeading
             eyebrow="By Team"
@@ -71,12 +71,12 @@ export default function FeaturesPage() {
             description="OrbitOps helps every operations stakeholder collaborate through a shared system of record."
           />
 
-          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {teamUseCases.map((useCase) => (
-              <article key={useCase.team} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <h2 className="font-display text-xl font-semibold tracking-tight text-slate-900">
+              <article key={useCase.team} className="surface-card p-6">
+                <h3 className="font-display text-xl font-semibold tracking-tight text-slate-900">
                   {useCase.team}
-                </h2>
+                </h3>
                 <ul className="mt-4 space-y-2">
                   {useCase.outcomes.map((outcome) => (
                     <li key={outcome} className="text-sm leading-6 text-slate-600">
@@ -90,9 +90,9 @@ export default function FeaturesPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-14 sm:py-16">
+      <section className="bg-white py-12 md:py-16 lg:py-24">
         <Container>
-          <div className="rounded-3xl border border-slate-200 bg-slate-900 p-8 text-white sm:p-10">
+          <div className="surface-card-inverse p-8 text-white sm:p-10">
             <h2 className="font-display text-3xl font-semibold tracking-tight">
               Want a tailored feature walkthrough?
             </h2>
@@ -101,14 +101,10 @@ export default function FeaturesPage() {
               would look like for your team.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href="/contact" className="bg-white text-slate-900 hover:bg-slate-100">
+              <ButtonLink href="/contact" variant="light">
                 Talk to Product
               </ButtonLink>
-              <ButtonLink
-                href="/#pricing"
-                variant="ghost"
-                className="border border-slate-600 text-slate-100 hover:bg-slate-800"
-              >
+              <ButtonLink href="/#pricing" variant="inverse">
                 Review Pricing
               </ButtonLink>
             </div>

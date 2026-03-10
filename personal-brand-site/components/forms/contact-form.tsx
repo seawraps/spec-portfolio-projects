@@ -2,6 +2,8 @@
 
 import { type FormEvent, useState } from "react";
 
+import { buttonClassName } from "@/components/ui/button-link";
+
 type FormState = {
   name: string;
   email: string;
@@ -86,7 +88,7 @@ export function ContactForm() {
         </p>
         <button
           type="button"
-          className="mt-6 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 hover:bg-ink-soft"
+          className={buttonClassName("primary", "mt-6")}
           onClick={() => setSubmitted(false)}
         >
           Send another inquiry
@@ -97,7 +99,7 @@ export function ContactForm() {
 
   return (
     <form className="space-y-5" noValidate onSubmit={handleSubmit}>
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2">
         <label className="block">
           <span className="mb-2 block text-sm font-medium text-ink/72">Name</span>
           <input
@@ -137,7 +139,7 @@ export function ContactForm() {
         </label>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2">
         <label className="block">
           <span className="mb-2 block text-sm font-medium text-ink/72">Company or project</span>
           <input
@@ -190,12 +192,12 @@ export function ContactForm() {
       </label>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm leading-7 text-ink/62">
+        <p className="text-sm leading-7 text-ink/72">
           Frontend-only demo form. Validation and success states are included without a backend dependency.
         </p>
         <button
           type="submit"
-          className="inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 hover:bg-ink-soft"
+          className={buttonClassName("primary")}
         >
           Send Inquiry
         </button>

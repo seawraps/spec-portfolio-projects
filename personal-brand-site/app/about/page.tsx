@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { PartnershipCtaSection } from "@/components/sections/partnership-cta-section";
 import { PageIntro } from "@/components/sections/page-intro";
+import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import {
@@ -44,8 +45,8 @@ export default function AboutPage() {
                 priority
               />
             </div>
-            <div className="surface-card absolute -bottom-6 left-6 max-w-xs p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/55">
+            <div className="surface-card absolute -bottom-6 left-6 max-w-xs p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/68">
                 Based in Brooklyn
               </p>
               <p className="mt-2 text-sm leading-6 text-ink/72">
@@ -91,11 +92,11 @@ export default function AboutPage() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {aboutValues.map((value) => (
-              <article key={value.title} className="surface-card h-full p-7">
+              <article key={value.title} className="surface-card h-full p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose">
                   Signature Principle
                 </p>
-                <h2 className="mt-4 text-3xl text-ink">{value.title}</h2>
+                <h3 className="mt-4 text-3xl text-ink">{value.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-ink/70">{value.description}</p>
               </article>
             ))}
@@ -116,7 +117,7 @@ export default function AboutPage() {
               {careerTimeline.map((item) => (
                 <article key={item.year} className="surface-card p-6">
                   <p className="text-sm font-semibold tracking-[0.18em] text-rose">{item.year}</p>
-                  <h2 className="mt-2 text-3xl text-ink">{item.title}</h2>
+                  <h3 className="mt-2 text-3xl text-ink">{item.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-ink/72">{item.description}</p>
                 </article>
               ))}
@@ -139,7 +140,7 @@ export default function AboutPage() {
             </div>
 
             <div className="surface-card p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/55">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/68">
                 Concept Note
               </p>
               <p className="mt-4 text-sm leading-7 text-ink/70">{projectNote}</p>
@@ -150,19 +151,16 @@ export default function AboutPage() {
             </div>
 
             <div className="surface-card p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/55">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/68">
                 Direct Contact
               </p>
-              <h2 className="mt-4 text-3xl text-ink">Need a speaker, strategist, or host?</h2>
+              <h3 className="mt-4 text-3xl text-ink">Need a speaker, strategist, or host?</h3>
               <p className="mt-4 text-sm leading-7 text-ink/70">
                 The fastest path is a concise note with audience, timing, and the outcome you want to create.
               </p>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="mt-6 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 hover:bg-ink-soft"
-              >
+              <ButtonLink href={`mailto:${siteConfig.email}`} className="mt-6">
                 {siteConfig.email}
-              </a>
+              </ButtonLink>
             </div>
           </div>
         </Container>

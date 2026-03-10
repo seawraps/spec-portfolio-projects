@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Personal Brand Site placeholder preview</title>
+  <desc id="desc">A stylized browser mockup for a personal brand website.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f314a" />
+      <stop offset="50%" stop-color="#08111f" />
+      <stop offset="100%" stop-color="#83622e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)" />
+  <rect x="64" y="54" width="1072" height="567" rx="30" fill="#07101a" fill-opacity="0.92" />
+  <rect x="96" y="88" width="1008" height="40" rx="20" fill="#13202d" />
+  <circle cx="126" cy="108" r="8" fill="#fca5a5" />
+  <circle cx="152" cy="108" r="8" fill="#fcd34d" />
+  <circle cx="178" cy="108" r="8" fill="#86efac" />
+  <circle cx="278" cy="328" r="122" fill="#d4af37" fill-opacity="0.18" />
+  <circle cx="278" cy="328" r="86" fill="#f8fafc" fill-opacity="0.82" />
+  <rect x="440" y="182" width="580" height="292" rx="28" fill="#0f1f30" />
+  <text x="476" y="238" fill="#fcd34d" font-family="Verdana, Arial, sans-serif" font-size="24" letter-spacing="5">PERSONAL BRAND</text>
+  <text x="476" y="306" fill="#f8fafc" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700">Personal Brand</text>
+  <text x="476" y="362" fill="#f8fafc" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700">Site</text>
+  <rect x="476" y="392" width="184" height="42" rx="21" fill="#fcd34d" />
+  <text x="522" y="419" fill="#1b1305" font-family="Verdana, Arial, sans-serif" font-size="20" font-weight="700">Contact</text>
+  <rect x="96" y="508" width="1008" height="13" rx="6.5" fill="#f8fafc" fill-opacity="0.14" />
+</svg>

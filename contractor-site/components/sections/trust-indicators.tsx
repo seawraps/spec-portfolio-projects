@@ -3,15 +3,15 @@ import { trustIndicators } from "@/lib/data";
 
 export function TrustIndicators() {
   return (
-    <section className="py-14 sm:py-16">
+    <section className="py-12 md:py-16 lg:py-24">
       <Container>
-        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {trustIndicators.map((indicator) => (
             <li
               key={indicator.title}
-              className="rounded-2xl border border-[var(--color-border)] bg-white p-5 shadow-sm"
+              className="surface-card rounded-2xl p-6"
             >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-brand-soft)] text-lg text-[var(--color-brand)]">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-brand-soft)] text-base text-[var(--color-brand)]">
                 ✓
               </span>
               <h3 className="mt-4 text-base font-semibold text-[var(--color-brand)]">

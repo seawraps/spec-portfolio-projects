@@ -81,6 +81,13 @@ textarea:focus {
   box-shadow: 0 0 0 4px rgb(187 111 95 / 0.12);
 }
 
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid rgb(187 111 95 / 0.92);
+  outline-offset: 3px;
+}
+
 textarea {
   min-height: 9rem;
   resize: vertical;
@@ -128,7 +135,19 @@ details summary::-webkit-details-marker {
   }
 
   .section-shell {
-    padding-block: 4rem;
+    padding-block: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-shell {
+      padding-block: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-shell {
+      padding-block: 6rem;
+    }
   }
 
   .surface-card {
@@ -136,9 +155,13 @@ details summary::-webkit-details-marker {
     border: 1px solid rgb(255 255 255 / 0.72);
     background: rgb(255 255 255 / 0.72);
     box-shadow:
-      0 20px 50px rgb(28 36 51 / 0.08),
+      0 20px 48px rgb(28 36 51 / 0.08),
       inset 0 1px 0 rgb(255 255 255 / 0.65);
     backdrop-filter: blur(18px);
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
   }
 
   .dark-panel {
@@ -147,8 +170,12 @@ details summary::-webkit-details-marker {
     background:
       radial-gradient(circle at top right, rgb(242 183 102 / 0.16), transparent 25%),
       linear-gradient(160deg, #1c2433 0%, #212b3b 52%, #253447 100%);
-    box-shadow: 0 24px 60px rgb(17 24 39 / 0.22);
+    box-shadow: 0 24px 58px rgb(17 24 39 / 0.22);
     color: white;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
   }
 
   .eyebrow {

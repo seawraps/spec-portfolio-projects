@@ -4,14 +4,14 @@ import { SectionIntro } from "@/components/ui/section-intro";
 export function Testimonials() {
   return (
     <section className="section-spacing">
-      <div className="mx-auto w-full max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl space-y-10 px-6">
         <SectionIntro
           eyebrow="Testimonials"
           title="Trusted by teams that are serious about growth"
           description="What client partners say after working with us on paid media, web strategy, and conversion optimization."
         />
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
             <figure key={testimonial.name} className="surface-panel p-6">
               <blockquote className="text-base leading-8 text-slate-200">&ldquo;{testimonial.quote}&rdquo;</blockquote>

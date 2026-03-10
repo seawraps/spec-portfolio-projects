@@ -107,7 +107,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="surface-panel grid gap-5 p-6 sm:grid-cols-2 sm:p-8" onSubmit={onSubmit} noValidate>
+    <form className="surface-panel grid gap-6 p-6 sm:grid-cols-2 sm:p-8" onSubmit={onSubmit} noValidate>
       <Field
         label="Full name"
         name="name"

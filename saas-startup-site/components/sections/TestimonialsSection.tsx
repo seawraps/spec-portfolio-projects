@@ -13,7 +13,7 @@ function getInitials(name: string) {
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white py-12 md:py-16 lg:py-24">
       <Container>
         <SectionHeading
           eyebrow="Testimonials"
@@ -21,11 +21,11 @@ export function TestimonialsSection() {
           description="Operators across revenue, success, and support teams rely on OrbitOps to maintain speed without sacrificing quality."
         />
 
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <figure
               key={`${testimonial.name}-${testimonial.company}`}
-              className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-6"
+              className="surface-card-muted flex h-full flex-col p-6"
             >
               <blockquote className="text-sm leading-6 text-slate-700">
                 “{testimonial.quote}”

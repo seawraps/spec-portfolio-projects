@@ -140,7 +140,7 @@ export function ContactForm() {
 
   return (
     <form noValidate onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2">
         <div className="sm:col-span-1">
           <label htmlFor="name" className="text-sm font-semibold text-[var(--color-ink)]">
             Name
@@ -249,7 +249,7 @@ export function ContactForm() {
           disabled={isSubmitting}
           className={buttonClassName(
             "primary",
-            isSubmitting ? "cursor-wait opacity-70" : undefined,
+            isSubmitting ? "cursor-wait" : undefined,
           )}
         >
           {isSubmitting ? "Sending..." : "Send Message"}

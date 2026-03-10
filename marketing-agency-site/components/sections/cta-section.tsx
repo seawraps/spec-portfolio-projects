@@ -19,7 +19,7 @@ export function CtaSection({
 }: CtaSectionProps) {
   return (
     <section className="section-spacing">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-6">
         <div className="surface-panel relative overflow-hidden p-8 sm:p-10 lg:p-12">
           <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-mint/20 blur-3xl" aria-hidden="true" />
           <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-sun/20 blur-3xl" aria-hidden="true" />

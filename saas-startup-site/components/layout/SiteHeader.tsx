@@ -24,7 +24,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden md:block">
-          <ButtonLink href="/contact" className="h-10 px-4 text-sm">
+          <ButtonLink href="/contact">
             Request a Demo
           </ButtonLink>
         </div>

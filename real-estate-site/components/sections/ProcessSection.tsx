@@ -26,7 +26,7 @@ function ProcessColumn({ eyebrow, title, steps }: ProcessColumnProps) {
         {steps.map((step) => (
           <div
             key={step.step}
-            className="rounded-[24px] border border-[var(--color-line)] bg-white/76 p-5"
+            className="rounded-[24px] border border-[var(--color-line)] bg-white/76 p-6"
           >
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">
               Step {step.step}
@@ -49,7 +49,7 @@ export function ProcessSection({
   description = "Clients should never have to guess what comes next. These frameworks keep the work organized, tailored, and easy to navigate from first meeting through closing.",
 }: ProcessSectionProps) {
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="process-heading">
+    <section className="py-12 md:py-16 lg:py-24" aria-labelledby="process-heading">
       <Container>
         <SectionHeading
           id="process-heading"

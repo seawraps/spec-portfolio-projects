@@ -16,19 +16,20 @@ export const metadata: Metadata = createPageMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <section className="py-16 sm:py-20">
+      <section className="py-12 md:py-16 lg:py-24">
         <Container>
           <SectionHeading
             eyebrow="Services"
             title="Comprehensive remodeling services for modern Tennessee homes"
             description="We scope every project with transparent pricing guidance, schedule clarity, and craftsmanship standards built for long-term value."
+            as="h1"
           />
 
           <div className="mt-10 grid gap-6">
             {services.map((service) => (
               <article
                 key={service.id}
-                className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:p-8"
+                className="surface-card rounded-3xl p-6 sm:p-8"
               >
                 <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                   <div>
@@ -66,7 +67,7 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-14 sm:py-18">
+      <section className="bg-white py-12 md:py-16 lg:py-24">
         <Container>
           <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-brand-soft)] p-6 sm:p-8">
             <h2 className="font-display text-4xl text-[var(--color-brand)]">Need a custom scope?</h2>

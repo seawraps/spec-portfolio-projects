@@ -6,7 +6,7 @@ import { projectHighlights } from "@/lib/data";
 
 export function ProjectsSection() {
   return (
-    <section className="py-14 sm:py-18">
+    <section className="py-12 md:py-16 lg:py-24">
       <Container>
         <SectionHeading
           eyebrow="Featured Projects"
@@ -18,7 +18,7 @@ export function ProjectsSection() {
           {projectHighlights.map((project) => (
             <article
               key={project.title}
-              className="overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white shadow-sm"
+              className="surface-card overflow-hidden rounded-3xl"
             >
               <div className="relative h-52 w-full">
                 <Image

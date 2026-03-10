@@ -22,8 +22,8 @@ export function NeighborhoodCard({ neighborhood }: NeighborhoodCardProps) {
         {neighborhood.summary}
       </p>
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        <div className="rounded-[22px] border border-[var(--color-line)] bg-white/74 p-4">
+      <div className="mt-5 grid gap-6 sm:grid-cols-2">
+        <div className="rounded-[22px] border border-[var(--color-line)] bg-white/74 p-6">
           <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]">
             Commute
           </p>
@@ -31,7 +31,7 @@ export function NeighborhoodCard({ neighborhood }: NeighborhoodCardProps) {
             {neighborhood.commute}
           </p>
         </div>
-        <div className="rounded-[22px] border border-[var(--color-line)] bg-white/74 p-4">
+        <div className="rounded-[22px] border border-[var(--color-line)] bg-white/74 p-6">
           <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]">
             Housing
           </p>

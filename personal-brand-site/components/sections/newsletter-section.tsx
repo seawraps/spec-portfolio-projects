@@ -6,7 +6,7 @@ export function NewsletterSection() {
   return (
     <section className="section-shell">
       <Container>
-        <div className="dark-panel grid gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="dark-panel grid gap-8 px-6 py-8 md:px-8 md:py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-10 lg:py-12">
           <div>
             <span className="eyebrow border-white/10 bg-white/6 text-white/74">Newsletter</span>
             <h2 className="mt-5 text-4xl leading-none text-white sm:text-5xl">{siteConfig.newsletterName}</h2>

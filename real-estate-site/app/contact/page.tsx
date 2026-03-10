@@ -28,10 +28,10 @@ export default function ContactPage() {
         ]}
       />
 
-      <section className="py-16 sm:py-20">
+      <section className="py-12 md:py-16 lg:py-24">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="soft-card rounded-[32px] p-8 sm:p-10">
+            <div className="min-w-0 soft-card rounded-[32px] p-8 sm:p-10">
               <SectionHeading
                 eyebrow="Get In Touch"
                 title="Request a private consultation."
@@ -42,7 +42,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="min-w-0 space-y-6">
               <aside className="soft-card rounded-[32px] p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
                   Direct Contact
@@ -51,14 +51,14 @@ export default function ContactPage() {
                   {contactMethods.map((method) => (
                     <div
                       key={method.label}
-                      className="rounded-[24px] border border-[var(--color-line)] bg-white/75 p-5"
+                      className="rounded-[24px] border border-[var(--color-line)] bg-white/75 p-6"
                     >
                       <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-muted)]">
                         {method.label}
                       </p>
                       <a
                         href={method.href}
-                        className="mt-2 block font-display text-3xl text-[var(--color-ink)] hover:text-[var(--color-forest)]"
+                        className="mt-2 block break-all font-display text-3xl text-[var(--color-ink)] hover:text-[var(--color-forest)]"
                       >
                         {method.value}
                       </a>
@@ -79,7 +79,7 @@ export default function ContactPage() {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-                <div className="mt-8 rounded-[24px] border border-white/12 bg-white/8 p-5">
+                <div className="mt-8 rounded-[24px] border border-white/12 bg-white/8 p-6">
                   <h2 className="font-display text-3xl text-white">
                     What happens next
                   </h2>

@@ -9,7 +9,7 @@ export function MenuCategory({ category }: MenuCategoryProps) {
     <section
       id={category.id}
       aria-labelledby={`${category.id}-title`}
-      className="rounded-3xl border border-stone-200 bg-stone-50/80 p-5 sm:p-7"
+      className="surface-card-soft rounded-3xl p-6 sm:p-8"
     >
       <header className="border-b border-stone-200 pb-5">
         <h2 id={`${category.id}-title`} className="font-display text-3xl text-stone-900">

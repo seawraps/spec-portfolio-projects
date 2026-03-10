@@ -57,15 +57,35 @@ main {
   flex: 1;
 }
 
-.section-spacing {
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+a,
+button,
+input,
+textarea,
+select {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
-@media (min-width: 640px) {
+.section-spacing {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
   .section-spacing {
-    padding-top: 5.5rem;
-    padding-bottom: 5.5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 }
 
@@ -74,45 +94,59 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.8rem;
-  padding: 0.72rem 1.15rem;
+  min-height: 2.75rem;
+  border-radius: 999px;
+  padding: 0.72rem 1.2rem;
   font-size: 0.875rem;
   font-weight: 600;
-  transition: all 180ms ease;
+  letter-spacing: 0.01em;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .button-primary {
   border: 1px solid color-mix(in srgb, #74f5c8 65%, #ffffff 35%);
   background: linear-gradient(125deg, #74f5c8 0%, #54d8a8 100%);
   color: #092016;
-  box-shadow: 0 10px 30px color-mix(in srgb, #74f5c8 25%, transparent 75%);
+  box-shadow: 0 18px 42px -26px color-mix(in srgb, #74f5c8 44%, transparent 56%);
 }
 
 .button-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 32px color-mix(in srgb, #74f5c8 32%, transparent 68%);
+  transform: translateY(-2px);
+  box-shadow: 0 22px 48px -26px color-mix(in srgb, #74f5c8 52%, transparent 48%);
 }
 
 .button-secondary {
   border: 1px solid color-mix(in srgb, #ffffff 24%, transparent 76%);
   background: color-mix(in srgb, #ffffff 4%, transparent 96%);
   color: #e6edf8;
+  box-shadow: 0 16px 36px -30px rgba(4, 10, 22, 0.42);
 }
 
 .button-secondary:hover {
+  transform: translateY(-2px);
   border-color: color-mix(in srgb, #ffffff 44%, transparent 56%);
   background: color-mix(in srgb, #ffffff 10%, transparent 90%);
+  box-shadow: 0 20px 40px -28px rgba(4, 10, 22, 0.52);
 }
 
 .surface-panel {
   border: 1px solid color-mix(in srgb, #ffffff 12%, transparent 88%);
-  border-radius: 1rem;
+  border-radius: 1.35rem;
   background: linear-gradient(
     165deg,
     color-mix(in srgb, #ffffff 7%, transparent 93%) 0%,
     color-mix(in srgb, #111a28 92%, transparent 8%) 80%
   );
-  box-shadow: 0 16px 34px rgba(4, 10, 22, 0.38);
+  box-shadow: 0 22px 48px -30px rgba(4, 10, 22, 0.4);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .form-label {

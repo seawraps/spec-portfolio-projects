@@ -42,8 +42,8 @@ export default function ContactPage() {
               </p>
               <div className="mt-6 space-y-4">
                 {contactReasons.map((reason) => (
-                  <article key={reason.title} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
-                    <h2 className="text-2xl text-white">{reason.title}</h2>
+                  <article key={reason.title} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6">
+                    <h3 className="text-2xl text-white">{reason.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-white/74">{reason.description}</p>
                     <p className="mt-3 text-sm font-semibold text-clay">{reason.detail}</p>
                   </article>
@@ -52,7 +52,7 @@ export default function ContactPage() {
             </div>
 
             <div className="surface-card p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/55">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/68">
                 Direct Options
               </p>
               <div className="mt-5 space-y-4 text-sm leading-7 text-ink/72">
@@ -77,7 +77,7 @@ export default function ContactPage() {
             </div>
 
             <div className="surface-card p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/55">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/68">
                 What Happens Next
               </p>
               <ol className="mt-5 space-y-4 text-sm leading-7 text-ink/72">

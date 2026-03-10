@@ -1,10 +1,10 @@
-import { ButtonLink } from "@/components/ui/button-link";
+import { ButtonLink, buttonClassName } from "@/components/ui/button-link";
 import { Container } from "@/components/layout/container";
 import { company, featuredStats } from "@/lib/data";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-14 sm:py-20">
+    <section className="relative overflow-hidden py-16 md:py-20 lg:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-28 right-0 h-72 w-72 rounded-full bg-[color:rgba(23,54,77,0.15)] blur-3xl"
@@ -35,11 +35,11 @@ export function HeroSection() {
             </ButtonLink>
           </div>
 
-          <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+          <ul className="mt-8 grid gap-6 sm:grid-cols-3">
             {featuredStats.map((stat) => (
               <li
                 key={stat.label}
-                className="rounded-2xl border border-[var(--color-border)] bg-white px-4 py-4 shadow-sm"
+                className="surface-card rounded-2xl p-6"
               >
                 <p className="font-display text-3xl leading-none text-[var(--color-brand)]">
                   {stat.value}
@@ -50,7 +50,7 @@ export function HeroSection() {
           </ul>
         </div>
 
-        <aside className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-xl sm:p-8">
+        <aside className="surface-card-strong rounded-3xl p-6 sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
             Why Homeowners Choose Blue Oak
           </p>
@@ -76,7 +76,7 @@ export function HeroSection() {
 
           <a
             href={`tel:${company.phoneRaw}`}
-            className="mt-6 inline-flex rounded-full bg-[var(--color-brand)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1f4a68]"
+            className={buttonClassName("primary", "mt-6")}
           >
             Call {company.phoneDisplay}
           </a>

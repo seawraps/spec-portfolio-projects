@@ -73,8 +73,11 @@ export default function RootLayout({
         className={`${manrope.variable} ${cormorantGaramond.variable} min-h-screen font-sans antialiased`}
       >
         <div className="relative flex min-h-screen flex-col">
+          <a href="#main-content" className="skip-link">
+            Skip to content
+          </a>
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <SiteFooter />
         </div>
       </body>

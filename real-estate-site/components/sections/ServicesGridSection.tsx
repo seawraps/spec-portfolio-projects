@@ -13,7 +13,7 @@ export function ServicesGridSection({
   description = "From discreet buyer searches to launch-ready seller campaigns, our work is built around thoughtful preparation, market timing, and steady execution.",
 }: ServicesGridSectionProps) {
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="services-heading">
+    <section className="py-12 md:py-16 lg:py-24" aria-labelledby="services-heading">
       <Container>
         <SectionHeading
           id="services-heading"
@@ -22,7 +22,7 @@ export function ServicesGridSection({
           title={title}
           description={description}
         />
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           {serviceOfferings.map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}

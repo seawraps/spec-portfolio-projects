@@ -1,4 +1,4 @@
-import { ButtonLink } from "@/components/ui/button-link";
+import { ButtonLink, buttonClassName } from "@/components/ui/button-link";
 import { Container } from "@/components/layout/container";
 import { company } from "@/lib/data";
 
@@ -9,9 +9,9 @@ type CtaSectionProps = {
 
 export function CtaSection({ title, description }: CtaSectionProps) {
   return (
-    <section className="pb-16 pt-8 sm:pb-20">
+    <section className="py-12 md:py-16 lg:py-24">
       <Container>
-        <div className="rounded-3xl bg-[var(--color-brand)] px-6 py-10 text-white shadow-xl sm:px-10 sm:py-12">
+        <div className="rounded-3xl bg-[var(--color-brand)] px-6 py-10 text-white shadow-[0_24px_56px_-30px_rgba(23,54,77,0.7)] md:px-8 md:py-12 lg:px-10 lg:py-14">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-soft)]">
             Ready to Start?
           </p>
@@ -28,7 +28,7 @@ export function CtaSection({ title, description }: CtaSectionProps) {
             </ButtonLink>
             <a
               href={`tel:${company.phoneRaw}`}
-              className="inline-flex items-center justify-center rounded-full border border-[color:rgba(255,255,255,0.35)] px-5 py-3 text-sm font-semibold transition hover:bg-[color:rgba(255,255,255,0.09)]"
+              className={buttonClassName("outline")}
             >
               Call {company.phoneDisplay}
             </a>

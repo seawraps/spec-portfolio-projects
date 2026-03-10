@@ -41,7 +41,7 @@ export default function AboutPage() {
       />
 
       <section className="section-spacing">
-        <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="surface-panel p-6 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mint">Agency Point of View</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">Growth is a systems problem, not a channel problem.</h2>
@@ -68,9 +68,9 @@ export default function AboutPage() {
       </section>
 
       <section className="section-spacing border-y border-white/10 bg-deep-2/70">
-        <div className="mx-auto w-full max-w-6xl space-y-8 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl space-y-8 px-6">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">What we optimize for</h2>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {aboutValues.map((value) => (
               <article key={value.title} className="surface-panel p-6">
                 <h3 className="text-lg font-semibold text-white">{value.title}</h3>
@@ -82,7 +82,7 @@ export default function AboutPage() {
       </section>
 
       <section className="section-spacing">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl px-6">
           <div className="surface-panel p-6 sm:p-8">
             <h2 className="text-2xl font-semibold text-white">Portfolio Concept Notice</h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">

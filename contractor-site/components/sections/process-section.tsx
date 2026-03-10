@@ -4,7 +4,7 @@ import { processSteps } from "@/lib/data";
 
 export function ProcessSection() {
   return (
-    <section className="bg-white py-14 sm:py-18">
+    <section className="bg-white py-12 md:py-16 lg:py-24">
       <Container>
         <SectionHeading
           eyebrow="Our Process"
@@ -12,7 +12,7 @@ export function ProcessSection() {
           description="High-end results come from disciplined execution. We keep each phase predictable so your renovation moves forward without unnecessary surprises."
         />
 
-        <ol className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <ol className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {processSteps.map((step, index) => (
             <li
               key={step.title}

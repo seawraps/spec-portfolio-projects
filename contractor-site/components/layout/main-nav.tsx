@@ -25,15 +25,15 @@ export function MainNav({ links }: MainNavProps) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
-    <div className="flex items-center gap-3">
-      <nav aria-label="Primary" className="hidden md:block">
+    <div className="flex shrink-0 items-center gap-3">
+      <nav aria-label="Primary navigation" className="hidden lg:block">
         <ul className="flex items-center gap-2">
           {links.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition",
+                  "rounded-full px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]",
                   isActiveRoute(pathname, link.href)
                     ? "bg-[var(--color-brand-soft)] text-[var(--color-brand)]"
                     : "text-[var(--color-muted)] hover:bg-[var(--color-brand-soft)] hover:text-[var(--color-brand)]",
@@ -47,16 +47,19 @@ export function MainNav({ links }: MainNavProps) {
         </ul>
       </nav>
 
-      <ButtonLink href="/contact" variant="light" className="hidden md:inline-flex">
-        Request Estimate
-      </ButtonLink>
+      <div className="hidden lg:block">
+        <ButtonLink href="/contact" variant="light">
+          Request Estimate
+        </ButtonLink>
+      </div>
 
       <button
         type="button"
-        className="inline-flex h-10 items-center rounded-full border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-brand)] transition hover:bg-white md:hidden"
+        className="inline-flex h-10 items-center rounded-full border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-brand)] transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] lg:hidden"
         onClick={() => setIsMobileOpen((current) => !current)}
         aria-expanded={isMobileOpen}
         aria-controls="mobile-menu"
+        aria-label={isMobileOpen ? "Close primary navigation" : "Open primary navigation"}
       >
         {isMobileOpen ? "Close" : "Menu"}
       </button>
@@ -64,7 +67,7 @@ export function MainNav({ links }: MainNavProps) {
       {isMobileOpen ? (
         <div
           id="mobile-menu"
-          className="absolute inset-x-4 top-[4.75rem] rounded-2xl border border-[var(--color-border)] bg-white p-5 shadow-xl md:hidden"
+          className="surface-card-strong absolute inset-x-0 top-[4.25rem] rounded-2xl p-6 lg:hidden"
         >
           <nav aria-label="Mobile primary navigation">
             <ul className="space-y-2">
@@ -73,7 +76,7 @@ export function MainNav({ links }: MainNavProps) {
                   <Link
                     href={link.href}
                     className={cn(
-                      "block rounded-xl px-3 py-2.5 text-sm font-medium transition",
+                      "block rounded-xl px-3 py-2.5 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]",
                       isActiveRoute(pathname, link.href)
                         ? "bg-[var(--color-brand-soft)] text-[var(--color-brand)]"
                         : "text-[var(--color-muted)] hover:bg-[var(--color-brand-soft)] hover:text-[var(--color-brand)]",

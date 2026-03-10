@@ -14,17 +14,18 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="pt-28 sm:pt-32">
-      <section className="pb-12">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section className="pb-12 md:pb-16 lg:pb-24">
+        <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Contact"
             title="We'd love to host you"
             description="Reach out for reservations, private events, or partnership inquiries."
+            as="h1"
           />
 
           <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <aside className="space-y-6">
-              <div className="rounded-3xl border border-stone-200 bg-stone-50/80 p-6">
+              <div className="surface-card-soft rounded-3xl p-6">
                 <h2 className="font-display text-2xl text-stone-900">Visit</h2>
                 <address className="mt-3 not-italic text-sm leading-relaxed text-stone-600">
                   <p>{contactDetails.addressLine1}</p>
@@ -38,7 +39,7 @@ export default function ContactPage() {
                 </address>
               </div>
 
-              <div className="rounded-3xl border border-stone-200 bg-stone-50/80 p-6">
+              <div className="surface-card-soft rounded-3xl p-6">
                 <h2 className="font-display text-2xl text-stone-900">Hours</h2>
                 <dl className="mt-3 divide-y divide-stone-200 text-sm">
                   {hours.map((entry) => (
@@ -50,7 +51,7 @@ export default function ContactPage() {
                 </dl>
               </div>
 
-              <figure className="overflow-hidden rounded-3xl border border-stone-200 bg-stone-100">
+              <figure className="surface-card overflow-hidden rounded-3xl bg-stone-100">
                 <Image
                   src="/images/contact-lounge.svg"
                   alt="Bar and lounge area with evening lighting"

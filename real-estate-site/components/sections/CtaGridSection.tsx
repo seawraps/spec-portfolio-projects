@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 
 export function CtaGridSection() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-12 md:py-16 lg:py-24">
       <Container>
         <div className="grid gap-6 lg:grid-cols-2">
           <article className="soft-card rounded-[34px] p-8 sm:p-10">

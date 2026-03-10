@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="bg-gradient-to-b from-slate-50 to-white py-16 sm:py-20">
+    <section className="bg-gradient-to-b from-slate-50 to-white py-16 md:py-20 lg:py-24">
       <Container>
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <aside className="space-y-6">
@@ -31,7 +31,7 @@ export default function ContactPage() {
 
             <div className="space-y-3">
               {contactChannels.map((channel) => (
-                <article key={channel.title} className="rounded-2xl border border-slate-200 bg-white p-5">
+                <article key={channel.title} className="surface-card p-6">
                   <h2 className="font-display text-lg font-semibold tracking-tight text-slate-900">
                     {channel.title}
                   </h2>
@@ -47,7 +47,7 @@ export default function ContactPage() {
             </div>
           </aside>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 sm:p-8">
+          <div className="surface-card p-6 sm:p-8">
             <h2 className="font-display text-2xl font-semibold tracking-tight text-slate-900">
               Send us a message
             </h2>

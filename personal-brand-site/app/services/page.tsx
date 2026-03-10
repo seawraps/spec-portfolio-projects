@@ -40,11 +40,11 @@ export default function ServicesPage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {serviceFormats.map((format) => (
-              <article key={format.title} className="surface-card h-full p-7">
+              <article key={format.title} className="surface-card h-full p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-rose">
                   {format.label}
                 </p>
-                <h2 className="mt-4 text-3xl text-ink">{format.title}</h2>
+                <h3 className="mt-4 text-3xl text-ink">{format.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-ink/72">{format.description}</p>
               </article>
             ))}

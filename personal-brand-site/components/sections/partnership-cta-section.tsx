@@ -6,7 +6,7 @@ export function PartnershipCtaSection() {
   return (
     <section className="section-shell">
       <Container>
-        <div className="surface-card relative overflow-hidden px-6 py-10 sm:px-8 sm:py-12 lg:px-12">
+        <div className="surface-card relative overflow-hidden px-6 py-10 md:px-8 md:py-12 lg:px-12 lg:py-14">
           <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-clay/22 blur-3xl" />
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>

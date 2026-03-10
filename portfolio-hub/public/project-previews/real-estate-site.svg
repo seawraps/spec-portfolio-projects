@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Real Estate Site placeholder preview</title>
+  <desc id="desc">A stylized browser mockup for a real estate showcase website.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15303f" />
+      <stop offset="52%" stop-color="#08121a" />
+      <stop offset="100%" stop-color="#2f6f8f" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)" />
+  <rect x="64" y="54" width="1072" height="567" rx="30" fill="#071019" fill-opacity="0.92" />
+  <rect x="96" y="88" width="1008" height="40" rx="20" fill="#12202b" />
+  <circle cx="126" cy="108" r="8" fill="#fca5a5" />
+  <circle cx="152" cy="108" r="8" fill="#fcd34d" />
+  <circle cx="178" cy="108" r="8" fill="#86efac" />
+  <rect x="96" y="156" width="1008" height="230" rx="26" fill="#143549" />
+  <rect x="96" y="414" width="472" height="107" rx="24" fill="#0f1f2a" />
+  <rect x="596" y="414" width="244" height="107" rx="24" fill="#102532" />
+  <rect x="860" y="414" width="244" height="107" rx="24" fill="#132d3c" />
+  <text x="140" y="214" fill="#bae6fd" font-family="Verdana, Arial, sans-serif" font-size="24" letter-spacing="5">PREMIUM LISTINGS</text>
+  <text x="140" y="290" fill="#f8fafc" font-family="Georgia, 'Times New Roman', serif" font-size="62" font-weight="700">Real Estate Site</text>
+  <rect x="140" y="314" width="286" height="3" fill="#67e8f9" fill-opacity="0.7" />
+  <rect x="140" y="338" width="168" height="44" rx="22" fill="#67e8f9" />
+  <text x="176" y="367" fill="#08212b" font-family="Verdana, Arial, sans-serif" font-size="20" font-weight="700">View Homes</text>
+  <rect x="132" y="440" width="164" height="18" rx="9" fill="#e0f2fe" fill-opacity="0.88" />
+  <rect x="132" y="474" width="332" height="12" rx="6" fill="#cbd5e1" fill-opacity="0.72" />
+  <rect x="132" y="496" width="288" height="12" rx="6" fill="#cbd5e1" fill-opacity="0.46" />
+  <rect x="630" y="440" width="140" height="18" rx="9" fill="#e0f2fe" fill-opacity="0.88" />
+  <rect x="630" y="474" width="140" height="12" rx="6" fill="#cbd5e1" fill-opacity="0.5" />
+  <rect x="894" y="440" width="140" height="18" rx="9" fill="#e0f2fe" fill-opacity="0.88" />
+  <rect x="894" y="474" width="140" height="12" rx="6" fill="#cbd5e1" fill-opacity="0.5" />
+</svg>

@@ -1,4 +1,6 @@
 import Link from "next/link";
+
+import { buttonClassName } from "@/components/ui/button-styles";
 import { contactDetails } from "@/lib/data";
 
 type ReservationCtaProps = {
@@ -7,8 +9,8 @@ type ReservationCtaProps = {
 
 export function ReservationCta({ compact = false }: ReservationCtaProps) {
   return (
-    <section id="reservations" className={compact ? "py-12" : "py-16 sm:py-20"}>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section id="reservations" className={compact ? "py-12 md:py-16" : "py-12 md:py-16 lg:py-24"}>
+      <div className="mx-auto max-w-7xl px-6">
         <div className="overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#1f2937,#292524)] p-8 text-stone-100 sm:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">
             Reservations
@@ -25,13 +27,13 @@ export function ReservationCta({ compact = false }: ReservationCtaProps) {
               href={contactDetails.reservationsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-amber-300 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-stone-900 transition-colors hover:bg-amber-200"
+              className={buttonClassName("accent")}
             >
               Book Online
             </a>
             <Link
               href="/contact"
-              className="rounded-full border border-stone-300/60 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-stone-100 transition-colors hover:border-stone-100"
+              className={buttonClassName("secondaryInverse")}
             >
               Private Events
             </Link>

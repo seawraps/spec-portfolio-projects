@@ -12,7 +12,7 @@ const highlights = [
 
 export function ProductPreviewSection() {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white py-12 md:py-16 lg:py-24">
       <Container>
         <SectionHeading
           eyebrow="Product Snapshot"
@@ -33,7 +33,7 @@ export function ProductPreviewSection() {
             />
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <div className="surface-card-muted p-6">
             <h3 className="font-display text-xl font-semibold tracking-tight text-slate-900">
               What teams monitor in OrbitOps
             </h3>

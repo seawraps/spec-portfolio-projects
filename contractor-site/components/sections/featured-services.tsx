@@ -6,7 +6,7 @@ import { services } from "@/lib/data";
 
 export function FeaturedServices() {
   return (
-    <section className="py-14 sm:py-18">
+    <section className="py-12 md:py-16 lg:py-24">
       <Container>
         <SectionHeading
           eyebrow="Core Services"
@@ -14,11 +14,11 @@ export function FeaturedServices() {
           description="From focused room upgrades to whole-home refreshes, every project is scoped with clear timelines, quality materials, and accountable project management."
         />
 
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
           {services.map((service) => (
             <article
               key={service.id}
-              className="group rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+              className="surface-card group rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[0_26px_54px_-30px_rgba(24,37,49,0.34)]"
             >
               <h3 className="font-display text-3xl text-[var(--color-brand)]">{service.name}</h3>
               <p className="mt-3 text-sm leading-7 text-[var(--color-muted)] sm:text-base">

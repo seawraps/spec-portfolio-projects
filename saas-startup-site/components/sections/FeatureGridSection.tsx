@@ -4,7 +4,7 @@ import { homeFeatureCards } from "@/lib/data";
 
 export function FeatureGridSection() {
   return (
-    <section className="bg-slate-50 py-16 sm:py-20">
+    <section className="bg-slate-50 py-12 md:py-16 lg:py-24">
       <Container>
         <SectionHeading
           eyebrow="Capabilities"
@@ -12,11 +12,11 @@ export function FeatureGridSection() {
           description="OrbitOps is designed for teams that need reliability, speed, and clear ownership across every operational workflow."
         />
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {homeFeatureCards.map((feature) => (
             <article
               key={feature.title}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5"
+              className="surface-card p-6"
             >
               <h3 className="font-display text-xl font-semibold tracking-tight text-slate-900">
                 {feature.title}

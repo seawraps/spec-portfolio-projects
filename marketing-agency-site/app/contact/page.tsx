@@ -35,7 +35,7 @@ export default function ContactPage() {
       />
 
       <section className="section-spacing">
-        <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-6 lg:grid-cols-[1.1fr_0.9fr]">
           <ContactForm />
 
           <aside className="space-y-4">

@@ -4,14 +4,14 @@ import { SectionIntro } from "@/components/ui/section-intro";
 export function ResultsMetrics() {
   return (
     <section className="section-spacing">
-      <div className="mx-auto w-full max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl space-y-10 px-6">
         <SectionIntro
           eyebrow="Results"
           title="Metrics that executive teams can trust"
           description="We focus on outcomes that matter: acquisition efficiency, pipeline quality, conversion lift, and sustainable campaign velocity."
         />
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {metrics.map((metric) => (
             <article key={metric.label} className="surface-panel p-6">
               <p className="text-4xl font-bold tracking-tight text-white">{metric.value}</p>

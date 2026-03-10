@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+
+import { buttonClassName } from "@/components/ui/button-styles";
 import { contactDetails } from "@/lib/data";
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden pb-16 pt-28 sm:pt-32">
+    <section className="relative overflow-hidden pb-12 pt-24 md:pb-16 md:pt-28 lg:pb-24 lg:pt-32">
       <div className="pointer-events-none absolute -left-24 top-0 h-64 w-64 rounded-full bg-amber-200/40 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 top-28 h-80 w-80 rounded-full bg-rose-200/30 blur-3xl" />
 
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-700">
             Mediterranean Coastal Dining
@@ -27,24 +29,24 @@ export function HomeHero() {
               href={contactDetails.reservationsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-stone-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-stone-50 transition-colors hover:bg-stone-700"
+              className={buttonClassName("primary")}
             >
               Reserve A Table
             </a>
             <Link
               href="/menu"
-              className="rounded-full border border-stone-300 bg-stone-50/70 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-stone-800 transition-colors hover:border-stone-500"
+              className={buttonClassName("secondary")}
             >
               Explore Menu
             </Link>
           </div>
 
-          <dl className="mt-10 grid grid-cols-2 gap-4 text-sm sm:max-w-md">
-            <div className="rounded-2xl border border-stone-200 bg-stone-50/60 p-4">
+          <dl className="mt-10 grid grid-cols-2 gap-6 text-sm sm:max-w-md">
+            <div className="rounded-2xl border border-stone-200 bg-stone-50/60 p-6">
               <dt className="text-stone-500">Location</dt>
               <dd className="mt-1 font-medium text-stone-800">Santa Monica Harbor</dd>
             </div>
-            <div className="rounded-2xl border border-stone-200 bg-stone-50/60 p-4">
+            <div className="rounded-2xl border border-stone-200 bg-stone-50/60 p-6">
               <dt className="text-stone-500">Service</dt>
               <dd className="mt-1 font-medium text-stone-800">Dinner Daily</dd>
             </div>

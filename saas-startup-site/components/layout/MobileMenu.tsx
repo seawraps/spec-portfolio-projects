@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+import { buttonClassName } from "@/components/ui/ButtonLink";
 import { navigationLinks } from "@/lib/data";
 
 export function MobileMenu() {
@@ -14,10 +15,10 @@ export function MobileMenu() {
     <div className="md:hidden">
       <button
         type="button"
-        className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
         aria-expanded={isOpen}
         aria-controls="mobile-nav"
-        aria-label="Toggle navigation menu"
+        aria-label={isOpen ? "Close primary navigation" : "Open primary navigation"}
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <span className="sr-only">Menu</span>
@@ -36,32 +37,35 @@ export function MobileMenu() {
       {isOpen ? (
         <div
           id="mobile-nav"
-          className="absolute inset-x-4 top-[4.5rem] z-50 rounded-2xl border border-slate-200 bg-white p-4 shadow-xl shadow-slate-900/10"
+          className="surface-card absolute inset-x-4 top-[4.5rem] z-50 p-4"
         >
-          <ul className="flex flex-col gap-2" aria-label="Mobile navigation">
-            {navigationLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`block rounded-lg px-3 py-2 text-sm font-medium transition ${
-                      isActive
-                        ? "bg-cyan-50 text-cyan-800"
-                        : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <nav aria-label="Mobile primary navigation">
+            <ul className="flex flex-col gap-2">
+              {navigationLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`block rounded-full px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 ${
+                        isActive
+                          ? "bg-cyan-50 text-cyan-800"
+                          : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                      }`}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700"
+            className={buttonClassName("primary", "mt-3 w-full px-4")}
           >
             Request a Demo
           </Link>

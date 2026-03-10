@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+import { buttonClassName } from "@/components/ui/ButtonLink";
+
 type FormValues = {
   name: string;
   email: string;
@@ -82,7 +84,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setSubmitted(false)}
-          className="mt-5 inline-flex h-10 items-center justify-center rounded-lg bg-emerald-700 px-4 text-sm font-semibold text-white transition hover:bg-emerald-600"
+          className={buttonClassName("primary", "mt-5 bg-emerald-700 hover:bg-emerald-600")}
         >
           Send another message
         </button>
@@ -175,7 +177,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex h-11 items-center justify-center rounded-xl bg-slate-900 px-5 text-sm font-semibold text-white transition hover:bg-slate-700"
+        className={buttonClassName("primary")}
       >
         Send message
       </button>

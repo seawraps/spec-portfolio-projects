@@ -38,7 +38,7 @@ export function AgentCard({ agent }: AgentCardProps) {
         {agent.bio}
       </p>
 
-      <div className="mt-5 rounded-[22px] border border-[var(--color-line)] bg-white/74 px-4 py-3 text-sm text-[var(--color-ink)]">
+      <div className="mt-5 rounded-[22px] border border-[var(--color-line)] bg-white/74 p-6 text-sm text-[var(--color-ink)]">
         {agent.experience}
       </div>
 

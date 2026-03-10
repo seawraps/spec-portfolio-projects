@@ -22,7 +22,7 @@ export function ListingCard({ listing }: ListingCardProps) {
         <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-forest)]">
           {listing.label}
         </div>
-        <div className="absolute inset-x-4 bottom-4 rounded-[22px] border border-white/16 bg-black/18 p-4 backdrop-blur-md">
+        <div className="absolute inset-x-4 bottom-4 rounded-[22px] border border-white/16 bg-black/18 p-6 backdrop-blur-md">
           <p className="font-display text-4xl text-white">{listing.price}</p>
           <p className="mt-1 text-sm text-white/72">
             {listing.address} • {listing.neighborhood}

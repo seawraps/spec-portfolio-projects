@@ -4,7 +4,7 @@ import { testimonials } from "@/lib/data";
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-[var(--color-brand)] py-14 sm:py-18">
+    <section className="bg-[var(--color-brand)] py-12 md:py-16 lg:py-24">
       <Container>
         <SectionHeading
           eyebrow="Client Reviews"
@@ -13,7 +13,7 @@ export function TestimonialsSection() {
           className="[&_h2]:text-white [&_p]:text-[color:rgba(255,255,255,0.8)]"
         />
 
-        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
             <blockquote
               key={testimonial.customerName}

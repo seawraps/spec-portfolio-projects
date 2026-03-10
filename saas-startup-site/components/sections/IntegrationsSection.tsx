@@ -5,7 +5,7 @@ import { integrationGroups } from "@/lib/data";
 
 export function IntegrationsSection() {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white py-12 md:py-16 lg:py-24">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <SectionHeading
@@ -14,7 +14,7 @@ export function IntegrationsSection() {
             description="OrbitOps integrates with the systems your teams already use so you can automate workflows without introducing operational friction."
           />
 
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <div className="surface-card-muted p-6">
             <p className="text-sm leading-6 text-slate-700">
               Need a custom integration? OrbitOps includes API and webhook tooling for
               enterprise-specific workflows.
@@ -25,9 +25,9 @@ export function IntegrationsSection() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           {integrationGroups.map((group) => (
-            <article key={group.category} className="rounded-2xl border border-slate-200 bg-white p-5">
+            <article key={group.category} className="surface-card p-6">
               <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
                 {group.category}
               </h3>

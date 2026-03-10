@@ -32,7 +32,7 @@ export default function AboutPage() {
         ]}
       />
 
-      <section className="py-16 sm:py-20">
+      <section className="py-12 md:py-16 lg:py-24">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="soft-card rounded-[32px] p-8 sm:p-10">
@@ -60,7 +60,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2">
               {valuePoints.map((item) => (
                 <article
                   key={item.title}
@@ -82,7 +82,7 @@ export default function AboutPage() {
                   {aboutStats.map((stat) => (
                     <div
                       key={stat.label}
-                      className="rounded-[22px] border border-[var(--color-line)] bg-white/70 p-5"
+                      className="rounded-[22px] border border-[var(--color-line)] bg-white/70 p-6"
                     >
                       <p className="font-display text-4xl text-[var(--color-ink)]">
                         {stat.value}

@@ -59,6 +59,29 @@ textarea {
     transform 180ms ease;
 }
 
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  border-radius: 999px;
+  background: var(--color-forest);
+  color: white;
+  padding: 0.75rem 1rem;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .section-shell {
   position: relative;
 }
@@ -77,8 +100,12 @@ textarea {
 .soft-card {
   border: 1px solid var(--color-line);
   background: rgba(255, 252, 247, 0.82);
-  box-shadow: 0 24px 60px -36px rgba(28, 43, 37, 0.38);
+  box-shadow: 0 22px 52px -34px rgba(28, 43, 37, 0.36);
   backdrop-filter: blur(18px);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .fine-print {

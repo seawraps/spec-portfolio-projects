@@ -8,20 +8,21 @@ const navLinks = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4 sm:px-8 lg:px-12">
+      <div className="mx-auto flex max-w-7xl flex-col items-start gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
         <a
           href="#hero"
-          className="font-display text-lg tracking-tight text-white transition hover:text-emerald-200"
+          className="font-display text-lg tracking-tight text-white transition hover:text-emerald-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+          aria-label="Portfolio Hub home"
         >
           Portfolio Hub
         </a>
-        <nav aria-label="Primary">
-          <ul className="flex flex-wrap items-center justify-end gap-2 text-sm text-slate-300 sm:gap-3">
+        <nav aria-label="Primary navigation" className="w-full sm:w-auto">
+          <ul className="grid grid-cols-2 gap-2 text-xs text-slate-300 sm:flex sm:items-center sm:gap-3 sm:text-sm">
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} className="min-w-0">
                 <a
                   href={link.href}
-                  className="inline-flex rounded-full border border-white/10 px-3 py-2 transition hover:border-emerald-300/60 hover:text-white"
+                  className="nav-pill w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
                 >
                   {link.label}
                 </a>

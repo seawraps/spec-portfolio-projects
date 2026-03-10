@@ -7,7 +7,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-white/10 bg-deep-2">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_1fr] lg:px-8">
+      <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.2fr_0.8fr_1fr]">
         <div className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mint">{agency.name}</p>
           <p className="max-w-md text-sm leading-7 text-slate-300">{agency.description}</p>
@@ -41,7 +41,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-slate-500 sm:px-6 lg:px-8">
+      <div className="border-t border-white/10 px-6 py-5 text-center text-xs text-slate-500">
         <p>{`Copyright ${year} ${agency.name}. All rights reserved.`}</p>
       </div>
     </footer>

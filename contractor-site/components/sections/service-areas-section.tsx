@@ -5,7 +5,7 @@ import { serviceAreas } from "@/lib/data";
 
 export function ServiceAreasSection() {
   return (
-    <section className="py-14 sm:py-18">
+    <section className="py-12 md:py-16 lg:py-24">
       <Container className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
         <div>
           <SectionHeading
@@ -18,7 +18,7 @@ export function ServiceAreasSection() {
           </ButtonLink>
         </div>
 
-        <div className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:p-8">
+        <div className="surface-card rounded-3xl p-6 sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
             Areas We Commonly Serve
           </p>

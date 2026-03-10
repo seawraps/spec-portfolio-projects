@@ -4,7 +4,7 @@ import { faqs } from "@/lib/data";
 
 export function FaqSection() {
   return (
-    <section className="bg-slate-50 py-16 sm:py-20">
+    <section className="bg-slate-50 py-12 md:py-16 lg:py-24">
       <Container>
         <SectionHeading
           eyebrow="FAQ"
@@ -16,7 +16,7 @@ export function FaqSection() {
           {faqs.map((faq) => (
             <details
               key={faq.question}
-              className="group rounded-xl border border-slate-200 bg-white p-5 open:shadow-sm"
+              className="group rounded-xl border border-slate-200 bg-white p-6 open:shadow-sm"
             >
               <summary className="cursor-pointer list-none pr-7 text-sm font-semibold leading-6 text-slate-900 marker:content-none">
                 {faq.question}

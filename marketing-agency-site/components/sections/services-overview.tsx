@@ -6,14 +6,14 @@ import { SectionIntro } from "@/components/ui/section-intro";
 export function ServicesOverview() {
   return (
     <section className="section-spacing">
-      <div className="mx-auto w-full max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl space-y-10 px-6">
         <SectionIntro
           eyebrow="Core Services"
           title="Everything needed to move from scattered tactics to strategic growth"
           description="We partner with marketing leaders who need measurable outcomes and fast execution. Services can be engaged individually or combined into one integrated growth program."
         />
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <article key={service.slug} className="surface-panel flex h-full flex-col p-6">
               <h3 className="text-xl font-semibold text-white">{service.name}</h3>

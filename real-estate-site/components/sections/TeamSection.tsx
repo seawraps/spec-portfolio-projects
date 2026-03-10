@@ -13,7 +13,7 @@ export function TeamSection({
   description = "A tight, senior-led team means thoughtful advice, direct communication, and better continuity from strategy to closing.",
 }: TeamSectionProps) {
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="team-heading">
+    <section className="py-12 md:py-16 lg:py-24" aria-labelledby="team-heading">
       <Container>
         <SectionHeading
           id="team-heading"
@@ -22,7 +22,7 @@ export function TeamSection({
           title={title}
           description={description}
         />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {agents.map((agent) => (
             <AgentCard key={agent.name} agent={agent} />
           ))}

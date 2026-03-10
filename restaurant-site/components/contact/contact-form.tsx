@@ -2,6 +2,8 @@
 
 import { FormEvent, useMemo, useState } from "react";
 
+import { buttonClassName } from "@/components/ui/button-styles";
+
 type FormValues = {
   name: string;
   email: string;
@@ -79,7 +81,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="rounded-3xl border border-stone-200 bg-stone-50/90 p-6 shadow-sm sm:p-8">
+    <div className="surface-card-soft rounded-3xl p-6 sm:p-8">
       <h2 className="font-display text-3xl text-stone-900">Send us a message</h2>
       <p className="mt-2 text-sm text-stone-600">
         We respond within one business day for reservations, private events, and general inquiries.
@@ -97,7 +99,7 @@ export function ContactForm() {
           <button
             type="button"
             onClick={() => setSubmitted(false)}
-            className="mt-3 text-sm font-semibold text-emerald-900 underline underline-offset-4"
+            className={buttonClassName("secondary", "mt-3")}
           >
             Send another message
           </button>
@@ -197,7 +199,7 @@ export function ContactForm() {
 
         <button
           type="submit"
-          className="inline-flex rounded-full bg-stone-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-stone-50 transition-colors hover:bg-stone-700"
+          className={buttonClassName("primary")}
         >
           Send Message
         </button>

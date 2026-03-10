@@ -13,7 +13,7 @@ export function NeighborhoodsSection({
   description = "We focus on a tightly defined set of neighborhoods so our advice reflects real buyer behavior, pricing nuance, and block-by-block differences rather than generic market summaries.",
 }: NeighborhoodsSectionProps) {
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="neighborhoods-heading">
+    <section className="py-12 md:py-16 lg:py-24" aria-labelledby="neighborhoods-heading">
       <Container>
         <SectionHeading
           id="neighborhoods-heading"
@@ -22,7 +22,7 @@ export function NeighborhoodsSection({
           title={title}
           description={description}
         />
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {neighborhoods.map((neighborhood) => (
             <NeighborhoodCard
               key={neighborhood.name}

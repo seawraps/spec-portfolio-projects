@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export function PricingSection() {
   return (
-    <section className="bg-slate-50 py-16 sm:py-20" id="pricing">
+    <section className="bg-slate-50 py-12 md:py-16 lg:py-24" id="pricing">
       <Container>
         <SectionHeading
           eyebrow="Pricing"
@@ -15,14 +15,14 @@ export function PricingSection() {
           centered
         />
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {pricingPlans.map((plan) => (
             <article
               key={plan.name}
               className={cn(
                 "flex h-full flex-col rounded-2xl border p-6 shadow-sm",
                 plan.featured
-                  ? "border-cyan-300 bg-slate-900 text-white shadow-xl shadow-slate-900/20"
+                  ? "surface-card-inverse border-cyan-300 text-white shadow-xl shadow-slate-900/20"
                   : "border-slate-200 bg-white text-slate-900",
               )}
             >
@@ -61,8 +61,8 @@ export function PricingSection() {
 
               <ButtonLink
                 href="/contact"
-                variant={plan.featured ? "secondary" : "primary"}
-                className={cn("mt-8 w-full", plan.featured ? "bg-white text-slate-900 hover:bg-slate-100" : "")}
+                variant={plan.featured ? "light" : "primary"}
+                className="mt-8 w-full"
               >
                 {plan.ctaLabel}
               </ButtonLink>

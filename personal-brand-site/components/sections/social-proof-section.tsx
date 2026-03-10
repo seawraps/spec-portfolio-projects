@@ -4,7 +4,7 @@ import { socialProofLogos } from "@/lib/data";
 
 export function SocialProofSection() {
   return (
-    <section className="section-shell pt-4">
+    <section className="section-shell pt-6 md:pt-8 lg:pt-10">
       <Container>
         <div className="surface-card px-6 py-8 sm:px-8 sm:py-10">
           <SectionHeading

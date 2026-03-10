@@ -22,27 +22,28 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[rgba(248,243,236,0.82)] backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-3 sm:py-4">
         <Link
           href="/"
-          className="flex items-center gap-3"
+          className="flex min-w-0 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)]"
           onClick={() => setIsOpen(false)}
+          aria-label="Crescent Vale Realty home"
         >
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-forest)] font-display text-xl text-white">
             CV
           </span>
-          <span>
-            <span className="block font-display text-3xl leading-none text-[var(--color-ink)]">
+          <span className="min-w-0">
+            <span className="block text-2xl leading-none text-[var(--color-ink)] sm:text-3xl">
               Crescent Vale
             </span>
-            <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-muted)]">
+            <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted)] sm:tracking-[0.32em]">
               Realty
             </span>
           </span>
         </Link>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <nav aria-label="Primary" className="flex items-center gap-2">
+        <div className="hidden items-center gap-3 lg:flex">
+          <nav aria-label="Primary navigation" className="flex items-center gap-2">
             {navigationLinks.map((link) => {
               const active = isActiveLink(pathname, link.href);
 
@@ -51,11 +52,12 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium",
+                    "rounded-full px-4 py-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)]",
                     active
                       ? "bg-[var(--color-forest)] text-white"
                       : "text-[var(--color-muted)] hover:bg-white/70 hover:text-[var(--color-ink)]",
                   )}
+                  aria-current={active ? "page" : undefined}
                 >
                   {link.label}
                 </Link>
@@ -72,7 +74,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line-strong)] bg-white/70 text-[var(--color-ink)] md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line-strong)] bg-white/70 text-[var(--color-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)] lg:hidden"
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -99,9 +101,9 @@ export function SiteHeader() {
       {isOpen ? (
         <div
           id="mobile-navigation"
-          className="border-t border-[var(--color-line)] bg-[rgba(248,243,236,0.94)] px-5 py-5 md:hidden"
+          className="border-t border-[var(--color-line)] bg-[rgba(248,243,236,0.94)] px-5 py-5 lg:hidden"
         >
-          <nav aria-label="Mobile primary" className="flex flex-col gap-2">
+          <nav aria-label="Mobile primary navigation" className="flex flex-col gap-2">
             {navigationLinks.map((link) => {
               const active = isActiveLink(pathname, link.href);
 
@@ -111,11 +113,12 @@ export function SiteHeader() {
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "rounded-[18px] px-4 py-3 text-sm font-medium",
+                    "rounded-[18px] px-4 py-3 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)]",
                     active
                       ? "bg-[var(--color-forest)] text-white"
                       : "bg-white/65 text-[var(--color-ink)]",
                   )}
+                  aria-current={active ? "page" : undefined}
                 >
                   {link.label}
                 </Link>

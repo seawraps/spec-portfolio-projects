@@ -5,11 +5,11 @@ import { agency, metrics } from "@/lib/data";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-white/10 pb-16 pt-20 sm:pb-20 sm:pt-24">
+    <section className="relative overflow-hidden border-b border-white/10 pb-16 pt-16 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-hero-grid opacity-75" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-64 bg-radial-glow" aria-hidden="true" />
 
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8">
+      <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
         <div className="space-y-8">
           <p className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-mint">
             Independent Growth Agency
@@ -34,9 +34,9 @@ export function Hero() {
             </Link>
           </div>
 
-          <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             {metrics.slice(0, 4).map((metric) => (
-              <div key={metric.label} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+              <div key={metric.label} className="rounded-xl border border-white/10 bg-white/[0.03] p-6">
                 <dt className="text-2xl font-bold text-white">{metric.value}</dt>
                 <dd className="mt-1 text-xs leading-5 text-slate-300">{metric.label}</dd>
               </div>
@@ -46,7 +46,7 @@ export function Hero() {
 
         <div className="relative">
           <div className="surface-panel overflow-hidden">
-            <div className="border-b border-white/10 p-5">
+            <div className="border-b border-white/10 p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mint">Live Performance Snapshot</p>
               <p className="mt-2 text-sm text-slate-300">Cross-channel growth dashboard mockup for portfolio concept.</p>
             </div>
@@ -60,7 +60,7 @@ export function Hero() {
             />
           </div>
 
-          <div className="absolute -bottom-6 -left-3 hidden max-w-xs rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur lg:block">
+          <div className="absolute -bottom-6 -left-3 hidden max-w-xs rounded-xl border border-white/20 bg-white/10 p-6 backdrop-blur lg:block">
             <p className="text-xs uppercase tracking-[0.2em] text-mint">Creative velocity</p>
             <p className="mt-1 text-sm text-slate-100">18 ad variants tested in 14 days</p>
           </div>

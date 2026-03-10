@@ -4,8 +4,8 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function StorySection() {
   return (
-    <section className="py-16 sm:py-20">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+    <section className="py-12 md:py-16 lg:py-24">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
         <div className="order-2 lg:order-1">
           <SectionHeading
             eyebrow="Our Story"
@@ -16,17 +16,17 @@ export function StorySection() {
             Every service is grounded in a simple promise: cook with intention, host generously,
             and let great ingredients stay recognizable on the plate.
           </p>
-          <ul className="mt-8 grid gap-3 text-sm text-stone-700 sm:grid-cols-2">
-            <li className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
+          <ul className="mt-8 grid gap-6 text-sm text-stone-700 sm:grid-cols-2">
+            <li className="rounded-2xl border border-stone-200 bg-stone-50/70 p-6">
               Daily deliveries from local fish markets
             </li>
-            <li className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
+            <li className="rounded-2xl border border-stone-200 bg-stone-50/70 p-6">
               Housemade breads and fresh pasta program
             </li>
-            <li className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
+            <li className="rounded-2xl border border-stone-200 bg-stone-50/70 p-6">
               Curated Mediterranean wine and amaro list
             </li>
-            <li className="rounded-2xl border border-stone-200 bg-stone-50/70 p-4">
+            <li className="rounded-2xl border border-stone-200 bg-stone-50/70 p-6">
               Private dining and group tasting experiences
             </li>
           </ul>

@@ -13,12 +13,13 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <div className="pt-28 sm:pt-32">
-      <section className="pb-12">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section className="pb-12 md:pb-16 lg:pb-24">
+        <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Menu"
             title="Seasonal Mediterranean dining, from mezze to fire-charred mains"
             description="Menus shift with availability and market produce. Prices shown are current sample pricing for this concept project."
+            as="h1"
           />
 
           <nav

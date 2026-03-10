@@ -43,14 +43,14 @@ export default function Home() {
     <>
       <section
         id="hero"
-        className="px-6 pb-20 pt-16 sm:px-8 lg:px-12 lg:pb-24 lg:pt-24"
+        className="px-6 py-16 md:py-20 lg:py-24"
       >
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.15fr)_380px] lg:items-end">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.15fr)_380px] lg:items-end">
           <div>
             <span className="inline-flex rounded-full border border-emerald-300/25 bg-emerald-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-100">
               Portfolio Hub
             </span>
-            <h1 className="mt-6 max-w-4xl font-display text-5xl tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 max-w-4xl text-balance font-display text-4xl tracking-tight text-white sm:text-5xl lg:text-7xl">
               Modern Web Development Portfolio
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
@@ -61,25 +61,25 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-300 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
+                className="cta-primary w-full sm:w-auto"
               >
                 View live projects
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/60 hover:bg-white/10"
+                className="cta-secondary w-full sm:w-auto"
               >
                 Project availability
               </a>
             </div>
-            <dl className="mt-10 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <dl className="mt-10 grid gap-6 sm:grid-cols-3">
+              <div className="glass-card rounded-2xl p-6">
                 <dt className="text-xs uppercase tracking-[0.24em] text-slate-400">
                   Live builds
                 </dt>
                 <dd className="mt-2 font-display text-3xl text-white">6</dd>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="glass-card rounded-2xl p-6">
                 <dt className="text-xs uppercase tracking-[0.24em] text-slate-400">
                   Core stack
                 </dt>
@@ -87,7 +87,7 @@ export default function Home() {
                   Next.js
                 </dd>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="glass-card rounded-2xl p-6">
                 <dt className="text-xs uppercase tracking-[0.24em] text-slate-400">
                   Deployment
                 </dt>
@@ -96,7 +96,7 @@ export default function Home() {
             </dl>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_25px_80px_rgba(2,8,23,0.35)] backdrop-blur-sm sm:p-8">
+          <div className="glass-card rounded-[2rem] p-6 sm:p-8">
             <div className="flex items-center justify-between text-xs uppercase tracking-[0.28em] text-slate-400">
               <span>Build focus</span>
               <span>2026</span>
@@ -113,7 +113,7 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 rounded-2xl border border-white/10 bg-slate-950/40 p-4">
+            <div className="glass-card mt-8 rounded-2xl bg-slate-950/40 p-6">
               <p className="text-xs uppercase tracking-[0.24em] text-slate-400">
                 Project types
               </p>
@@ -132,15 +132,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="px-6 py-20 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-6xl">
+      <section id="projects" className="px-6 py-12 md:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Projects"
             title="Six live portfolio builds across multiple business categories."
             description="Each project below is deployed and ready to explore. The collection covers SaaS, agency, restaurant, home services, real estate, and personal brand concepts."
             centered
           />
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
@@ -148,18 +148,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="tech-stack" className="px-6 py-20 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-6xl">
+      <section id="tech-stack" className="px-6 py-12 md:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Tech Stack"
             title="Built with modern front-end tools that ship fast and scale cleanly."
             description="The work in this portfolio is grounded in a focused stack: Next.js, React, Tailwind CSS, TypeScript, and Vercel."
           />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
             {technologies.map((technology) => (
               <article
                 key={technology.name}
-                className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+                className="glass-card rounded-[1.5rem] p-6"
               >
                 <h3 className="font-display text-2xl tracking-tight text-white">
                   {technology.name}
@@ -173,17 +173,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="px-6 py-20 sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-sm sm:p-10">
+      <section id="about" className="px-6 py-12 md:py-16 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="glass-card rounded-[2rem] p-8 sm:p-10">
             <SectionHeading
               eyebrow="About"
               title="Modern responsive websites for businesses and startups."
               description="I build modern responsive websites for businesses and startups with an emphasis on clean interfaces, clear messaging, and implementation quality. The goal is simple: ship work that looks strong, loads fast, and feels credible from the first scroll."
             />
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/45 p-6">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+            <div className="glass-card rounded-[1.75rem] bg-slate-950/45 p-6">
               <p className="text-xs uppercase tracking-[0.24em] text-slate-400">
                 What I optimize
               </p>
@@ -192,7 +192,7 @@ export default function Home() {
                 structures that are easy to extend.
               </p>
             </div>
-            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+            <div className="glass-card rounded-[1.75rem] p-6">
               <p className="text-xs uppercase tracking-[0.24em] text-slate-400">
                 Delivery style
               </p>
@@ -205,9 +205,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="px-6 pb-24 pt-20 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-6xl">
-          <div className="rounded-[2.5rem] border border-emerald-300/25 bg-[linear-gradient(135deg,rgba(16,185,129,0.16),rgba(15,23,42,0.85)_45%,rgba(56,189,248,0.14))] p-8 shadow-[0_25px_80px_rgba(2,8,23,0.35)] sm:p-10 lg:p-12">
+      <section id="contact" className="px-6 py-12 md:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="glass-card rounded-[2.5rem] border-emerald-300/25 bg-[linear-gradient(135deg,rgba(16,185,129,0.16),rgba(15,23,42,0.85)_45%,rgba(56,189,248,0.14))] p-8 sm:p-10 lg:p-12">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-100">
               Availability
             </p>
@@ -222,13 +222,13 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+                className="cta-light"
               >
                 Explore the projects
               </a>
               <a
                 href="#hero"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/10"
+                className="cta-secondary border-white/20"
               >
                 Back to top
               </a>

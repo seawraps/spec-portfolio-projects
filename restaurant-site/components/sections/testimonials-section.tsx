@@ -3,8 +3,8 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function TestimonialsSection() {
   return (
-    <section className="py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="Press & Guests"
           title="What guests and editors say"
@@ -15,7 +15,7 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial) => (
             <blockquote
               key={testimonial.author}
-              className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm"
+              className="surface-card rounded-3xl p-6"
             >
               <p className="text-lg leading-relaxed text-stone-800">“{testimonial.quote}”</p>
               <footer className="mt-6 border-t border-stone-100 pt-4 text-sm text-stone-600">

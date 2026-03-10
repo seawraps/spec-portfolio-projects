@@ -16,16 +16,17 @@ export const metadata: Metadata = createPageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <section className="py-16 sm:py-20">
+      <section className="py-12 md:py-16 lg:py-24">
         <Container className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
             <SectionHeading
               eyebrow="Contact"
               title="Tell us about your project"
               description="Share your goals and timeline. We will follow up to schedule a consultation and confirm the best next steps for your home."
+              as="h1"
             />
 
-            <div className="mt-7 rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-sm">
+            <div className="surface-card mt-7 rounded-2xl p-6">
               <h2 className="text-lg font-semibold text-[var(--color-brand)]">Office Details</h2>
               <address className="mt-4 space-y-2 text-sm not-italic leading-7 text-[var(--color-muted)]">
                 <p>{company.addressLine}</p>
@@ -71,7 +72,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-lg sm:p-8">
+          <div className="surface-card-strong rounded-3xl p-6 sm:p-8">
             <h2 className="font-display text-4xl text-[var(--color-brand)]">Request a Consultation</h2>
             <p className="mt-3 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
               We typically respond within one business day.

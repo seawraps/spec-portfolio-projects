@@ -6,7 +6,7 @@ import { featuredListings } from "@/lib/data";
 
 export function FeaturedListingsSection() {
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="featured-listings-heading">
+    <section className="py-12 md:py-16 lg:py-24" aria-labelledby="featured-listings-heading">
       <Container>
         <SectionHeading
           id="featured-listings-heading"

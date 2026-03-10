@@ -13,7 +13,7 @@ export function TestimonialsSection({
   description = "The strongest referral businesses are built on repeat trust. These illustrative testimonials reflect the tone of feedback the agency aims to earn.",
 }: TestimonialsSectionProps) {
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="testimonials-heading">
+    <section className="py-12 md:py-16 lg:py-24" aria-labelledby="testimonials-heading">
       <Container>
         <SectionHeading
           id="testimonials-heading"
@@ -22,7 +22,7 @@ export function TestimonialsSection({
           title={title}
           description={description}
         />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <TestimonialCard
               key={testimonial.name}

@@ -1,8 +1,11 @@
+import type { ElementType } from "react";
+
 type SectionHeadingProps = {
   eyebrow?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
+  as?: ElementType;
 };
 
 export function SectionHeading({
@@ -10,6 +13,7 @@ export function SectionHeading({
   title,
   description,
   align = "left",
+  as: HeadingTag = "h2",
 }: SectionHeadingProps) {
   const alignment = align === "center" ? "text-center mx-auto" : "text-left";
 
@@ -20,9 +24,9 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="text-3xl font-semibold leading-tight text-stone-900 sm:text-4xl">
+      <HeadingTag className="text-3xl font-semibold leading-tight text-stone-900 sm:text-4xl">
         {title}
-      </h2>
+      </HeadingTag>
       {description ? (
         <p className="mt-4 text-base leading-relaxed text-stone-600 sm:text-lg">
           {description}

@@ -12,11 +12,11 @@ export function GallerySection({
   description = "Natural textures, warm lighting, and a kitchen designed to be part of the room.",
 }: GallerySectionProps) {
   return (
-    <section className="py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6">
         <SectionHeading eyebrow="Gallery" title={title} description={description} align="center" />
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {galleryImages.map((image) => (
             <figure
               key={image.src}

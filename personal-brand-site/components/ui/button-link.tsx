@@ -14,11 +14,22 @@ type ButtonLinkProps = {
 
 const variants = {
   primary:
-    "bg-ink text-white shadow-[0_18px_40px_rgba(28,36,51,0.18)] hover:-translate-y-0.5 hover:bg-ink-soft",
+    "bg-ink text-white shadow-[0_18px_40px_-24px_rgba(28,36,51,0.65)] hover:-translate-y-0.5 hover:bg-ink-soft hover:shadow-[0_24px_50px_-26px_rgba(28,36,51,0.72)]",
   secondary:
-    "border border-ink/12 bg-white/72 text-ink hover:-translate-y-0.5 hover:bg-white",
-  ghost: "text-ink hover:text-rose",
+    "border border-ink/12 bg-white/78 text-ink shadow-[0_16px_36px_-28px_rgba(28,36,51,0.2)] hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_22px_44px_-30px_rgba(28,36,51,0.24)]",
+  ghost: "text-ink hover:-translate-y-0.5 hover:text-rose",
 } as const;
+
+export function buttonClassName(
+  variant: keyof typeof variants = "primary",
+  className?: string,
+) {
+  return cn(
+    "inline-flex h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+    variants[variant],
+    className,
+  );
+}
 
 export function ButtonLink({
   href,
@@ -28,16 +39,12 @@ export function ButtonLink({
   arrow = false,
   onClick,
 }: ButtonLinkProps) {
-  const classes = cn(
-    "inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
-    variants[variant],
-    className,
-  );
+  const classes = buttonClassName(variant, className);
 
   const content = (
     <>
       <span>{children}</span>
-      {arrow ? <span aria-hidden="true">-&gt;</span> : null}
+      {arrow ? <span aria-hidden="true" className="text-base leading-none">-&gt;</span> : null}
     </>
   );
 

@@ -6,7 +6,7 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-24 border-t border-stone-200 bg-stone-950 text-stone-200">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-3 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-3">
         <div>
           <h2 className="font-display text-3xl text-stone-50">{restaurantName}</h2>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-300">

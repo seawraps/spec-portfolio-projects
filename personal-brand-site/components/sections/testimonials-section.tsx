@@ -14,7 +14,7 @@ export function TestimonialsSection() {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <article key={testimonial.name} className="dark-panel h-full p-7">
+            <article key={testimonial.name} className="dark-panel h-full p-8">
               <p className="text-4xl leading-none text-clay">&quot;</p>
               <p className="mt-5 text-base leading-8 text-white/82">{testimonial.quote}</p>
               <div className="mt-8 border-t border-white/10 pt-5">

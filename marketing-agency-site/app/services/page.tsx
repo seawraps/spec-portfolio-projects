@@ -40,7 +40,7 @@ export default function ServicesPage() {
       />
 
       <section className="section-spacing">
-        <div className="mx-auto w-full max-w-6xl space-y-5 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl space-y-6 px-6">
           {services.map((service) => (
             <article key={service.slug} className="surface-panel grid gap-6 p-6 md:grid-cols-[1.05fr_0.95fr] md:p-8">
               <div className="space-y-4">
@@ -56,7 +56,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-deep-2/80 p-5">
+              <div className="rounded-xl border border-white/10 bg-deep-2/80 p-6">
                 <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-mint">Typical Deliverables</h3>
                 <ul className="mt-4 space-y-3 text-sm text-slate-200">
                   {service.deliverables.map((deliverable) => (
@@ -73,7 +73,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="section-spacing border-y border-white/10 bg-deep-2/70">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl px-6">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-white">Common questions before kickoff</h2>
@@ -83,7 +83,7 @@ export default function ServicesPage() {
             </div>
             <div className="space-y-3">
               {faqs.map((faq) => (
-                <details key={faq.question} className="surface-panel group p-5" name="faq">
+                <details key={faq.question} className="surface-panel group p-6" name="faq">
                   <summary className="cursor-pointer list-none text-base font-semibold text-white">{faq.question}</summary>
                   <p className="mt-3 text-sm leading-7 text-slate-300">{faq.answer}</p>
                 </details>

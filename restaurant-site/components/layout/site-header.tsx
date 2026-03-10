@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+
+import { buttonClassName } from "@/components/ui/button-styles";
 import { navLinks } from "@/lib/data";
 
 function linkClasses(currentPath: string, href: string) {
   const isActive = href === "/" ? currentPath === "/" : currentPath.startsWith(href);
 
-  return `transition-colors hover:text-amber-700 ${
+  return `transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 hover:text-amber-700 ${
     isActive ? "text-amber-700" : "text-stone-700"
   }`;
 }
@@ -19,8 +21,13 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-stone-200/70 bg-[rgba(248,244,236,0.92)] backdrop-blur-lg">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-end gap-2" onClick={() => setIsOpen(false)}>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <Link
+          href="/"
+          className="flex items-end gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700"
+          onClick={() => setIsOpen(false)}
+          aria-label="Astera Coastal Bistro home"
+        >
           <span className="font-display text-2xl font-semibold leading-none text-stone-900">
             Astera
           </span>
@@ -31,11 +38,11 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md border border-stone-300 p-2 text-stone-700 md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-stone-300 text-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 md:hidden"
           onClick={() => setIsOpen((value) => !value)}
           aria-expanded={isOpen}
           aria-controls="mobile-nav"
-          aria-label="Toggle navigation"
+          aria-label={isOpen ? "Close primary navigation" : "Open primary navigation"}
         >
           <span className="sr-only">Toggle menu</span>
           <svg
@@ -54,15 +61,24 @@ export function SiteHeader() {
           </svg>
         </button>
 
-        <nav className="hidden items-center gap-7 text-sm font-medium md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-7 text-sm font-medium md:flex" aria-label="Primary navigation">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={linkClasses(pathname, link.href)}>
+            <Link
+              key={link.href}
+              href={link.href}
+              className={linkClasses(pathname, link.href)}
+              aria-current={
+                (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href))
+                  ? "page"
+                  : undefined
+              }
+            >
               {link.label}
             </Link>
           ))}
           <Link
             href="/#reservations"
-            className="rounded-full bg-stone-900 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-stone-50 transition-colors hover:bg-stone-700"
+            className={buttonClassName("primary")}
           >
             Book A Table
           </Link>
@@ -73,15 +89,20 @@ export function SiteHeader() {
         <nav
           id="mobile-nav"
           className="border-t border-stone-200 bg-[rgba(248,244,236,0.98)] px-4 py-4 md:hidden"
-          aria-label="Mobile"
+          aria-label="Mobile primary navigation"
         >
-          <div className="mx-auto flex max-w-6xl flex-col gap-4 text-base font-medium">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 text-base font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={linkClasses(pathname, link.href)}
                 onClick={() => setIsOpen(false)}
+                aria-current={
+                  (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href))
+                    ? "page"
+                    : undefined
+                }
               >
                 {link.label}
               </Link>
@@ -89,7 +110,7 @@ export function SiteHeader() {
             <Link
               href="/#reservations"
               onClick={() => setIsOpen(false)}
-              className="mt-2 inline-flex w-fit rounded-full bg-stone-900 px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-stone-50"
+              className={buttonClassName("primary", "mt-2 w-full")}
             >
               Book A Table
             </Link>

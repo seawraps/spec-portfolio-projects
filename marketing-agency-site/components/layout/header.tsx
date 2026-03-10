@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-deep/85 backdrop-blur-lg">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
         <Link
           href="/"
           className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] text-white"
@@ -32,15 +32,16 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md border border-white/20 px-3 py-2 text-sm font-semibold text-white transition hover:border-white/50 hover:bg-white/10 md:hidden"
+          className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 px-4 text-sm font-semibold text-white transition hover:border-white/50 hover:bg-white/10 md:hidden"
           onClick={() => setIsMenuOpen((current) => !current)}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
+          aria-label={isMenuOpen ? "Close primary navigation" : "Open primary navigation"}
         >
           Menu
         </button>
 
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary navigation">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -50,11 +51,12 @@ export function Header() {
                   ? "text-white"
                   : "text-slate-300 hover:text-white"
               }`}
+              aria-current={isActive(pathname, item.href) ? "page" : undefined}
             >
               {item.label}
             </Link>
           ))}
-          <Link href="/contact" className="button-primary text-sm">
+          <Link href="/contact" className="button-primary">
             Book Strategy Call
           </Link>
         </nav>
@@ -63,7 +65,7 @@ export function Header() {
       {isMenuOpen ? (
         <nav
           id="mobile-navigation"
-          aria-label="Mobile"
+          aria-label="Mobile primary navigation"
           className="border-t border-white/10 bg-deep/95 px-4 py-4 md:hidden sm:px-6"
         >
           <ul className="space-y-3">
@@ -72,11 +74,12 @@ export function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block rounded-md px-3 py-2 text-sm font-medium transition ${
+                  className={`block rounded-full px-4 py-2.5 text-sm font-medium transition ${
                     isActive(pathname, item.href)
                       ? "bg-white/10 text-white"
                       : "text-slate-300 hover:bg-white/10 hover:text-white"
                   }`}
+                  aria-current={isActive(pathname, item.href) ? "page" : undefined}
                 >
                   {item.label}
                 </Link>
@@ -86,7 +89,7 @@ export function Header() {
               <Link
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="button-primary mt-2 w-full justify-center text-sm"
+                className="button-primary mt-2 w-full justify-center"
               >
                 Book Strategy Call
               </Link>

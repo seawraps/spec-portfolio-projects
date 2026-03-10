@@ -3,12 +3,12 @@ import { socialProofLogos } from "@/lib/data";
 
 export function SocialProofSection() {
   return (
-    <section className="border-y border-slate-200 bg-white py-10 sm:py-12">
+    <section className="border-y border-slate-200 bg-white py-12 md:py-16 lg:py-20">
       <Container>
         <p className="text-center text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
           Trusted by operations teams at growth-stage B2B companies
         </p>
-        <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <ul className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
           {socialProofLogos.map((company) => (
             <li
               key={company}
