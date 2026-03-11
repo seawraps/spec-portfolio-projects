@@ -60,16 +60,13 @@ export default function MenuPage() {
           <Reveal>
             <nav aria-label="Menu chapters" className="border-y border-[rgba(233,209,181,0.1)] py-5">
               <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-                {menuCategories.map((category, index) => (
+                {menuCategories.map((category) => (
                   <li key={category.id}>
                     <Link
                       href={`#${category.id}`}
                       className="block text-[#cfbda8] transition-colors duration-300 hover:text-[#fff1df]"
                     >
-                      <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#8f6a4b]">
-                        {String(index + 1).padStart(2, "0")}
-                      </p>
-                      <p className="mt-3 font-display text-[1.9rem] leading-[0.94] tracking-[-0.04em]">
+                      <p className="font-display text-[1.9rem] leading-[0.94] tracking-[-0.04em]">
                         {category.title}
                       </p>
                     </Link>
