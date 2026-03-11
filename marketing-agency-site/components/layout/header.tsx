@@ -11,25 +11,21 @@ const navPanels = [
   {
     href: "/",
     label: "Home",
-    number: "01",
     summary: "Campaign-first homepage with proof, pressure points, and a measurable performance narrative.",
   },
   {
     href: "/about",
     label: "About",
-    number: "02",
     summary: "Senior-led operating model, point of view, and why strategy stays close to execution.",
   },
   {
     href: "/services",
     label: "Services",
-    number: "03",
     summary: "The full stack across media, creative systems, landing pages, and optimization loops.",
   },
   {
     href: "/contact",
     label: "Contact",
-    number: "04",
     summary: "Start with the pressure point and route into the right sprint or retainer path.",
   },
 ];
@@ -107,13 +103,13 @@ export function Header() {
                   <span className="h-1.5 w-1.5 rounded-full bg-signal" />
                   Control routes
                 </span>
-                <span>Route 01-04</span>
+                <span>Core routes</span>
               </div>
               <nav
                 className="grid grid-cols-4 gap-1 rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(10,10,12,0.92))] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
                 aria-label="Primary navigation"
               >
-                {navItems.map((item, index) => {
+                {navItems.map((item) => {
                   const active = isActive(pathname, item.href);
 
                   return (
@@ -121,22 +117,13 @@ export function Header() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`group grid min-h-[4.4rem] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-[1rem] border px-3 py-3 ${
+                      className={`group grid min-h-[4.4rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-[1rem] border px-3 py-3 ${
                         active
                           ? "border-signal/48 bg-paper text-ink shadow-[0_18px_36px_-26px_rgba(255,245,235,0.86)]"
                           : "border-transparent bg-black/18 text-white/68 hover:border-white/10 hover:bg-white/[0.07] hover:text-white"
                       }`}
                       aria-current={active ? "page" : undefined}
                     >
-                      <span
-                        className={`inline-flex h-9 w-9 items-center justify-center rounded-[0.9rem] text-[0.56rem] font-semibold uppercase tracking-[0.2em] ${
-                          active
-                            ? "bg-ink text-paper"
-                            : "border border-white/10 bg-white/[0.05] text-white/38 group-hover:border-white/14 group-hover:text-white/54"
-                        }`}
-                      >
-                        {`0${index + 1}`}
-                      </span>
                       <span className="min-w-0">
                         <span className={`block text-[0.68rem] font-semibold uppercase tracking-[0.2em] ${active ? "text-ink" : "text-white"}`}>
                           {item.label}
@@ -181,7 +168,6 @@ export function Header() {
                   <span className="h-1.5 w-1.5 rounded-full bg-volt" />
                 </span>
                 <span>{isMenuOpen ? "Close" : "Menu"}</span>
-                <span className="text-white/34">{`0${navItems.length}`}</span>
               </button>
             </div>
           </div>
@@ -236,10 +222,7 @@ export function Header() {
                     style={{ "--reveal-delay": `${index * 70}ms` } as CSSProperties}
                     aria-current={isActive(pathname, item.href) ? "page" : undefined}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <span className={`font-display text-5xl uppercase leading-none ${isActive(pathname, item.href) ? "text-ink/22" : "text-white/16"}`}>
-                        {item.number}
-                      </span>
+                    <div className="flex justify-end">
                       <span
                         className={`rounded-full border px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.18em] ${
                           isActive(pathname, item.href)

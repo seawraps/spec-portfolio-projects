@@ -189,7 +189,7 @@ export function SiteHeader() {
             </div>
 
             <div className="grid gap-3">
-              {navLinks.map((link, index) => {
+              {navLinks.map((link) => {
                 const active = isActiveLink(pathname, link.href);
 
                 return (
@@ -205,10 +205,7 @@ export function SiteHeader() {
                     aria-current={active ? "page" : undefined}
                   >
                     <div>
-                      <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#8e6d53]">
-                        {String(index + 1).padStart(2, "0")}
-                      </p>
-                      <p className="mt-2 font-display text-[2.4rem] leading-none">{link.label}</p>
+                      <p className="font-display text-[2.4rem] leading-none">{link.label}</p>
                     </div>
                     <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[#d8af79] transition-transform duration-300 group-hover:translate-x-1">
                       Enter

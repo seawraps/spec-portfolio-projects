@@ -59,14 +59,14 @@ export function MobileMenu() {
 
           <nav aria-label="Mobile primary navigation" className="mt-4">
             <ul className="flex flex-col gap-2">
-              {navigationLinks.map((link, index) => {
+              {navigationLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={`flex items-center justify-between rounded-[1.2rem] px-4 py-3 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 ${
+                      className={`flex items-center rounded-[1.2rem] px-4 py-3 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 ${
                         isActive
                           ? "bg-[linear-gradient(135deg,rgba(101,226,255,0.2),rgba(22,184,255,0.12))] text-white ring-1 ring-white/10"
                           : "text-slate-300 hover:bg-white/8 hover:text-white"
@@ -74,7 +74,6 @@ export function MobileMenu() {
                       aria-current={isActive ? "page" : undefined}
                     >
                       <span>{link.label}</span>
-                      <span className="data-label text-[0.58rem] text-slate-500">0{index + 1}</span>
                     </Link>
                   </li>
                 );
