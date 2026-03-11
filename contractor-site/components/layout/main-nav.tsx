@@ -4,14 +4,14 @@ import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-import { ButtonLink, buttonClassName } from "@/components/ui/button-link";
 import type { NavLink } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 type MainNavProps = {
   links: NavLink[];
-  phoneDisplay: string;
-  phoneRaw: string;
+  mode: "desktop" | "mobile";
+  phoneDisplay?: string;
+  phoneRaw?: string;
 };
 
 function isActiveRoute(pathname: string, href: string) {
@@ -22,7 +22,7 @@ function isActiveRoute(pathname: string, href: string) {
   return pathname.startsWith(href);
 }
 
-export function MainNav({ links, phoneDisplay, phoneRaw }: MainNavProps) {
+export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
   const pathname = usePathname();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -30,10 +30,10 @@ export function MainNav({ links, phoneDisplay, phoneRaw }: MainNavProps) {
     setIsMobileOpen(false);
   }, [pathname]);
 
-  return (
-    <div className="relative flex w-full shrink-0 items-center justify-end lg:w-auto">
-      <nav aria-label="Primary navigation" className="hidden lg:block">
-        <ul className="flex items-center gap-2 border-y border-[color:rgba(36,54,75,0.12)] px-4 py-2.5">
+  if (mode === "desktop") {
+    return (
+      <nav aria-label="Primary navigation">
+        <ul className="flex items-center gap-6 xl:gap-8">
           {links.map((link) => {
             const isActive = isActiveRoute(pathname, link.href);
 
@@ -42,10 +42,9 @@ export function MainNav({ links, phoneDisplay, phoneRaw }: MainNavProps) {
                 <Link
                   href={link.href}
                   className={cn(
-                    "inline-flex items-center rounded-full px-4 py-2.5 text-[0.69rem] font-semibold uppercase tracking-[0.22em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]",
-                    isActive
-                      ? "bg-[var(--color-brand)] text-[var(--color-surface)] shadow-[0_18px_34px_-24px_rgba(22,36,52,0.76)]"
-                      : "text-[color:rgba(36,54,75,0.78)] hover:bg-[color:rgba(36,54,75,0.06)] hover:text-[var(--color-brand)]",
+                    "relative inline-flex items-center px-1 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted)] transition hover:text-[var(--color-brand)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)] xl:text-[0.7rem]",
+                    isActive &&
+                      "text-[var(--color-brand)] after:absolute after:inset-x-0 after:-bottom-[1.05rem] after:h-px after:bg-[var(--color-accent)]",
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -56,77 +55,64 @@ export function MainNav({ links, phoneDisplay, phoneRaw }: MainNavProps) {
           })}
         </ul>
       </nav>
+    );
+  }
 
-      <button
-        type="button"
-        className="inline-flex min-h-11 w-full items-center justify-between gap-3 rounded-[1.2rem] border border-[color:rgba(36,54,75,0.1)] bg-[color:rgba(255,250,243,0.92)] px-3.5 py-3 text-left shadow-[0_18px_42px_-34px_rgba(18,29,40,0.34)] lg:hidden"
-        onClick={() => setIsMobileOpen((current) => !current)}
-        aria-expanded={isMobileOpen}
-        aria-controls="mobile-menu"
-        aria-label={isMobileOpen ? "Close primary navigation" : "Open primary navigation"}
-      >
-        <span className="inline-flex items-center gap-3">
-          <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-brand)]">
+  return (
+    <div className="relative">
+      <div className="flex items-center gap-2">
+        <Link
+          href="/contact"
+          className="inline-flex min-h-10 items-center justify-center rounded-[0.75rem] border border-[color:rgba(31,35,39,0.14)] px-3 py-2 text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]"
+        >
+          Consult
+        </Link>
+        <button
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-[0.8rem] border border-[color:rgba(31,35,39,0.14)] bg-[color:rgba(247,242,234,0.74)] text-[var(--color-brand)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] sm:h-11 sm:w-11"
+          onClick={() => setIsMobileOpen((current) => !current)}
+          aria-expanded={isMobileOpen}
+          aria-controls="mobile-menu"
+          aria-label={isMobileOpen ? "Close primary navigation" : "Open primary navigation"}
+        >
+          <span className="relative block h-4 w-4">
             <span
               className={cn(
-                "absolute h-px w-4 bg-[var(--color-surface)] transition-transform duration-200",
-                isMobileOpen ? "rotate-45" : "-translate-y-1.5",
+                "absolute left-0 top-0.5 h-px w-4 bg-current transition-transform duration-200",
+                isMobileOpen && "translate-y-[0.35rem] rotate-45",
               )}
             />
             <span
               className={cn(
-                "absolute h-px w-4 bg-[var(--color-surface)] transition-opacity duration-200",
-                isMobileOpen ? "opacity-0" : "opacity-100",
+                "absolute left-0 top-[0.45rem] h-px w-4 bg-current transition-opacity duration-200",
+                isMobileOpen && "opacity-0",
               )}
             />
             <span
               className={cn(
-                "absolute h-px w-4 bg-[var(--color-surface)] transition-transform duration-200",
-                isMobileOpen ? "-rotate-45" : "translate-y-1.5",
+                "absolute bottom-0.5 left-0 h-px w-4 bg-current transition-transform duration-200",
+                isMobileOpen && "-translate-y-[0.35rem] -rotate-45",
               )}
             />
           </span>
-          <span className="min-w-0">
-            <span className="block text-[0.58rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-muted)]">
-              Navigation
-            </span>
-            <span className="mt-1 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
-              {isMobileOpen ? "Close menu" : "Open menu"}
-            </span>
-          </span>
-        </span>
-      </button>
+        </button>
+      </div>
 
       {isMobileOpen ? (
         <Fragment>
           <button
             type="button"
-            className="fixed inset-0 z-10 bg-[color:rgba(29,37,48,0.16)] backdrop-blur-[3px] lg:hidden"
+            className="fixed inset-0 z-40 bg-transparent"
             aria-label="Close primary navigation"
             onClick={() => setIsMobileOpen(false)}
           />
           <div
             id="mobile-menu"
-            className="absolute left-0 right-0 top-[calc(100%+0.8rem)] z-20 w-full rounded-[1.85rem] border border-[color:rgba(29,37,48,0.12)] bg-[linear-gradient(180deg,#fffaf3_0%,#f4ecdf_100%)] p-4 shadow-[0_34px_88px_-40px_rgba(18,29,40,0.5)] lg:hidden"
+            className="absolute right-0 top-[calc(100%+0.9rem)] z-50 w-[min(24rem,calc(100vw-1.25rem))] border border-[color:rgba(31,35,39,0.14)] bg-[linear-gradient(180deg,rgba(247,242,234,0.98),rgba(233,226,215,0.98))] p-4 shadow-[0_28px_70px_-44px_rgba(18,29,40,0.4)]"
           >
-            <div className="rounded-[1.45rem] border border-[color:rgba(36,54,75,0.1)] bg-[color:rgba(255,250,243,0.82)] px-4 py-4">
-              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                Consultation Line
-              </p>
-              <a
-                href={`tel:${phoneRaw}`}
-                className="mt-2 block text-lg font-semibold text-[var(--color-brand)]"
-              >
-                {phoneDisplay}
-              </a>
-              <p className="mt-3 text-sm leading-6 text-[var(--color-muted)]">
-                Local remodeling guidance for Nashville, Brentwood, Franklin, and Belle Meade homes.
-              </p>
-            </div>
-
-            <nav aria-label="Mobile primary navigation" className="mt-4">
-              <ul className="space-y-2">
-                {links.map((link, index) => {
+            <nav aria-label="Mobile primary navigation">
+              <ul className="line-list grid">
+                {links.map((link) => {
                   const isActive = isActiveRoute(pathname, link.href);
 
                   return (
@@ -134,22 +120,22 @@ export function MainNav({ links, phoneDisplay, phoneRaw }: MainNavProps) {
                       <Link
                         href={link.href}
                         className={cn(
-                          "flex items-center justify-between rounded-[1.2rem] border px-4 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.2em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]",
+                          "flex items-center justify-between px-0 py-4 text-[0.68rem] font-semibold uppercase tracking-[0.22em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]",
                           isActive
-                            ? "border-[color:rgba(36,54,75,0.08)] bg-[var(--color-brand)] text-[var(--color-surface)]"
-                            : "border-[color:rgba(36,54,75,0.08)] bg-[color:rgba(255,250,243,0.56)] text-[color:rgba(36,54,75,0.78)] hover:bg-[color:rgba(36,54,75,0.05)] hover:text-[var(--color-brand)]",
+                            ? "text-[var(--color-brand)]"
+                            : "text-[var(--color-brand)] hover:text-[var(--color-accent-deep)]",
                         )}
                         aria-current={isActive ? "page" : undefined}
                         onClick={() => setIsMobileOpen(false)}
-                      >
-                        <span>{link.label}</span>
-                        <span
-                          className={cn(
-                            "text-[0.62rem] tracking-[0.2em]",
-                            isActive ? "text-[color:rgba(255,250,243,0.72)]" : "text-[var(--color-accent)]",
-                          )}
                         >
-                          0{index + 1}
+                          <span>{link.label}</span>
+                          <span
+                            className={cn(
+                              "text-[0.62rem]",
+                              isActive ? "text-[var(--color-accent)]" : "text-[var(--color-accent)]",
+                            )}
+                          >
+                            →
                         </span>
                       </Link>
                     </li>
@@ -158,19 +144,19 @@ export function MainNav({ links, phoneDisplay, phoneRaw }: MainNavProps) {
               </ul>
             </nav>
 
-            <div className="mt-4 grid gap-3 min-[430px]:grid-cols-2">
-              <ButtonLink
-                href="/contact"
-                variant="light"
-                className="w-full"
-                onClick={() => setIsMobileOpen(false)}
-              >
-                Request Consultation
-              </ButtonLink>
-              <a href={`tel:${phoneRaw}`} className={buttonClassName("secondary", "w-full")}>
-                Call Office
-              </a>
-            </div>
+            {phoneDisplay && phoneRaw ? (
+              <div className="mt-5 border-t border-[color:rgba(31,35,39,0.12)] pt-5">
+                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)]">
+                  Consultation line
+                </p>
+                <a
+                  href={`tel:${phoneRaw}`}
+                  className="mt-2 block text-base font-semibold text-[var(--color-brand)]"
+                >
+                  {phoneDisplay}
+                </a>
+              </div>
+            ) : null}
           </div>
         </Fragment>
       ) : null}

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Instrument_Sans } from "next/font/google";
+import { Cormorant_Garamond, Instrument_Sans } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -11,8 +11,8 @@ const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
 });
 
-const bodoniModa = Bodoni_Moda({
-  variable: "--font-bodoni",
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -70,7 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSans.variable} ${bodoniModa.variable} min-h-screen font-sans antialiased`}
+        className={`${instrumentSans.variable} ${cormorantGaramond.variable} min-h-screen font-sans antialiased`}
       >
         <div className="relative flex min-h-screen flex-col">
           <a href="#main-content" className="skip-link">

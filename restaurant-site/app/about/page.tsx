@@ -2,12 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { buttonClassName } from "@/components/ui/button-styles";
-import { GallerySection } from "@/components/sections/gallery-section";
-import { SectionHeading } from "@/components/section-heading";
-import { InteractivePanel } from "@/components/ui/interactive-panel";
 import { Reveal } from "@/components/ui/reveal";
-import { pressMentions, siteImages, storyHighlights } from "@/lib/data";
+import { housePrinciples } from "@/lib/experience-data";
+import { pressMentions, siteImages } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
@@ -17,93 +14,54 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="page-shell">
-      <section className="section-dark pb-18 md:pb-22 lg:pb-26">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 xl:grid-cols-[0.9fr_1.1fr] xl:items-end">
-          <Reveal className="max-w-3xl pt-6">
-            <SectionHeading
-              eyebrow="About Astera"
-              title="A restaurant concept built around appetite, atmosphere, and editorial composure"
-              description="Astera imagines what a premium Santa Monica dining room should feel like: polished but sensual, image-led but believable, and rooted in genuine hospitality rather than trend language."
-              as="h1"
-              theme="dark"
-            />
-            <p className="mt-8 text-lg leading-relaxed text-[#d4c3b0]">
-              The room takes cues from coastal Europe and contemporary California. Menus are
-              seasonal, the service is warm without becoming casual, and the visual identity leans
-              toward restaurant culture rather than generic lifestyle branding.
+    <>
+      <section className="section-shell relative overflow-hidden border-b border-[rgba(233,209,181,0.08)]">
+        <div className="absolute inset-0">
+          <Image
+            src={siteImages.heroFeast.src}
+            alt={siteImages.heroFeast.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,6,5,0.34)_0%,rgba(7,6,5,0.62)_36%,rgba(7,6,5,0.92)_100%)]" />
+        </div>
+
+        <div className="relative mx-auto max-w-[96rem] px-5 pb-14 pt-28 sm:px-8 sm:pt-32 lg:px-10 lg:pb-18 lg:pt-36">
+          <Reveal className="max-w-4xl">
+            <p className="eyebrow">About Astera</p>
+            <h1 className="mt-6 max-w-4xl font-display text-[clamp(4rem,10vw,7.6rem)] leading-[0.84] tracking-[-0.065em] text-[#fff0db]">
+              A restaurant concept shaped by atmosphere, appetite, and poised service.
+            </h1>
+            <p className="mt-6 max-w-2xl text-[1rem] leading-relaxed text-[#dccab6] sm:text-[1.12rem]">
+              Astera was designed to feel like a real hospitality brand with ritual and restraint,
+              not a general-purpose portfolio template wearing restaurant photos. Every page is
+              meant to behave like part of the evening.
             </p>
           </Reveal>
-
-          <div className="relative h-[30rem] sm:h-[38rem] xl:h-[44rem]">
-            <Reveal className="absolute right-0 top-0 z-20 w-[72%] hero-drift">
-              <InteractivePanel className="rounded-[2.2rem]">
-                <figure className="image-shell rounded-[2.2rem]">
-                  <Image
-                    src={siteImages.heroOccasion.src}
-                    alt={siteImages.heroOccasion.alt}
-                    width={1800}
-                    height={2400}
-                    className="h-[23rem] w-full object-cover sm:h-[31rem] xl:h-[38rem]"
-                    priority
-                  />
-                </figure>
-              </InteractivePanel>
-            </Reveal>
-
-            <Reveal delay={140} className="absolute bottom-0 left-0 z-30 w-[42%] hero-drift-delayed">
-              <InteractivePanel className="rounded-[1.8rem]">
-                <figure className="image-shell rounded-[1.8rem]">
-                  <Image
-                    src={siteImages.wineToast.src}
-                    alt={siteImages.wineToast.alt}
-                    width={1800}
-                    height={1200}
-                    className="h-[13rem] w-full object-cover sm:h-[17rem]"
-                  />
-                </figure>
-              </InteractivePanel>
-            </Reveal>
-
-            <Reveal
-              delay={220}
-              className="absolute left-[9%] top-[8%] z-40 max-w-[15rem] rounded-[1.7rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(11,8,6,0.78)] p-5 text-[#f6ecdf] shadow-[0_24px_70px_-34px_rgba(0,0,0,0.82)] backdrop-blur-xl"
-            >
-              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
-                Concept Notes
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-[#d4c3b0]">
-                A portfolio project that treats the restaurant as a full hospitality brand, not a
-                mock landing page with nicer photos.
-              </p>
-            </Reveal>
-          </div>
         </div>
       </section>
 
-      <section className="section-light py-18 md:py-22 lg:py-26">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 xl:grid-cols-[1fr_0.92fr] xl:items-center">
+      <section className="section-shell px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-[96rem] grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
             <Reveal>
-              <SectionHeading
-                eyebrow="How It Feels"
-                title="The restaurant is designed as an evening that unfolds in layers"
-                description="Aperitivo energy at the bar gives way to low-lit tables, seafood paced with confidence, and a room that gets more compelling after sunset."
-              />
+              <p className="eyebrow">House Principles</p>
+              <h2 className="mt-5 max-w-lg font-display text-[clamp(3.1rem,6.4vw,5.2rem)] leading-[0.88] tracking-[-0.055em] text-[#fff0db]">
+                The brand is built around hospitality logic rather than business-template rhythm.
+              </h2>
             </Reveal>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-2">
-              {storyHighlights.map((highlight, index) => (
-                <Reveal key={highlight.title} delay={100 + index * 70}>
-                  <article className="surface-card rounded-[1.9rem] p-6">
-                    <p className="text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#9a6435]">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h2 className="mt-4 font-display text-[2.15rem] leading-[0.92] text-[#201511]">
-                      {highlight.title}
-                    </h2>
-                    <p className="mt-4 text-base leading-relaxed text-[#5b4538]">
-                      {highlight.description}
+            <div className="mt-8">
+              {housePrinciples.map((principle, index) => (
+                <Reveal key={principle.title} delay={index * 80}>
+                  <article className="border-t border-[rgba(233,209,181,0.1)] py-5">
+                    <h3 className="font-display text-[2rem] leading-[0.94] tracking-[-0.04em] text-[#fff1df]">
+                      {principle.title}
+                    </h3>
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#cfbda8] sm:text-base">
+                      {principle.description}
                     </p>
                   </article>
                 </Reveal>
@@ -111,94 +69,83 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
-            <Reveal className="sm:col-span-2">
-              <InteractivePanel className="rounded-[2.2rem]">
-                <figure className="image-shell rounded-[2.2rem]">
-                  <Image
-                    src={siteImages.diningRoom.src}
-                    alt={siteImages.diningRoom.alt}
-                    width={1800}
-                    height={1200}
-                    className="h-[18rem] w-full object-cover sm:h-[24rem]"
-                  />
-                </figure>
-              </InteractivePanel>
+          <div className="grid gap-6 sm:grid-cols-[1.08fr_0.92fr]">
+            <Reveal className="sm:row-span-2">
+              <figure className="image-frame rounded-[1.9rem]">
+                <Image
+                  src={siteImages.diningRoom.src}
+                  alt={siteImages.diningRoom.alt}
+                  width={2000}
+                  height={2600}
+                  className="h-[24rem] w-full object-cover sm:h-[38rem] lg:h-[44rem]"
+                />
+              </figure>
             </Reveal>
+
             <Reveal delay={120}>
-              <InteractivePanel className="rounded-[1.9rem]">
-                <figure className="image-shell rounded-[1.9rem]">
-                  <Image
-                    src={siteImages.storyChef.src}
-                    alt={siteImages.storyChef.alt}
-                    width={1800}
-                    height={2700}
-                    className="h-[24rem] w-full object-cover"
-                  />
-                </figure>
-              </InteractivePanel>
+              <figure className="image-frame rounded-[1.5rem]">
+                <Image
+                  src={siteImages.storyChef.src}
+                  alt={siteImages.storyChef.alt}
+                  width={1800}
+                  height={2000}
+                  className="h-[18rem] w-full object-cover sm:h-[20rem]"
+                />
+              </figure>
             </Reveal>
-            <Reveal delay={180}>
-              <InteractivePanel className="rounded-[1.9rem]">
-                <figure className="image-shell rounded-[1.9rem]">
-                  <Image
-                    src={siteImages.cocktailService.src}
-                    alt={siteImages.cocktailService.alt}
-                    width={1800}
-                    height={1260}
-                    className="h-[24rem] w-full object-cover"
-                  />
-                </figure>
-              </InteractivePanel>
+
+            <Reveal delay={200} className="frame-panel rounded-[1.5rem] p-6">
+              <p className="eyebrow">Creative Direction</p>
+              <p className="mt-4 text-sm leading-relaxed text-[#cfbda8] sm:text-base">
+                Typography leans editorial, navigation behaves like a host stand, and each section
+                gives the photography enough room to carry emotion before copy explains it.
+              </p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      <GallerySection
-        title="The visual language leans toward cinematic hospitality"
-        description="Real photography, low-contrast interiors, and appetite-led imagery keep the site grounded in restaurant culture rather than polished portfolio sameness."
-        theme="dark"
-      />
-
-      <section className="section-light py-18 md:py-22 lg:py-26">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="section-shell section-light px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-[96rem]">
           <Reveal>
-            <SectionHeading
-              eyebrow="Press"
-              title="Coverage the brand could credibly grow into"
-              description="The language stays aspirational but believable, supporting the photography-driven art direction without losing the hospitality core."
-            />
+            <p className="eyebrow !text-[#9f6b3d]">Press Read</p>
+            <h2 className="mt-5 max-w-3xl font-display text-[clamp(3.1rem,6.5vw,5.5rem)] leading-[0.88] tracking-[-0.055em] text-[#21150f]">
+              Coverage the brand could plausibly earn because the identity feels restaurant-led.
+            </h2>
           </Reveal>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 divide-y divide-[#d7c2af] border-y border-[#d7c2af]">
             {pressMentions.map((mention, index) => (
-              <Reveal key={mention.source} delay={100 + index * 70}>
-                <article className="surface-card rounded-[1.9rem] p-6">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[#9a6435]">
+              <Reveal key={mention.source} delay={index * 80}>
+                <article className="grid gap-4 py-6 lg:grid-cols-[0.3fr_0.7fr] lg:items-start">
+                  <p className="text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[#9f6b3d]">
                     {mention.source}
                   </p>
-                  <h3 className="mt-4 font-display text-[2rem] leading-[0.92] text-[#201511]">
-                    {mention.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-relaxed text-[#5b4538]">{mention.excerpt}</p>
+                  <div>
+                    <h3 className="font-display text-[2rem] leading-[0.94] tracking-[-0.04em] text-[#241812] sm:text-[2.6rem]">
+                      {mention.title}
+                    </h3>
+                    <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#5b4538] sm:text-base">
+                      {mention.excerpt}
+                    </p>
+                  </div>
                 </article>
               </Reveal>
             ))}
           </div>
 
           <Reveal delay={220}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link href="/menu" className={buttonClassName("primary")}>
-                Explore Our Menu
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/menu" className="editorial-link !text-[#7e502f]">
+                Explore The Menu
               </Link>
-              <Link href="/contact" className={buttonClassName("secondary")}>
+              <Link href="/contact" className="editorial-link !text-[#7e502f]">
                 Plan A Visit
               </Link>
             </div>
           </Reveal>
         </div>
       </section>
-    </div>
+    </>
   );
 }

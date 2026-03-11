@@ -6,12 +6,7 @@ import { Container } from "@/components/layout/container";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionHeading } from "@/components/ui/section-heading";
-import {
-  aboutHighlights,
-  aboutStats,
-  company,
-  differentiators,
-} from "@/lib/data";
+import { aboutHighlights, aboutStats, company, differentiators } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
@@ -24,23 +19,21 @@ export const metadata: Metadata = createPageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section id="about-overview" className="pb-16 pt-8 md:pb-20 md:pt-10 lg:pb-24">
-        <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
+      <section id="about-overview" className="py-10 md:py-12 lg:py-14">
+        <Container className="architectural-grid grid gap-8 py-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
           <Reveal>
-            <div className="surface-card-strong rounded-[2.4rem] p-7 sm:p-9">
             <SectionHeading
               eyebrow="About Blue Oak"
-              title="A local remodeling studio built around trust, taste, and homes people actually live in"
-              description="Founded in 2012, Blue Oak Remodeling Co. was created for homeowners who want a more thoughtful renovation experience: strong material guidance, clear expectations, and craftsmanship that feels settled rather than flashy."
+              title="A local remodeling studio built around trust, taste, and residential permanence."
+              description="Founded in 2012, Blue Oak Remodeling Co. was created for homeowners who want a more thoughtful renovation experience: stronger material guidance, clearer expectations, and craftsmanship that feels settled rather than showy."
               as="h1"
             />
-            <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-              We are not chasing volume. We take on a focused number of kitchen, bath, interior,
-              and millwork-led projects so our team can stay present on the details that matter:
-              layout, finish transitions, schedule clarity, and the way your home feels after the
-              dust is gone.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--color-muted)] sm:text-lg">
+              We are not chasing volume. We take on a disciplined number of kitchen, bath,
+              interior, and millwork-led projects so our team can stay close to layout decisions,
+              finish transitions, scheduling, and the way your home feels after the dust is gone.
             </p>
-            <p className="mt-5 text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+            <p className="mt-6 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
               {company.license}
             </p>
 
@@ -48,46 +41,47 @@ export default function AboutPage() {
               {aboutStats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-[1.5rem] border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.7)] p-5"
+                  className="border border-[color:rgba(31,35,39,0.12)] bg-[color:rgba(247,242,234,0.72)] p-5"
                 >
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                  <p className="text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
                     {stat.label}
                   </p>
-                  <p className="mt-3 text-base leading-7 text-[var(--color-brand)]">{stat.value}</p>
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-brand)] sm:text-base">
+                    {stat.value}
+                  </p>
                 </div>
               ))}
             </div>
-            </div>
           </Reveal>
 
-          <Reveal delay={100} className="grid gap-5 md:grid-cols-[1.12fr_0.88fr]">
-            <div className="image-frame relative min-h-[500px] rounded-[2.4rem]">
+          <Reveal delay={100} className="grid gap-4 sm:grid-cols-[1.08fr_0.92fr]">
+            <div className="image-frame relative min-h-[420px] overflow-hidden rounded-[1rem] sm:min-h-[560px]">
               <Image
                 src="/images/dining-room.jpg"
-                alt="A refined residential dining room with warm wood details and natural light."
+                alt="A refined residential dining room with warm wood detailing and natural light."
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 44vw"
+                sizes="(max-width: 1024px) 100vw, 48vw"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.08),rgba(22,36,52,0.46))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(23,35,45,0.04),rgba(23,35,45,0.28))]" />
             </div>
-            <div className="grid gap-5">
-              <div className="image-frame relative min-h-[240px] rounded-[2rem]">
+            <div className="grid gap-4">
+              <div className="image-frame relative min-h-[200px] overflow-hidden rounded-[1rem]">
                 <Image
                   src="/images/cabinet-detail.jpg"
-                  alt="A cabinetry detail showing premium finish carpentry and warm woodwork."
+                  alt="Premium cabinetry and millwork detail."
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 28vw"
+                  sizes="(max-width: 640px) 100vw, 24vw"
                 />
               </div>
-              <div className="surface-card rounded-[2rem] p-6">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
-                  What We Protect
+              <div className="border border-[color:rgba(31,35,39,0.12)] bg-[color:rgba(247,242,234,0.72)] p-5">
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
+                  What we protect
                 </p>
-                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
-                  Renovation should improve how your home lives without turning the process into a
-                  black box. That means dependable scheduling, respectful crews, and decisions made
+                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
+                  Renovation should improve how a home lives without turning the process into a
+                  black box. That means dependable scheduling, respectful crews, and choices made
                   with both aesthetics and daily use in mind.
                 </p>
               </div>
@@ -97,32 +91,34 @@ export default function AboutPage() {
       </section>
 
       <section id="about-approach" className="py-16 md:py-20 lg:py-24">
-        <Container className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <Container className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <Reveal>
-            <div>
-            <SectionHeading
-              eyebrow="How We Work"
-              title="Good renovation work is equal parts judgment, craft, and communication"
-              description="Our clients are often balancing family schedules, work, budgets, and a hundred product choices at once. Our job is to make that complexity feel manageable."
-            />
-            <ButtonLink href="/contact" variant="secondary" className="mt-7">
-              Talk Through Your Project
-            </ButtonLink>
+            <div className="lg:sticky lg:top-28">
+              <SectionHeading
+                eyebrow="How We Work"
+                title="Good renovation work is equal parts judgment, craft, and communication."
+                description="Our clients are often balancing family schedules, work, budgets, and a hundred product choices at once. Our job is to make that complexity feel manageable."
+              />
+              <ButtonLink href="/contact" variant="secondary" className="mt-7">
+                Talk Through Your Project
+              </ButtonLink>
             </div>
           </Reveal>
 
-          <div className="space-y-4">
-            {aboutHighlights.map((item) => (
-              <Reveal
-                key={item.title}
-                className="surface-card rounded-[1.8rem] p-6"
-              >
-                <h2 className="font-display text-3xl leading-tight text-[var(--color-brand)]">
-                  {item.title}
-                </h2>
-                <p className="mt-3 text-sm leading-8 text-[var(--color-muted)] sm:text-base">
-                  {item.description}
-                </p>
+          <div className="line-list border-y border-[color:rgba(31,35,39,0.12)]">
+            {aboutHighlights.map((item, index) => (
+              <Reveal key={item.title} delay={index * 70}>
+                <article className="py-6">
+                  <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">
+                    0{index + 1}
+                  </p>
+                  <h2 className="mt-3 font-display text-[2rem] leading-[0.96] text-[var(--color-brand)] sm:text-[2.5rem]">
+                    {item.title}
+                  </h2>
+                  <p className="mt-4 max-w-3xl text-sm leading-8 text-[var(--color-muted)] sm:text-base">
+                    {item.description}
+                  </p>
+                </article>
               </Reveal>
             ))}
           </div>
@@ -130,48 +126,46 @@ export default function AboutPage() {
       </section>
 
       <section id="about-referrals" className="py-16 md:py-20 lg:py-24">
-        <Container className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <Container className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
           <Reveal>
-            <div className="image-frame relative min-h-[440px] rounded-[2.4rem]">
-            <Image
-              src="/images/stair-detail.jpg"
-              alt="Warm stair detailing and residential millwork inside a renovated home."
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 48vw"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.06),rgba(22,36,52,0.36))]" />
+            <div className="image-frame relative min-h-[420px] overflow-hidden rounded-[1rem] sm:min-h-[540px]">
+              <Image
+                src="/images/stair-detail.jpg"
+                alt="Warm stair detailing and residential millwork inside a renovated home."
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 48vw"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(23,35,45,0.04),rgba(23,35,45,0.34))]" />
             </div>
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="surface-card-strong rounded-[2.4rem] p-6 sm:p-8">
-            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
-              Why Clients Refer Us
-            </p>
-            <h2 className="mt-4 font-display text-4xl leading-tight text-[var(--color-brand)]">
-              A process built for confidence instead of confusion
+            <p className="architectural-eyebrow">Why Clients Refer Us</p>
+            <h2 className="mt-5 max-w-lg font-display text-[2.7rem] leading-[0.94] text-[var(--color-brand)] sm:text-[3.45rem]">
+              A process built for confidence instead of confusion.
             </h2>
-            <ul className="mt-7 space-y-3">
+
+            <div className="line-list mt-8 border-y border-[color:rgba(31,35,39,0.12)]">
               {differentiators.map((item) => (
-                <li
+                <p
                   key={item}
-                  className="rounded-[1.3rem] border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.74)] px-4 py-3 text-sm leading-7 text-[var(--color-muted)]"
+                  className="py-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base"
                 >
                   {item}
-                </li>
+                </p>
               ))}
-            </ul>
-            <div className="mt-7 rounded-[1.5rem] bg-[var(--color-surface-strong)] p-5">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+            </div>
+
+            <div className="mt-8 border border-[color:rgba(31,35,39,0.12)] bg-[color:rgba(247,242,234,0.72)] p-5">
+              <p className="text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
                 Portfolio note
               </p>
-              <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+              <p className="mt-3 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
                 This website is a portfolio concept designed to represent a premium local
                 contractor brand. Names, testimonials, and contact details are fictional but
                 intentionally realistic.
               </p>
-            </div>
             </div>
           </Reveal>
         </Container>

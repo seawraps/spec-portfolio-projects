@@ -21,6 +21,7 @@ export type Listing = {
   feature: string;
   imageSrc: string;
   imageAlt: string;
+  imagePosition?: string;
 };
 
 export type Neighborhood = {
@@ -33,6 +34,7 @@ export type Neighborhood = {
   highlights: string[];
   imageSrc: string;
   imageAlt: string;
+  imagePosition?: string;
 };
 
 export type ProcessStep = {
@@ -50,6 +52,7 @@ export type Agent = {
   metric: string;
   imageSrc: string;
   imageAlt: string;
+  imagePosition?: string;
 };
 
 export type Testimonial = {
@@ -80,6 +83,7 @@ export type ContactMethod = {
 export const navigationLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/listings", label: "Listings" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];
@@ -112,6 +116,7 @@ export const featuredListings: Listing[] = [
     imageSrc: "/images/hero-estate.jpg",
     imageAlt:
       "A luxury hillside estate with expansive glass, layered terraces, and warm evening light.",
+    imagePosition: "object-[center_55%]",
   },
   {
     name: "Willow Lane Residence",
@@ -128,6 +133,7 @@ export const featuredListings: Listing[] = [
     imageSrc: "/images/listing-estate.jpg",
     imageAlt:
       "A refined luxury home with manicured grounds and a bright exterior facade.",
+    imagePosition: "object-[center_52%]",
   },
   {
     name: "Marlowe House",
@@ -144,6 +150,7 @@ export const featuredListings: Listing[] = [
     imageSrc: "/images/listing-residence.jpg",
     imageAlt:
       "A refined modern living room with double-height ceilings, warm wood accents, and soft daylight.",
+    imagePosition: "object-[center_48%]",
   },
   {
     name: "The Avery Penthouse",
@@ -160,6 +167,7 @@ export const featuredListings: Listing[] = [
     imageSrc: "/images/listing-penthouse.jpg",
     imageAlt:
       "A polished penthouse interior with dramatic windows, lounge seating, and warm lighting.",
+    imagePosition: "object-[center_48%]",
   },
 ];
 
@@ -174,9 +182,10 @@ export const neighborhoods: Neighborhood[] = [
     story:
       "Where new waterfront residences meet established tree-lined blocks and a polished local scene.",
     highlights: ["Promenade access", "Chef-led cafés", "Private fitness clubs"],
-    imageSrc: "/images/listing-penthouse.jpg",
+    imageSrc: "/images/neighborhood-northpoint.jpg",
     imageAlt:
-      "A polished penthouse living room that reinforces Northpoint's waterfront sophistication and design-led housing mix.",
+      "A polished waterfront neighborhood with refined residences, harbor access, and a village-style streetscape.",
+    imagePosition: "object-[center_52%]",
   },
   {
     name: "Lakemont",
@@ -191,6 +200,7 @@ export const neighborhoods: Neighborhood[] = [
     imageSrc: "/images/neighborhood-lakemont.jpg",
     imageAlt:
       "A quiet upscale suburban neighborhood with mature trees and elegant residential streets.",
+    imagePosition: "object-[center_34%]",
   },
   {
     name: "Old Harbor",
@@ -205,6 +215,7 @@ export const neighborhoods: Neighborhood[] = [
     imageSrc: "/images/neighborhood-old-harbor.jpg",
     imageAlt:
       "A walkable upscale urban neighborhood with historic buildings, lively streets, and refined storefronts.",
+    imagePosition: "object-[center_34%]",
   },
   {
     name: "Cedar Heights",
@@ -216,9 +227,10 @@ export const neighborhoods: Neighborhood[] = [
     story:
       "Ridgeline living with larger homesites, layered landscaping, and a club-like sense of privacy.",
     highlights: ["Country club access", "City-light views", "Estate renovation activity"],
-    imageSrc: "/images/hero-estate.jpg",
+    imageSrc: "/images/neighborhood-cedar-heights.jpg",
     imageAlt:
-      "A modern hillside estate that conveys Cedar Heights' view-driven residential character.",
+      "A view-driven hillside neighborhood with layered landscaping, large homesites, and contemporary estates.",
+    imagePosition: "object-[center_54%]",
   },
 ];
 
@@ -284,8 +296,9 @@ export const agents: Agent[] = [
     experience: "16 years advising sellers, relocating executives, and repeat referral clients.",
     specialties: ["Pricing strategy", "Luxury transitions", "Design-forward presentation"],
     metric: "16 years",
-    imageSrc: "/images/hero-estate.jpg",
-    imageAlt: "A luxury hillside estate used to reinforce the firm's calm, architecture-led brand point of view.",
+    imageSrc: "/images/agent-lena.jpg",
+    imageAlt: "Portrait of Lena Hart, the founder and principal broker at Crescent Vale Realty.",
+    imagePosition: "object-[center_18%]",
   },
   {
     name: "Marcus Avery",
@@ -294,8 +307,9 @@ export const agents: Agent[] = [
     experience: "11 years leading private buyer searches and competitive acquisitions.",
     specialties: ["Private search", "Negotiation", "Family relocations"],
     metric: "Buyer lead",
-    imageSrc: "/images/listing-residence.jpg",
-    imageAlt: "A warm, design-led luxury living room used to support the buyer advisory story.",
+    imageSrc: "/images/agent-marcus.jpg",
+    imageAlt: "Portrait of Marcus Avery, senior buyer advisor at Crescent Vale Realty.",
+    imagePosition: "object-[center_30%]",
   },
   {
     name: "Priya Desai",
@@ -304,8 +318,9 @@ export const agents: Agent[] = [
     experience: "9 years directing pre-listing execution for premium residential properties.",
     specialties: ["Prep oversight", "Vendor management", "Launch planning"],
     metric: "Launch strategy",
-    imageSrc: "/images/services-interior.jpg",
-    imageAlt: "A polished interior used to reflect listing preparation and launch presentation standards.",
+    imageSrc: "/images/agent-priya.jpg",
+    imageAlt: "Portrait of Priya Desai, listing strategist at Crescent Vale Realty.",
+    imagePosition: "object-[center_18%]",
   },
 ];
 

@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "OrbitOps",
   shortName: "OrbitOps",
-  title: "OrbitOps | Operations Orchestration Platform",
+  title: "OrbitOps | Operational Intelligence Command Center",
   description:
-    "OrbitOps helps B2B operators orchestrate mission-critical workflows, manage exceptions, and improve process performance from one enterprise command layer.",
+    "OrbitOps helps operators run approvals, queues, releases, and audit-ready workflow governance from one operational intelligence command center.",
   url: "https://orbitops-demo.vercel.app",
   email: "hello@orbitops.io",
-  tagline: "Run every recurring operation from one enterprise control plane.",
+  tagline: "Run approvals, queues, and rollout logic from one governed command surface.",
 };

@@ -1,100 +1,106 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
-import { SectionHeading } from "@/components/section-heading";
-import { InteractivePanel } from "@/components/ui/interactive-panel";
 import { Reveal } from "@/components/ui/reveal";
-import { menuHighlights } from "@/lib/data";
+import { seasonalNotes } from "@/lib/experience-data";
+import { contactDetails, siteImages } from "@/lib/data";
 
 export function MenuHighlightsSection() {
-  const [featureHighlight, ...supportingHighlights] = menuHighlights;
-
   return (
-    <section className="section-dark py-18 md:py-22 lg:py-26">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Menu Highlights"
-            title="Dinner is shaped in chapters, each one with its own pace and mood"
-            description="Astera is structured around an actual evening out: a first drink, shared starters, a middle built on seafood and flame, and a finish that invites one more round."
-            theme="dark"
-          />
-        </Reveal>
+    <section className="section-shell bg-[linear-gradient(180deg,rgba(11,9,8,0.86),rgba(7,6,5,0.96))] px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+      <div className="mx-auto max-w-[96rem]">
+        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+          <div>
+            <Reveal>
+              <p className="eyebrow">Chef Notes</p>
+              <h2 className="mt-5 max-w-lg font-display text-[clamp(3.2rem,6.8vw,5.8rem)] leading-[0.88] tracking-[-0.055em] text-[#fff0db]">
+                Seasonal notes, private rooms, and the quieter details of service.
+              </h2>
+              <p className="mt-5 max-w-xl text-[1rem] leading-relaxed text-[#cfbda8] sm:text-[1.08rem]">
+                Not everything needs to be visible at once. This section reveals itself more like a
+                menu note from the captain than another static block of copy.
+              </p>
+            </Reveal>
 
-        <div className="mt-12 grid gap-6 xl:grid-cols-[1.18fr_0.82fr]">
-          <Reveal delay={80}>
-            <InteractivePanel className="h-full rounded-[2.5rem]">
-              <article className="relative h-full overflow-hidden rounded-[2.5rem] border border-[rgba(255,233,204,0.12)]">
-                <Image
-                  src={featureHighlight.image.src}
-                  alt={featureHighlight.image.alt}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,6,4,0.18)_0%,rgba(9,6,4,0.88)_88%)]" />
-                <div className="relative flex h-full min-h-[34rem] flex-col justify-end p-8 lg:p-10">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-[#f1ddbf]">
-                    {featureHighlight.eyebrow}
-                  </p>
-                  <h3 className="mt-4 max-w-xl font-display text-[3.2rem] leading-[0.9] tracking-[-0.03em] text-[#fff2de]">
-                    {featureHighlight.title}
-                  </h3>
-                  <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#dbc8b1]">
-                    {featureHighlight.description}
-                  </p>
-                  <p className="mt-6 text-sm font-semibold uppercase tracking-[0.22em] text-[#d8af79]">
-                    {featureHighlight.detail}
-                  </p>
-                </div>
-              </article>
-            </InteractivePanel>
-          </Reveal>
+            <Reveal delay={200}>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                <a
+                  href={contactDetails.reservationsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="editorial-link"
+                >
+                  Reserve Dinner
+                </a>
+                <Link href="/contact" className="editorial-link">
+                  Ask About Private Dining
+                </Link>
+              </div>
+            </Reveal>
+          </div>
 
-          <div className="grid gap-6">
-            {supportingHighlights.map((highlight, index) => (
-              <Reveal key={highlight.title} delay={140 + index * 90}>
-                <InteractivePanel className="rounded-[2rem]">
-                  <article className="surface-card-soft overflow-hidden rounded-[2rem]">
-                    <div className="grid gap-0 md:grid-cols-[0.88fr_1.12fr]">
-                      <div className="overflow-hidden">
-                        <Image
-                          src={highlight.image.src}
-                          alt={highlight.image.alt}
-                          width={1800}
-                          height={1800}
-                          className="h-64 w-full object-cover md:h-full"
-                        />
-                      </div>
-                      <div className="p-7">
-                        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
-                          {highlight.eyebrow}
-                        </p>
-                        <h3 className="mt-4 font-display text-[2.2rem] leading-[0.92] text-[#f7ead7]">
-                          {highlight.title}
-                        </h3>
-                        <p className="mt-4 text-base leading-relaxed text-[#d0bea8]">
-                          {highlight.description}
-                        </p>
-                        <p className="mt-5 text-sm font-semibold uppercase tracking-[0.22em] text-[#f1ddbf]">
-                          {highlight.detail}
-                        </p>
-                      </div>
+          <div className="space-y-3">
+            {seasonalNotes.map((note, index) => (
+              <Reveal key={note.title} delay={index * 90}>
+                <details
+                  className="group border-t border-[rgba(233,209,181,0.12)] py-5 text-[#fff1df]"
+                  open={index === 0}
+                >
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
+                    <div>
+                      <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#a98766]">
+                        {note.season}
+                      </p>
+                      <h3 className="mt-3 font-display text-[2rem] leading-[0.92] tracking-[-0.04em] sm:text-[2.7rem]">
+                        {note.title}
+                      </h3>
                     </div>
-                  </article>
-                </InteractivePanel>
+                    <span className="mt-2 text-xl text-[#d7aa75] transition-transform duration-300 group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+                  <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-[#cfbda8] sm:text-base">
+                    <p>{note.description}</p>
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#f1ddbf]">
+                      {note.pairing}
+                    </p>
+                  </div>
+                </details>
               </Reveal>
             ))}
           </div>
         </div>
 
-        <Reveal delay={220}>
-          <div className="mt-10 flex items-center gap-4 text-sm uppercase tracking-[0.22em] text-[#d7c3ac]">
-            <span className="luxury-divider max-w-16" />
-            <Link href="/menu" className="text-[#f1ddbf] underline decoration-[#d1a364] underline-offset-8">
-              Read the full dinner and bar menu
-            </Link>
-          </div>
-        </Reveal>
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
+          <Reveal>
+            <figure className="image-frame rounded-[2rem]">
+              <Image
+                src={siteImages.storyChef.src}
+                alt={siteImages.storyChef.alt}
+                width={2200}
+                height={1600}
+                className="h-[24rem] w-full object-cover sm:h-[30rem] lg:h-[34rem]"
+              />
+            </figure>
+          </Reveal>
+
+          <Reveal delay={140} className="frame-panel rounded-[2rem] p-6 sm:p-8">
+            <p className="eyebrow">Private Dining</p>
+            <h3 className="mt-5 font-display text-[2.7rem] leading-[0.9] tracking-[-0.05em] text-[#fff1df] sm:text-[3.5rem]">
+              A secluded room for coastal celebrations and elegant business dinners.
+            </h3>
+            <p className="mt-5 text-[1rem] leading-relaxed text-[#cfbda8]">
+              Group dining is handled with the same restraint as the main room: plated pacing,
+              polished wine service, and formats that still feel like Astera rather than event
+              catering.
+            </p>
+            <div className="mt-6 space-y-3 text-sm uppercase tracking-[0.26em] text-[#d9c6b0]">
+              <p>14 to 24 guests</p>
+              <p>Tasting or shared-course formats</p>
+              <p>Cellar pairings on request</p>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

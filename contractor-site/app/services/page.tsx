@@ -7,6 +7,7 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { company, services } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Services",
@@ -36,80 +37,75 @@ const planningNotes = [
 export default function ServicesPage() {
   return (
     <>
-      <section id="services-overview" className="pb-16 pt-8 md:pb-20 md:pt-10 lg:pb-24">
-        <Container className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+      <section id="services-overview" className="py-10 md:py-12 lg:py-14">
+        <Container className="architectural-grid grid gap-8 py-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <Reveal>
-            <div className="surface-card-strong rounded-[2.4rem] p-7 sm:p-9">
             <SectionHeading
               eyebrow="Services"
-              title="Focused renovation work for kitchens, baths, interiors, and the details that tie them together"
-              description="We keep the service mix disciplined so the work stays residential, premium, and craftsmanship-heavy. That allows us to deliver better guidance and better results."
+              title="Focused renovation work for kitchens, baths, interiors, and the details that tie them together."
+              description="We keep the service mix disciplined so the work stays residential, premium, and craftsmanship-heavy. That focus allows us to deliver better guidance and better results."
               as="h1"
             />
-            <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--color-muted)] sm:text-lg">
               Most of our projects happen in lived-in homes across Nashville, Brentwood, Franklin,
               and Belle Meade. We help clients scope the right level of transformation, whether
               that means a single high-impact room or a phased interior renovation.
             </p>
-            <div className="mt-8 rounded-[1.6rem] bg-[var(--color-surface-strong)] p-5">
-              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+
+            <div className="mt-8 border-l border-[color:rgba(31,35,39,0.12)] pl-5">
+              <p className="text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
                 Best fit for Blue Oak
               </p>
               <p className="mt-3 text-sm leading-8 text-[var(--color-muted)] sm:text-base">
                 Homeowners who value design guidance, durable materials, realistic scheduling, and
                 crews that understand how to work respectfully inside occupied homes.
               </p>
-              <p className="mt-4 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">
+              <p className="mt-4 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-brand)]">
                 Serving {company.primaryServiceArea}
               </p>
-            </div>
             </div>
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="image-frame relative min-h-[520px] rounded-[2.4rem]">
-            <Image
-              src="/images/hero-kitchen.jpg"
-              alt="A premium kitchen remodel with warm cabinetry and a large island."
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 48vw"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.1),rgba(22,36,52,0.48))]" />
+            <div className="image-frame relative min-h-[420px] overflow-hidden rounded-[1rem] sm:min-h-[560px]">
+              <Image
+                src="/images/hero-kitchen.jpg"
+                alt="A premium kitchen remodel with warm cabinetry and a large island."
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 48vw"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(23,35,45,0.04),rgba(23,35,45,0.3))]" />
             </div>
           </Reveal>
         </Container>
       </section>
 
       <section id="service-list" className="py-16 md:py-20 lg:py-24">
-        <Container className="space-y-6">
+        <Container className="line-list border-y border-[color:rgba(31,35,39,0.12)]">
           {services.map((service, index) => (
-            <Reveal
-              key={service.id}
-              className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-center"
-            >
-              <div id={service.id} className={index % 2 === 1 ? "lg:order-2" : ""}>
-                <div className="image-frame relative min-h-[420px] rounded-[2.2rem]">
-                  <Image
-                    src={service.image}
-                    alt={service.imageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 48vw"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,36,52,0.04),rgba(22,36,52,0.28))]" />
+            <Reveal key={service.id} delay={index * 50} className="py-10 lg:py-12">
+              <article className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
+                <div className={cn(index % 2 === 1 && "lg:order-2")}>
+                  <div id={service.id} className="image-frame relative min-h-[320px] overflow-hidden rounded-[1rem] sm:min-h-[460px]">
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 44vw"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                <div className="surface-card-strong rounded-[2.2rem] p-6 sm:p-8">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
+                <div className={cn(index % 2 === 1 && "lg:order-1")}>
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
                     {service.timeline}
                   </p>
-                  <h2 className="mt-4 font-display text-4xl leading-tight text-[var(--color-brand)] sm:text-[3.1rem]">
+                  <h2 className="mt-4 max-w-[15ch] font-display text-[2.5rem] leading-[0.94] text-[var(--color-brand)] sm:text-[3.2rem]">
                     {service.name}
                   </h2>
-                  <p className="mt-5 text-sm leading-8 text-[var(--color-muted)] sm:text-base">
+                  <p className="mt-5 max-w-3xl text-sm leading-8 text-[var(--color-muted)] sm:text-base">
                     {service.fullDescription}
                   </p>
                   <p className="mt-5 text-sm leading-7 text-[var(--color-brand)] sm:text-base">
@@ -120,27 +116,25 @@ export default function ServicesPage() {
                     {service.highlights.map((highlight) => (
                       <span
                         key={highlight}
-                        className="rounded-full bg-[var(--color-surface-strong)] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand)]"
+                        className="rounded-[0.7rem] border border-[color:rgba(31,35,39,0.12)] px-3 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-brand)]"
                       >
                         {highlight}
                       </span>
                     ))}
                   </div>
 
-                  <div className="editorial-rule mt-6" />
-
-                  <ul className="mt-6 space-y-3">
+                  <div className="mt-7 grid gap-4 sm:grid-cols-2">
                     {service.includes.map((item) => (
-                      <li
+                      <div
                         key={item}
-                        className="rounded-[1.1rem] border border-[var(--color-border)] bg-[color:rgba(255,250,243,0.72)] px-4 py-3 text-sm leading-7 text-[var(--color-muted)]"
+                        className="border-l border-[color:rgba(31,35,39,0.12)] pl-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base"
                       >
                         {item}
-                      </li>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
-              </div>
+              </article>
             </Reveal>
           ))}
         </Container>
@@ -149,29 +143,30 @@ export default function ServicesPage() {
       <section id="planning-standards" className="py-16 md:py-20 lg:py-24">
         <Container>
           <Reveal>
-            <div className="surface-card rounded-[2.4rem] p-6 sm:p-8">
             <SectionHeading
               eyebrow="Planning Standards"
-              title="The way we scope work matters just as much as the work itself"
+              title="The way we scope work matters just as much as the work itself."
               description="Premium residential renovation succeeds when layout, material decisions, and sequencing are handled with discipline before the first day on site."
             />
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {planningNotes.map((note) => (
-                <article
-                  key={note.title}
-                  className="rounded-[1.5rem] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-5"
-                >
-                  <h2 className="font-display text-3xl leading-tight text-[var(--color-brand)]">
+          </Reveal>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {planningNotes.map((note, index) => (
+              <Reveal key={note.title} delay={index * 60}>
+                <article className="border border-[color:rgba(31,35,39,0.12)] bg-[color:rgba(247,242,234,0.72)] p-5">
+                  <p className="text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
+                    0{index + 1}
+                  </p>
+                  <h2 className="mt-3 font-display text-[2rem] leading-[0.96] text-[var(--color-brand)]">
                     {note.title}
                   </h2>
-                  <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                  <p className="mt-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
                     {note.description}
                   </p>
                 </article>
-                ))}
-              </div>
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         </Container>
       </section>
 

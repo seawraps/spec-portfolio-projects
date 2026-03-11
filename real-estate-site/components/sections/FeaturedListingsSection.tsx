@@ -7,91 +7,79 @@ import { featuredListings } from "@/lib/data";
 const [leadListing, firstGalleryListing, secondGalleryListing, thirdGalleryListing] =
   featuredListings;
 
+const collectionNotes = [
+  "Launches are paced like private presentations, with inquiry routed through advisors rather than automated lead flows.",
+  "Only a small edit is shown publicly, which keeps the composition tighter and the market story more believable.",
+  "Every listing balances architecture, interior mood, and practical buyer fit before negotiation even begins.",
+];
+
 export function FeaturedListingsSection() {
   return (
     <section
-      className="py-12 md:py-16 lg:py-20"
+      className="section-spacing"
+      id="featured-listings"
       aria-labelledby="featured-listings-heading"
     >
       <Container>
-        <div className="section-shell rounded-[40px] px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-          <div className="grid gap-6 xl:grid-cols-[0.94fr_0.62fr] xl:items-end">
+        <div className="grid gap-10 xl:grid-cols-[0.74fr_1.26fr] xl:items-start">
+          <div className="xl:sticky xl:top-28 xl:self-start">
             <SectionHeading
               id="featured-listings-heading"
-              eyebrow="Featured Listings"
-              title="A tighter edit of homes with presence, polish, and a story worth walking into."
-              description="Each illustrative listing is framed like a boutique launch: architecture first, interior mood close behind, and every detail chosen to make the home feel memorable before the tour begins."
+              eyebrow="Featured Homes"
+              title="A quieter edit of homes chosen for presence, light, and how they read the moment you arrive."
+              description="Rather than stretching one awkward slab of content across the page, the collection is composed like a private listing book: one lead residence, then a set of supporting homes with their own distinct pacing."
               className="reveal-up"
             />
-            <div className="grid gap-4 reveal-up delay-1 sm:grid-cols-2 xl:grid-cols-1">
-              <div className="soft-card rounded-[28px] p-6 sm:p-7">
-                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze)]">
-                  Editorial edit
-                </p>
-                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                  We would rather show fewer homes and present each one better:
-                  stronger photography, clearer positioning, and buyer cues
-                  that feel quiet but unmistakable.
-                </p>
-              </div>
-              <div className="dark-panel rounded-[28px] p-6 text-white sm:p-7">
-                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze-soft)]">
-                  Launch posture
-                </p>
-                <div className="mt-5 grid gap-4 sm:grid-cols-3 xl:grid-cols-1">
-                  {[
-                    ["4", "illustrative listings in the current edit"],
-                    ["1:1", "guided showing cadence and private follow-up"],
-                    ["Low volume", "presentation chosen over listing quantity"],
-                  ].map(([value, label]) => (
-                    <div
-                      key={label}
-                      className="stat-tile rounded-[22px] border border-white/10 bg-white/6 p-4"
-                    >
-                      <p className="font-display text-3xl leading-none text-white">
-                        {value}
-                      </p>
-                      <p className="mt-2 text-sm leading-6 text-white/68">
-                        {label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+
+            <div className="mt-8 border-t border-[var(--color-line-strong)] pt-6">
+              <div className="grid gap-5">
+                {collectionNotes.map((note, index) => (
+                  <p
+                    key={note}
+                    className={`reveal-up delay-${index + 1} border-b border-[var(--color-line)] pb-5 text-sm leading-7 text-[var(--color-muted-strong)] last:border-b-0 last:pb-0`}
+                  >
+                    {note}
+                  </p>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="mt-8 grid gap-6 xl:grid-cols-[1.16fr_0.84fr]">
+          <div className="grid gap-10">
             <ListingCard listing={leadListing} featured />
-            <div className="grid gap-6">
-              <ListingCard listing={firstGalleryListing} layout="compact" />
-              <ListingCard listing={secondGalleryListing} layout="compact" />
-            </div>
-          </div>
 
-          <div className="mt-6 grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
-            <div className="soft-card reveal-up delay-2 rounded-[30px] p-6 sm:p-7">
-              <p className="text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze)]">
-                Availability note
-              </p>
-              <h3 className="mt-4 font-display text-4xl leading-[0.94] text-[var(--color-ink)]">
-                Fewer listings. More considered launches.
-              </h3>
-              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                Our strongest work happens when photography, pricing, private
-                preview timing, and buyer follow-up all feel aligned. That is
-                why the edit stays narrow and the presentation stays precise.
-              </p>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <ButtonLink href="/contact" variant="secondary">
-                  Request Availability
-                </ButtonLink>
-                <span className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
-                  Illustrative showcase
-                </span>
+            <div className="grid gap-8 lg:grid-cols-[0.98fr_0.82fr]">
+              <div className="grid gap-8">
+                <ListingCard listing={firstGalleryListing} layout="compact" />
+                <ListingCard listing={secondGalleryListing} layout="compact" />
+              </div>
+
+              <div className="grid gap-8 content-start">
+                <ListingCard listing={thirdGalleryListing} layout="portrait" />
+
+                <article className="reveal-up delay-3 border-t border-[var(--color-line-strong)] pt-6">
+                  <p className="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze)]">
+                    Availability
+                  </p>
+                  <h3 className="mt-4 font-display text-[2.8rem] leading-[0.92] text-[var(--color-ink)] sm:text-[3.2rem]">
+                    A narrower collection reads with more conviction.
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                    The site shows a refined public edit, while private detail
+                    requests, off-market inquiries, and launch timing
+                    conversations happen one-to-one.
+                  </p>
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <ButtonLink href="/contact" variant="secondary">
+                      Request Availability
+                    </ButtonLink>
+                    <span className="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
+                      Illustrative collection
+                    </span>
+                  </div>
+                </article>
               </div>
             </div>
-            <ListingCard listing={thirdGalleryListing} />
           </div>
         </div>
       </Container>

@@ -14,9 +14,9 @@ type ButtonLinkProps = {
 
 const variants = {
   primary:
-    "border border-plum/85 bg-plum text-white shadow-[0_22px_46px_-28px_rgba(122,63,55,0.7)] hover:-translate-y-0.5 hover:bg-[#68322c] hover:shadow-[0_28px_56px_-30px_rgba(122,63,55,0.76)]",
+    "border border-[#2d211d] bg-[#2d211d] text-[#fff8f1] shadow-[0_22px_48px_-30px_rgba(45,33,29,0.52)] hover:-translate-y-0.5 hover:bg-[#4b322d] hover:border-[#4b322d] hover:shadow-[0_28px_56px_-34px_rgba(45,33,29,0.58)]",
   secondary:
-    "border border-ink/14 bg-[rgb(255_251_246/0.94)] text-ink shadow-[0_18px_40px_-30px_rgba(35,24,20,0.28)] hover:-translate-y-0.5 hover:border-ink/20 hover:bg-white hover:shadow-[0_24px_46px_-32px_rgba(35,24,20,0.34)]",
+    "border border-ink/14 bg-[rgb(255_251_246/0.82)] text-ink shadow-[0_18px_40px_-30px_rgba(35,24,20,0.2)] hover:-translate-y-0.5 hover:border-ink/20 hover:bg-white hover:shadow-[0_24px_46px_-34px_rgba(35,24,20,0.26)]",
   ghost: "text-ink/88 hover:-translate-y-0.5 hover:text-plum",
 } as const;
 

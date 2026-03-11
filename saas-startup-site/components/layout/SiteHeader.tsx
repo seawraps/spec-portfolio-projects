@@ -8,16 +8,12 @@ import { siteConfig } from "@/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-4 z-40">
+    <header className="sticky top-3 z-40">
       <Container className="relative">
-        <div className="surface-panel-dark relative overflow-hidden rounded-[2rem] px-4 py-3 sm:px-5">
-          <div
-            className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_top_left,rgba(101,226,255,0.16),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(99,241,213,0.12),transparent_26%)]"
-            aria-hidden="true"
-          />
+        <div className="command-shell px-4 py-3 sm:px-5">
           <div className="relative z-[1] flex items-center gap-4">
             <Link href="/" className="inline-flex shrink-0 items-center gap-3" aria-label="OrbitOps home">
-              <span className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(160deg,rgba(101,226,255,0.18),rgba(7,17,31,0.98))] shadow-[0_20px_36px_-22px_rgba(13,191,255,0.62)]">
+              <span className="relative flex h-11 w-11 items-center justify-center rounded-[0.95rem] border border-cyan-300/18 bg-[linear-gradient(160deg,rgba(103,232,249,0.18),rgba(8,18,35,0.98))] shadow-[0_20px_36px_-22px_rgba(13,191,255,0.62)]">
                 <span className="font-mono text-[0.7rem] font-semibold tracking-[0.22em] text-sky-100">
                   OO
                 </span>
@@ -26,30 +22,23 @@ export function SiteHeader() {
                 <span className="block font-display text-lg font-semibold tracking-[-0.04em] text-white">
                   {siteConfig.name}
                 </span>
-                <span className="data-label mt-0.5 hidden text-[0.66rem] text-slate-400 sm:block">
-                  Control plane
+                <span className="data-label mt-0.5 hidden text-[0.64rem] text-slate-500 sm:block">
+                  Command surface
                 </span>
               </span>
             </Link>
 
-            <div className="hidden min-w-0 flex-1 items-center gap-3 lg:flex">
-              <div className="min-w-[12rem] rounded-[1.25rem] border border-white/10 bg-white/5 px-3 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                <p className="data-label text-slate-500">System sync</p>
-                <div className="mt-2 flex items-center gap-2 text-xs text-slate-300">
-                  <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_14px_rgba(110,231,183,0.8)]" />
-                  <span className="text-white">99.97% healthy</span>
-                </div>
-              </div>
-
+            <div className="hidden min-w-0 flex-1 items-center gap-4 lg:flex">
               <nav className="min-w-0 flex-1" aria-label="Primary navigation">
                 <NavLinks className="justify-center" />
               </nav>
-            </div>
 
-            <div className="ml-auto hidden items-center gap-3 xl:flex">
-              <div className="rounded-[1.25rem] border border-white/10 bg-white/5 px-3 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                <p className="data-label text-slate-500">Control loop</p>
-                <p className="mt-2 text-sm font-semibold text-white">28ms orchestration latency</p>
+              <div className="hidden items-center gap-2 xl:flex">
+                <span className="command-chip-subtle">
+                  <span className="signal-dot" />
+                  prod / us-east
+                </span>
+                <span className="command-chip-subtle">328 flows live</span>
               </div>
             </div>
 

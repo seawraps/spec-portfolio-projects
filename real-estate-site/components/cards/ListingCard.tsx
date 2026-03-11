@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 type ListingCardProps = {
   listing: Listing;
   featured?: boolean;
-  layout?: "default" | "compact";
+  layout?: "default" | "compact" | "portrait";
 };
 
 export function ListingCard({
@@ -17,90 +17,84 @@ export function ListingCard({
 }: ListingCardProps) {
   const stats = [listing.beds, listing.baths, listing.area];
   const isCompact = layout === "compact";
+  const isPortrait = layout === "portrait";
+  const imagePosition = listing.imagePosition ?? "";
 
   if (featured) {
     return (
-      <article className="group overflow-hidden rounded-[34px] border border-[var(--color-line)] bg-[var(--color-surface-strong)] shadow-[0_32px_82px_-44px_rgba(17,23,29,0.34)] reveal-up delay-1">
-        <div className="grid h-full md:grid-cols-[1.02fr_0.98fr]">
-          <div className="image-frame image-reveal relative min-h-[420px] rounded-none border-0 md:min-h-full">
-            <Image
-              src={listing.imageSrc}
-              alt={listing.imageAlt}
-              fill
-              sizes="(min-width: 1280px) 44vw, (min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/68 via-[#10171d]/10 to-transparent" />
-            <div className="absolute left-5 top-5 rounded-full bg-white/92 px-4 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-navy)]">
-              {listing.label}
-            </div>
-            <div className="absolute inset-x-5 bottom-5 rounded-[26px] border border-white/12 bg-black/26 p-5 text-white backdrop-blur-md">
-              <p className="font-display text-5xl leading-none">{listing.price}</p>
-              <p className="mt-2 text-sm uppercase tracking-[0.22em] text-white/72">
-                {listing.address} • {listing.neighborhood}
+      <article className="group reveal-up delay-1 grid gap-8 border-t border-[var(--color-line-strong)] pt-8 xl:grid-cols-[1.08fr_0.92fr] xl:items-start">
+        <div className="image-frame image-reveal relative min-h-[420px] sm:min-h-[540px] xl:min-h-[620px]">
+          <Image
+            src={listing.imageSrc}
+            alt={listing.imageAlt}
+            fill
+            sizes="(min-width: 1280px) 42vw, (min-width: 1024px) 48vw, 100vw"
+            className={`object-cover ${imagePosition}`}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111921]/76 via-[#111921]/12 to-transparent" />
+          <div className="absolute left-5 top-5 rounded-full bg-white/92 px-4 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-navy)]">
+            {listing.label}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-wrap items-center gap-3 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">
+            <span>Featured residence</span>
+            <span className="h-1 w-1 rounded-full bg-[rgba(134,105,71,0.45)]" />
+            <span>{listing.neighborhood}</span>
+          </div>
+
+          <div className="border-b border-[var(--color-line)] pb-5">
+            <h3 className="font-display text-[clamp(3.2rem,5vw,5.2rem)] leading-[0.9] text-[var(--color-ink)]">
+              {listing.name}
+            </h3>
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <p className="text-sm uppercase tracking-[0.22em] text-[var(--color-muted)]">
+                {listing.address}
               </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {stats.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/16 bg-white/10 px-3 py-1.5 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-white/80"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+              <p className="font-display text-[clamp(3rem,5vw,4.4rem)] leading-none text-[var(--color-ink)]">
+                {listing.price}
+              </p>
             </div>
           </div>
 
-          <div className="flex flex-col justify-between p-8 sm:p-10">
-            <div>
-              <div className="flex items-center justify-between gap-4">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze)]">
-                  Featured property
-                </p>
-                <span className="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
-                  Private preview
-                </span>
-              </div>
-              <h3 className="mt-4 font-display text-5xl leading-[0.92] text-[var(--color-ink)]">
-                {listing.name}
-              </h3>
-              <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-                {listing.description}
-              </p>
-              <div className="mt-6 grid gap-4 sm:grid-cols-3">
-                {stats.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[22px] border border-[var(--color-line)] bg-[var(--color-cream)] px-4 py-4 text-center text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted-strong)]"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 rounded-[26px] border border-[var(--color-line)] bg-white/78 p-6">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-bronze)]">
-                  Property story
-                </p>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-muted-strong)]">
-                  {listing.feature}
-                </p>
-              </div>
-            </div>
+          <p className="text-[1.02rem] leading-8 text-[var(--color-muted)]">
+            {listing.description}
+          </p>
 
-            <div className="mt-8 flex flex-col gap-5 border-t border-[var(--color-line)] pt-6 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze)]">
-                  Address
-                </p>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
-                  {listing.address}
-                </p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {stats.map((item) => (
+              <div
+                key={item}
+                className="border-l border-[var(--color-line-strong)] pl-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted-strong)]"
+              >
+                {item}
               </div>
-              <ButtonLink href="/contact" variant="secondary">
-                Request Private Details
-              </ButtonLink>
+            ))}
+          </div>
+
+          <div className="grid gap-5 border-t border-[var(--color-line)] pt-6 md:grid-cols-[0.72fr_1.28fr]">
+            <div>
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-bronze)]">
+                Property note
+              </p>
+              <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                Signature residences are presented with private-preview pacing
+                and direct advisory follow-through.
+              </p>
             </div>
+            <p className="text-sm leading-7 text-[var(--color-muted-strong)]">
+              {listing.feature}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4 border-t border-[var(--color-line)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">
+              Private tours arranged through the advisory team
+            </p>
+            <ButtonLink href="/contact" variant="secondary">
+              Request Private Details
+            </ButtonLink>
           </div>
         </div>
       </article>
@@ -108,118 +102,98 @@ export function ListingCard({
   }
 
   return (
-    <article className="group reveal-up delay-2 flex h-full flex-col overflow-hidden rounded-[30px] border border-[var(--color-line)] bg-[var(--color-surface-strong)] shadow-[0_28px_64px_-42px_rgba(17,23,29,0.28)]">
+    <article className="group reveal-up delay-2 grid gap-4">
       <div
         className={cn(
-          "image-frame image-reveal relative rounded-none border-0",
-          isCompact ? "min-h-[220px]" : "min-h-[260px] sm:min-h-[300px]",
+          "image-frame image-reveal relative overflow-hidden",
+          isCompact
+            ? "min-h-[280px] sm:min-h-[320px]"
+            : isPortrait
+              ? "min-h-[380px] sm:min-h-[460px] xl:min-h-[540px]"
+              : "min-h-[320px] sm:min-h-[360px]",
         )}
       >
         <Image
           src={listing.imageSrc}
           alt={listing.imageAlt}
           fill
-          sizes="(min-width: 1280px) 30vw, (min-width: 768px) 48vw, 100vw"
-          className="object-cover object-center"
+          sizes={
+            isPortrait
+              ? "(min-width: 1280px) 28vw, (min-width: 1024px) 34vw, 100vw"
+              : "(min-width: 1280px) 34vw, (min-width: 768px) 48vw, 100vw"
+          }
+          className={`object-cover ${imagePosition}`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/78 via-[#10171d]/14 to-transparent" />
-        <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-navy)]">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111921]/78 via-[#111921]/12 to-transparent" />
+        <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-navy)]">
           {listing.label}
         </div>
-        <div className="absolute inset-x-4 bottom-4 rounded-[22px] border border-white/12 bg-black/28 p-4 text-white backdrop-blur-md">
+      </div>
+
+      <div className="border-t border-[var(--color-line-strong)] pt-5">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze)]">
+              {listing.neighborhood}
+            </p>
+            <h3
+              className={cn(
+                "mt-3 font-display leading-[0.92] text-[var(--color-ink)]",
+                isPortrait ? "text-[2.9rem] sm:text-[3.4rem]" : "text-[2.6rem] sm:text-[3rem]",
+              )}
+            >
+              {listing.name}
+            </h3>
+          </div>
+
           <p
             className={cn(
-              "font-display leading-none",
-              isCompact ? "text-[2.2rem]" : "text-4xl",
+              "font-display leading-none text-[var(--color-ink)]",
+              isPortrait ? "text-[2.8rem] sm:text-[3.4rem]" : "text-[2.5rem] sm:text-[3rem]",
             )}
           >
             {listing.price}
           </p>
-          <p className="mt-2 text-sm uppercase tracking-[0.2em] text-white/72">
-            {listing.neighborhood}
-          </p>
-        </div>
-      </div>
-
-      <div className={cn("flex flex-1 flex-col", isCompact ? "p-5 sm:p-6" : "p-6 sm:p-7")}>
-        <div>
-          <p className="text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze)]">
-            Listing note
-          </p>
-          <h3
-            className={cn(
-              "mt-3 font-display leading-[0.94] text-[var(--color-ink)]",
-              isCompact ? "text-[2.4rem]" : "text-4xl",
-            )}
-          >
-            {listing.name}
-          </h3>
-          <p
-            className={cn(
-              "mt-3 text-sm text-[var(--color-muted)]",
-              isCompact ? "leading-6" : "leading-7",
-            )}
-          >
-            {listing.description}
-          </p>
-          <div
-            className={cn(
-              "mt-5 rounded-[22px] border border-[var(--color-line)] bg-[var(--color-cream)]",
-              isCompact ? "p-4" : "p-5",
-            )}
-          >
-            <p className="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-bronze)]">
-              Why it lingers
-            </p>
-            <p
-              className={cn(
-                "mt-3 text-sm text-[var(--color-muted-strong)]",
-                isCompact ? "leading-6" : "leading-7",
-              )}
-            >
-              {listing.feature}
-            </p>
-          </div>
         </div>
 
-        <div className="mt-auto border-t border-[var(--color-line)] pt-5">
-          <div className="flex flex-wrap gap-2">
-            {stats.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-[var(--color-line)] bg-white px-3 py-1.5 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-          <div
+        <p className="mt-2 text-sm uppercase tracking-[0.2em] text-[var(--color-muted)]">
+          {listing.address}
+        </p>
+
+        <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+          {listing.description}
+        </p>
+
+        <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 border-y border-[var(--color-line)] py-4">
+          {stats.map((item) => (
+            <span
+              key={item}
+              className="text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted-strong)]"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <div
+          className={cn(
+            "mt-5 grid gap-4",
+            !isCompact && "md:grid-cols-[1fr_auto] md:items-end",
+          )}
+        >
+          <p className="text-sm leading-7 text-[var(--color-muted-strong)] transition-colors duration-200 group-hover:text-[var(--color-ink)]">
+            {listing.feature}
+          </p>
+          <ButtonLink
+            href="/contact"
+            variant="secondary"
             className={cn(
-              "mt-5 flex gap-4",
-              isCompact
-                ? "flex-col"
-                : "flex-wrap items-center justify-between",
+              "h-10 px-4 text-[0.6rem] tracking-[0.26em]",
+              isCompact && "w-full sm:w-auto",
             )}
           >
-            <p
-              className={cn(
-                "text-sm leading-6 text-[var(--color-muted-strong)]",
-                isCompact ? "max-w-none" : "max-w-[17rem]",
-              )}
-            >
-              {listing.address}
-            </p>
-            <ButtonLink
-              href="/contact"
-              variant="secondary"
-              className={cn(
-                "h-10 px-4 text-[0.62rem] tracking-[0.24em]",
-                isCompact && "w-full justify-center sm:w-auto",
-              )}
-            >
-              Request Details
-            </ButtonLink>
-          </div>
+            Request Details
+          </ButtonLink>
         </div>
       </div>
     </article>

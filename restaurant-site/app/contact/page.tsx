@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+
 import { ContactForm } from "@/components/contact/contact-form";
-import { SectionHeading } from "@/components/section-heading";
 import { ReservationCta } from "@/components/sections/reservation-cta";
-import { InteractivePanel } from "@/components/ui/interactive-panel";
 import { Reveal } from "@/components/ui/reveal";
 import { contactDetails, hours, siteImages } from "@/lib/data";
 
@@ -15,133 +14,92 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="page-shell">
-      <section className="section-dark pb-18 md:pb-22 lg:pb-26">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 xl:grid-cols-[0.9fr_1.1fr]">
-          <div className="pt-6">
-            <Reveal>
-              <SectionHeading
-                eyebrow="Contact"
-                title="For reservations, celebrations, and private evenings, the team is ready"
-                description="Reach out for terrace requests, large tables, private events, collaborations, or any questions about the room."
-                as="h1"
-                theme="dark"
-              />
-            </Reveal>
+    <>
+      <section className="section-shell relative overflow-hidden border-b border-[rgba(233,209,181,0.08)]">
+        <div className="absolute inset-0">
+          <Image
+            src={siteImages.terraceNight.src}
+            alt={siteImages.terraceNight.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,6,5,0.32)_0%,rgba(7,6,5,0.64)_42%,rgba(7,6,5,0.92)_100%)]" />
+        </div>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-2">
-              <Reveal delay={90}>
-                <article className="rounded-[1.9rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(255,255,255,0.04)] p-6">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
-                    Visit
-                  </p>
-                  <address className="mt-4 not-italic text-base leading-relaxed text-[#d4c3b0]">
-                    <p>{contactDetails.addressLine1}</p>
-                    <p>{contactDetails.addressLine2}</p>
-                    <p className="mt-3">{contactDetails.phone}</p>
-                    <p className="mt-1">
-                      <a
-                        href={`mailto:${contactDetails.email}`}
-                        className="text-[#f1ddbf] underline decoration-[#d1a364] underline-offset-6"
-                      >
-                        {contactDetails.email}
-                      </a>
-                    </p>
-                  </address>
-                </article>
-              </Reveal>
-
-              <Reveal delay={150}>
-                <article className="rounded-[1.9rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(255,255,255,0.04)] p-6">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
-                    Guest Notes
-                  </p>
-                  <ul className="mt-4 space-y-3 text-base leading-relaxed text-[#d4c3b0]">
-                    <li>Valet parking begins nightly at 5 PM.</li>
-                    <li>Private dining accommodates up to 24 guests.</li>
-                    <li>Terrace requests are based on weather and availability.</li>
-                  </ul>
-                </article>
-              </Reveal>
-            </div>
-
-            <Reveal delay={220}>
-              <dl className="mt-6 divide-y divide-[rgba(255,233,204,0.12)] overflow-hidden rounded-[1.9rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(255,255,255,0.03)]">
-                {hours.map((entry) => (
-                  <div key={entry.day} className="flex items-center justify-between gap-3 px-5 py-4 text-sm">
-                    <dt className="font-semibold uppercase tracking-[0.18em] text-[#f1ddbf]">
-                      {entry.day}
-                    </dt>
-                    <dd className="text-[#d4c3b0]">{entry.hours}</dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2 xl:pt-6">
-            <Reveal className="sm:col-span-2">
-              <InteractivePanel className="rounded-[2.2rem]">
-                <figure className="image-shell rounded-[2.2rem]">
-                  <Image
-                    src={siteImages.terraceNight.src}
-                    alt={siteImages.terraceNight.alt}
-                    width={1800}
-                    height={1200}
-                    className="h-[20rem] w-full object-cover sm:h-[26rem]"
-                    priority
-                  />
-                </figure>
-              </InteractivePanel>
-            </Reveal>
-            <Reveal delay={110}>
-              <InteractivePanel className="rounded-[1.9rem]">
-                <figure className="image-shell rounded-[1.9rem]">
-                  <Image
-                    src={siteImages.diningRoom.src}
-                    alt={siteImages.diningRoom.alt}
-                    width={1800}
-                    height={1200}
-                    className="h-[24rem] w-full object-cover"
-                  />
-                </figure>
-              </InteractivePanel>
-            </Reveal>
-            <Reveal delay={170}>
-              <InteractivePanel className="rounded-[1.9rem]">
-                <figure className="image-shell rounded-[1.9rem]">
-                  <Image
-                    src={siteImages.wineToast.src}
-                    alt={siteImages.wineToast.alt}
-                    width={1800}
-                    height={1200}
-                    className="h-[24rem] w-full object-cover"
-                  />
-                </figure>
-              </InteractivePanel>
-            </Reveal>
-          </div>
+        <div className="relative mx-auto max-w-[96rem] px-5 pb-14 pt-28 sm:px-8 sm:pt-32 lg:px-10 lg:pb-18 lg:pt-36">
+          <Reveal className="max-w-4xl">
+            <p className="eyebrow">Contact</p>
+            <h1 className="mt-6 max-w-4xl font-display text-[clamp(4rem,10vw,7.4rem)] leading-[0.84] tracking-[-0.065em] text-[#fff0db]">
+              Reach the host stand for celebrations, reservations, and slower dinner plans.
+            </h1>
+            <p className="mt-6 max-w-2xl text-[1rem] leading-relaxed text-[#dccab6] sm:text-[1.12rem]">
+              The room is designed for planning as much as dining. Use the form for private events,
+              large-party notes, or collaboration inquiries. For same-day changes, call directly.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      <section className="section-light py-18 md:py-22 lg:py-26">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 xl:grid-cols-[0.9fr_1.1fr]">
+      <section className="section-shell px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-[96rem] grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+          <div className="space-y-10">
             <Reveal>
-              <SectionHeading
-                eyebrow="Inquiries"
-                title="Tell us what kind of evening you have in mind"
-                description="We usually reply within one business day. For same-day dining changes, please call the restaurant directly."
-              />
+              <div className="border-t border-[rgba(233,209,181,0.1)] py-5">
+                <p className="eyebrow">Visit</p>
+                <address className="mt-4 not-italic text-[1rem] leading-relaxed text-[#cfbda8]">
+                  <p>{contactDetails.addressLine1}</p>
+                  <p>{contactDetails.addressLine2}</p>
+                  <p className="mt-4">{contactDetails.phone}</p>
+                  <p className="mt-1">
+                    <a
+                      href={`mailto:${contactDetails.email}`}
+                      className="text-[#f1ddbf] underline decoration-[#d1a364] underline-offset-4"
+                    >
+                      {contactDetails.email}
+                    </a>
+                  </p>
+                </address>
+              </div>
             </Reveal>
-            <Reveal delay={80}>
-              <ContactForm />
+
+            <Reveal delay={120}>
+              <div className="grid gap-4 border-t border-[rgba(233,209,181,0.1)] py-5">
+                <p className="eyebrow">Hours</p>
+                <dl className="divide-y divide-[rgba(233,209,181,0.1)]">
+                  {hours.map((entry) => (
+                    <div key={entry.day} className="flex items-center justify-between gap-4 py-3 text-sm">
+                      <dt className="font-semibold uppercase tracking-[0.22em] text-[#f1ddbf]">
+                        {entry.day}
+                      </dt>
+                      <dd className="text-[#cfbda8]">{entry.hours}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </Reveal>
+
+            <Reveal delay={220}>
+              <figure className="image-frame rounded-[1.7rem]">
+                <Image
+                  src={siteImages.diningRoom.src}
+                  alt={siteImages.diningRoom.alt}
+                  width={2000}
+                  height={1400}
+                  className="h-[20rem] w-full object-cover sm:h-[26rem]"
+                />
+              </figure>
             </Reveal>
           </div>
+
+          <Reveal delay={100}>
+            <ContactForm />
+          </Reveal>
         </div>
       </section>
 
       <ReservationCta compact />
-    </div>
+    </>
   );
 }

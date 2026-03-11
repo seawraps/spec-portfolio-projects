@@ -9,34 +9,31 @@ type ProcessSectionProps = {
   description?: string;
 };
 
-type ProcessColumnProps = {
+type ProcessTrackProps = {
   eyebrow: string;
   title: string;
   steps: ProcessStep[];
 };
 
-function ProcessColumn({ eyebrow, title, steps }: ProcessColumnProps) {
+function ProcessTrack({ eyebrow, title, steps }: ProcessTrackProps) {
   return (
-    <article className="reveal-up rounded-[30px] border border-white/10 bg-white/6 p-6 backdrop-blur-sm sm:p-8">
-      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze-soft)]">
+    <article className="reveal-up border-t border-white/12 pt-5">
+      <p className="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze-soft)]">
         {eyebrow}
       </p>
-      <h3 className="mt-4 font-display text-4xl leading-[0.94] text-white">
+      <h3 className="mt-4 font-display text-[2.7rem] leading-[0.92] text-white sm:text-[3rem]">
         {title}
       </h3>
-      <div className="mt-6 space-y-4">
+      <div className="mt-6 space-y-5">
         {steps.map((step) => (
-          <div
-            key={step.step}
-            className="rounded-[24px] border border-white/10 bg-black/12 p-5"
-          >
-            <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-bronze-soft)]">
-              Step {step.step}
-            </p>
-            <h4 className="mt-2 text-lg font-semibold text-white">
-              {step.title}
-            </h4>
-            <p className="mt-2 text-sm leading-7 text-white/68">
+          <div key={step.step} className="border-b border-white/10 pb-5">
+            <div className="flex items-baseline gap-4">
+              <span className="font-display text-[2rem] leading-none text-[var(--color-bronze-soft)]">
+                {step.step}
+              </span>
+              <h4 className="text-lg font-semibold text-white">{step.title}</h4>
+            </div>
+            <p className="mt-3 pl-12 text-sm leading-7 text-white/70">
               {step.description}
             </p>
           </div>
@@ -47,52 +44,61 @@ function ProcessColumn({ eyebrow, title, steps }: ProcessColumnProps) {
 }
 
 export function ProcessSection({
-  title = "A buying and selling process designed to feel composed.",
-  description = "Clients should never be left guessing what happens next. We use clear frameworks, direct counsel, and thoughtful pacing so decisions stay grounded from first conversation to close.",
+  title = "Guidance for both sides of the move, paced like private representation.",
+  description = "Buyers and sellers should understand where they stand at every stage. The framework stays deliberate, with the next decision always visible before the next deadline arrives.",
 }: ProcessSectionProps) {
   return (
-    <section className="py-14 md:py-18 lg:py-24" aria-labelledby="process-heading">
+    <section className="section-spacing" aria-labelledby="process-heading">
       <Container>
-        <div className="dark-panel rounded-[36px] p-8 sm:p-10 lg:p-12">
-          <SectionHeading
-            id="process-heading"
-            eyebrow="Our Process"
-            title={title}
-            description={description}
-            inverse
-          />
-
-          <div className="mt-10 grid gap-6 xl:grid-cols-[0.92fr_0.76fr_0.92fr]">
-            <ProcessColumn
-              eyebrow="Buyer journey"
-              title="Private representation with clear advice and real pace."
-              steps={buyingProcess}
-            />
-
-            <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[340px] xl:min-h-full">
-              <Image
-                src="/images/services-interior.jpg"
-                alt="A refined luxury interior staged for a premium residential listing."
-                fill
-                sizes="(min-width: 1280px) 24vw, 100vw"
-                className="object-cover"
+        <div className="dark-panel rounded-[30px] px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
+          <div className="grid gap-12 xl:grid-cols-[0.76fr_1.24fr] xl:items-start">
+            <div>
+              <SectionHeading
+                id="process-heading"
+                eyebrow="Buyer And Seller Guidance"
+                title={title}
+                description={description}
+                inverse
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/74 via-transparent to-transparent" />
-              <div className="absolute inset-x-5 bottom-5 rounded-[22px] border border-white/12 bg-black/26 p-5 text-white backdrop-blur-md">
-                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-white/68">
-                  Presentation matters
-                </p>
-                <p className="mt-3 font-display text-4xl leading-[0.94] text-white">
-                  Prep, styling, and the right launch tempo change outcomes.
-                </p>
+
+              <div className="image-frame image-reveal reveal-up delay-1 relative mt-8 min-h-[320px] sm:min-h-[420px]">
+                <Image
+                  src="/images/services-interior.jpg"
+                  alt="A refined interior staged for a premium listing, reinforcing Crescent Vale's launch and advisory process."
+                  fill
+                  sizes="(min-width: 1280px) 34vw, (min-width: 1024px) 40vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111921]/78 via-transparent to-transparent" />
+                <div className="overlay-panel absolute inset-x-4 bottom-4 rounded-[22px] p-4 text-white sm:inset-x-5 sm:bottom-5 sm:p-5">
+                  <p className="text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-white/68">
+                    Launch discipline
+                  </p>
+                  <p className="mt-3 font-display text-[2rem] leading-[0.92] text-white">
+                    Preparation, styling, and timing only work when the story is coherent.
+                  </p>
+                </div>
               </div>
+
+              <p className="mt-5 border-l border-white/14 pl-6 text-sm leading-7 text-white/72">
+                The process is meant to protect calm decision-making. That
+                means cleaner sequencing, fewer surprises, and direct counsel
+                when timing becomes sensitive.
+              </p>
             </div>
 
-            <ProcessColumn
-              eyebrow="Seller launch"
-              title="A listing strategy that feels tailored before day one."
-              steps={sellingProcess}
-            />
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-8">
+              <ProcessTrack
+                eyebrow="Seller guide"
+                title="Homes launch best when the positioning feels inevitable."
+                steps={sellingProcess}
+              />
+              <ProcessTrack
+                eyebrow="Buyer guide"
+                title="Searches stay disciplined when the brief is sharper than the noise."
+                steps={buyingProcess}
+              />
+            </div>
           </div>
         </div>
       </Container>

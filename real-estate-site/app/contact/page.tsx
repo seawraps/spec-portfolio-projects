@@ -32,15 +32,15 @@ export default function ContactPage() {
         ]}
       />
 
-      <section className="py-12 md:py-16 lg:py-24">
+      <section className="page-section-spacing">
         <Container>
           <div className="section-shell rounded-[40px] p-4 sm:p-6 lg:p-8">
             <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
-              <aside className="dark-panel rounded-[34px] p-8 text-white sm:p-10">
+              <aside className="dark-panel min-w-0 rounded-[34px] p-6 text-white sm:p-10">
                 <p className="text-[0.66rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze-soft)]">
                   Direct lines
                 </p>
-                <h2 className="mt-4 font-display text-5xl leading-[0.92] text-white">
+                <h2 className="mt-4 font-display text-[clamp(2.9rem,12vw,4.6rem)] leading-[0.92] text-white">
                   Appointment-first guidance for buyers, sellers, and owners planning the next move.
                 </h2>
                 <p className="mt-4 max-w-2xl text-base leading-8 text-white/72">
@@ -57,7 +57,7 @@ export default function ContactPage() {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#10171d]/74 via-transparent to-transparent" />
-                  <div className="absolute inset-x-5 bottom-5 rounded-[24px] border border-white/12 bg-black/24 p-5 text-white backdrop-blur-md">
+                  <div className="overlay-panel absolute inset-x-5 bottom-5 rounded-[24px] p-5 text-white">
                     <p className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-white/68">
                       Harbor City office
                     </p>
@@ -67,18 +67,18 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 grid gap-4 md:grid-cols-3 xl:grid-cols-1">
+                <div className="mt-6 grid min-w-0 gap-4 md:grid-cols-3 xl:grid-cols-1">
                   {contactMethods.map((method) => (
                     <div
                       key={method.label}
-                      className="rounded-[24px] border border-white/10 bg-white/6 p-6"
+                      className="min-w-0 rounded-[24px] border border-white/10 bg-white/6 p-6"
                     >
                       <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-bronze-soft)]">
                         {method.label}
                       </p>
                       <a
                         href={method.href}
-                        className="mt-2 block break-words font-display text-[clamp(1.95rem,2.7vw,2.65rem)] leading-[0.94] text-white hover:text-white/80"
+                        className="mt-2 block break-words font-display text-[clamp(1.75rem,9vw,2.65rem)] leading-[0.94] text-white hover:text-white/80"
                       >
                         {method.value}
                       </a>

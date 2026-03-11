@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Newsreader, Public_Sans } from "next/font/google";
+import { Cormorant_Garamond, IBM_Plex_Sans } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { siteMetadata } from "@/lib/metadata";
 import "./globals.css";
 
-const publicSans = Public_Sans({
-  variable: "--font-public-sans",
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
@@ -26,10 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${publicSans.variable} ${newsreader.variable} antialiased`}>
+      <body className={`${ibmPlexSans.variable} ${cormorantGaramond.variable} antialiased`}>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[var(--color-brand)] focus:px-4 focus:py-2 focus:text-[var(--color-surface)]"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[0.6rem] focus:bg-[var(--color-brand)] focus:px-4 focus:py-2 focus:text-[var(--color-surface)]"
         >
           Skip to main content
         </a>

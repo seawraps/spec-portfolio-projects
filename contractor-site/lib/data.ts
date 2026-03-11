@@ -44,7 +44,8 @@ export type ProjectHighlight = {
 
 export const company = {
   name: "Blue Oak Remodeling Co.",
-  tagline: "Warm, detail-led renovations for Nashville homes that need to feel lived in, not staged.",
+  tagline:
+    "Design-build remodeling for Nashville homes that need better proportion, quieter materials, and a process that holds together from first walkthrough to final handoff.",
   phoneDisplay: "(615) 555-0192",
   phoneRaw: "+16155550192",
   email: "hello@blueoakremodeling.com",
@@ -62,8 +63,9 @@ export const company = {
 
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/project-guide", label: "Project Guide" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -91,8 +93,8 @@ export const trustIndicators = [
 ];
 
 export const featuredStats = [
-  { value: "380+", label: "Residential renovations completed" },
-  { value: "14", label: "Years serving Middle Tennessee homes" },
+  { value: "380+", label: "Projects led from walkthrough to handoff" },
+  { value: "14", label: "Years in Middle Tennessee homes" },
   { value: "4.9", label: "Average homeowner rating" },
 ];
 

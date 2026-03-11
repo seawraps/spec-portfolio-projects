@@ -52,15 +52,16 @@ export type ExpertiseLane = {
 
 export const siteConfig = {
   name: "Nadia Vale",
-  role: "Editorial Advisor, Speaker, and Media Host",
+  role: "Speaker, Advisor, and Editorial Voice",
   location: "Brooklyn, New York",
   email: "hello@nadiavale.com",
-  tagline: "Build a personal brand that feels like a publication, not a posting schedule.",
+  newsletterHref: "/#newsletter",
+  tagline: "A personal platform for keynotes, advisory work, and public ideas that need to sound authored.",
   shortBio:
-    "Nadia Vale helps founders, authors, and expert-led teams turn lived expertise into a public brand people want to book, quote, and introduce.",
+    "Nadia Vale works with founders, authors, and expert-led teams to shape the ideas, language, and room presence that make a reputation easier to trust and easier to book.",
   newsletterName: "Signal to Story",
   newsletterBlurb:
-    "A weekly editorial note on authority, keynote storytelling, and making expertise feel magnetic before the first sales call.",
+    "A weekly editorial note on authority, keynote storytelling, and how to make expertise travel like a real body of work.",
   socialLinks: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/nadiavale" },
     { label: "Instagram", href: "https://www.instagram.com/nadiavale" },
@@ -70,10 +71,11 @@ export const siteConfig = {
 } as const;
 
 export const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
+  { label: "Ideas", href: "/#ideas" },
+  { label: "Speaking", href: "/#speaking" },
+  { label: "Advisory", href: "/#advisory" },
+  { label: "Media", href: "/#media" },
   { label: "About", href: "/about" },
-  { label: "Offerings", href: "/services" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const heroStats: Stat[] = [

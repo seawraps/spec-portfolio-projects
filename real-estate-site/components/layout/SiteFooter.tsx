@@ -6,20 +6,20 @@ import { siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/6 bg-[var(--color-navy)] text-white">
+    <footer className="border-t border-white/8 bg-[var(--color-navy)] text-white">
       <Container className="py-14 sm:py-18">
-        <div className="grid gap-10 lg:grid-cols-[1.35fr_0.75fr_0.9fr_0.9fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.8fr_0.95fr_0.95fr]">
           <div>
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze-soft)]">
+            <p className="text-[0.64rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze-soft)]">
               Crescent Vale Realty
             </p>
-            <h2 className="mt-4 max-w-md font-display text-5xl leading-[0.95] text-white">
-              Boutique guidance for buyers and sellers making meaningful moves.
+            <h2 className="mt-4 max-w-md font-display text-[clamp(2.8rem,5vw,4.6rem)] leading-[0.94] text-white">
+              Quiet representation for homes with presence and clients who value discretion.
             </h2>
             <p className="mt-4 max-w-md text-sm leading-7 text-white/68">
-              A premium residential concept brand serving Harbor City and its
-              most sought-after neighborhoods with private buyer representation,
-              launch strategy, and market counsel.
+              Crescent Vale is positioned as a boutique private brokerage for
+              Harbor City and its most established residential enclaves,
+              balancing editorial launch strategy with direct client counsel.
             </p>
             <p className="mt-5 max-w-md text-sm leading-7 text-white/48">
               Concept/demo portfolio project. Agency identity, team members,
@@ -28,7 +28,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze-soft)]">
+            <p className="text-[0.64rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze-soft)]">
               Navigate
             </p>
             <nav aria-label="Footer navigation" className="mt-4 space-y-3">
@@ -45,7 +45,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze-soft)]">
+            <p className="text-[0.64rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze-soft)]">
               Contact
             </p>
             <div className="mt-4 space-y-3 text-sm leading-7 text-white/68">
@@ -60,7 +60,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze-soft)]">
+            <p className="text-[0.64rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze-soft)]">
               Service Area
             </p>
             <div className="mt-4 space-y-2 text-sm leading-7 text-white/68">

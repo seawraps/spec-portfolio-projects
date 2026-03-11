@@ -1,17 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #090604;
-  --background-soft: #120d0a;
-  --foreground: #f5e7d6;
-  --foreground-muted: #d0bea8;
-  --surface-light: #ecddd0;
-  --surface-light-strong: #f5ecdf;
-  --surface-dark: rgba(22, 15, 11, 0.84);
-  --surface-dark-strong: rgba(12, 8, 6, 0.94);
-  --border-soft: rgba(255, 231, 204, 0.14);
-  --accent: #c88b47;
-  --accent-strong: #f0d6b3;
+  --background: #0a0807;
+  --background-soft: #120f0d;
+  --background-deep: #17120f;
+  --foreground: #f5e7d2;
+  --foreground-muted: #d4c2af;
+  --foreground-soft: #a98d73;
+  --surface-strong: rgba(18, 13, 10, 0.9);
+  --surface-soft: rgba(31, 23, 18, 0.58);
+  --surface-cream: #ece1d2;
+  --border-soft: rgba(233, 209, 181, 0.16);
+  --border-strong: rgba(233, 209, 181, 0.28);
+  --accent: #bb8751;
+  --accent-soft: #e4c69e;
+  --accent-deep: #7c5032;
+  --shadow-dark: 0 30px 90px -40px rgba(0, 0, 0, 0.9);
 }
 
 @theme inline {
@@ -29,18 +33,19 @@ body {
   max-width: 100vw;
   overflow-x: clip;
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
 }
 
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 18% 8%, rgba(200, 139, 71, 0.18), transparent 24%),
-    radial-gradient(circle at 82% 0%, rgba(92, 52, 36, 0.28), transparent 28%),
-    radial-gradient(circle at 50% 38%, rgba(50, 31, 24, 0.18), transparent 34%),
-    linear-gradient(180deg, #16100d 0%, #090604 34%, #120d0a 100%);
+    radial-gradient(circle at top left, rgba(188, 135, 81, 0.16), transparent 24%),
+    radial-gradient(circle at top right, rgba(105, 64, 41, 0.22), transparent 28%),
+    linear-gradient(180deg, #18110e 0%, #0a0807 32%, #14100d 100%);
   color: var(--foreground);
-  font-family: var(--font-body), "Source Sans 3", sans-serif;
-  line-height: 1.5;
+  font-family: var(--font-body), "Manrope", sans-serif;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
 }
 
 body::before,
@@ -53,11 +58,11 @@ body::after {
 }
 
 body::before {
-  opacity: 0.14;
+  opacity: 0.18;
   background-image:
-    radial-gradient(rgba(255, 255, 255, 0.08) 0.8px, transparent 0.9px),
-    radial-gradient(rgba(255, 214, 170, 0.06) 0.8px, transparent 0.9px);
-  background-position: 0 0, 18px 14px;
+    radial-gradient(rgba(255, 255, 255, 0.05) 0.8px, transparent 0.9px),
+    radial-gradient(rgba(240, 206, 166, 0.05) 0.8px, transparent 0.9px);
+  background-position: 0 0, 16px 12px;
   background-size: 26px 26px, 34px 34px;
   mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
   animation: grainShift 18s steps(8) infinite;
@@ -65,12 +70,12 @@ body::before {
 
 body::after {
   background:
-    radial-gradient(circle at center, transparent 44%, rgba(0, 0, 0, 0.38) 100%),
-    linear-gradient(180deg, rgba(9, 6, 4, 0.12), rgba(9, 6, 4, 0.42));
+    radial-gradient(circle at center, transparent 38%, rgba(0, 0, 0, 0.48) 100%),
+    linear-gradient(180deg, rgba(10, 8, 7, 0.08), rgba(10, 8, 7, 0.44));
 }
 
 .font-display {
-  font-family: var(--font-display), "Bodoni Moda", serif;
+  font-family: var(--font-display), "Cormorant Garamond", serif;
 }
 
 a {
@@ -95,12 +100,12 @@ textarea {
 }
 
 .page-shell {
-  padding-top: clamp(7.6rem, 8vw, 9rem);
+  padding-top: clamp(6.75rem, 9vw, 8rem);
 }
 
-.section-dark,
-.section-light {
+.section-shell {
   position: relative;
+  z-index: 1;
 }
 
 .section-dark {
@@ -110,8 +115,8 @@ textarea {
 .section-light {
   color: #20140f;
   background:
-    radial-gradient(circle at top right, rgba(200, 139, 71, 0.14), transparent 22%),
-    linear-gradient(180deg, rgba(247, 239, 230, 0.98), rgba(233, 219, 204, 0.98));
+    radial-gradient(circle at top right, rgba(188, 135, 81, 0.12), transparent 18%),
+    linear-gradient(180deg, rgba(240, 229, 214, 0.98), rgba(229, 214, 197, 0.98));
 }
 
 .section-light::before {
@@ -120,56 +125,98 @@ textarea {
   position: absolute;
   inset: 0;
   background-image: linear-gradient(rgba(92, 69, 54, 0.04) 1px, transparent 1px);
-  background-size: 100% 11px;
+  background-size: 100% 12px;
   opacity: 0.12;
 }
 
-.surface-card {
-  border: 1px solid rgba(106, 74, 52, 0.16);
-  background:
-    linear-gradient(180deg, rgba(252, 246, 240, 0.98), rgba(234, 219, 204, 0.94));
-  box-shadow: 0 32px 90px -38px rgba(17, 10, 8, 0.42);
-  backdrop-filter: blur(18px);
-}
-
-.surface-card-soft {
-  border: 1px solid var(--border-soft);
-  background:
-    linear-gradient(180deg, rgba(23, 16, 12, 0.84), rgba(11, 8, 6, 0.94));
-  box-shadow: 0 36px 90px -46px rgba(0, 0, 0, 0.84);
-  backdrop-filter: blur(20px);
-}
-
-.editorial-kicker {
-  color: var(--accent-strong);
+.eyebrow {
+  color: var(--accent-soft);
   font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.36em;
+  font-weight: 700;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
 }
 
-.luxury-divider {
+.section-rule {
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, transparent, rgba(240, 214, 179, 0.72), transparent);
+  background: linear-gradient(90deg, transparent, rgba(228, 198, 158, 0.7), transparent);
 }
 
-.image-shell {
+.frame-panel {
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(180deg, rgba(25, 18, 14, 0.82), rgba(12, 10, 8, 0.92));
+  box-shadow: var(--shadow-dark);
+  backdrop-filter: blur(18px);
+}
+
+.frame-panel-light {
+  border: 1px solid rgba(120, 89, 62, 0.18);
+  background: linear-gradient(180deg, rgba(247, 241, 234, 0.92), rgba(232, 220, 206, 0.92));
+  box-shadow: 0 28px 90px -46px rgba(23, 15, 11, 0.35);
+  backdrop-filter: blur(14px);
+}
+
+.image-frame {
   overflow: hidden;
-  border: 1px solid rgba(255, 231, 204, 0.18);
-  box-shadow: 0 34px 90px -40px rgba(0, 0, 0, 0.78);
-  background: rgba(9, 6, 4, 0.18);
+  border: 1px solid rgba(233, 209, 181, 0.16);
+  box-shadow: var(--shadow-dark);
+  background: rgba(10, 8, 7, 0.2);
 }
 
-.image-shell img {
+.image-frame img {
   transition:
     transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
     filter 320ms ease;
 }
 
-.image-shell:hover img {
+.image-frame:hover img {
   transform: scale(1.05);
   filter: saturate(1.03) brightness(1.02);
+}
+
+.editorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--accent-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.editorial-link::after {
+  content: "";
+  height: 1px;
+  width: 3.5rem;
+  background: linear-gradient(90deg, rgba(228, 198, 158, 0.84), transparent);
+  transition: transform 220ms ease;
+}
+
+.editorial-link:hover::after {
+  transform: translateX(0.35rem);
+}
+
+.text-shadow-soft {
+  text-shadow: 0 12px 34px rgba(0, 0, 0, 0.36);
+}
+
+.ambient-border {
+  border-block: 1px solid rgba(233, 209, 181, 0.1);
+}
+
+.hero-mist {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(207, 160, 101, 0.16), transparent 18%),
+    radial-gradient(circle at 82% 24%, rgba(93, 61, 40, 0.26), transparent 24%);
+}
+
+.still-life-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 7rem, 7rem 100%;
 }
 
 .reveal {
@@ -186,49 +233,22 @@ textarea {
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-.interactive-panel {
-  --pointer-x: 50%;
-  --pointer-y: 50%;
-  --rotate-x: 0deg;
-  --rotate-y: 0deg;
-  position: relative;
-  transform: perspective(1200px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
-  transform-style: preserve-3d;
-  transition:
-    transform 260ms ease,
-    box-shadow 260ms ease,
-    border-color 260ms ease;
+.ambient-pan {
+  animation: ambientPan 18s ease-in-out infinite;
 }
 
-.interactive-panel::before {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    circle at var(--pointer-x) var(--pointer-y),
-    rgba(255, 230, 196, 0.18),
-    transparent 36%
-  );
-  opacity: 0;
-  transition: opacity 220ms ease;
-}
-
-.interactive-panel:hover::before {
-  opacity: 1;
-}
-
-.hero-drift {
+.soft-float {
   animation: drift 12s ease-in-out infinite;
 }
 
-.hero-drift-delayed {
-  animation: drift 14s ease-in-out infinite -5s;
+.soft-float-delayed {
+  animation: drift 14s ease-in-out infinite -4s;
 }
 
-.ambient-pan {
-  animation: ambientPan 18s ease-in-out infinite;
+.image-fade {
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease;
 }
 
 ::selection {
@@ -292,13 +312,7 @@ textarea:focus-visible {
 
 @media (max-width: 768px) {
   .page-shell {
-    padding-top: 7.2rem;
-  }
-}
-
-@media (hover: none) {
-  .interactive-panel {
-    transform: none;
+    padding-top: 6.25rem;
   }
 }
 

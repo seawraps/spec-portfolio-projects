@@ -6,7 +6,6 @@ import { HoursLocationSection } from "@/components/sections/hours-location-secti
 import { MenuHighlightsSection } from "@/components/sections/menu-highlights-section";
 import { ReservationCta } from "@/components/sections/reservation-cta";
 import { StorySection } from "@/components/sections/story-section";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { restaurantName } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -22,8 +21,7 @@ export default function HomePage() {
       <StorySection />
       <FeaturedDishes />
       <MenuHighlightsSection />
-      <GallerySection theme="light" />
-      <TestimonialsSection />
+      <GallerySection />
       <HoursLocationSection />
       <ReservationCta />
     </>

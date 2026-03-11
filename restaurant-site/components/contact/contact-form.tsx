@@ -80,34 +80,35 @@ export function ContactForm() {
     });
   }
 
+  const fieldClassName =
+    "mt-2 w-full rounded-xl border border-[rgba(233,209,181,0.16)] bg-[rgba(255,255,255,0.04)] px-4 py-3 text-[#fff1df] outline-none ring-[#d1a364] transition placeholder:text-[#8d7460] focus:border-[rgba(233,209,181,0.3)] focus:ring-2";
+
   return (
-    <div className="surface-card rounded-[2.2rem] p-6 sm:p-8">
-      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-[#9a6435]">
-        Guest Relations
-      </p>
-      <h2 className="mt-4 font-display text-[2.7rem] leading-[0.92] text-[#201511]">
-        Send us a message
+    <div className="frame-panel rounded-[2rem] p-6 sm:p-8">
+      <p className="eyebrow">Guest Relations</p>
+      <h2 className="mt-4 font-display text-[2.8rem] leading-[0.9] tracking-[-0.05em] text-[#fff0db]">
+        Send a note to the host stand.
       </h2>
-      <p className="mt-3 text-base leading-relaxed text-[#5b4538]">
-        Use this form for reservations above eight guests, private events, collaborations, or
-        general questions about the dining room.
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#cfbda8] sm:text-base">
+        Use this form for private events, large-party requests, collaborations, or any question
+        that needs a slower, more tailored reply.
       </p>
 
       {submitted ? (
         <div
-          className="mt-6 rounded-[1.6rem] border border-emerald-200 bg-emerald-50 p-4 text-sm leading-relaxed text-emerald-900"
+          className="mt-6 rounded-[1.2rem] border border-[rgba(170,220,186,0.24)] bg-[rgba(20,54,34,0.42)] p-4 text-sm leading-relaxed text-[#e6f5ea]"
           role="status"
         >
-          <p className="font-semibold uppercase tracking-[0.14em]">Message sent successfully.</p>
+          <p className="font-semibold uppercase tracking-[0.16em]">Message received.</p>
           <p className="mt-2">
-            Thank you for contacting Astera. A member of the team will reply shortly.
+            Thank you for reaching out. A member of the Astera team will respond shortly.
           </p>
           <button
             type="button"
             onClick={() => setSubmitted(false)}
-            className={buttonClassName("secondary", "mt-4")}
+            className={buttonClassName("secondaryInverse", "mt-4")}
           >
-            Send another message
+            Send Another
           </button>
         </div>
       ) : null}
@@ -116,7 +117,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#6c4a31]"
+            className="block text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d7aa75]"
           >
             Name
           </label>
@@ -127,13 +128,13 @@ export function ContactForm() {
             autoComplete="name"
             value={values.name}
             onChange={(event) => updateField("name", event.target.value)}
-            className="mt-2 w-full rounded-[1.2rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+            className={fieldClassName}
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? "name-error" : undefined}
             required
           />
           {errors.name ? (
-            <p id="name-error" className="mt-2 text-xs text-red-700">
+            <p id="name-error" className="mt-2 text-xs text-[#f3b19d]">
               {errors.name}
             </p>
           ) : null}
@@ -143,7 +144,7 @@ export function ContactForm() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#6c4a31]"
+              className="block text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d7aa75]"
             >
               Email
             </label>
@@ -154,13 +155,13 @@ export function ContactForm() {
               autoComplete="email"
               value={values.email}
               onChange={(event) => updateField("email", event.target.value)}
-              className="mt-2 w-full rounded-[1.2rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+              className={fieldClassName}
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? "email-error" : undefined}
               required
             />
             {errors.email ? (
-              <p id="email-error" className="mt-2 text-xs text-red-700">
+              <p id="email-error" className="mt-2 text-xs text-[#f3b19d]">
                 {errors.email}
               </p>
             ) : null}
@@ -169,9 +170,9 @@ export function ContactForm() {
           <div>
             <label
               htmlFor="phone"
-              className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#6c4a31]"
+              className="block text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d7aa75]"
             >
-              Phone <span className="text-[#8a6a52]">(optional)</span>
+              Phone
             </label>
             <input
               id="phone"
@@ -180,12 +181,13 @@ export function ContactForm() {
               autoComplete="tel"
               value={values.phone}
               onChange={(event) => updateField("phone", event.target.value)}
-              className="mt-2 w-full rounded-[1.2rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+              className={fieldClassName}
               aria-invalid={Boolean(errors.phone)}
               aria-describedby={errors.phone ? "phone-error" : undefined}
+              placeholder="Optional"
             />
             {errors.phone ? (
-              <p id="phone-error" className="mt-2 text-xs text-red-700">
+              <p id="phone-error" className="mt-2 text-xs text-[#f3b19d]">
                 {errors.phone}
               </p>
             ) : null}
@@ -195,7 +197,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="message"
-            className="block text-sm font-semibold uppercase tracking-[0.18em] text-[#6c4a31]"
+            className="block text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d7aa75]"
           >
             Message
           </label>
@@ -205,13 +207,13 @@ export function ContactForm() {
             rows={6}
             value={values.message}
             onChange={(event) => updateField("message", event.target.value)}
-            className="mt-2 w-full rounded-[1.2rem] border border-[#ceb59d] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-[#201511] outline-none ring-[#d1a364] transition focus:ring-2"
+            className={fieldClassName}
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
             required
           />
           {errors.message ? (
-            <p id="message-error" className="mt-2 text-xs text-red-700">
+            <p id="message-error" className="mt-2 text-xs text-[#f3b19d]">
               {errors.message}
             </p>
           ) : null}
@@ -222,7 +224,7 @@ export function ContactForm() {
         </button>
 
         {hasErrors ? (
-          <p className="text-xs text-[#7a5c46]">
+          <p className="text-xs text-[#b89b83]">
             Please correct the highlighted fields and submit again.
           </p>
         ) : null}

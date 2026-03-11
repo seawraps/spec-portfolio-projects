@@ -2,23 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useEffectEvent, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { buttonClassName } from "@/components/ui/button-styles";
-import { contactDetails, navLinks, serviceMoments } from "@/lib/data";
+import { contactDetails, navLinks, restaurantName } from "@/lib/data";
 
-function isActiveLink(currentPath: string, href: string) {
+function isActiveLink(currentPath: string, href: string, external?: boolean) {
+  if (external) {
+    return false;
+  }
+
   return href === "/" ? currentPath === "/" : currentPath.startsWith(href);
-}
-
-function desktopLinkClasses(currentPath: string, href: string) {
-  const active = isActiveLink(currentPath, href);
-
-  return `group relative inline-flex items-center gap-2 rounded-full px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.3em] transition-all ${
-    active
-      ? "bg-[rgba(255,255,255,0.06)] text-[#fff2df]"
-      : "text-[#cdb8a0] hover:bg-[rgba(255,255,255,0.04)] hover:text-[#fff2df]"
-  }`;
 }
 
 export function SiteHeader() {
@@ -26,18 +20,32 @@ export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const syncScrollState = useEffectEvent(() => {
-    setIsScrolled(window.scrollY > 24);
-  });
+  const phoneHref = `tel:${contactDetails.phone.replace(/[^\d+]/g, "")}`;
 
   useEffect(() => {
-    syncScrollState();
-
-    const onScroll = () => syncScrollState();
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 24);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -48,206 +56,198 @@ export function SiteHeader() {
   }, [isOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6">
+    <>
+      <header className="fixed inset-x-0 top-0 z-50">
+        <div
+          className={`transition-all duration-500 ${
+            isScrolled
+              ? "border-b border-[rgba(233,209,181,0.12)] bg-[rgba(10,8,7,0.88)] shadow-[0_22px_60px_-34px_rgba(0,0,0,0.82)] backdrop-blur-2xl"
+              : "bg-[linear-gradient(180deg,rgba(10,8,7,0.72),rgba(10,8,7,0.36)_68%,transparent)]"
+          }`}
+        >
+          <div className="mx-auto max-w-[96rem] px-5 sm:px-8 lg:px-10">
+            <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 py-4 sm:py-5">
+              <button
+                type="button"
+                onClick={() => setIsOpen((value) => !value)}
+                aria-expanded={isOpen}
+                aria-controls="primary-nav"
+                aria-label={isOpen ? "Close host stand menu" : "Open host stand menu"}
+                className="group inline-flex items-center gap-3 rounded-xl border border-[rgba(233,209,181,0.16)] bg-[rgba(20,15,12,0.54)] px-3 py-2.5 text-left text-[#f3e4d1] backdrop-blur-md transition-all duration-300 hover:border-[rgba(233,209,181,0.28)] hover:bg-[rgba(20,15,12,0.72)]"
+              >
+                <span className="flex h-4 w-4 flex-col justify-between" aria-hidden="true">
+                  <span
+                    className={`block h-px bg-current transition-transform duration-500 ${
+                      isOpen ? "translate-y-[7px] rotate-45" : ""
+                    }`}
+                  />
+                  <span
+                    className={`block h-px bg-current transition-opacity duration-300 ${
+                      isOpen ? "opacity-0" : ""
+                    }`}
+                  />
+                  <span
+                    className={`block h-px bg-current transition-transform duration-500 ${
+                      isOpen ? "-translate-y-[7px] -rotate-45" : ""
+                    }`}
+                  />
+                </span>
+                <span className="hidden text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-[#f1ddbf] sm:block">
+                  Host Stand
+                </span>
+              </button>
+
+              <div className="justify-self-center text-center text-[#fff1df]">
+                <Link href="/" aria-label={`${restaurantName} home`} className="inline-block">
+                  <span className="block font-display text-[2.25rem] leading-none tracking-[-0.06em] sm:text-[2.8rem]">
+                    Astera
+                  </span>
+                  <span className="mt-1 block text-[0.54rem] font-semibold uppercase tracking-[0.48em] text-[#d5ab77]">
+                    Coastal Bistro
+                  </span>
+                </Link>
+              </div>
+
+              <div className="flex items-center justify-self-end gap-3">
+                <a
+                  href={phoneHref}
+                  className="hidden text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[#d8c3ac] transition-colors hover:text-[#fff1df] lg:inline-flex"
+                >
+                  {contactDetails.phone}
+                </a>
+                <a
+                  href={contactDetails.reservationsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonClassName("accent", "px-4 sm:px-5")}
+                >
+                  Reserve
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
       <div
-        className={`mx-auto max-w-7xl overflow-hidden rounded-[2rem] border transition-all duration-500 ${
-          isScrolled
-            ? "border-[rgba(255,233,204,0.18)] bg-[linear-gradient(135deg,rgba(12,8,6,0.96),rgba(26,16,11,0.9))] shadow-[0_28px_80px_-36px_rgba(0,0,0,0.72)] backdrop-blur-2xl"
-            : "border-[rgba(255,233,204,0.12)] bg-[linear-gradient(135deg,rgba(10,7,5,0.84),rgba(23,15,10,0.72))] shadow-[0_24px_70px_-40px_rgba(0,0,0,0.62)] backdrop-blur-xl"
+        className={`fixed inset-0 z-40 bg-[rgba(6,5,4,0.68)] backdrop-blur-sm transition-opacity duration-500 ${
+          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      />
+
+      <aside
+        id="primary-nav"
+        aria-hidden={!isOpen}
+        inert={!isOpen}
+        className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-[42rem] flex-col border-l border-[rgba(233,209,181,0.12)] bg-[linear-gradient(180deg,rgba(17,13,10,0.98),rgba(9,8,7,0.98))] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.92)] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="hidden items-center justify-between border-b border-[rgba(255,233,204,0.1)] px-6 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-[#bda78f] md:flex">
-          <p>Host Stand</p>
-          <p className="text-center text-[#ddc9b2]">
-            Reservations, terrace requests, and private dining nightly
-          </p>
-          <a href={`tel:${contactDetails.phone}`} className="transition-colors hover:text-[#fff2df]">
-            {contactDetails.phone}
-          </a>
-        </div>
+        <div className="still-life-grid absolute inset-0 opacity-30" />
+        <div className="absolute inset-x-0 top-0 h-52 bg-[radial-gradient(circle_at_top,rgba(212,167,112,0.18),transparent_58%)]" />
 
-        <div className="flex items-center gap-3 px-4 py-4 md:px-6 md:py-5">
-          <Link
-            href="/"
-            className="flex shrink-0 items-center gap-3"
-            onClick={() => setIsOpen(false)}
-            aria-label="Astera Coastal Bistro home"
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(255,233,204,0.18)] bg-[rgba(255,255,255,0.04)] font-display text-2xl text-[#f8efe4] shadow-[inset_0_1px_0_rgba(255,245,234,0.12)]">
-              A
-            </span>
-            <span>
-              <span className="block font-display text-[2rem] leading-none tracking-[-0.04em] text-[#f8efe4]">
-                Astera
-              </span>
-              <span className="block pl-0.5 text-[0.56rem] font-semibold uppercase tracking-[0.4em] text-[#d8af79]">
-                Coastal Bistro
-              </span>
-            </span>
-          </Link>
-
-          <div className="hidden flex-1 lg:grid lg:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] lg:items-center lg:gap-3 xl:grid-cols-[minmax(0,14rem)_minmax(0,1fr)]">
-            <div className="rounded-[1.45rem] border border-[rgba(255,233,204,0.14)] bg-[rgba(255,255,255,0.03)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,245,234,0.08)]">
-              <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#c99558]">
-                Tonight&apos;s Seating
-              </p>
-              <p className="mt-2 text-xs leading-relaxed text-[#dbc6af] xl:text-sm">
-                Dining room from 5 PM. Terrace requests welcomed.
-              </p>
-            </div>
-
-            <nav className="flex justify-center" aria-label="Primary navigation">
-              <div className="flex items-center gap-2 rounded-[1.5rem] border border-[rgba(255,233,204,0.14)] bg-[rgba(255,255,255,0.03)] px-3 py-3 shadow-[inset_0_1px_0_rgba(255,245,234,0.08)] xl:gap-3 xl:px-4">
-                <span className="hidden text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#8f7057] xl:block">
-                  Host Desk
-                </span>
-                <span className="hidden h-5 w-px bg-[rgba(255,233,204,0.12)] xl:block" />
-                {navLinks.map((link) => {
-                  const active = isActiveLink(pathname, link.href);
-
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={desktopLinkClasses(pathname, link.href)}
-                      aria-current={active ? "page" : undefined}
-                    >
-                      <span
-                        className={`h-1.5 w-1.5 rounded-full transition-all ${
-                          active
-                            ? "bg-[#d8af79] shadow-[0_0_0_4px_rgba(216,175,121,0.12)]"
-                            : "bg-[rgba(255,233,204,0.16)] group-hover:bg-[#d8af79]"
-                        }`}
-                      />
-                      <span>{link.label}</span>
-                    </Link>
-                  );
-                })}
-              </div>
-            </nav>
+        <div className="relative flex h-full flex-col overflow-y-auto px-6 pb-8 pt-24 sm:px-8 sm:pt-28">
+          <div className="border-b border-[rgba(233,209,181,0.12)] pb-6">
+            <p className="eyebrow">Host Stand</p>
+            <h2 className="mt-4 max-w-md font-display text-[3.2rem] leading-[0.88] tracking-[-0.05em] text-[#fff1df] sm:text-[4rem]">
+              Reservations first, details handled with quiet confidence.
+            </h2>
+            <p className="mt-4 max-w-lg text-[1rem] leading-relaxed text-[#d0bea8]">
+              Use the menu as a reservation desk, not a sitemap. Navigate the room, the menu, and
+              the visit details from one place.
+            </p>
           </div>
 
-          <div className="ml-auto hidden items-center gap-3 sm:flex">
-            <a
-              href={contactDetails.reservationsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={buttonClassName("primary", "rounded-[1.15rem] px-5")}
-            >
-              Reserve
-            </a>
-          </div>
+          <nav className="mt-8 flex flex-col" aria-label="Primary navigation">
+            {navLinks.map((link) => {
+              const active = isActiveLink(pathname, link.href, link.external);
+              const className =
+                "group flex items-end justify-between gap-4 border-b border-[rgba(233,209,181,0.1)] py-4 text-[#f3e4d1] transition-colors duration-300 hover:text-[#ffffff]";
+              const content = (
+                <>
+                  <div>
+                    <span className="block text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#af8a66]">
+                      {active ? "Now Showing" : "Navigate"}
+                    </span>
+                    <span className="mt-2 block font-display text-[2.2rem] leading-[0.92] tracking-[-0.04em] sm:text-[2.7rem]">
+                      {link.label}
+                    </span>
+                  </div>
+                  <span className="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[#d7aa75] transition-transform duration-300 group-hover:translate-x-1">
+                    Enter
+                  </span>
+                </>
+              );
 
-          <button
-            type="button"
-            className="ml-auto inline-flex h-12 w-12 items-center justify-center rounded-[1.15rem] border border-[rgba(255,233,204,0.18)] bg-[rgba(255,255,255,0.04)] text-[#f6ecdf] md:ml-0 lg:hidden"
-            onClick={() => setIsOpen((value) => !value)}
-            aria-expanded={isOpen}
-            aria-controls="mobile-nav"
-            aria-label={isOpen ? "Close primary navigation" : "Open primary navigation"}
-          >
-            <svg
-              className="h-5 w-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              {isOpen ? (
-                <path
-                  d="M6 6L18 18M18 6L6 18"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              ) : (
-                <path
-                  d="M4 7H20M7 12H20M10 17H20"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
+              if (link.external) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className={className}
+                  >
+                    {content}
+                  </a>
+                );
+              }
 
-      {isOpen ? (
-        <div
-          id="mobile-nav"
-          className="mx-auto mt-3 max-w-7xl overflow-hidden rounded-[1.9rem] border border-[rgba(255,233,204,0.14)] bg-[linear-gradient(180deg,rgba(10,7,5,0.98),rgba(20,13,9,0.98))] p-5 shadow-[0_28px_90px_-28px_rgba(0,0,0,0.82)] backdrop-blur-2xl lg:hidden"
-        >
-          <div className="grid gap-8">
-            <div className="rounded-[1.5rem] border border-[rgba(255,233,204,0.1)] bg-[rgba(255,255,255,0.03)] p-4">
-              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[#c99558]">
-                Host Stand
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={className}
+                >
+                  {content}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="mt-auto grid gap-5 border-t border-[rgba(233,209,181,0.12)] pt-8 sm:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[#d7aa75]">
+                Tonight
               </p>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#d6c2ab]">
-                Reservations, terrace requests, and private dining all start here.
+              <p className="mt-3 max-w-sm text-[1rem] leading-relaxed text-[#d0bea8]">
+                Terrace requests welcomed. Aperitivo from 5 PM. Last seating 10:30 PM Friday and
+                Saturday.
               </p>
             </div>
 
             <div className="grid gap-3">
-              {navLinks.map((link) => {
-                const active = isActiveLink(pathname, link.href);
-
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`group flex items-center justify-between rounded-[1.45rem] border px-4 py-4 ${
-                      active
-                        ? "border-[rgba(216,175,121,0.4)] bg-[rgba(255,255,255,0.06)] text-[#fff2df]"
-                        : "border-[rgba(255,233,204,0.08)] bg-[rgba(255,255,255,0.02)] text-[#dbc7b0]"
-                    }`}
-                    aria-current={active ? "page" : undefined}
-                  >
-                    <div>
-                      <p className="font-display text-[2.4rem] leading-none">{link.label}</p>
-                    </div>
-                    <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[#d8af79] transition-transform duration-300 group-hover:translate-x-1">
-                      Enter
-                    </span>
-                  </Link>
-                );
-              })}
-            </div>
-
-            <div className="grid gap-3 rounded-[1.7rem] border border-[rgba(255,233,204,0.1)] bg-[rgba(255,255,255,0.03)] p-4">
-              {serviceMoments.slice(0, 2).map((moment) => (
-                <div key={moment.label}>
-                  <p className="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[#c99558]">
-                    {moment.label}
-                  </p>
-                  <p className="mt-2 text-base text-[#f4e6d5]">{moment.value}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-[#cdb9a2]">{moment.note}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
               <a
                 href={contactDetails.reservationsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className={buttonClassName("primary", "w-full rounded-[1.15rem]")}
+                className={buttonClassName("primary", "w-full")}
               >
-                Reserve
+                Book Online
               </a>
-              <Link
-                href="/contact"
-                onClick={() => setIsOpen(false)}
-                className={buttonClassName("secondaryInverse", "w-full rounded-[1.15rem]")}
+              <a
+                href={phoneHref}
+                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[rgba(233,209,181,0.16)] px-4 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-[#f1ddbf] transition-colors hover:border-[rgba(233,209,181,0.28)] hover:text-[#fff1df]"
               >
-                Concierge
-              </Link>
+                {contactDetails.phone}
+              </a>
+              <a
+                href={contactDetails.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-[#d0bea8] transition-colors hover:text-[#fff1df]"
+              >
+                {contactDetails.addressLine1}
+              </a>
             </div>
           </div>
         </div>
-      ) : null}
-    </header>
+      </aside>
+    </>
   );
 }

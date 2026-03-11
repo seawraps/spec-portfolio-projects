@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader, Public_Sans } from "next/font/google";
+import { Cormorant_Garamond, Public_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -15,17 +15,17 @@ const bodyFont = Public_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const displayFont = Newsreader({
+const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nadia Vale | Editorial Advisor and Speaker",
+    default: "Nadia Vale | Speaker, Advisor, and Editorial Voice",
     template: "%s | Nadia Vale",
   },
   description:
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   openGraph: {
-    title: "Nadia Vale | Editorial Advisor and Speaker",
+    title: "Nadia Vale | Speaker, Advisor, and Editorial Voice",
     description:
       "Editorial strategy, keynote development, and partnership positioning for founders and expert-led brands.",
     url: siteUrl,
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nadia Vale | Editorial Advisor and Speaker",
+    title: "Nadia Vale | Speaker, Advisor, and Editorial Voice",
     description:
       "Editorial strategy, speaking design, and partnership positioning for people building trust in public.",
   },

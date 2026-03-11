@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties, ReactNode } from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -10,7 +10,6 @@ type RevealProps = {
   className?: string;
   delay?: number;
   distance?: number;
-  once?: boolean;
 };
 
 export function Reveal({
@@ -18,9 +17,9 @@ export function Reveal({
   className,
   delay = 0,
   distance = 28,
-  once = true,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
+  const [isRevealed, setIsRevealed] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
@@ -30,51 +29,36 @@ export function Reveal({
     }
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsRevealed(true);
       return;
     }
 
-    let hasAnimated = false;
+    let hasRevealed = false;
 
-    const runAnimation = () => {
-      if (hasAnimated) {
+    const reveal = () => {
+      if (hasRevealed) {
         return;
       }
 
-      hasAnimated = true;
-
-      node.animate(
-        [
-          {
-            opacity: 0,
-            transform: `translate3d(0, ${distance}px, 0)`,
-            filter: "blur(8px)",
-          },
-          {
-            opacity: 1,
-            transform: "translate3d(0, 0, 0)",
-            filter: "blur(0)",
-          },
-        ],
-        {
-          duration: 820,
-          delay,
-          easing: "cubic-bezier(0.2, 0.65, 0.22, 1)",
-          fill: "both",
-        },
-      );
+      hasRevealed = true;
+      setIsRevealed(true);
     };
+
+    const bounds = node.getBoundingClientRect();
+
+    if (bounds.top < window.innerHeight * 0.92) {
+      reveal();
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting) {
-          runAnimation();
-
-          if (once) {
-            observer.disconnect();
-          }
-        } else if (!once) {
-          hasAnimated = false;
+        if (!entry?.isIntersecting) {
+          return;
         }
+
+        reveal();
+        observer.unobserve(node);
       },
       {
         rootMargin: "0px 0px -10% 0px",
@@ -85,12 +69,12 @@ export function Reveal({
     observer.observe(node);
 
     return () => observer.disconnect();
-  }, [once]);
+  }, []);
 
   return (
     <div
       ref={ref}
-      className={cn("reveal", className)}
+      className={cn("reveal", isRevealed && "reveal-visible", className)}
       style={
         {
           "--reveal-delay": `${delay}ms`,

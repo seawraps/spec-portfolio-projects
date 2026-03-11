@@ -1,128 +1,90 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SectionHeading } from "@/components/section-heading";
-import { InteractivePanel } from "@/components/ui/interactive-panel";
+
 import { Reveal } from "@/components/ui/reveal";
-import { siteImages, storyHighlights } from "@/lib/data";
+import { eveningMoments } from "@/lib/experience-data";
+import { siteImages } from "@/lib/data";
 
 export function StorySection() {
   return (
-    <section className="section-dark py-18 md:py-22 lg:py-26">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 xl:grid-cols-[1.06fr_0.94fr] xl:items-center">
-        <div className="space-y-6">
-          <div className="relative">
+    <section className="section-shell px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+      <div className="mx-auto max-w-[96rem]">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
             <Reveal>
-              <InteractivePanel className="rounded-[2.4rem]">
-                <figure className="image-shell rounded-[2.4rem]">
-                  <Image
-                    src={siteImages.diningRoom.src}
-                    alt={siteImages.diningRoom.alt}
-                    width={1800}
-                    height={1200}
-                    className="h-[25rem] w-full object-cover sm:h-[31rem] lg:h-[38rem]"
-                  />
-                </figure>
-              </InteractivePanel>
-            </Reveal>
-
-            <Reveal
-              delay={180}
-              className="mt-4 max-w-[15rem] rounded-[1.5rem] border border-[rgba(255,233,204,0.14)] bg-[rgba(10,7,5,0.74)] p-5 shadow-[0_24px_70px_-34px_rgba(0,0,0,0.8)] backdrop-blur-xl sm:absolute sm:bottom-5 sm:left-5 sm:mt-0"
-            >
-              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
-                Interior Mood
-              </p>
-              <p className="mt-3 font-display text-[1.7rem] leading-[0.94] text-[#f7ead7]">
-                The room is tuned to move from glow to hush as the night deepens.
+              <p className="eyebrow">Tonight&apos;s Mood</p>
+              <h2 className="mt-5 max-w-xl font-display text-[clamp(3.5rem,7vw,5.9rem)] leading-[0.88] tracking-[-0.055em] text-[#fff0db]">
+                The evening moves in deliberate chapters.
+              </h2>
+              <p className="mt-5 max-w-xl text-[1rem] leading-relaxed text-[#cfbda8] sm:text-[1.08rem]">
+                Instead of stacking interchangeable content blocks, the page opens like service
+                itself: arrival, aperitivo, dinner, and the quieter pull of the last seating.
               </p>
             </Reveal>
-          </div>
 
-          <div className="grid gap-5 sm:grid-cols-[0.62fr_0.38fr]">
-            <Reveal delay={90}>
-              <InteractivePanel className="rounded-[2rem]">
-                <figure className="image-shell rounded-[2rem]">
-                  <Image
-                    src={siteImages.storyChef.src}
-                    alt={siteImages.storyChef.alt}
-                    width={1800}
-                    height={2700}
-                    className="h-[22rem] w-full object-cover"
-                  />
-                </figure>
-              </InteractivePanel>
-            </Reveal>
+            <div className="mt-10">
+              {eveningMoments.map((moment, index) => (
+                <Reveal key={moment.label} delay={index * 80}>
+                  <article className="border-t border-[rgba(233,209,181,0.1)] py-5">
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[#d7aa75]">
+                      {moment.label}
+                    </p>
+                    <h3 className="mt-3 font-display text-[2rem] leading-[0.94] tracking-[-0.04em] text-[#fff1df] sm:text-[2.5rem]">
+                      {moment.title}
+                    </h3>
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#ccb8a1] sm:text-base">
+                      {moment.description}
+                    </p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
 
-            <Reveal delay={160} className="space-y-5">
-              <InteractivePanel className="rounded-[1.7rem]">
-                <figure className="image-shell rounded-[1.7rem]">
-                  <Image
-                    src={siteImages.wineToast.src}
-                    alt={siteImages.wineToast.alt}
-                    width={1800}
-                    height={1200}
-                    className="h-48 w-full object-cover"
-                  />
-                </figure>
-              </InteractivePanel>
-
-              <div className="rounded-[1.7rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(255,255,255,0.04)] p-5">
-                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d8af79]">
-                  Since 2022
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-[#d4c2ad]">
-                  Imagined as a harbor dining room where destination-level cooking still feels easy
-                  enough for a second reservation the same week.
-                </p>
-              </div>
+            <Reveal delay={280}>
+              <Link href="/about" className="editorial-link mt-4">
+                Read The House Story
+              </Link>
             </Reveal>
           </div>
-        </div>
 
-        <div>
-          <Reveal>
-            <SectionHeading
-              eyebrow="Our Story"
-              title="Hospitality that starts in the kitchen, then expands into the room around it"
-              description="Astera was designed as a restaurant first, not a moodboard: fire-led cooking, polished choreography, and a room that feels more magnetic as the service settles in."
-              theme="dark"
-            />
-          </Reveal>
+          <div className="grid gap-4 sm:grid-cols-[1.2fr_0.8fr]">
+            <Reveal className="sm:row-span-2">
+              <figure className="image-frame h-full rounded-[1.9rem]">
+                <Image
+                  src={siteImages.diningRoom.src}
+                  alt={siteImages.diningRoom.alt}
+                  width={1800}
+                  height={2400}
+                  className="h-[24rem] w-full object-cover sm:h-[38rem] lg:h-[44rem]"
+                />
+              </figure>
+            </Reveal>
 
-          <Reveal delay={80}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#d1bfaa]">
-              The menu stays close to the coast, but the experience is broader than the plate. The
-              bar has its own ritual, the lighting softens the longer you stay, and every detail is
-              calibrated for appetite rather than trend language.
-            </p>
-          </Reveal>
+            <Reveal delay={120}>
+              <figure className="image-frame rounded-[1.5rem]">
+                <Image
+                  src={siteImages.storyChef.src}
+                  alt={siteImages.storyChef.alt}
+                  width={1800}
+                  height={2400}
+                  className="h-[18rem] w-full object-cover sm:h-[21rem]"
+                />
+              </figure>
+            </Reveal>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {storyHighlights.map((highlight, index) => (
-              <Reveal key={highlight.title} delay={120 + index * 70}>
-                <article className="rounded-[1.8rem] border border-[rgba(255,233,204,0.12)] bg-[rgba(255,255,255,0.03)] p-6">
-                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.32em] text-[#d6a66b]">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-4 font-display text-[2.15rem] leading-[0.92] text-[#f6e8d6]">
-                    {highlight.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#d0bea8]">
-                    {highlight.description}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
+            <Reveal delay={200} className="frame-panel rounded-[1.5rem] p-5 sm:p-6">
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[#d7aa75]">
+                Service Note
+              </p>
+              <p className="mt-3 font-display text-[2rem] leading-[0.94] tracking-[-0.04em] text-[#fff1df]">
+                Hospitality here stays poised rather than busy.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-[#cfbda8]">
+                Copy stays spare, spacing breathes, and the imagery gets room to dominate without
+                losing legibility.
+              </p>
+            </Reveal>
           </div>
-
-          <Reveal delay={220}>
-            <Link
-              href="/about"
-              className="mt-8 inline-flex text-sm font-semibold uppercase tracking-[0.22em] text-[#f1ddbf] underline decoration-[#d1a364] underline-offset-8"
-            >
-              Read the full restaurant story
-            </Link>
-          </Reveal>
         </div>
       </div>
     </section>

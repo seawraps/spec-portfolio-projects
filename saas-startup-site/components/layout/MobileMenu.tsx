@@ -15,7 +15,7 @@ export function MobileMenu() {
     <div className="relative md:hidden">
       <button
         type="button"
-        className="inline-flex h-12 w-12 items-center justify-center rounded-[1.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-md transition hover:border-white/20 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-[0.95rem] border border-white/8 bg-[#07111f]/90 text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-md transition hover:border-white/18 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
         aria-expanded={isOpen}
         aria-controls="mobile-nav"
         aria-label={isOpen ? "Close primary navigation" : "Open primary navigation"}
@@ -37,10 +37,10 @@ export function MobileMenu() {
       {isOpen ? (
         <div
           id="mobile-nav"
-          className="surface-panel-dark absolute right-0 top-[calc(100%+0.85rem)] z-50 w-[min(22rem,calc(100vw-3rem))] overflow-hidden p-4"
+          className="command-shell absolute right-0 top-[calc(100%+0.85rem)] z-50 w-[min(22rem,calc(100vw-3rem))] p-4"
         >
-          <div className="rounded-[1.35rem] border border-white/10 bg-white/5 px-4 py-4">
-            <p className="data-label text-sky-200">System snapshot</p>
+          <div className="command-panel px-4 py-4">
+            <p className="data-label text-sky-200">Control snapshot</p>
             <div className="mt-4 grid grid-cols-2 gap-3">
               {[
                 ["Health", "99.97%"],
@@ -48,7 +48,7 @@ export function MobileMenu() {
               ].map(([label, value]) => (
                 <div
                   key={label}
-                  className="rounded-[1rem] border border-white/8 bg-[#091322] px-3 py-3"
+                  className="command-panel-soft px-3 py-3"
                 >
                   <p className="data-label text-slate-500">{label}</p>
                   <p className="mt-2 text-sm font-semibold text-white">{value}</p>
@@ -66,9 +66,9 @@ export function MobileMenu() {
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={`flex items-center rounded-[1.2rem] px-4 py-3 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 ${
+                      className={`flex items-center rounded-[0.95rem] px-4 py-3 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 ${
                         isActive
-                          ? "bg-[linear-gradient(135deg,rgba(101,226,255,0.2),rgba(22,184,255,0.12))] text-white ring-1 ring-white/10"
+                          ? "bg-[linear-gradient(135deg,rgba(103,232,249,0.2),rgba(14,165,233,0.08))] text-white ring-1 ring-cyan-300/18"
                           : "text-slate-300 hover:bg-white/8 hover:text-white"
                       }`}
                       aria-current={isActive ? "page" : undefined}

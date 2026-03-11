@@ -1,6 +1,7 @@
 export type NavLink = {
   href: string;
   label: string;
+  external?: boolean;
 };
 
 export type PhotoAsset = {
@@ -80,10 +81,11 @@ export type MenuHighlight = {
 export const restaurantName = "Astera Coastal Bistro";
 
 export const navLinks: NavLink[] = [
-  { href: "/", label: "Arrival" },
-  { href: "/about", label: "Story" },
-  { href: "/menu", label: "Dinner" },
-  { href: "/contact", label: "Visit" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/menu", label: "Menu" },
+  { href: "https://www.opentable.com/", label: "Reservations", external: true },
+  { href: "/contact", label: "Contact" },
 ];
 
 export const siteImages = {

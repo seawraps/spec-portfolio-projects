@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Source_Sans_3 } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { restaurantName, siteImages } from "@/lib/data";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
+const manrope = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const bodoni = Bodoni_Moda({
+const cormorant = Cormorant_Garamond({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -57,10 +57,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sourceSans.variable} ${bodoni.variable} antialiased`}>
+      <body className={`${manrope.variable} ${cormorant.variable} antialiased`}>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[#f1ddbf] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#1a120e]"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-xl focus:bg-[#f1ddbf] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#1a120e]"
         >
           Skip to main content
         </a>

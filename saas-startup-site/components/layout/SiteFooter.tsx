@@ -6,16 +6,16 @@ import { siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
-  const platformLinks = ["Workflow studio", "Command board", "AI briefings", "Integrations"];
+  const platformLinks = ["Command board", "Scenario sandbox", "Approval engine", "Audit memory"];
   const trustItems = ["Policy-aware releases", "Role-based access", "Audit-ready timelines"];
 
   return (
-    <footer className="border-t border-white/10 bg-[#040d18] text-slate-200">
+    <footer className="border-t border-white/10 bg-[#030916] text-slate-200">
       <Container className="py-14 md:py-20">
-        <div className="surface-panel-dark grid gap-10 px-6 py-8 sm:px-8 lg:grid-cols-[1.15fr_0.65fr_0.65fr_0.75fr]">
+        <div className="command-shell grid gap-10 px-6 py-8 sm:px-8 lg:grid-cols-[1.08fr_0.7fr_0.7fr_0.8fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(160deg,rgba(101,226,255,0.18),rgba(7,17,31,0.98))]">
+              <span className="flex h-10 w-10 items-center justify-center rounded-[0.95rem] border border-cyan-300/18 bg-[linear-gradient(160deg,rgba(103,232,249,0.18),rgba(8,18,35,0.98))]">
                 <span className="font-mono text-[0.7rem] font-semibold tracking-[0.22em] text-sky-100">
                   OO
                 </span>
@@ -24,16 +24,13 @@ export function SiteFooter() {
                 <p className="font-display text-lg font-semibold tracking-[-0.04em] text-white">
                   {siteConfig.name}
                 </p>
-                <p className="data-label mt-1 text-slate-400">Enterprise workflow orchestration</p>
+                <p className="data-label mt-1 text-slate-500">Operational intelligence platform</p>
               </div>
             </div>
             <p className="mt-5 max-w-md text-sm leading-6 text-slate-300">{siteConfig.description}</p>
             <ul className="mt-6 flex flex-wrap gap-2">
               {trustItems.map((item) => (
-                <li
-                  key={item}
-                  className="glass-chip rounded-full px-3 py-1.5 text-xs font-medium text-slate-200"
-                >
+                <li key={item} className="command-chip-subtle">
                   {item}
                 </li>
               ))}
