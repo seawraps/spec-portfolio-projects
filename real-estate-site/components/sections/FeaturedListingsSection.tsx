@@ -21,34 +21,32 @@ export function FeaturedListingsSection() {
       aria-labelledby="featured-listings-heading"
     >
       <Container>
-        <div className="grid gap-10 xl:grid-cols-[0.74fr_1.26fr] xl:items-start">
-          <div className="xl:sticky xl:top-28 xl:self-start">
+        <div className="section-shell rounded-[40px] px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
+          <div className="grid gap-8 border-b border-[var(--color-line-strong)] pb-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(18rem,0.92fr)] xl:items-end">
             <SectionHeading
               id="featured-listings-heading"
               eyebrow="Featured Homes"
               title="A quieter edit of homes chosen for presence, light, and how they read the moment you arrive."
-              description="Rather than stretching one awkward slab of content across the page, the collection is composed like a private listing book: one lead residence, then a set of supporting homes with their own distinct pacing."
-              className="reveal-up"
+              description="The collection now opens with a dedicated editorial introduction, then resets into its own listing grid so each property can hold space without being trapped beside a lingering headline rail."
+              className="reveal-up max-w-4xl"
             />
 
-            <div className="mt-8 border-t border-[var(--color-line-strong)] pt-6">
-              <div className="grid gap-5">
-                {collectionNotes.map((note, index) => (
-                  <p
-                    key={note}
-                    className={`reveal-up delay-${index + 1} border-b border-[var(--color-line)] pb-5 text-sm leading-7 text-[var(--color-muted-strong)] last:border-b-0 last:pb-0`}
-                  >
-                    {note}
-                  </p>
-                ))}
-              </div>
+            <div className="grid gap-5 xl:max-w-[31rem] xl:justify-self-end">
+              {collectionNotes.map((note, index) => (
+                <p
+                  key={note}
+                  className={`reveal-up delay-${index + 1} border-b border-[var(--color-line)] pb-5 text-sm leading-7 text-[var(--color-muted-strong)] last:border-b-0 last:pb-0`}
+                >
+                  {note}
+                </p>
+              ))}
             </div>
           </div>
 
-          <div className="grid gap-10">
+          <div className="mt-10 grid gap-10">
             <ListingCard listing={leadListing} featured />
 
-            <div className="grid gap-8 lg:grid-cols-[0.98fr_0.82fr]">
+            <div className="grid gap-8 xl:grid-cols-[minmax(0,1.04fr)_minmax(18rem,0.96fr)] xl:items-start">
               <div className="grid gap-8">
                 <ListingCard listing={firstGalleryListing} layout="compact" />
                 <ListingCard listing={secondGalleryListing} layout="compact" />
@@ -57,7 +55,7 @@ export function FeaturedListingsSection() {
               <div className="grid gap-8 content-start">
                 <ListingCard listing={thirdGalleryListing} layout="portrait" />
 
-                <article className="reveal-up delay-3 border-t border-[var(--color-line-strong)] pt-6">
+                <article className="soft-card reveal-up delay-3 rounded-[30px] p-6 sm:p-7">
                   <p className="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze)]">
                     Availability
                   </p>

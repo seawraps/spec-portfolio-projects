@@ -331,6 +331,54 @@ details summary::-webkit-details-marker {
     background: rgb(123 67 63 / 0.72);
   }
 
+  .section-intro-grid {
+    display: grid;
+    gap: 1.5rem;
+    align-items: end;
+  }
+
+  @media (min-width: 768px) {
+    .section-intro-grid {
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .section-intro-grid {
+      grid-template-columns: minmax(0, 0.68fr) minmax(0, 0.32fr);
+      column-gap: 2.25rem;
+    }
+
+    .section-intro-label,
+    .section-intro-title {
+      grid-column: 1;
+    }
+
+    .section-intro-copy {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: end;
+      max-width: 20rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .section-intro-grid {
+      grid-template-columns: minmax(0, 0.22fr) minmax(0, 0.5fr) minmax(0, 0.28fr);
+    }
+
+    .section-intro-title {
+      grid-column: 2;
+    }
+
+    .section-intro-copy {
+      grid-column: 3;
+      grid-row: 1;
+      justify-self: end;
+      max-width: 24rem;
+    }
+  }
+
   .editorial-frame {
     border: 1px solid rgb(35 24 20 / 0.1);
     background:

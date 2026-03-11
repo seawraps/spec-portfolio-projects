@@ -16,31 +16,31 @@ export function NeighborhoodsSection({
   return (
     <section className="section-spacing" aria-labelledby="neighborhoods-heading">
       <Container>
-        <div className="grid gap-12 xl:grid-cols-[0.72fr_1.28fr] xl:items-start">
-          <div className="xl:sticky xl:top-28 xl:self-start">
+        <div className="section-shell rounded-[40px] px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
+          <div className="grid gap-8 border-b border-[var(--color-line-strong)] pb-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(18rem,0.92fr)] xl:items-end">
             <SectionHeading
               id="neighborhoods-heading"
               eyebrow="Neighborhood Edit"
               title={title}
               description={description}
-              className="reveal-up"
+              className="reveal-up max-w-4xl"
             />
-            <p className="mt-8 border-l border-[var(--color-line-strong)] pl-6 text-sm leading-7 text-[var(--color-muted-strong)]">
+            <p className="xl:max-w-[31rem] xl:justify-self-end xl:border-l xl:border-[var(--color-line-strong)] xl:pl-6 text-sm leading-7 text-[var(--color-muted-strong)]">
               The right house is only as strong as the life around it. Street
               character, club access, marina rhythm, school pull, and commute
               reality all shape where a move will still feel right a year later.
             </p>
           </div>
 
-          <div className="border-t border-[var(--color-line-strong)]">
+          <div className="mt-8 grid gap-4">
             {neighborhoods.map((neighborhood, index) => (
               <details
                 key={neighborhood.name}
                 open={index === 0}
-                className="group border-b border-[var(--color-line)] py-5"
+                className="group soft-card overflow-hidden rounded-[30px] px-5 py-5 sm:px-6 sm:py-6"
               >
                 <summary className="cursor-pointer">
-                  <div className="grid gap-3 md:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)_auto] md:items-end">
+                  <div className="grid gap-4 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)_auto] lg:items-end">
                     <div>
                       <p className="text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze)]">
                         Neighborhood {String(index + 1).padStart(2, "0")}
@@ -52,13 +52,13 @@ export function NeighborhoodsSection({
                     <p className="max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
                       {neighborhood.profile}
                     </p>
-                    <span className="text-[0.58rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)] md:justify-self-end">
+                    <span className="text-[0.58rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)] lg:justify-self-end">
                       Expand
                     </span>
                   </div>
                 </summary>
 
-                <div className="grid gap-6 pt-6 lg:grid-cols-[0.92fr_1.08fr]">
+                <div className="mt-6 grid gap-6 border-t border-[var(--color-line)] pt-6 lg:grid-cols-[0.92fr_1.08fr]">
                   <div className="image-frame image-reveal relative min-h-[280px] sm:min-h-[360px]">
                     <Image
                       src={neighborhood.imageSrc}

@@ -72,7 +72,7 @@ export function ProductPreviewSection() {
         </Reveal>
 
         <div className="mt-12 grid gap-8 xl:grid-cols-[0.94fr_1.06fr] xl:items-start">
-          <Reveal className="xl:sticky xl:top-28">
+          <Reveal className="header-aware-sticky">
             <div className="surface-panel-dark noise-mask relative overflow-hidden p-4 sm:p-6">
               <div className="flex flex-wrap items-center gap-2">
                 {storySteps.map((step) => (

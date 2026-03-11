@@ -18,8 +18,8 @@ export function EngagementDetailReveal() {
 
   return (
     <div className="editorial-frame overflow-hidden">
-      <div className="grid gap-0 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)]">
-        <div className="border-b border-ink/10 bg-white/38 lg:border-b-0 lg:border-r">
+      <div className="grid gap-0 min-[920px]:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)]">
+        <div className="border-b border-ink/10 bg-white/38 min-[920px]:border-b-0 min-[920px]:border-r">
           <div className="grid" role="tablist" aria-label="Ways to work with Nadia Vale">
             {engagementModes.map((mode) => {
               const isActive = mode.id === activeMode.id;
@@ -63,7 +63,7 @@ export function EngagementDetailReveal() {
           role="tabpanel"
           id={`${activeMode.id}-panel`}
           aria-labelledby={`${activeMode.id}-tab`}
-          className="px-6 py-7 sm:px-8 sm:py-9"
+          className="min-w-0 px-6 py-7 sm:px-8 sm:py-9"
         >
           <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-plum">
             {activeMode.label} detail
@@ -78,7 +78,7 @@ export function EngagementDetailReveal() {
             {activeMode.detail}
           </p>
 
-          <div className="mt-8 grid gap-6 border-t border-ink/10 pt-6 xl:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)]">
+          <div className="mt-8 grid gap-6 border-t border-ink/10 pt-6 min-[1100px]:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)]">
             <div>
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/68">
                 Best when

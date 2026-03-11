@@ -16,17 +16,26 @@ export function ServicesGridSection({
   return (
     <section className="section-spacing" aria-labelledby="services-heading">
       <Container>
-        <div className="grid gap-12 xl:grid-cols-[0.78fr_1.22fr] xl:items-start">
-          <div className="xl:sticky xl:top-28 xl:self-start">
-            <SectionHeading
-              id="services-heading"
-              eyebrow="Advisory Services"
-              title={title}
-              description={description}
-              className="reveal-up"
-            />
+        <div className="section-shell rounded-[40px] px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
+          <div className="grid gap-8 border-b border-[var(--color-line-strong)] pb-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] xl:items-end">
+            <div>
+              <SectionHeading
+                id="services-heading"
+                eyebrow="Advisory Services"
+                title={title}
+                description={description}
+                className="reveal-up max-w-4xl"
+              />
 
-            <div className="image-frame image-reveal reveal-up delay-1 relative mt-8 min-h-[340px] sm:min-h-[420px]">
+              <p className="mt-6 max-w-2xl border-l border-[var(--color-line-strong)] pl-6 text-sm leading-7 text-[var(--color-muted-strong)]">
+                Scope, cadence, and communication are designed to feel
+                proportionate to the stakes. The work stays calm because every
+                engagement starts with its own frame instead of borrowing a
+                prior section&apos;s column structure.
+              </p>
+            </div>
+
+            <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[340px] sm:min-h-[420px]">
               <Image
                 src="/images/story-advisory.jpg"
                 alt="A refined interior scene that supports Crescent Vale's advisory and presentation-focused service approach."
@@ -44,50 +53,40 @@ export function ServicesGridSection({
                 </p>
               </div>
             </div>
-
-            <p className="mt-5 border-l border-[var(--color-line-strong)] pl-6 text-sm leading-7 text-[var(--color-muted-strong)]">
-              Scope, cadence, and communication are all designed to feel
-              proportionate to the stakes. The process stays calm because the
-              work is sequenced well.
-            </p>
           </div>
 
-          <div className="border-t border-[var(--color-line-strong)]">
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {serviceOfferings.map((service, index) => (
               <article
                 key={service.title}
-                className="reveal-up delay-2 grid gap-5 border-b border-[var(--color-line)] py-6 lg:grid-cols-[0.2fr_0.8fr] lg:gap-8"
+                className="soft-card reveal-up delay-2 flex h-full flex-col rounded-[30px] p-6 sm:p-7"
               >
-                <div className="flex items-center justify-between gap-4 lg:block">
-                  <p className="font-display text-[2.3rem] leading-none text-[var(--color-ink)]">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <p className="text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-bronze)] lg:mt-3">
+                <div className="flex items-start justify-between gap-6 border-b border-[var(--color-line)] pb-5">
+                  <p className="max-w-[18rem] text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-bronze)]">
                     {service.emphasis}
                   </p>
+                  <p className="font-display text-[2.6rem] leading-none text-[var(--color-ink)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
                 </div>
 
-                <div className="grid gap-5 xl:grid-cols-[0.66fr_0.34fr] xl:items-start">
-                  <div>
-                    <h3 className="font-display text-[2.6rem] leading-[0.92] text-[var(--color-ink)] sm:text-[3rem]">
-                      {service.title}
-                    </h3>
-                    <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                      {service.summary}
-                    </p>
-                  </div>
+                <h3 className="mt-6 font-display text-[2.5rem] leading-[0.92] text-[var(--color-ink)] sm:text-[2.9rem]">
+                  {service.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                  {service.summary}
+                </p>
 
-                  <ul className="grid gap-3">
-                    {service.deliverables.map((item) => (
-                      <li
-                        key={item}
-                        className="border-l border-[var(--color-line-strong)] pl-4 text-sm leading-7 text-[var(--color-muted-strong)]"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="mt-6 grid flex-1 gap-3 border-t border-[var(--color-line)] pt-5">
+                  {service.deliverables.map((item) => (
+                    <li
+                      key={item}
+                      className="border-l border-[var(--color-line-strong)] pl-4 text-sm leading-7 text-[var(--color-muted-strong)]"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>

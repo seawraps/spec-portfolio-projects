@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import type { ReactNode } from "react";
 
 import { EngagementDetailReveal } from "@/components/home/engagement-detail-reveal";
 import { FeaturedIdeasSlider } from "@/components/home/featured-ideas-slider";
@@ -15,6 +16,7 @@ import {
   trustedBy,
 } from "@/lib/home-data";
 import { buildMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata(
   "Speaker, Advisor, and Editorial Voice",
@@ -22,12 +24,53 @@ export const metadata: Metadata = buildMetadata(
   "/",
 );
 
+type SectionIntroProps = {
+  label: string;
+  title: ReactNode;
+  copy: ReactNode;
+  className?: string;
+  titleClassName?: string;
+  copyClassName?: string;
+};
+
+function SectionIntro({
+  label,
+  title,
+  copy,
+  className,
+  titleClassName,
+  copyClassName,
+}: SectionIntroProps) {
+  return (
+    <div className={cn("section-intro-grid", className)}>
+      <div className="section-intro-label min-w-0">
+        <span className="editorial-label">{label}</span>
+      </div>
+
+      <div className="section-intro-title min-w-0">
+        <h2
+          className={cn(
+            "text-[3.05rem] leading-[0.92] text-ink sm:text-[4rem] lg:text-[4.85rem]",
+            titleClassName,
+          )}
+        >
+          {title}
+        </h2>
+      </div>
+
+      <div className={cn("section-intro-copy min-w-0", copyClassName)}>
+        <p className="text-base leading-8 text-mocha/90 sm:text-lg">{copy}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
       <section className="overflow-hidden pb-10 pt-8 sm:pb-12 sm:pt-10 lg:pb-16 lg:pt-12">
-        <Container className="grid gap-10 xl:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] xl:items-start">
-          <div className="reveal-up max-w-2xl xl:pt-8">
+        <Container className="grid gap-10 min-[900px]:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] min-[900px]:items-start">
+          <div className="reveal-up min-w-0 max-w-2xl min-[900px]:pt-6 xl:pt-8">
             <span className="editorial-label">Speaker, advisor, editorial voice</span>
 
             <h1 className="mt-6 max-w-[10ch] text-[4.2rem] leading-[0.9] text-ink sm:text-[5.35rem] lg:text-[6.7rem]">
@@ -62,16 +105,16 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="reveal-up-delay grid gap-5 xl:pl-6">
+          <div className="reveal-up-delay min-w-0 grid gap-5 min-[900px]:pl-3 xl:pl-6">
             <figure className="editorial-frame overflow-hidden">
-              <div className="relative aspect-[4/5.05] bg-[#eadfd2] sm:aspect-[4/4.35] xl:aspect-[4/4.8]">
+              <div className="relative aspect-[4/5.05] bg-[#eadfd2] sm:aspect-[4/4.35] min-[900px]:aspect-[4/4.9] xl:aspect-[4/4.8]">
                 <Image
                   src="/images/nadia-desk-portrait.jpg"
                   alt="Nadia Vale seated at a desk in a bright editorial workspace."
                   fill
                   priority
                   sizes="(min-width: 1280px) 40vw, 100vw"
-                  className="object-cover object-[58%_26%] image-clarify"
+                  className="object-cover object-[56%_24%] image-clarify"
                 />
               </div>
 
@@ -98,7 +141,7 @@ export default function HomePage() {
               </figcaption>
             </figure>
 
-            <div className="grid gap-5 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
+            <div className="grid gap-5 min-[900px]:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
               <div className="border-t border-ink/10 pt-4">
                 <p className="text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-mocha/68">Based in Brooklyn</p>
                 <p className="mt-3 max-w-md text-sm leading-7 text-mocha/84">
@@ -136,8 +179,8 @@ export default function HomePage() {
       </section>
 
       <section className="section-shell pt-6 sm:pt-8 lg:pt-10">
-        <Container className="grid gap-10 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-start">
-          <div>
+        <Container className="grid gap-10 min-[900px]:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] min-[900px]:items-start">
+          <div className="min-w-0">
             <span className="editorial-label">A more authored presence</span>
             <h2 className="mt-6 max-w-[11ch] text-[3.1rem] leading-[0.93] text-ink sm:text-[4.1rem] lg:text-[5rem]">
               A personal platform should read like a body of work, not a brochure.
@@ -154,7 +197,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid gap-5">
+          <div className="min-w-0 grid gap-5">
             <figure className="editorial-frame overflow-hidden">
               <div className="relative aspect-[4/3.15] bg-[#e9ddd0]">
                 <Image
@@ -162,7 +205,7 @@ export default function HomePage() {
                   alt="Nadia Vale standing in front of a whiteboard in an editorial workspace."
                   fill
                   sizes="(min-width: 1280px) 44vw, 100vw"
-                  className="object-cover object-[60%_28%]"
+                  className="object-cover object-[58%_34%]"
                 />
               </div>
               <figcaption className="grid gap-4 border-t border-ink/10 px-5 py-5 sm:px-6 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
@@ -201,22 +244,14 @@ export default function HomePage() {
 
       <section id="speaking" className="anchor-section section-shell pt-0">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.5fr)_minmax(0,1.5fr)] lg:items-end">
-            <div>
-              <span className="editorial-label">Recent rooms and signature ideas</span>
-            </div>
-            <div className="max-w-4xl">
-              <h2 className="text-[3.05rem] leading-[0.92] text-ink sm:text-[4rem] lg:text-[4.85rem]">
-                Talks, interviews, and workshops built to leave a sentence behind.
-              </h2>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-mocha/90 sm:text-lg">
-                Nadia&apos;s speaking work is designed to feel elegant in the room, quotable in the recap, and genuinely
-                useful to the conversation that follows.
-              </p>
-            </div>
-          </div>
+          <SectionIntro
+            label="Recent rooms and signature ideas"
+            title="Talks, interviews, and workshops built to leave a sentence behind."
+            copy="Nadia's speaking work is designed to feel elegant in the room, quotable in the recap, and genuinely useful to the conversation that follows."
+            titleClassName="max-w-[14ch]"
+          />
 
-          <div className="mt-10">
+          <div className="mt-10 min-[1100px]:mt-12">
             <FeaturedIdeasSlider />
           </div>
         </Container>
@@ -224,22 +259,14 @@ export default function HomePage() {
 
       <section id="advisory" className="anchor-section section-shell pt-0">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.48fr)_minmax(0,1.52fr)] lg:items-end">
-            <div>
-              <span className="editorial-label">Ways to work together</span>
-            </div>
-            <div className="max-w-4xl">
-              <h2 className="text-[3.05rem] leading-[0.92] text-ink sm:text-[4rem] lg:text-[4.85rem]">
-                Advisory, speaking, and media support with one editorial center.
-              </h2>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-mocha/90 sm:text-lg">
-                The format changes depending on the room. The through-line does not: sharper language, steadier
-                presence, and a public story that makes serious introductions easier.
-              </p>
-            </div>
-          </div>
+          <SectionIntro
+            label="Ways to work together"
+            title="Advisory, speaking, and media support with one editorial center."
+            copy="The format changes depending on the room. The through-line does not: sharper language, steadier presence, and a public story that makes serious introductions easier."
+            titleClassName="max-w-[14ch]"
+          />
 
-          <div className="mt-10">
+          <div className="mt-10 min-[1100px]:mt-12">
             <EngagementDetailReveal />
           </div>
 
@@ -264,8 +291,8 @@ export default function HomePage() {
       </section>
 
       <section id="media" className="anchor-section section-shell pt-0">
-        <Container className="grid gap-10 xl:grid-cols-[minmax(0,0.76fr)_minmax(0,1.24fr)] xl:items-start">
-          <div>
+        <Container className="grid gap-10 min-[900px]:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)] min-[900px]:items-start">
+          <div className="min-w-0">
             <span className="editorial-label">Media and appearances</span>
             <h2 className="mt-6 max-w-[9ch] text-[3.05rem] leading-[0.92] text-ink sm:text-[4rem] lg:text-[4.85rem]">
               A presence that can travel across bylines, interviews, and live rooms.
@@ -285,11 +312,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="border-t border-ink/10">
+          <div className="min-w-0 border-t border-ink/10">
             {mediaAppearances.map((appearance) => (
               <article
                 key={appearance.title}
-                className="grid gap-4 border-b border-ink/10 py-6 md:grid-cols-[minmax(0,0.32fr)_minmax(0,1fr)]"
+                className="grid gap-4 border-b border-ink/10 py-6 min-[900px]:grid-cols-[minmax(0,0.28fr)_minmax(0,1fr)]"
               >
                 <div>
                   <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-plum">
@@ -308,8 +335,8 @@ export default function HomePage() {
       </section>
 
       <section id="newsletter" className="anchor-section section-shell pt-0">
-        <Container className="grid gap-10 xl:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] xl:items-start">
-          <div>
+        <Container className="grid gap-10 min-[900px]:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] min-[900px]:items-start">
+          <div className="min-w-0">
             <span className="editorial-label">Newsletter and essay preview</span>
             <h2 className="mt-6 max-w-[11ch] text-[3.05rem] leading-[0.92] text-ink sm:text-[4rem] lg:text-[4.85rem]">
               Notes on authority, cadence, and how expert brands become legible.
@@ -333,7 +360,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="bg-[#2d211d] px-6 py-7 text-white shadow-[0_36px_80px_-48px_rgba(22,12,10,0.82)] sm:px-8 sm:py-9">
+          <div className="min-w-0 self-start bg-[#2d211d] px-6 py-7 text-white shadow-[0_36px_80px_-48px_rgba(22,12,10,0.82)] sm:px-8 sm:py-9">
             <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-white/64">Join the note</p>
             <h3 className="mt-4 font-display text-[3rem] leading-[0.94] text-white sm:text-[3.8rem]">
               {siteConfig.newsletterName}

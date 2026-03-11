@@ -8,9 +8,9 @@ import { siteConfig } from "@/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-3 z-40">
-      <Container className="relative">
-        <div className="command-shell px-4 py-3 sm:px-5">
+    <header className="site-header fixed inset-x-0 top-0 z-50 pointer-events-none">
+      <Container className="relative pt-3 sm:pt-4">
+        <div className="pointer-events-auto command-shell px-4 py-3 backdrop-blur-xl sm:px-5">
           <div className="relative z-[1] flex items-center gap-4">
             <Link href="/" className="inline-flex shrink-0 items-center gap-3" aria-label="OrbitOps home">
               <span className="relative flex h-11 w-11 items-center justify-center rounded-[0.95rem] border border-cyan-300/18 bg-[linear-gradient(160deg,rgba(103,232,249,0.18),rgba(8,18,35,0.98))] shadow-[0_20px_36px_-22px_rgba(13,191,255,0.62)]">

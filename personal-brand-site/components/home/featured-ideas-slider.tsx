@@ -26,19 +26,19 @@ export function FeaturedIdeasSlider() {
     <div className="editorial-frame overflow-hidden">
       <div
         key={activeIdea.title}
-        className="grid gap-0 lg:grid-cols-[minmax(0,0.98fr)_minmax(0,1.02fr)]"
+        className="grid gap-0 min-[900px]:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)]"
       >
-        <figure className="border-b border-ink/10 bg-white/46 lg:border-b-0 lg:border-r">
-          <div className="relative aspect-[4/3.4] overflow-hidden bg-[#eadfd2] lg:h-full lg:min-h-[36rem]">
+        <figure className="border-b border-ink/10 bg-white/46 min-[900px]:border-b-0 min-[900px]:border-r">
+          <div className="relative aspect-[4/3.35] overflow-hidden bg-[#eadfd2] min-[900px]:h-full min-[900px]:min-h-[29rem] xl:min-h-[31rem]">
             <Image
               src={activeIdea.image}
               alt={activeIdea.alt}
               fill
-              sizes="(min-width: 1024px) 42vw, 100vw"
+              sizes="(min-width: 1280px) 41vw, (min-width: 900px) 44vw, 100vw"
               className={cn(
-                "object-cover object-center",
+                "object-cover object-[50%_74%]",
                 activeIndex === 1 ? "object-[58%_28%]" : "",
-                activeIndex === 2 ? "object-[60%_32%]" : "",
+                activeIndex === 2 ? "object-[58%_34%]" : "",
               )}
               priority={activeIndex === 0}
             />
@@ -53,8 +53,8 @@ export function FeaturedIdeasSlider() {
           </figcaption>
         </figure>
 
-        <div className="flex flex-col px-6 py-7 sm:px-8 sm:py-9">
-          <div className="flex items-start justify-between gap-6">
+        <div className="flex min-w-0 flex-col px-6 py-7 sm:px-8 sm:py-9">
+          <div className="flex flex-col gap-4 min-[1180px]:flex-row min-[1180px]:items-start min-[1180px]:justify-between min-[1180px]:gap-6">
             <div>
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-plum">
                 Featured idea / {activeIdea.label}
@@ -64,7 +64,7 @@ export function FeaturedIdeasSlider() {
               </h3>
             </div>
 
-            <div className="hidden items-center gap-2 lg:flex">
+            <div className="hidden shrink-0 items-center gap-2 min-[1180px]:flex">
               <button
                 type="button"
                 onClick={() => stepIdea(-1)}
@@ -137,7 +137,7 @@ export function FeaturedIdeasSlider() {
             })}
           </div>
 
-          <div className="mt-4 flex items-center justify-between gap-3 lg:hidden">
+          <div className="mt-4 flex items-center justify-between gap-3 min-[1180px]:hidden">
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/66">
               Swipe through the editorial notes above
             </p>

@@ -781,7 +781,7 @@ export function CommandCenterHomepage() {
           </Reveal>
 
           <div className="mt-12 grid gap-8 xl:grid-cols-[0.85fr_1.15fr] xl:items-start">
-            <Reveal className="xl:sticky xl:top-28" delay={0.04}>
+            <Reveal className="header-aware-sticky" delay={0.04}>
               <div className="command-shell p-5 sm:p-6">
                 <div className="flex flex-wrap gap-2">
                   {workflowViews.map((workflow) => {
@@ -1051,7 +1051,7 @@ export function CommandCenterHomepage() {
           </Reveal>
 
           <div className="mt-12 grid gap-8 xl:grid-cols-[0.86fr_1.14fr] xl:items-start">
-            <Reveal className="xl:sticky xl:top-28">
+            <Reveal className="header-aware-sticky">
               <div className="command-shell p-5 sm:p-6">
                 <div className="flex flex-wrap gap-2">
                   {policyModes.map((policy) => {
