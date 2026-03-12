@@ -37,12 +37,12 @@ export function PageHero({
   return (
     <section className="hero-spacing">
       <Container>
-        <div className="grid gap-10 xl:grid-cols-[0.74fr_1.26fr] xl:items-end">
-          <div className="reveal-up xl:pr-8">
+        <div className="grid gap-10 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] xl:items-start">
+          <div className="reveal-up xl:pr-6">
             <p className="text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze)]">
               {eyebrow}
             </p>
-            <h1 className="mt-6 max-w-[13ch] font-display text-[clamp(3.2rem,7vw,6.4rem)] leading-[0.88] text-[var(--color-ink)]">
+            <h1 className="mt-6 max-w-none font-display text-[clamp(3rem,6.3vw,5.9rem)] leading-[0.88] text-[var(--color-ink)]">
               {title}
             </h1>
             <p className="mt-6 max-w-2xl text-[1.02rem] leading-8 text-[var(--color-muted)]">
@@ -86,8 +86,8 @@ export function PageHero({
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[360px] sm:min-h-[460px] lg:min-h-[640px]">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(18rem,0.88fr)] lg:items-end">
+            <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[340px] sm:min-h-[440px] lg:min-h-[600px]">
               <Image
                 src={imageSrc}
                 alt={imageAlt}

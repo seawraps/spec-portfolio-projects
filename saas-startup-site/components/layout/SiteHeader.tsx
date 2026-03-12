@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="site-header fixed inset-x-0 top-0 z-50 pointer-events-none">
+    <header className="site-header sticky top-0 z-50 pointer-events-none">
       <Container className="relative pt-3 sm:pt-4">
         <div className="pointer-events-auto command-shell px-4 py-3 backdrop-blur-xl sm:px-5">
           <div className="relative z-[1] flex items-center gap-4">

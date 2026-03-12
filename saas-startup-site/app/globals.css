@@ -18,7 +18,7 @@
   --site-header-offset: 0.75rem;
   --site-header-shell-height: 4.75rem;
   --site-header-clearance: calc(var(--site-header-offset) + var(--site-header-shell-height));
-  --site-scroll-offset: calc(var(--site-header-clearance) + 1.25rem);
+  --site-scroll-offset: calc(var(--site-header-clearance) + 0.75rem);
 }
 
 @media (min-width: 40rem) {
@@ -107,7 +107,7 @@ summary {
 }
 
 .main-shell {
-  padding-top: var(--site-header-clearance);
+  padding-top: 0;
 }
 
 :where(main, section)[id] {
@@ -123,12 +123,12 @@ summary {
   position: absolute;
   inset-x: 0;
   top: 0;
-  height: calc(var(--site-header-clearance) + 2.5rem);
+  height: calc(var(--site-header-clearance) + 1rem);
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(3, 8, 21, 0.98) 0%, rgba(3, 8, 21, 0.95) 52%, rgba(3, 8, 21, 0.82) 78%, rgba(3, 8, 21, 0.58) 90%, transparent 100%);
+    linear-gradient(180deg, rgba(3, 8, 21, 0.98) 0%, rgba(3, 8, 21, 0.94) 58%, rgba(3, 8, 21, 0.72) 84%, transparent 100%);
   backdrop-filter: blur(22px) saturate(150%);
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 72%, transparent 100%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 68%, transparent 100%);
 }
 
 .header-aware-sticky {
@@ -138,7 +138,7 @@ summary {
 @media (min-width: 80rem) {
   .header-aware-sticky {
     position: sticky;
-    top: calc(var(--site-scroll-offset) + 0.5rem);
+    top: calc(var(--site-header-offset) + 1rem);
   }
 }
 

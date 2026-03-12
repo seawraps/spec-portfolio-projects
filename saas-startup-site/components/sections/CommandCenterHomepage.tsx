@@ -721,7 +721,7 @@ export function CommandCenterHomepage() {
                   <span className="absolute left-1/2 bottom-[20%] h-[19%] w-px bg-[linear-gradient(180deg,rgba(103,232,249,0.46),rgba(255,255,255,0))]" />
                 </div>
 
-                <div className="grid gap-4 lg:grid-cols-[1fr_0.72fr_1fr] lg:grid-rows-[1fr_1fr]">
+                <div className="grid gap-4 lg:grid-cols-[0.92fr_1.16fr_0.92fr] lg:grid-rows-[1fr_1fr]">
                   <div className="command-node lg:col-start-1 lg:row-start-1">
                     <p className="data-label text-sky-200">{architectureNodes[0].title}</p>
                     <p className="mt-3 text-sm leading-6 text-slate-300">{architectureNodes[0].detail}</p>
@@ -886,7 +886,7 @@ export function CommandCenterHomepage() {
                           <p className="mt-4 text-sm leading-7 text-slate-300">{workflow.summary}</p>
                         </div>
 
-                        <div className="grid gap-3 sm:grid-cols-3">
+                        <div className="grid gap-3 sm:grid-cols-2 2xl:grid-cols-3">
                           {workflow.systemSignals.map((signal) => (
                             <div key={signal} className="command-panel-soft min-h-[7.25rem] px-3.5 py-3 text-sm leading-6 text-slate-300">
                               {signal}

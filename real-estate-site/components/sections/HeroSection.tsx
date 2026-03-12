@@ -11,13 +11,13 @@ export function HeroSection() {
   return (
     <section className="hero-spacing relative overflow-hidden">
       <Container>
-        <div className="grid gap-10 xl:grid-cols-[0.72fr_1.28fr] xl:items-end">
-          <div className="reveal-up flex flex-col gap-10 xl:pr-8">
+        <div className="grid gap-10 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-start">
+          <div className="reveal-up flex flex-col gap-8 lg:gap-10 xl:pr-6">
             <div>
               <p className="text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze)]">
                 Harbor City private brokerage
               </p>
-              <h1 className="mt-6 max-w-[12ch] font-display text-[clamp(3.5rem,8vw,7.4rem)] leading-[0.88] text-[var(--color-ink)]">
+              <h1 className="mt-6 max-w-none font-display text-[clamp(3.15rem,7vw,6.7rem)] leading-[0.88] text-[var(--color-ink)]">
                 Homes presented with magazine calm and brokerage discipline.
               </h1>
               <p className="mt-6 max-w-2xl text-[1.05rem] leading-8 text-[var(--color-muted)]">
@@ -66,8 +66,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[1.08fr_0.76fr]">
-            <article className="image-frame image-reveal reveal-up delay-1 relative min-h-[520px] sm:min-h-[640px] lg:row-span-2 lg:min-h-[780px]">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.14fr)_minmax(17rem,0.86fr)] lg:items-end">
+            <article className="image-frame image-reveal reveal-up delay-1 relative min-h-[480px] sm:min-h-[560px] lg:row-span-2 lg:min-h-[700px]">
               <Image
                 src={coverListing.imageSrc}
                 alt={coverListing.imageAlt}
@@ -138,7 +138,7 @@ export function HeroSection() {
               </div>
             </aside>
 
-            <article className="image-frame image-reveal reveal-up delay-3 relative min-h-[320px] sm:min-h-[380px]">
+            <article className="image-frame image-reveal reveal-up delay-3 relative min-h-[300px] sm:min-h-[360px]">
               <Image
                 src={interiorListing.imageSrc}
                 alt={interiorListing.imageAlt}
