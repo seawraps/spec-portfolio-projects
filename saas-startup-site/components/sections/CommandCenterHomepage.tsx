@@ -492,7 +492,7 @@ export function CommandCenterHomepage() {
             </div>
           </Reveal>
 
-          <div className="mt-8 grid gap-10 xl:grid-cols-[0.93fr_1.07fr] xl:items-start">
+          <div className="mt-8 grid gap-10 xl:grid-cols-[minmax(0,0.93fr)_minmax(0,1.07fr)] xl:items-start">
             <Reveal className="max-w-[39rem]" y={28}>
               <p className="data-label text-sky-200">OrbitOps / runtime narrative</p>
               <h1 className="mt-5 max-w-[10.5ch] font-display text-[clamp(3.25rem,7vw,6.4rem)] font-semibold leading-[0.88] tracking-[-0.09em] text-white">
@@ -561,8 +561,8 @@ export function CommandCenterHomepage() {
                   </div>
                 </div>
 
-                <div className="mt-6 grid gap-4 lg:grid-cols-[1.06fr_0.94fr]">
-                  <div className="command-panel p-4">
+                <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)]">
+                  <div className="command-panel min-w-0 p-4">
                     <div className="flex items-center justify-between gap-4">
                       <div>
                         <p className="data-label text-slate-500">Queue intelligence</p>
@@ -573,8 +573,8 @@ export function CommandCenterHomepage() {
                       <span className="status-pill status-pill-cyan">refresh / 12s</span>
                     </div>
 
-                    <div className="mt-5 grid gap-4 xl:grid-cols-[0.92fr_1.08fr]">
-                      <div className="space-y-3">
+                    <div className="mt-5 grid gap-4 2xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+                      <div className="min-w-0 space-y-3">
                         {heroQueues.map((queue) => (
                           <div key={queue.lane} className="command-panel-soft p-3.5">
                             <div className="flex items-start justify-between gap-4">
@@ -598,8 +598,8 @@ export function CommandCenterHomepage() {
                         ))}
                       </div>
 
-                      <div className="command-panel-soft p-3.5">
-                        <div className="flex items-end justify-between gap-4">
+                      <div className="command-panel-soft min-w-0 p-3.5">
+                        <div className="flex flex-wrap items-end justify-between gap-4">
                           <div>
                             <p className="data-label text-slate-500">Autonomous throughput</p>
                             <p className="mt-2 font-display text-4xl font-semibold tracking-[-0.08em] text-white">
@@ -628,7 +628,7 @@ export function CommandCenterHomepage() {
                     </div>
                   </div>
 
-                  <div className="grid gap-4">
+                  <div className="grid min-w-0 gap-4">
                     <div className="command-panel p-4">
                       <div className="flex items-center justify-between gap-3">
                         <div>
@@ -685,7 +685,7 @@ export function CommandCenterHomepage() {
             />
           </Reveal>
 
-          <div className="mt-12 grid gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
+          <div className="mt-12 grid gap-8 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-start">
             <div className="space-y-4">
               {architectureLayers.map((layer, index) => (
                 <Reveal key={layer.title} delay={index * 0.06}>
@@ -714,32 +714,32 @@ export function CommandCenterHomepage() {
 
             <Reveal delay={0.12}>
               <div className="command-shell relative overflow-hidden p-5 sm:p-6">
-                <div className="absolute inset-0 hidden lg:block" aria-hidden="true">
+                <div className="absolute inset-0 hidden xl:block" aria-hidden="true">
                   <span className="absolute left-[24%] top-1/2 h-px w-[18%] bg-[linear-gradient(90deg,rgba(255,255,255,0),rgba(103,232,249,0.5))]" />
                   <span className="absolute right-[24%] top-1/2 h-px w-[18%] bg-[linear-gradient(90deg,rgba(103,232,249,0.5),rgba(255,255,255,0))]" />
                   <span className="absolute left-1/2 top-[20%] h-[19%] w-px bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(103,232,249,0.46))]" />
                   <span className="absolute left-1/2 bottom-[20%] h-[19%] w-px bg-[linear-gradient(180deg,rgba(103,232,249,0.46),rgba(255,255,255,0))]" />
                 </div>
 
-                <div className="grid gap-4 lg:grid-cols-[0.92fr_1.16fr_0.92fr] lg:grid-rows-[1fr_1fr]">
-                  <div className="command-node lg:col-start-1 lg:row-start-1">
+                <div className="grid gap-4 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.16fr)_minmax(0,0.92fr)] xl:grid-rows-[1fr_1fr]">
+                  <div className="command-node xl:col-start-1 xl:row-start-1">
                     <p className="data-label text-sky-200">{architectureNodes[0].title}</p>
                     <p className="mt-3 text-sm leading-6 text-slate-300">{architectureNodes[0].detail}</p>
                   </div>
-                  <div className="command-node lg:col-start-3 lg:row-start-1">
+                  <div className="command-node xl:col-start-3 xl:row-start-1">
                     <p className="data-label text-emerald-200">{architectureNodes[1].title}</p>
                     <p className="mt-3 text-sm leading-6 text-slate-300">{architectureNodes[1].detail}</p>
                   </div>
-                  <div className="command-node lg:col-start-1 lg:row-start-2">
+                  <div className="command-node xl:col-start-1 xl:row-start-2">
                     <p className="data-label text-sky-200">{architectureNodes[2].title}</p>
                     <p className="mt-3 text-sm leading-6 text-slate-300">{architectureNodes[2].detail}</p>
                   </div>
-                  <div className="command-node lg:col-start-3 lg:row-start-2">
+                  <div className="command-node xl:col-start-3 xl:row-start-2">
                     <p className="data-label text-sky-200">{architectureNodes[3].title}</p>
                     <p className="mt-3 text-sm leading-6 text-slate-300">{architectureNodes[3].detail}</p>
                   </div>
 
-                  <div className="command-panel relative flex min-h-[15rem] flex-col justify-between p-5 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+                  <div className="command-panel relative flex min-h-[15rem] min-w-0 flex-col justify-between p-5 xl:col-start-2 xl:row-span-2 xl:row-start-1">
                     <div>
                       <p className="data-label text-slate-500">Core runtime</p>
                       <h3 className="mt-3 font-display text-[1.85rem] font-semibold tracking-[-0.06em] text-white">
@@ -780,7 +780,7 @@ export function CommandCenterHomepage() {
             />
           </Reveal>
 
-          <div className="mt-12 grid gap-8 xl:grid-cols-[0.85fr_1.15fr] xl:items-start">
+          <div className="mt-12 grid gap-8 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] xl:items-start">
             <Reveal className="header-aware-sticky" delay={0.04}>
               <div className="command-shell p-5 sm:p-6">
                 <div className="flex flex-wrap gap-2">
@@ -877,8 +877,8 @@ export function CommandCenterHomepage() {
                       )}
                       aria-pressed={isActive}
                     >
-                      <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-                        <div>
+                      <div className="grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+                        <div className="min-w-0">
                           <p className="data-label text-slate-500">{workflow.lane}</p>
                           <h3 className="mt-3 font-display text-[1.55rem] font-semibold tracking-[-0.05em] text-white">
                             {workflow.label}
@@ -886,7 +886,7 @@ export function CommandCenterHomepage() {
                           <p className="mt-4 text-sm leading-7 text-slate-300">{workflow.summary}</p>
                         </div>
 
-                        <div className="grid gap-3 sm:grid-cols-2 2xl:grid-cols-3">
+                        <div className="grid gap-3 [grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))]">
                           {workflow.systemSignals.map((signal) => (
                             <div key={signal} className="command-panel-soft min-h-[7.25rem] px-3.5 py-3 text-sm leading-6 text-slate-300">
                               {signal}
@@ -1050,7 +1050,7 @@ export function CommandCenterHomepage() {
             />
           </Reveal>
 
-          <div className="mt-12 grid gap-8 xl:grid-cols-[0.86fr_1.14fr] xl:items-start">
+          <div className="mt-12 grid gap-8 xl:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] xl:items-start">
             <Reveal className="header-aware-sticky">
               <div className="command-shell p-5 sm:p-6">
                 <div className="flex flex-wrap gap-2">

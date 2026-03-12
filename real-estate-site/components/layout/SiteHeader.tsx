@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { navigationLinks } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
@@ -52,11 +52,8 @@ function Brand({ mobile = false }: BrandProps) {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+  const [openPathname, setOpenPathname] = useState<string | null>(null);
+  const isOpen = openPathname === pathname;
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[rgba(252,248,242,0.84)] backdrop-blur-xl">
@@ -132,7 +129,9 @@ export function SiteHeader() {
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            onClick={() => setIsOpen((value) => !value)}
+            onClick={() =>
+              setOpenPathname((value) => (value === pathname ? null : pathname))
+            }
           >
             <svg
               aria-hidden="true"
@@ -174,6 +173,7 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
+                  onClick={() => setOpenPathname(null)}
                   className={cn(
                     "flex items-center justify-between border-b border-[var(--color-line)] py-3 text-[0.72rem] font-[450] uppercase tracking-[0.34em] text-[var(--color-muted)]",
                     active && "text-[var(--color-ink)]",
@@ -191,6 +191,7 @@ export function SiteHeader() {
           <div className="mt-5">
             <Link
               href="/contact"
+              onClick={() => setOpenPathname(null)}
               className="inline-flex h-11 w-full items-center justify-center rounded-full border border-[var(--color-line-strong)] bg-white/72 px-5 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-ink)]"
             >
               Private Consultation

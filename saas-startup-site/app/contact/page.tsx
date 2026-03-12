@@ -26,7 +26,7 @@ export default function ContactPage() {
         aria-hidden="true"
       />
       <Container className="relative">
-        <div className="grid gap-8 xl:grid-cols-[0.88fr_1.12fr]">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
           <aside className="space-y-6">
             <Reveal>
               <div>
@@ -77,30 +77,6 @@ export default function ContactPage() {
                 ))}
               </ol>
             </Reveal>
-
-            <div className="grid gap-4">
-              {contactChannels.map((channel, index) => (
-                <Reveal key={channel.title} delay={0.12 + index * 0.05}>
-                  <article className="surface-panel px-6 py-5">
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <div>
-                        <p className="data-label text-slate-500">{channel.title}</p>
-                        <p className="mt-2 text-sm leading-6 text-slate-600">{channel.detail}</p>
-                      </div>
-                      <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600">
-                        {channel.responseTime}
-                      </span>
-                    </div>
-                    <a
-                      href={`mailto:${channel.email}`}
-                      className="mt-4 inline-flex text-sm font-semibold text-slate-950 hover:text-sky-700"
-                    >
-                      {channel.email}
-                    </a>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
           </aside>
 
           <Reveal delay={0.08}>
@@ -120,6 +96,30 @@ export default function ContactPage() {
               </div>
             </div>
           </Reveal>
+
+          <div className="xl:col-span-2">
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {contactChannels.map((channel, index) => (
+                <Reveal key={channel.title} delay={0.12 + index * 0.05}>
+                  <article className="surface-panel flex h-full flex-col px-6 py-5">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <p className="data-label text-slate-500">{channel.title}</p>
+                      <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600">
+                        {channel.responseTime}
+                      </span>
+                    </div>
+                    <p className="mt-4 text-sm leading-6 text-slate-600">{channel.detail}</p>
+                    <a
+                      href={`mailto:${channel.email}`}
+                      className="mt-5 inline-flex text-sm font-semibold text-slate-950 hover:text-sky-700"
+                    >
+                      {channel.email}
+                    </a>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
       </Container>
     </section>

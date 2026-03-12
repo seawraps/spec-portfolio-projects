@@ -36,7 +36,7 @@ export default function AboutPage() {
         ]}
       />
 
-      <section className="py-12 md:py-16 lg:py-24">
+      <section className="pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-20">
         <Container>
           <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="image-frame relative min-h-[380px] lg:min-h-[680px]">

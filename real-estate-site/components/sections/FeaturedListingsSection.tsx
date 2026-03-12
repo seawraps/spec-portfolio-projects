@@ -22,7 +22,7 @@ export function FeaturedListingsSection() {
     >
       <Container>
         <div className="section-shell rounded-[40px] px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-          <div className="grid gap-8 border-b border-[var(--color-line-strong)] pb-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(18rem,0.92fr)] xl:items-end">
+          <div className="grid gap-8 border-b border-[var(--color-line-strong)] pb-8 xl:grid-cols-[minmax(0,1.12fr)_minmax(18rem,0.88fr)] xl:items-start">
             <SectionHeading
               id="featured-listings-heading"
               eyebrow="Featured Homes"
@@ -35,7 +35,7 @@ export function FeaturedListingsSection() {
               {collectionNotes.map((note, index) => (
                 <p
                   key={note}
-                  className={`reveal-up delay-${index + 1} border-b border-[var(--color-line)] pb-5 text-sm leading-7 text-[var(--color-muted-strong)] last:border-b-0 last:pb-0`}
+                  className={`reveal-up delay-${index + 1} border-b border-[var(--color-line)] pb-5 text-sm leading-7 text-[var(--color-muted-strong)] last:border-b-0 last:pb-0 xl:last:pb-1`}
                 >
                   {note}
                 </p>

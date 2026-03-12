@@ -22,7 +22,7 @@ export default function AboutPage() {
     <>
       <section className="border-b border-slate-200 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.12),transparent_28%),linear-gradient(180deg,#f8fbff_0%,#eef5fb_100%)] py-14 md:py-20 lg:py-24">
         <Container>
-          <div className="grid gap-10 xl:grid-cols-[0.94fr_1.06fr] xl:items-start">
+          <div className="grid gap-10 xl:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] xl:items-start">
             <div>
               <p className="eyebrow-label">About OrbitOps</p>
               <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold tracking-[-0.05em] text-slate-950 sm:text-5xl lg:text-[4rem] lg:leading-[0.96]">
@@ -54,14 +54,14 @@ export default function AboutPage() {
               <div className="mt-6 space-y-6">
                 {aboutTimeline.map((item) => (
                   <article key={item.year} className="grid gap-4 border-b border-white/10 pb-6 last:border-b-0 last:pb-0 sm:grid-cols-[auto_1fr]">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/8 text-sm font-semibold text-white">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/12 text-sm font-semibold text-slate-50 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                       {item.year}
                     </span>
                     <div>
-                      <h2 className="font-display text-2xl font-semibold tracking-[-0.04em] text-white">
+                      <h2 className="font-display text-2xl font-semibold tracking-[-0.04em] text-slate-50">
                         {item.title}
                       </h2>
-                      <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
+                      <p className="mt-3 text-sm leading-6 text-slate-200">{item.description}</p>
                     </div>
                   </article>
                 ))}

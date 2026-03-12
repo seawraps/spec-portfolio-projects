@@ -46,7 +46,8 @@ const isActive = (pathname: string, href: string) => {
 
 export function Header() {
   const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuPathname, setMenuPathname] = useState<string | null>(null);
+  const isMenuOpen = menuPathname === pathname;
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -56,10 +57,6 @@ export function Header() {
       document.body.style.overflow = previousOverflow;
     };
   }, [isMenuOpen]);
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50">
@@ -97,14 +94,7 @@ export function Header() {
               </span>
             </Link>
 
-            <div className="hidden lg:grid lg:gap-2 xl:px-4">
-              <div className="flex items-center justify-between px-1 text-[0.56rem] font-semibold uppercase tracking-[0.22em] text-white/42">
-                <span className="inline-flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-signal" />
-                  Control routes
-                </span>
-                <span>Core routes</span>
-              </div>
+            <div className="hidden lg:block xl:px-4">
               <nav
                 className="grid grid-cols-4 gap-1 rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(10,10,12,0.92))] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
                 aria-label="Primary navigation"
@@ -116,25 +106,20 @@ export function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`group grid min-h-[4.4rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-[1rem] border px-3 py-3 ${
+                      onClick={() => setMenuPathname(null)}
+                      className={`group flex min-h-[4.6rem] items-center justify-between gap-3 rounded-[1rem] border px-4 py-3 ${
                         active
                           ? "border-signal/48 bg-paper text-ink shadow-[0_18px_36px_-26px_rgba(255,245,235,0.86)]"
                           : "border-transparent bg-black/18 text-white/68 hover:border-white/10 hover:bg-white/[0.07] hover:text-white"
                       }`}
                       aria-current={active ? "page" : undefined}
                     >
-                      <span className="min-w-0">
-                        <span className={`block text-[0.68rem] font-semibold uppercase tracking-[0.2em] ${active ? "text-ink" : "text-white"}`}>
-                          {item.label}
-                        </span>
-                        <span
-                          className={`mt-1 block text-[0.52rem] font-semibold uppercase tracking-[0.18em] ${
-                            active ? "text-ink/56" : "text-white/34"
-                          }`}
-                        >
-                          {active ? "Current route" : "Open route"}
-                        </span>
+                      <span
+                        className={`block min-w-0 text-[0.72rem] font-semibold uppercase tracking-[0.22em] ${
+                          active ? "text-ink" : "text-white"
+                        }`}
+                      >
+                        {item.label}
                       </span>
                       <span
                         className={`h-2.5 w-2.5 rounded-full ${
@@ -149,14 +134,14 @@ export function Header() {
             </div>
 
             <div className="flex flex-wrap items-center justify-end gap-3">
-              <Link href="/contact" className="button-primary inline-flex min-w-[8.8rem]">
+              <Link href="/contact" className="button-primary inline-flex h-12 min-w-[8.8rem] px-4">
                 Start Brief
               </Link>
 
               <button
                 type="button"
-                className="inline-flex h-12 min-w-[8.6rem] items-center justify-center gap-3 rounded-[1.05rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] px-4 text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-white hover:border-white/30 hover:bg-white/10"
-                onClick={() => setIsMenuOpen((current) => !current)}
+                className="inline-flex h-12 min-w-[8.8rem] items-center justify-center gap-3 rounded-[1.05rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] px-4 text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-white hover:border-white/30 hover:bg-white/10"
+                onClick={() => setMenuPathname((current) => (current === pathname ? null : pathname))}
                 aria-expanded={isMenuOpen}
                 aria-controls="site-menu-overlay"
                 aria-label={isMenuOpen ? "Close site menu" : "Open site menu"}
@@ -199,20 +184,20 @@ export function Header() {
               <button
                 type="button"
                 className="inline-flex h-11 items-center justify-center rounded-[1rem] border border-white/14 bg-white/5 px-4 text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-white hover:border-white/34 hover:bg-white/10"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => setMenuPathname(null)}
               >
                 Close
               </button>
             </div>
 
             <div className="grid flex-1 gap-5 py-7 xl:grid-cols-[1.08fr_0.92fr]">
-              <nav aria-label="Expanded site navigation" className="grid gap-4 md:grid-cols-2">
+              <nav aria-label="Expanded site navigation" className="grid auto-rows-fr gap-4 md:grid-cols-2">
                 {navPanels.map((item, index) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`group relative flex min-h-[12rem] flex-col gap-4 rounded-[1.65rem] border p-5 transition sm:p-6 ${
+                    onClick={() => setMenuPathname(null)}
+                    className={`group relative flex h-full min-h-[12rem] flex-col rounded-[1.65rem] border p-5 transition sm:p-6 ${
                       isActive(pathname, item.href)
                         ? "border-signal/55 bg-paper text-ink shadow-[0_28px_54px_-38px_rgba(255,245,235,0.65)]"
                         : "surface-panel text-white"
@@ -222,18 +207,7 @@ export function Header() {
                     style={{ "--reveal-delay": `${index * 70}ms` } as CSSProperties}
                     aria-current={isActive(pathname, item.href) ? "page" : undefined}
                   >
-                    <div className="flex justify-end">
-                      <span
-                        className={`rounded-full border px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.18em] ${
-                          isActive(pathname, item.href)
-                            ? "border-ink/10 bg-ink text-paper"
-                            : "border-white/10 bg-white/6 text-white/52"
-                        }`}
-                      >
-                        {isActive(pathname, item.href) ? "Current route" : "Open route"}
-                      </span>
-                    </div>
-                    <div className="space-y-3">
+                    <div className="flex h-full flex-col gap-4">
                       <h2
                         className={`font-display text-4xl uppercase leading-[0.92] transition sm:text-5xl ${
                           isActive(pathname, item.href)
@@ -243,7 +217,11 @@ export function Header() {
                       >
                         {item.label}
                       </h2>
-                      <p className={`max-w-md text-sm leading-7 sm:text-base ${isActive(pathname, item.href) ? "text-ink/72" : "text-white/68"}`}>
+                      <p
+                        className={`mt-auto max-w-md text-sm leading-7 sm:text-base ${
+                          isActive(pathname, item.href) ? "text-ink/72" : "text-white/68"
+                        }`}
+                      >
                         {item.summary}
                       </p>
                     </div>
@@ -260,11 +238,11 @@ export function Header() {
                   <p className="mt-4 max-w-xl text-sm leading-7 text-white/70">
                     Signal & Stone keeps narrative, paid execution, page movement, and reporting inside one decision loop.
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="button-primary">
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    <Link href="/contact" onClick={() => setMenuPathname(null)} className="button-primary w-full">
                       Book Strategy Call
                     </Link>
-                    <Link href="/services" onClick={() => setIsMenuOpen(false)} className="button-secondary">
+                    <Link href="/services" onClick={() => setMenuPathname(null)} className="button-secondary w-full">
                       Review Service Stack
                     </Link>
                   </div>

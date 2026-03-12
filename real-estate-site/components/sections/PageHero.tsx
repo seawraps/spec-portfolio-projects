@@ -37,20 +37,20 @@ export function PageHero({
   return (
     <section className="hero-spacing">
       <Container>
-        <div className="grid gap-10 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] xl:items-start">
-          <div className="reveal-up xl:pr-6">
+        <div className="grid gap-10 xl:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] xl:items-start">
+          <div className="reveal-up flex flex-col gap-6 xl:pr-6">
             <p className="text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze)]">
               {eyebrow}
             </p>
-            <h1 className="mt-6 max-w-none font-display text-[clamp(3rem,6.3vw,5.9rem)] leading-[0.88] text-[var(--color-ink)]">
+            <h1 className="max-w-none font-display text-[clamp(3rem,5.5vw,5.3rem)] leading-[0.9] text-[var(--color-ink)]">
               {title}
             </h1>
-            <p className="mt-6 max-w-2xl text-[1.02rem] leading-8 text-[var(--color-muted)]">
+            <p className="max-w-2xl text-[1.02rem] leading-8 text-[var(--color-muted)]">
               {description}
             </p>
 
             {primaryAction || secondaryAction ? (
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 {primaryAction ? (
                   <ButtonLink
                     href={primaryAction.href}
@@ -72,7 +72,7 @@ export function PageHero({
               </div>
             ) : null}
 
-            <div className="mt-8 border-t border-[var(--color-line-strong)] pt-6">
+            <div className="border-t border-[var(--color-line-strong)] pt-6">
               <div className="grid gap-4">
                 {highlights.map((item) => (
                   <div
@@ -86,8 +86,8 @@ export function PageHero({
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(18rem,0.88fr)] lg:items-end">
-            <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[340px] sm:min-h-[440px] lg:min-h-[600px]">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(15rem,0.72fr)] lg:items-start">
+            <div className="image-frame image-reveal reveal-up delay-1 relative self-start min-h-[340px] sm:min-h-[440px] lg:min-h-[520px] xl:min-h-[560px]">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
@@ -102,7 +102,7 @@ export function PageHero({
               </div>
             </div>
 
-            <aside className="reveal-up delay-2 flex flex-col justify-end gap-6 border border-[var(--color-line)] bg-[rgba(255,255,255,0.48)] p-6 sm:p-7">
+            <aside className="reveal-up delay-2 flex self-start flex-col gap-6 border border-[var(--color-line)] bg-[rgba(255,255,255,0.48)] p-6 sm:p-7">
               <div>
                 <p className="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze)]">
                   Crescent Vale note

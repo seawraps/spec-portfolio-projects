@@ -17,7 +17,7 @@ export function NeighborhoodsSection({
     <section className="section-spacing" aria-labelledby="neighborhoods-heading">
       <Container>
         <div className="section-shell rounded-[40px] px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-          <div className="grid gap-8 border-b border-[var(--color-line-strong)] pb-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(18rem,0.92fr)] xl:items-end">
+          <div className="grid gap-8 border-b border-[var(--color-line-strong)] pb-8 xl:grid-cols-[minmax(0,1.04fr)_minmax(18rem,0.96fr)] xl:items-start">
             <SectionHeading
               id="neighborhoods-heading"
               eyebrow="Neighborhood Edit"
@@ -25,7 +25,7 @@ export function NeighborhoodsSection({
               description={description}
               className="reveal-up max-w-4xl"
             />
-            <p className="xl:max-w-[31rem] xl:justify-self-end xl:border-l xl:border-[var(--color-line-strong)] xl:pl-6 text-sm leading-7 text-[var(--color-muted-strong)]">
+            <p className="text-sm leading-7 text-[var(--color-muted-strong)] xl:max-w-[31rem] xl:justify-self-end xl:border-l xl:border-[var(--color-line-strong)] xl:pl-6 xl:pt-3">
               The right house is only as strong as the life around it. Street
               character, club access, marina rhythm, school pull, and commute
               reality all shape where a move will still feel right a year later.
@@ -102,11 +102,11 @@ export function NeighborhoodsSection({
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-3">
+                    <div className="grid gap-3 sm:grid-cols-3">
                       {neighborhood.highlights.map((highlight) => (
                         <span
                           key={highlight}
-                          className="rounded-full border border-[var(--color-line)] bg-white/72 px-3 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted-strong)]"
+                          className="inline-flex min-h-[4rem] items-center justify-center rounded-full border border-[var(--color-line)] bg-white/72 px-5 py-3 text-center text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-muted-strong)]"
                         >
                           {highlight}
                         </span>

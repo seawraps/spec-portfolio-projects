@@ -40,11 +40,11 @@ export function AgentCard({ agent }: AgentCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-6 sm:p-7">
-        <p className="text-sm leading-7 text-[var(--color-muted)]">
+        <p className="flex-1 text-sm leading-7 text-[var(--color-muted)]">
           {agent.bio}
         </p>
 
-        <div className="mt-6 rounded-[24px] border border-[var(--color-line)] bg-[var(--color-cream)] p-5">
+        <div className="mt-6 flex min-h-[9.5rem] flex-col justify-center rounded-[24px] border border-[var(--color-line)] bg-[var(--color-cream)] p-5">
           <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-bronze)]">
             Client lens
           </p>
@@ -63,7 +63,7 @@ export function AgentCard({ agent }: AgentCardProps) {
           {agent.specialties.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-[var(--color-line)] bg-white px-3 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]"
+              className="inline-flex min-h-10 items-center justify-center rounded-full border border-[var(--color-line)] bg-white px-3 py-1.5 text-center text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]"
             >
               {item}
             </span>

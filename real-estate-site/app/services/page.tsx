@@ -36,7 +36,7 @@ export default function ServicesPage() {
         ]}
       />
 
-      <section className="py-12 md:py-16 lg:py-20">
+      <section className="pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-20">
         <Container>
           <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
             <div className="soft-card rounded-[32px] p-8 sm:p-10">

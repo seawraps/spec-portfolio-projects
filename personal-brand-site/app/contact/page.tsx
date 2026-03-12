@@ -15,7 +15,22 @@ export const metadata: Metadata = buildMetadata(
   "/contact",
 );
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams?: Promise<{
+    type?: string | string[];
+  }>;
+};
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const rawInquiryType = Array.isArray(resolvedSearchParams?.type)
+    ? resolvedSearchParams.type[0]
+    : resolvedSearchParams?.type;
+  const presetInquiryType =
+    rawInquiryType === "speaking" || rawInquiryType === "advisory" || rawInquiryType === "partnership"
+      ? rawInquiryType
+      : undefined;
+
   return (
     <>
       <PageIntro
@@ -40,7 +55,7 @@ export default function ContactPage() {
       />
 
       <section className="section-shell pt-0">
-        <Container className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
+        <Container className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
           <div className="paper-panel p-6 sm:p-8">
             <SectionHeading
               eyebrow="Inquiry Form"
@@ -48,7 +63,7 @@ export default function ContactPage() {
               description="The strongest inquiries include the audience, timing, and the shift you want the room, brand, or campaign to create."
             />
             <div className="mt-8">
-              <ContactForm />
+              <ContactForm presetInquiryType={presetInquiryType} />
             </div>
           </div>
 

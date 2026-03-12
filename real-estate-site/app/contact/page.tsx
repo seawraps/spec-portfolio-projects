@@ -35,7 +35,7 @@ export default function ContactPage() {
       <section className="page-section-spacing">
         <Container>
           <div className="section-shell rounded-[40px] p-4 sm:p-6 lg:p-8">
-            <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
+            <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
               <aside className="dark-panel min-w-0 rounded-[34px] p-6 text-white sm:p-10">
                 <p className="text-[0.66rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-bronze-soft)]">
                   Direct lines
@@ -128,8 +128,8 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-[0.92fr_1.08fr]">
-                  <aside className="soft-card rounded-[28px] p-6 sm:p-7">
+                <div className="grid gap-6 md:grid-cols-[0.92fr_1.08fr] md:items-start">
+                  <aside className="soft-card self-start rounded-[28px] p-6 sm:p-7">
                     <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-bronze)]">
                       Response cadence
                     </p>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                     </ul>
                   </aside>
 
-                  <aside className="soft-card rounded-[28px] p-6 sm:p-7">
+                  <aside className="soft-card self-start rounded-[28px] p-6 sm:p-7">
                     <h2 className="font-display text-4xl leading-[0.94] text-[var(--color-ink)]">
                       What happens next
                     </h2>

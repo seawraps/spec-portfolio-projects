@@ -11,7 +11,7 @@ export function HeroSection() {
   return (
     <section className="hero-spacing relative overflow-hidden">
       <Container>
-        <div className="grid gap-10 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-start">
+        <div className="grid gap-10 xl:grid-cols-[minmax(0,0.76fr)_minmax(0,1.24fr)] xl:items-start">
           <div className="reveal-up flex flex-col gap-8 lg:gap-10 xl:pr-6">
             <div>
               <p className="text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[var(--color-bronze)]">
@@ -66,8 +66,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.14fr)_minmax(17rem,0.86fr)] lg:items-end">
-            <article className="image-frame image-reveal reveal-up delay-1 relative min-h-[480px] sm:min-h-[560px] lg:row-span-2 lg:min-h-[700px]">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.18fr)_minmax(15rem,0.72fr)] lg:items-start">
+            <article className="image-frame image-reveal reveal-up delay-1 relative min-h-[480px] self-start sm:min-h-[560px] lg:row-span-2 lg:min-h-[660px] xl:min-h-[700px]">
               <Image
                 src={coverListing.imageSrc}
                 alt={coverListing.imageAlt}
@@ -81,16 +81,16 @@ export function HeroSection() {
                 Cover property
               </div>
               <div className="overlay-panel absolute inset-x-4 bottom-4 rounded-[24px] p-5 text-white sm:inset-x-6 sm:bottom-6 sm:p-6">
-                <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
+                <div className="grid gap-4 border-b border-white/10 pb-5">
                   <div>
                     <p className="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-bronze-soft)]">
                       {coverListing.neighborhood}
                     </p>
-                    <h2 className="mt-3 font-display text-[clamp(3rem,5vw,4.9rem)] leading-[0.9] text-white">
+                    <h2 className="mt-3 font-display text-[clamp(2.7rem,4.5vw,4.25rem)] leading-[0.92] text-white">
                       {coverListing.name}
                     </h2>
                   </div>
-                  <p className="font-display text-[clamp(2.8rem,5vw,4.3rem)] leading-none text-white">
+                  <p className="font-display text-[clamp(2.35rem,3.5vw,3.2rem)] leading-none text-white">
                     {coverListing.price}
                   </p>
                 </div>
@@ -115,7 +115,7 @@ export function HeroSection() {
               </div>
             </article>
 
-            <aside className="reveal-up delay-2 border border-[var(--color-line)] bg-[rgba(255,255,255,0.48)] p-6 sm:p-7">
+            <aside className="reveal-up delay-2 self-start border border-[var(--color-line)] bg-[rgba(255,255,255,0.48)] p-6 sm:p-7">
               <p className="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze)]">
                 Editorial approach
               </p>
@@ -138,7 +138,7 @@ export function HeroSection() {
               </div>
             </aside>
 
-            <article className="image-frame image-reveal reveal-up delay-3 relative min-h-[300px] sm:min-h-[360px]">
+            <article className="image-frame image-reveal reveal-up delay-3 relative self-start min-h-[300px] sm:min-h-[360px]">
               <Image
                 src={interiorListing.imageSrc}
                 alt={interiorListing.imageAlt}

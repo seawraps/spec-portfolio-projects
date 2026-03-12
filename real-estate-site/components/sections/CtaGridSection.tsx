@@ -27,8 +27,8 @@ export function CtaGridSection() {
     <section className="section-spacing">
       <Container>
         <div className="section-shell rounded-[40px] p-4 sm:p-6 lg:p-8">
-          <div className="grid gap-8 xl:grid-cols-[1.08fr_0.92fr] xl:items-end">
-            <article className="image-frame image-reveal reveal-up relative min-h-[380px] sm:min-h-[520px]">
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] xl:items-start">
+            <article className="image-frame image-reveal reveal-up relative self-start min-h-[380px] sm:min-h-[460px]">
               <Image
                 src="/images/contact-consultation.jpg"
                 alt="A refined consultation setting for Crescent Vale's private planning and valuation conversations."
@@ -51,7 +51,7 @@ export function CtaGridSection() {
               </div>
             </article>
 
-            <div className="reveal-up delay-1">
+            <div className="reveal-up delay-1 self-start">
               <SectionHeading
                 eyebrow="Planning Note"
                 title="Whether you are buying, selling, or quietly testing the market, clarity early changes outcomes."

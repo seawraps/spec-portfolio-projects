@@ -29,8 +29,7 @@ export function ProcessSection() {
             </div>
           </div>
 
-          <ol className="relative grid gap-4">
-            <div className="pointer-events-none absolute bottom-4 left-[1.55rem] top-4 hidden w-px bg-gradient-to-b from-white/24 via-white/10 to-transparent sm:block" aria-hidden="true" />
+          <ol className="grid gap-4">
             {processSteps.map((step, index) => (
               <li
                 key={step.title}

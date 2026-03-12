@@ -239,7 +239,7 @@ export function ContactForm() {
         </p>
       ) : null}
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
         <p className="text-sm leading-7 text-[var(--color-muted)]">
           No spam, no pressure, and no backend submission. This is a polished
           demo form with client-side validation only.

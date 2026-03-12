@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useState } from "react";
 
 import { buttonClassName } from "@/components/ui/button-link";
 
@@ -30,6 +30,10 @@ const inquiryTypeMap = {
   partnership: "partnership",
 } as const;
 
+type ContactFormProps = {
+  presetInquiryType?: FormState["inquiryType"];
+};
+
 function validate(values: FormState): ErrorState {
   const errors: ErrorState = {};
 
@@ -52,23 +56,13 @@ function validate(values: FormState): ErrorState {
   return errors;
 }
 
-export function ContactForm() {
-  const [values, setValues] = useState<FormState>(initialState);
+export function ContactForm({ presetInquiryType }: ContactFormProps) {
+  const [values, setValues] = useState<FormState>(() => ({
+    ...initialState,
+    inquiryType: presetInquiryType && Object.hasOwn(inquiryTypeMap, presetInquiryType) ? presetInquiryType : "",
+  }));
   const [errors, setErrors] = useState<ErrorState>({});
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    const preset = new URLSearchParams(window.location.search).get("type");
-
-    if (!preset || !Object.hasOwn(inquiryTypeMap, preset) || values.inquiryType) {
-      return;
-    }
-
-    setValues((current) => ({
-      ...current,
-      inquiryType: inquiryTypeMap[preset as keyof typeof inquiryTypeMap],
-    }));
-  }, [values.inquiryType]);
 
   function updateField<K extends keyof FormState>(field: K, value: FormState[K]) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -160,30 +154,30 @@ export function ContactForm() {
         </label>
       </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          <label className="block">
-            <span className="mb-2 block text-sm font-medium text-mocha/84">Company or project</span>
-            <input
+      <div className="grid gap-6 sm:grid-cols-2">
+        <label className="block">
+          <span className="mb-2 block text-sm font-medium text-mocha/84">Company or project</span>
+          <input
             type="text"
             name="company"
             autoComplete="organization"
             placeholder="Brand, team, or event"
             value={values.company}
             onChange={(event) => updateField("company", event.target.value)}
-            />
-          </label>
+          />
+        </label>
 
-          <label className="block">
-            <span className="mb-2 block text-sm font-medium text-mocha/84">Timing or event date</span>
-            <input
-              type="text"
-              name="timeline"
-              placeholder="September offsite, Q4 launch, or flexible"
-              value={values.timeline}
-              onChange={(event) => updateField("timeline", event.target.value)}
-            />
-          </label>
-        </div>
+        <label className="block">
+          <span className="mb-2 block text-sm font-medium text-mocha/84">Timing or event date</span>
+          <input
+            type="text"
+            name="timeline"
+            placeholder="September offsite, Q4 launch, or flexible"
+            value={values.timeline}
+            onChange={(event) => updateField("timeline", event.target.value)}
+          />
+        </label>
+      </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <label className="block">
@@ -235,13 +229,13 @@ export function ContactForm() {
         ) : null}
       </label>
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-4">
         <p className="text-sm leading-7 text-mocha/88">
           Frontend-only demo form. Validation and success states are included without a backend dependency.
         </p>
         <button
           type="submit"
-          className={buttonClassName("primary")}
+          className={buttonClassName("primary", "justify-self-start whitespace-nowrap sm:justify-self-end")}
         >
           Send booking note
         </button>

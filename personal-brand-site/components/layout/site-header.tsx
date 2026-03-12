@@ -57,8 +57,10 @@ function EditorialWordmark({ compact = false }: { compact?: boolean }) {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const [openRoute, setOpenRoute] = useState<string | null>(null);
   const [currentHash, setCurrentHash] = useState("");
+  const routeKey = `${pathname}${currentHash}`;
+  const isOpen = openRoute === routeKey;
 
   useEffect(() => {
     function syncHash() {
@@ -70,10 +72,6 @@ export function SiteHeader() {
 
     return () => window.removeEventListener("hashchange", syncHash);
   }, []);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname, currentHash]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink/10 bg-[#fbf4ec]">
@@ -106,7 +104,7 @@ export function SiteHeader() {
             className="inline-flex min-h-11 items-center gap-3 border border-ink/12 bg-white/72 px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-plum"
             aria-expanded={isOpen}
             aria-controls="mobile-nav"
-            onClick={() => setIsOpen((value) => !value)}
+            onClick={() => setOpenRoute((value) => (value === routeKey ? null : routeKey))}
           >
             <span>{isOpen ? "Close" : "Menu"}</span>
             <span className="relative block h-3.5 w-4" aria-hidden="true">

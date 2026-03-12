@@ -26,10 +26,10 @@ export function FeaturedIdeasSlider() {
     <div className="editorial-frame overflow-hidden">
       <div
         key={activeIdea.title}
-        className="grid gap-0 min-[900px]:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)]"
+        className="grid gap-0 min-[900px]:grid-cols-[minmax(0,0.9fr)_minmax(24rem,1.1fr)]"
       >
-        <figure className="border-b border-ink/10 bg-white/46 min-[900px]:border-b-0 min-[900px]:border-r">
-          <div className="relative aspect-[4/3.35] overflow-hidden bg-[#eadfd2] min-[900px]:h-full min-[900px]:min-h-[29rem] xl:min-h-[31rem]">
+        <figure className="min-w-0 border-b border-ink/10 bg-white/46 min-[900px]:border-b-0 min-[900px]:border-r">
+          <div className="relative aspect-[4/3.35] overflow-hidden bg-[#eadfd2] min-[900px]:h-full min-[900px]:min-h-[27rem] xl:min-h-[29rem]">
             <Image
               src={activeIdea.image}
               alt={activeIdea.alt}
@@ -53,13 +53,13 @@ export function FeaturedIdeasSlider() {
           </figcaption>
         </figure>
 
-        <div className="flex min-w-0 flex-col px-6 py-7 sm:px-8 sm:py-9">
-          <div className="flex flex-col gap-4 min-[1180px]:flex-row min-[1180px]:items-start min-[1180px]:justify-between min-[1180px]:gap-6">
-            <div>
+        <div className="flex min-w-0 flex-col overflow-hidden bg-[rgb(255_250_244/0.92)] px-6 py-7 sm:px-8 sm:py-9">
+          <div className="grid gap-4 min-[1180px]:grid-cols-[minmax(0,1fr)_auto] min-[1180px]:items-start min-[1180px]:gap-6">
+            <div className="min-w-0">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-plum">
                 Featured idea / {activeIdea.label}
               </p>
-              <h3 className="mt-4 max-w-3xl text-[2.5rem] leading-[0.92] text-ink sm:text-[3.35rem]">
+              <h3 className="mt-4 text-[2.4rem] leading-[0.92] text-ink sm:text-[3.05rem] xl:text-[3.2rem]">
                 {activeIdea.title}
               </h3>
             </div>
@@ -84,15 +84,15 @@ export function FeaturedIdeasSlider() {
             </div>
           </div>
 
-          <p className="mt-5 max-w-2xl text-base leading-8 text-mocha/92 sm:text-lg">
+          <p className="mt-5 text-base leading-8 text-mocha/92 sm:text-lg">
             {activeIdea.summary}
           </p>
 
-          <div className="mt-8 border-t border-ink/10 pt-6">
+          <div className="mt-8 min-w-0 border-t border-ink/10 pt-6">
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-mocha/70">
               What stays with the audience
             </p>
-            <p className="mt-4 max-w-2xl text-2xl leading-9 text-ink sm:text-[2rem]">
+            <p className="mt-4 text-2xl leading-9 text-ink sm:text-[1.9rem]">
               {activeIdea.takeaway}
             </p>
           </div>

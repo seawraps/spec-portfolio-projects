@@ -12,10 +12,14 @@ type ProcessSectionProps = {
 type ProcessTrackProps = {
   eyebrow: string;
   title: string;
-  steps: ProcessStep[];
 };
 
-function ProcessTrack({ eyebrow, title, steps }: ProcessTrackProps) {
+type ProcessRowProps = {
+  sellerStep: ProcessStep;
+  buyerStep: ProcessStep;
+};
+
+function ProcessTrack({ eyebrow, title }: ProcessTrackProps) {
   return (
     <article className="reveal-up border-t border-white/12 pt-5">
       <p className="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[var(--color-bronze-soft)]">
@@ -24,22 +28,32 @@ function ProcessTrack({ eyebrow, title, steps }: ProcessTrackProps) {
       <h3 className="mt-4 font-display text-[2.7rem] leading-[0.92] text-white sm:text-[3rem]">
         {title}
       </h3>
-      <div className="mt-6 space-y-5">
-        {steps.map((step) => (
-          <div key={step.step} className="border-b border-white/10 pb-5">
-            <div className="flex items-baseline gap-4">
-              <span className="font-display text-[2rem] leading-none text-[var(--color-bronze-soft)]">
-                {step.step}
-              </span>
-              <h4 className="text-lg font-semibold text-white">{step.title}</h4>
-            </div>
-            <p className="mt-3 pl-12 text-sm leading-7 text-white/70">
-              {step.description}
-            </p>
-          </div>
-        ))}
-      </div>
     </article>
+  );
+}
+
+function ProcessRow({ sellerStep, buyerStep }: ProcessRowProps) {
+  const steps = [sellerStep, buyerStep];
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-2 lg:gap-8">
+      {steps.map((step) => (
+        <article
+          key={step.step + step.title}
+          className="flex h-full flex-col border-b border-white/10 pb-5"
+        >
+          <div className="flex items-baseline gap-4">
+            <span className="font-display text-[2rem] leading-none text-[var(--color-bronze-soft)]">
+              {step.step}
+            </span>
+            <h4 className="text-lg font-semibold text-white">{step.title}</h4>
+          </div>
+          <p className="mt-3 pl-12 text-sm leading-7 text-white/70">
+            {step.description}
+          </p>
+        </article>
+      ))}
+    </div>
   );
 }
 
@@ -87,17 +101,27 @@ export function ProcessSection({
               </p>
             </div>
 
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-8">
-              <ProcessTrack
-                eyebrow="Seller guide"
-                title="Homes launch best when the positioning feels inevitable."
-                steps={sellingProcess}
-              />
-              <ProcessTrack
-                eyebrow="Buyer guide"
-                title="Searches stay disciplined when the brief is sharper than the noise."
-                steps={buyingProcess}
-              />
+            <div className="grid gap-8">
+              <div className="grid gap-8 lg:grid-cols-2 lg:gap-8">
+                <ProcessTrack
+                  eyebrow="Seller guide"
+                  title="Homes launch best when the positioning feels inevitable."
+                />
+                <ProcessTrack
+                  eyebrow="Buyer guide"
+                  title="Searches stay disciplined when the brief is sharper than the noise."
+                />
+              </div>
+
+              <div className="grid gap-5">
+                {sellingProcess.map((sellerStep, index) => (
+                  <ProcessRow
+                    key={sellerStep.step}
+                    sellerStep={sellerStep}
+                    buyerStep={buyingProcess[index]}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

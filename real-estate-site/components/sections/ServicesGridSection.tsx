@@ -17,7 +17,7 @@ export function ServicesGridSection({
     <section className="section-spacing" aria-labelledby="services-heading">
       <Container>
         <div className="section-shell rounded-[40px] px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-          <div className="grid gap-8 border-b border-[var(--color-line-strong)] pb-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] xl:items-end">
+          <div className="grid gap-8 border-b border-[var(--color-line-strong)] pb-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] xl:items-start">
             <div>
               <SectionHeading
                 id="services-heading"
@@ -35,7 +35,7 @@ export function ServicesGridSection({
               </p>
             </div>
 
-            <div className="image-frame image-reveal reveal-up delay-1 relative min-h-[340px] sm:min-h-[420px]">
+            <div className="image-frame image-reveal reveal-up delay-1 relative self-start min-h-[340px] sm:min-h-[420px]">
               <Image
                 src="/images/story-advisory.jpg"
                 alt="A refined interior scene that supports Crescent Vale's advisory and presentation-focused service approach."

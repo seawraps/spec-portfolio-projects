@@ -68,7 +68,7 @@ function SectionIntro({
 export default function HomePage() {
   return (
     <>
-      <section className="overflow-hidden pb-10 pt-8 sm:pb-12 sm:pt-10 lg:pb-16 lg:pt-12">
+      <section className="overflow-hidden pb-8 pt-8 sm:pb-10 sm:pt-10 lg:pb-12 lg:pt-12">
         <Container className="grid gap-10 min-[900px]:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] min-[900px]:items-start">
           <div className="reveal-up min-w-0 max-w-2xl min-[900px]:pt-6 xl:pt-8">
             <span className="editorial-label">Speaker, advisor, editorial voice</span>
@@ -107,7 +107,7 @@ export default function HomePage() {
 
           <div className="reveal-up-delay min-w-0 grid gap-5 min-[900px]:pl-3 xl:pl-6">
             <figure className="editorial-frame overflow-hidden">
-              <div className="relative aspect-[4/5.05] bg-[#eadfd2] sm:aspect-[4/4.35] min-[900px]:aspect-[4/4.9] xl:aspect-[4/4.8]">
+              <div className="relative aspect-[4/5.05] bg-[#eadfd2] sm:aspect-[4/4.35] min-[900px]:aspect-[4/4.65] xl:aspect-[4/4.55]">
                 <Image
                   src="/images/nadia-desk-portrait.jpg"
                   alt="Nadia Vale seated at a desk in a bright editorial workspace."
@@ -141,8 +141,8 @@ export default function HomePage() {
               </figcaption>
             </figure>
 
-            <div className="grid gap-5 min-[900px]:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
-              <div className="border-t border-ink/10 pt-4">
+            <div className="grid items-start gap-5 min-[900px]:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
+              <div className="min-w-0 border-t border-ink/10 pt-4">
                 <p className="text-[0.64rem] font-semibold uppercase tracking-[0.3em] text-mocha/68">Based in Brooklyn</p>
                 <p className="mt-3 max-w-md text-sm leading-7 text-mocha/84">
                   Keynotes, workshops, leadership offsites, and editorial strategy engagements shaped with the same
@@ -150,7 +150,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <aside className="bg-[#6e433d] px-6 py-6 text-white shadow-[0_28px_60px_-40px_rgba(72,31,27,0.66)] sm:px-7">
+              <aside className="min-w-0 bg-[#6e433d] px-5 py-5 text-white shadow-[0_28px_60px_-40px_rgba(72,31,27,0.66)] sm:px-6 sm:py-6">
                 <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-white/68">A line Nadia repeats</p>
                 <p className="mt-4 font-display text-[2.15rem] italic leading-[1.02] text-white sm:text-[2.75rem]">
                   The room remembers the sentence before it remembers the slide.
@@ -302,11 +302,11 @@ export default function HomePage() {
               losing the thread of the argument or the humanity in the delivery.
             </p>
 
-            <div className="mt-8 bg-[#2d211d] px-6 py-6 text-white shadow-[0_32px_70px_-42px_rgba(23,14,11,0.78)] sm:px-8 sm:py-8">
+            <div className="mt-8 bg-[#2d211d] px-6 py-6 text-white shadow-[0_32px_70px_-42px_rgba(23,14,11,0.78)] sm:px-7 sm:py-7">
               <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-white/64">
                 From producers and hosts
               </p>
-              <p className="mt-4 font-display text-[2.2rem] italic leading-[1.02] text-white sm:text-[2.85rem]">
+              <p className="mt-4 font-display text-[2rem] italic leading-[1.02] text-white sm:text-[2.55rem]">
                 Nadia gives a room one line to carry home and one reason to keep the conversation going after the room.
               </p>
             </div>
@@ -348,11 +348,11 @@ export default function HomePage() {
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {essayPreviews.map((essay) => (
-                <article key={essay.title} className="editorial-frame flex min-h-[15rem] flex-col px-5 py-5 sm:px-6">
+                <article key={essay.title} className="editorial-frame flex h-full flex-col gap-4 px-5 py-5 sm:px-6">
                   <p className="text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-mocha/68">{essay.label}</p>
-                  <h3 className="mt-4 text-[1.85rem] leading-8 text-ink">{essay.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-mocha/86">{essay.summary}</p>
-                  <p className="mt-auto pt-6 text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-plum">
+                  <h3 className="text-[1.85rem] leading-8 text-ink">{essay.title}</h3>
+                  <p className="text-sm leading-7 text-mocha/86">{essay.summary}</p>
+                  <p className="mt-2 pt-2 text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-plum">
                     Editorial preview
                   </p>
                 </article>

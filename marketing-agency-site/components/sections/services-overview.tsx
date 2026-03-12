@@ -125,12 +125,12 @@ export function ServicesOverview() {
             return (
               <article
                 key={service.slug}
-                className={`${isDarkCard ? "surface-panel text-white" : "paper-panel text-ink"} flex flex-col gap-5 lg:col-span-4`}
+                className={`${isDarkCard ? "surface-panel text-white" : "paper-panel text-ink"} flex h-full flex-col lg:col-span-4`}
                 data-tilt
                 data-reveal="up"
                 style={{ "--reveal-delay": `${140 + index * 70}ms` } as CSSProperties}
               >
-                <div className="flex flex-wrap items-start justify-between gap-4 p-6 pb-0">
+                <div className="flex min-h-[11rem] flex-col gap-4 p-6 pb-0">
                   <div className="max-w-xl">
                     <p className={`text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${isDarkCard ? "text-volt" : "text-signal"}`}>
                       {service.tagline}
@@ -140,7 +140,7 @@ export function ServicesOverview() {
                     </h3>
                   </div>
                   <span
-                    className={`rounded-full px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] ${
+                    className={`inline-flex w-fit rounded-full px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] ${
                       isDarkCard
                         ? "border border-white/10 bg-white/5 text-white/54"
                         : "border border-ink/10 bg-white/70 text-ink/52"
@@ -150,14 +150,14 @@ export function ServicesOverview() {
                   </span>
                 </div>
 
-                <div className="grid gap-4 p-6 pt-0">
+                <div className="grid flex-1 gap-4 p-6 pt-0">
                   <p className={`text-sm leading-7 ${isDarkCard ? "text-white/74" : "text-ink/72"}`}>{service.short}</p>
 
-                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                  <div className="grid gap-3 sm:grid-cols-2 lg:auto-rows-fr lg:grid-cols-1">
                     {service.outcomes.slice(0, 2).map((item) => (
                       <div
                         key={item}
-                        className={`rounded-[1.15rem] border px-4 py-4 text-sm leading-6 ${
+                        className={`flex min-h-[7rem] items-center rounded-[1.15rem] border px-4 py-4 text-sm leading-6 ${
                           isDarkCard ? "border-white/10 bg-white/6 text-white/78" : "border-ink/10 bg-white/66 text-ink/78"
                         }`}
                       >
@@ -166,7 +166,7 @@ export function ServicesOverview() {
                     ))}
                   </div>
 
-                  <p className={`text-[0.7rem] font-semibold uppercase tracking-[0.2em] ${isDarkCard ? "text-white/42" : "text-ink/44"}`}>
+                  <p className={`mt-auto text-[0.7rem] font-semibold uppercase tracking-[0.2em] ${isDarkCard ? "text-white/42" : "text-ink/44"}`}>
                     {service.deliverables.slice(0, 2).join(" / ")}
                   </p>
                 </div>
