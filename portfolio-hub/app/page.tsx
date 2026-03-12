@@ -114,7 +114,7 @@ export default function Home() {
               <span className="inline-flex rounded-full border border-emerald-200/20 bg-emerald-200/[0.08] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-emerald-50">
                 Independent Designer + Front-End Developer
               </span>
-              <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.34em] text-slate-400">
+              <p className="mt-6 max-w-[21rem] text-[10px] font-semibold uppercase leading-5 tracking-[0.26em] text-slate-400 sm:max-w-none sm:text-[11px] sm:tracking-[0.34em]">
                 Premium websites for businesses, founders, and personal brands
               </p>
               <h1 className="mt-5 max-w-5xl text-balance font-display text-5xl leading-[0.95] tracking-[-0.05em] text-white sm:text-6xl lg:text-[5.6rem]">
@@ -208,7 +208,7 @@ export default function Home() {
                           {project.identity}
                         </span>
                       </div>
-                      <h3 className="mt-2 truncate font-display text-xl tracking-tight text-white">
+                      <h3 className="mt-2 text-balance font-display text-xl leading-[1.05] tracking-tight text-white">
                         {project.title}
                       </h3>
                       <p className="project-kicker mt-2 text-sm leading-6">
