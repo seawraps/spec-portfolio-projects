@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
 import { ComicCar } from "@/components/ui/comic-car";
@@ -35,9 +37,22 @@ export function GallerySection({
         <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {shown.map((build, index) => (
             <Reveal key={build.title} delay={index * 60}>
-              <article className="comic-panel comic-panel-hover flex h-full flex-col overflow-hidden">
-                <div className="relative aspect-[5/4] w-full border-b-[3px] border-[var(--color-ink)]">
-                  <ComicCar accent={build.accent} />
+              <article className="comic-panel comic-panel-hover group flex h-full flex-col overflow-hidden">
+                <div className="relative aspect-[5/4] w-full overflow-hidden border-b-[3px] border-[var(--color-ink)]">
+                  {build.image ? (
+                    <>
+                      <Image
+                        src={build.image}
+                        alt={build.imageAlt ?? `${build.vehicle} wrapped by Wu Wraps`}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <span className="comic-halftone pointer-events-none absolute inset-0" aria-hidden="true" />
+                    </>
+                  ) : (
+                    <ComicCar accent={build.accent} />
+                  )}
                   <span className="comic-heavy absolute left-2 top-2 border-[2.5px] border-[var(--color-ink)] bg-[var(--color-paper)] px-2 py-1 text-[0.58rem] tracking-[0.1em] text-[var(--color-ink)]">
                     {build.category}
                   </span>
