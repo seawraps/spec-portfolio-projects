@@ -27,3 +27,8 @@ Personal Brand Site
 Folder: personal-brand-site
 Vercel Project: personal-brand-site
 URL: https://personal-brand-site-flame.vercel.app
+
+Wu Wraps Site
+Folder: wuwraps-site
+Vercel Project: wuwraps-site
+URL: (pending deployment)
