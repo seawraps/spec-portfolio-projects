@@ -30,5 +30,5 @@ URL: https://personal-brand-site-flame.vercel.app
 
 Wu Wraps Site
 Folder: wuwraps-site
-Vercel Project: wuwraps-site
-URL: (pending deployment)
+Vercel Project: wuwraps
+URL: https://wuwraps.vercel.app
