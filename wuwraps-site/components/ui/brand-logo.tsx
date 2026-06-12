@@ -2,78 +2,77 @@ import { cn } from "@/lib/utils";
 
 type BrandLogoProps = {
   className?: string;
-  /** Pixel size of the square badge. */
+  /** Pixel size of the square logo mark. */
   size?: number;
 };
 
+// 16-point spiky burst behind the speech bubble.
+const burstPoints = Array.from({ length: 32 }, (_, i) => {
+  const angle = (Math.PI / 16) * i - Math.PI / 2;
+  const radius = i % 2 === 0 ? 60 : 45;
+  const x = 60 + radius * Math.cos(angle);
+  const y = 54 + radius * Math.sin(angle);
+  return `${x.toFixed(1)},${y.toFixed(1)}`;
+}).join(" ");
+
 /**
- * Comic-book style "WU WRAPS" badge logo.
- * Built as inline SVG so it stays crisp at any size and inherits the
- * Bangers display font loaded in the root layout.
+ * Wu Wraps "WU! WRAPS" speech-bubble logo, recreated as inline SVG from the
+ * shop's painted logo. Crisp at any size and uses the Bangers comic font for
+ * the lettering.
  */
 export function BrandLogo({ className, size = 56 }: BrandLogoProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 100 100"
+      viewBox="0 0 120 120"
       role="img"
       aria-label="Wu Wraps logo"
       className={cn("shrink-0", className)}
     >
-      {/* Drop shadow plate */}
-      <rect x="10" y="12" width="84" height="84" rx="12" fill="#14131a" />
-      {/* Badge body */}
-      <rect
-        x="6"
-        y="6"
-        width="84"
-        height="84"
-        rx="12"
-        fill="#e4282c"
+      {/* Gray spiky burst */}
+      <polygon
+        points={burstPoints}
+        fill="#9a9da3"
         stroke="#14131a"
-        strokeWidth="4"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
-      {/* Halftone dots */}
-      <g fill="rgba(20,19,26,0.18)">
-        <circle cx="18" cy="20" r="2" />
-        <circle cx="30" cy="20" r="2" />
-        <circle cx="42" cy="20" r="2" />
-        <circle cx="24" cy="30" r="2" />
-        <circle cx="36" cy="30" r="2" />
+
+      {/* White outline layer (bubble + tail) */}
+      <g fill="#fbf4e2">
+        <ellipse cx="60" cy="56" rx="55" ry="35" />
+        <polygon points="86,76 112,110 62,86" />
       </g>
-      {/* WU */}
+
+      {/* Black bubble + tail on top, leaving a white rim */}
+      <g fill="#14131a">
+        <ellipse cx="60" cy="56" rx="49" ry="29" />
+        <polygon points="84,74 100,98 66,82" />
+      </g>
+
+      {/* Lettering */}
       <text
-        x="48"
-        y="50"
+        x="60"
+        y="52"
         textAnchor="middle"
         style={{ fontFamily: "var(--font-bangers), sans-serif" }}
-        fontSize="42"
-        fill="#ffce1f"
-        stroke="#14131a"
-        strokeWidth="2.4"
-        paintOrder="stroke"
+        fontSize="26"
+        fill="#fbf4e2"
       >
-        WU
+        WU!
       </text>
-      {/* Banner */}
-      <g>
-        <path
-          d="M10 62 L90 62 L84 80 L16 80 Z"
-          fill="#14131a"
-        />
-        <text
-          x="50"
-          y="76"
-          textAnchor="middle"
-          style={{ fontFamily: "var(--font-bangers), sans-serif" }}
-          fontSize="16"
-          letterSpacing="1.5"
-          fill="#fbf4e2"
-        >
-          WRAPS
-        </text>
-      </g>
+      <text
+        x="60"
+        y="76"
+        textAnchor="middle"
+        style={{ fontFamily: "var(--font-bangers), sans-serif" }}
+        fontSize="22"
+        letterSpacing="0.5"
+        fill="#fbf4e2"
+      >
+        WRAPS
+      </text>
     </svg>
   );
 }

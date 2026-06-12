@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <rect x="4" y="4" width="56" height="56" rx="9" fill="#e4282c" stroke="#14131a" stroke-width="4"/>
-  <text x="32" y="40" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="30" fill="#ffce1f" stroke="#14131a" stroke-width="1.6" paint-order="stroke">WU</text>
+  <rect width="64" height="64" rx="10" fill="#ffce1f"/>
+  <ellipse cx="32" cy="30" rx="27" ry="19" fill="#fbf4e2"/>
+  <ellipse cx="32" cy="30" rx="23" ry="15" fill="#14131a"/>
+  <polygon points="44,40 56,60 30,44" fill="#fbf4e2"/>
+  <polygon points="42,39 50,53 32,42" fill="#14131a"/>
+  <text x="32" y="37" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="18" fill="#fbf4e2">WU!</text>
 </svg>

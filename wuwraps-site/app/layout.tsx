@@ -11,23 +11,23 @@ const barlow = localFont({
   variable: "--font-barlow",
   display: "swap",
   src: [
-    { path: "./fonts/barlow-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/barlow-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/barlow-600.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/barlow-700.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/barlow-400.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/barlow-500.ttf", weight: "500", style: "normal" },
+    { path: "./fonts/barlow-600.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/barlow-700.ttf", weight: "700", style: "normal" },
   ],
 });
 
 const bangers = localFont({
   variable: "--font-bangers",
   display: "swap",
-  src: [{ path: "./fonts/bangers-400.woff2", weight: "400", style: "normal" }],
+  src: [{ path: "./fonts/bangers-400.ttf", weight: "400", style: "normal" }],
 });
 
 const archivoBlack = localFont({
   variable: "--font-archivo",
   display: "swap",
-  src: [{ path: "./fonts/archivo-black-400.woff2", weight: "400", style: "normal" }],
+  src: [{ path: "./fonts/archivo-black-400.ttf", weight: "400", style: "normal" }],
 });
 
 export const metadata: Metadata = siteMetadata;
