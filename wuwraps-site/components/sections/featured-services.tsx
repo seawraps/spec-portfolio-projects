@@ -15,7 +15,7 @@ export function FeaturedServices({ limit, showCta = true }: FeaturedServicesProp
   return (
     <section
       id="services"
-      className="halftone-blue border-b-[4px] border-[var(--color-ink)] py-16 text-[var(--color-paper)] lg:py-24"
+      className="halftone-ink border-b border-[var(--color-line)] py-16 text-[var(--color-paper)] lg:py-24"
     >
       <Container>
         <Reveal>
@@ -46,13 +46,13 @@ export function FeaturedServices({ limit, showCta = true }: FeaturedServicesProp
                   {service.highlights.map((highlight) => (
                     <li
                       key={highlight}
-                      className="comic-heavy border-[2px] border-[var(--color-ink)] bg-[var(--color-yellow)] px-2 py-1 text-[0.6rem] tracking-[0.08em] text-[var(--color-ink)]"
+                      className="comic-heavy border border-[var(--color-line-strong)] bg-[var(--color-yellow)] px-2 py-1 text-[0.6rem] tracking-[0.08em] text-[var(--color-ink)]"
                     >
                       {highlight}
                     </li>
                   ))}
                 </ul>
-                <p className="comic-heavy mt-4 border-t-[2px] border-dashed border-[var(--color-ink)] pt-3 text-[0.66rem] tracking-[0.1em] text-[var(--color-blue)]">
+                <p className="comic-heavy mt-4 border-t-[2px] border-dashed border-[var(--color-line-strong)] pt-3 text-[0.66rem] tracking-[0.1em] text-[var(--color-blue)]">
                   {service.turnaround}
                 </p>
               </article>

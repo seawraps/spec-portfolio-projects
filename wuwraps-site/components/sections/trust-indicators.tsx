@@ -7,7 +7,7 @@ const accents = ["comic-panel-red", "comic-panel-blue", "comic-panel-yellow", "c
 
 export function TrustIndicators() {
   return (
-    <section className="border-b-[4px] border-[var(--color-ink)] py-16 lg:py-24">
+    <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
       <Container>
         <Reveal>
           <SectionHeading

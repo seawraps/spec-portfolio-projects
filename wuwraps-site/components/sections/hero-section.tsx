@@ -7,7 +7,7 @@ import { company, featuredStats } from "@/lib/data";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden border-b-[4px] border-[var(--color-ink)]">
+    <section className="relative overflow-hidden border-b border-[var(--color-line)]">
       <div className="speed-lines absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
       <Container className="grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-20">
         <div>
@@ -53,15 +53,15 @@ export function HeroSection() {
               />
               <span className="comic-halftone pointer-events-none absolute inset-0" aria-hidden="true" />
             </div>
-            <div className="absolute left-3 top-3 border-[2.5px] border-[var(--color-ink)] bg-[var(--color-yellow)] px-3 py-1">
-              <span className="comic-heavy text-[0.62rem] tracking-[0.14em] text-[var(--color-ink)]">
+            <div className="absolute left-3 top-3 rounded-full bg-[var(--color-ink)]/85 px-3 py-1 backdrop-blur-sm">
+              <span className="comic-heavy text-[0.6rem] tracking-[0.16em] text-[var(--color-paper)]">
                 Wu Wraps · Renton, WA
               </span>
             </div>
           </div>
           {/* Burst badge */}
           <div className="burst absolute -right-3 -top-6 hidden sm:flex" style={{ "--burst-size": "7.5rem" } as React.CSSProperties}>
-            <span className="comic-display text-center text-[1.1rem] leading-none text-[var(--color-ink)]">
+            <span className="comic-pow text-center text-[1.45rem] leading-[0.82] text-[var(--color-ink)]">
               {company.yearsInBusiness}
               <br />
               YEARS!
@@ -71,8 +71,8 @@ export function HeroSection() {
       </Container>
 
       {/* Stat strip */}
-      <div className="border-t-[4px] border-[var(--color-ink)] halftone-yellow">
-        <Container className="grid divide-y-[3px] divide-[var(--color-ink)] sm:grid-cols-3 sm:divide-x-[3px] sm:divide-y-0">
+      <div className="border-t border-[var(--color-line)] halftone-yellow">
+        <Container className="grid divide-y divide-[rgba(20,19,26,0.14)] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {featuredStats.map((stat) => (
             <div key={stat.label} className="px-2 py-6 text-center">
               <p className="comic-display text-[3rem] leading-none text-[var(--color-ink)] sm:text-[3.6rem]">

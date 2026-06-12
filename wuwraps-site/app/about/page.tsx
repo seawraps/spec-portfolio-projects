@@ -22,16 +22,16 @@ export default function AboutPage() {
       <PageHero
         eyebrow="The Origin Story"
         title="18 years. One set of hands. Thousands of wraps."
-        description="Mark Wu built Wu Wraps the old-fashioned way — clean install after clean install, until his name became the one Seattle gearheads pass to a friend."
+        description="Mark Wu built Wu Wraps the old-fashioned way, clean install after clean install, until his name became the one Seattle gearheads pass to a friend."
         variant="ink"
       />
 
-      <section className="border-b-[4px] border-[var(--color-ink)] py-16 lg:py-24">
+      <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
         <Container className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <Reveal>
             <div className="space-y-5 text-[1.02rem] leading-8 text-[var(--color-ink-soft)]">
               <p>
-                For 18 years, Mark Wu has been laying vinyl in the Renton and greater Seattle area —
+                For 18 years, Mark Wu has been laying vinyl in the Renton and greater Seattle area,
                 long before color-change wraps were a trend. He started with a heat gun, a squeegee,
                 and a reputation to build, and he built it one flawless edge at a time.
               </p>
@@ -44,12 +44,12 @@ export default function AboutPage() {
               <p>
                 That trust adds up. Thousands of vehicles across Puget Sound now wear a Wu Wraps
                 install, and most new customers show up because a friend pointed them here. No
-                franchise, no gimmicks — just a craftsman who treats every car like it&apos;s his
+                franchise, no gimmicks. Just a craftsman who treats every car like it&apos;s his
                 own.
               </p>
               <p>
                 Now Mark has moved into a brand-new, bigger shop. More space, more lifts, and room
-                to take on full fleets without the wait — same hands laying the vinyl on every
+                to take on full fleets without the wait. Same hands laying the vinyl on every
                 build that rolls out the door.
               </p>
             </div>
@@ -60,7 +60,7 @@ export default function AboutPage() {
               <div className="aspect-[5/4] w-full border-b-[3px] border-[var(--color-ink)]">
                 <ComicCar accent="blue" />
               </div>
-              <dl className="divide-y-[2.5px] divide-dashed divide-[var(--color-ink)]">
+              <dl className="divide-y divide-dashed divide-[var(--color-line-strong)]">
                 {aboutStats.map((stat) => (
                   <div key={stat.label} className="flex items-center justify-between gap-4 px-5 py-4">
                     <dt className="comic-heavy text-[0.66rem] tracking-[0.12em] text-[var(--color-blue)]">
@@ -77,7 +77,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="halftone-yellow border-b-[4px] border-[var(--color-ink)] py-16 lg:py-24">
+      <section className="halftone-yellow border-b border-[var(--color-line)] py-16 lg:py-24">
         <Container>
           <Reveal>
             <span className="comic-tag">What Sets Us Apart</span>
@@ -105,7 +105,7 @@ export default function AboutPage() {
               {differentiators.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 border-[2.5px] border-[var(--color-ink)] bg-[var(--color-paper)] p-4 text-sm leading-7 text-[var(--color-ink)] shadow-[4px_4px_0_0_var(--color-ink)]"
+                  className="flex items-start gap-3 border border-[var(--color-line-strong)] bg-[var(--color-paper)] p-4 text-sm leading-7 text-[var(--color-ink)] shadow-[0_14px_30px_-18px_rgba(20,19,26,0.5)]"
                 >
                   <span aria-hidden="true" className="comic-display text-xl text-[var(--color-red)]">
                     ★

@@ -42,8 +42,8 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
                 <Link
                   href={link.href}
                   className={cn(
-                    "comic-heavy relative inline-flex items-center border-[2.5px] border-transparent px-3 py-2 text-[0.74rem] tracking-[0.1em] text-[var(--color-ink)] transition hover:border-[var(--color-ink)] hover:bg-[var(--color-yellow)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-blue)]",
-                    isActive && "border-[var(--color-ink)] bg-[var(--color-yellow)] shadow-[3px_3px_0_0_var(--color-ink)]",
+                    "comic-heavy relative inline-flex items-center rounded-full px-4 py-2 text-[0.7rem] tracking-[0.12em] text-[var(--color-ink-soft)] transition hover:bg-[var(--color-paper-deep)] hover:text-[var(--color-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-blue)]",
+                    isActive && "bg-[var(--color-ink)] text-[var(--color-paper)] hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)]",
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -61,7 +61,7 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
     <div className="relative">
       <button
         type="button"
-        className="inline-flex h-11 w-11 items-center justify-center border-[3px] border-[var(--color-ink)] bg-[var(--color-yellow)] text-[var(--color-ink)] shadow-[3px_3px_0_0_var(--color-ink)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-blue)]"
+        className="inline-flex h-11 w-11 items-center justify-center border border-[var(--color-line-strong)] bg-[var(--color-yellow)] text-[var(--color-ink)] shadow-[0_14px_30px_-18px_rgba(20,19,26,0.5)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-blue)]"
         onClick={() => setIsMobileOpen((current) => !current)}
         aria-expanded={isMobileOpen}
         aria-controls="mobile-menu"
@@ -99,7 +99,7 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
           />
           <div
             id="mobile-menu"
-            className="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(20rem,calc(100vw-1.5rem))] border-[3px] border-[var(--color-ink)] bg-[var(--color-paper)] p-3 shadow-[7px_7px_0_0_var(--color-ink)]"
+            className="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(20rem,calc(100vw-1.5rem))] border border-[var(--color-line-strong)] bg-[var(--color-paper)] p-3 shadow-[0_14px_30px_-18px_rgba(20,19,26,0.5)]"
           >
             <nav aria-label="Mobile primary navigation">
               <ul className="grid gap-2">
@@ -111,7 +111,7 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
                       <Link
                         href={link.href}
                         className={cn(
-                          "comic-heavy flex items-center justify-between border-[2.5px] border-[var(--color-ink)] px-4 py-3 text-[0.78rem] tracking-[0.08em] transition",
+                          "comic-heavy flex items-center justify-between border border-[var(--color-line-strong)] px-4 py-3 text-[0.78rem] tracking-[0.08em] transition",
                           isActive
                             ? "bg-[var(--color-red)] text-[var(--color-paper)]"
                             : "bg-[var(--color-surface)] text-[var(--color-ink)] hover:bg-[var(--color-yellow)]",
@@ -129,7 +129,7 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
             </nav>
 
             {phoneDisplay && phoneRaw ? (
-              <div className="mt-3 border-t-[2.5px] border-dashed border-[var(--color-ink)] pt-3">
+              <div className="mt-3 border-t-[2.5px] border-dashed border-[var(--color-line-strong)] pt-3">
                 <p className="comic-heavy text-[0.62rem] tracking-[0.14em] text-[var(--color-muted)]">
                   Call the shop
                 </p>

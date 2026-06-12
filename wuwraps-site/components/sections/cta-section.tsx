@@ -5,7 +5,7 @@ import { company } from "@/lib/data";
 
 export function CtaSection() {
   return (
-    <section className="border-b-[4px] border-[var(--color-ink)] py-16 lg:py-24">
+    <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
       <Container>
         <Reveal>
           <div className="comic-panel relative overflow-hidden p-8 sm:p-12 lg:p-16">

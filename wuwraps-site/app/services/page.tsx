@@ -26,7 +26,7 @@ export default function ServicesPage() {
         variant="blue"
       />
 
-      <section className="border-b-[4px] border-[var(--color-ink)] py-16 lg:py-24">
+      <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
         <Container>
           <div className="grid gap-8">
             {services.map((service, index) => (
@@ -45,13 +45,13 @@ export default function ServicesPage() {
                     <p className="mt-4 text-[1rem] leading-8 text-[var(--color-ink-soft)]">
                       {service.fullDescription}
                     </p>
-                    <p className="comic-heavy mt-5 inline-flex border-[2.5px] border-[var(--color-ink)] bg-[var(--color-yellow)] px-3 py-1.5 text-[0.66rem] tracking-[0.1em] text-[var(--color-ink)]">
+                    <p className="comic-heavy mt-5 inline-flex border border-[var(--color-line-strong)] bg-[var(--color-yellow)] px-3 py-1.5 text-[0.66rem] tracking-[0.1em] text-[var(--color-ink)]">
                       {service.turnaround}
                     </p>
                   </div>
 
                   <div className="grid gap-5 sm:grid-cols-2">
-                    <div className="border-[2.5px] border-[var(--color-ink)] bg-[var(--color-surface)] p-5">
+                    <div className="border border-[var(--color-line-strong)] bg-[var(--color-surface)] p-5">
                       <h3 className="comic-heavy text-[0.7rem] tracking-[0.14em] text-[var(--color-blue)]">
                         What&apos;s Included
                       </h3>
@@ -66,7 +66,7 @@ export default function ServicesPage() {
                         ))}
                       </ul>
                     </div>
-                    <div className="border-[2.5px] border-[var(--color-ink)] bg-[var(--color-surface)] p-5">
+                    <div className="border border-[var(--color-line-strong)] bg-[var(--color-surface)] p-5">
                       <h3 className="comic-heavy text-[0.7rem] tracking-[0.14em] text-[var(--color-blue)]">
                         Best For
                       </h3>
@@ -77,7 +77,7 @@ export default function ServicesPage() {
                         {service.highlights.map((highlight) => (
                           <li
                             key={highlight}
-                            className="comic-heavy border-[2px] border-[var(--color-ink)] bg-[var(--color-yellow)] px-2 py-1 text-[0.58rem] tracking-[0.08em] text-[var(--color-ink)]"
+                            className="comic-heavy border border-[var(--color-line-strong)] bg-[var(--color-yellow)] px-2 py-1 text-[0.58rem] tracking-[0.08em] text-[var(--color-ink)]"
                           >
                             {highlight}
                           </li>

@@ -23,7 +23,7 @@ export function SiteHeader() {
         </Container>
       </div>
 
-      <div className="border-y-[3px] border-[var(--color-ink)] bg-[var(--color-paper)]">
+      <div className="border-y border-[var(--color-line)] bg-[var(--color-paper)]">
         <Container className="flex items-center justify-between gap-4 py-3">
           <Link
             href="/"

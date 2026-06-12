@@ -23,7 +23,7 @@ const initialState: FormState = {
 };
 
 const fieldClasses =
-  "mt-2 w-full border-[2.5px] border-[var(--color-ink)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition focus:bg-white focus:shadow-[3px_3px_0_0_var(--color-blue)]";
+  "mt-2 w-full border border-[var(--color-line-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition focus:bg-white focus:shadow-[0_0_0_3px_rgba(31,87,195,0.22)]";
 
 const labelClasses = "comic-heavy text-[0.7rem] tracking-[0.12em] text-[var(--color-ink)]";
 
@@ -96,7 +96,7 @@ export function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="comic-panel-yellow p-7" role="status">
-        <p className="comic-display text-4xl text-[var(--color-ink)]">Boom — message sent!</p>
+        <p className="comic-display text-4xl text-[var(--color-ink)]">Boom! Message sent.</p>
         <p className="mt-3 text-sm leading-7 text-[var(--color-ink)] sm:text-base">
           Thanks for reaching out. Mark will get back to you within one business day with next
           steps and a straight-up quote.

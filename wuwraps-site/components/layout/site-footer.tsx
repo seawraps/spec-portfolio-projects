@@ -7,7 +7,7 @@ import { company, navLinks, serviceAreas, services } from "@/lib/data";
 
 export function SiteFooter() {
   return (
-    <footer className="halftone-ink border-t-[4px] border-[var(--color-ink)] text-[var(--color-paper)]">
+    <footer className="halftone-ink border-t border-[var(--color-line)] text-[var(--color-paper)]">
       <Container className="grid gap-10 py-16 lg:grid-cols-[1.3fr_0.8fr_0.9fr] lg:gap-12 lg:py-20">
         <div>
           <div className="flex items-center gap-3">

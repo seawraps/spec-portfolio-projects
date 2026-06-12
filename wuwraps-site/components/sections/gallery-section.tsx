@@ -22,7 +22,7 @@ export function GallerySection({
   const shown = typeof limit === "number" ? galleryBuilds.slice(0, limit) : galleryBuilds;
 
   return (
-    <section id="gallery" className="border-b-[4px] border-[var(--color-ink)] py-16 lg:py-24">
+    <section id="gallery" className="border-b border-[var(--color-line)] py-16 lg:py-24">
       <Container>
         <Reveal>
           <span className="comic-tag">The Gallery</span>
@@ -53,7 +53,7 @@ export function GallerySection({
                   ) : (
                     <ComicCar accent={build.accent} />
                   )}
-                  <span className="comic-heavy absolute left-2 top-2 border-[2.5px] border-[var(--color-ink)] bg-[var(--color-paper)] px-2 py-1 text-[0.58rem] tracking-[0.1em] text-[var(--color-ink)]">
+                  <span className="comic-heavy absolute left-2 top-2 border border-[var(--color-line-strong)] bg-[var(--color-paper)] px-2 py-1 text-[0.58rem] tracking-[0.1em] text-[var(--color-ink)]">
                     {build.category}
                   </span>
                 </div>
@@ -71,7 +71,7 @@ export function GallerySection({
                     {build.scope.map((item) => (
                       <li
                         key={item}
-                        className="comic-heavy border-[2px] border-[var(--color-ink)] bg-[var(--color-surface)] px-2 py-1 text-[0.58rem] tracking-[0.08em] text-[var(--color-ink)]"
+                        className="comic-heavy border border-[var(--color-line-strong)] bg-[var(--color-surface)] px-2 py-1 text-[0.58rem] tracking-[0.08em] text-[var(--color-ink)]"
                       >
                         {item}
                       </li>

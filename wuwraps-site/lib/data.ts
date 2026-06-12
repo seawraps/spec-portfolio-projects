@@ -59,7 +59,7 @@ export const company = {
   addressLine: "Renton Highlands",
   cityStateZip: "Renton, WA 98059",
   hours: [
-    "Monday–Friday: 9:00 AM – 6:00 PM",
+    "Monday to Friday: 9:00 AM to 6:00 PM",
     "Saturday: By appointment",
     "Sunday: Closed",
   ],
@@ -113,11 +113,11 @@ export const services: Service[] = [
     issue: "No. 01",
     name: "Full Color-Change Wraps",
     shortDescription:
-      "Transform your ride bumper to bumper — gloss, satin, matte, chrome, or color-shift, all without touching the factory paint.",
+      "Transform your ride bumper to bumper. Gloss, satin, matte, chrome, or color-shift, all without touching the factory paint.",
     fullDescription:
       "A full color change is the headline act. We disassemble panels, wrap every visible surface, and tuck the edges so it reads like factory paint. Switch your daily into a head-turner and protect the original finish underneath for resale day.",
     idealFor:
-      "Drivers who want a brand-new look, a rare color, or a finish the factory never offered — with the paint protected underneath.",
+      "Drivers who want a brand-new look, a rare color, or a finish the factory never offered, with the paint protected underneath.",
     includes: [
       "Full panel disassembly and edge tucking",
       "Door jambs and hidden areas wrapped on request",
@@ -125,7 +125,7 @@ export const services: Service[] = [
       "Factory paint preserved for resale value",
     ],
     highlights: ["Color-shift & chrome", "Satin & matte", "Factory-grade edges"],
-    turnaround: "Typical install: 3–5 days",
+    turnaround: "Typical install: 3 to 5 days",
   },
   {
     id: "commercial-fleet",
@@ -134,7 +134,7 @@ export const services: Service[] = [
     shortDescription:
       "Turn your vans, trucks, and trailers into 24/7 billboards with bold, on-brand printed graphics that get noticed.",
     fullDescription:
-      "Your work vehicles are the cheapest advertising you'll ever buy. We design, print, and install logos, lettering, and full fleet wraps that keep your branding consistent across every truck on the road — and pulling in calls while parked.",
+      "Your work vehicles are the cheapest advertising you'll ever buy. We design, print, and install logos, lettering, and full fleet wraps that keep your branding consistent across every truck on the road, and pulling in calls while parked.",
     idealFor:
       "Contractors, trades, food trucks, and any local business that wants its vehicles working as rolling advertisements.",
     includes: [
@@ -144,18 +144,18 @@ export const services: Service[] = [
       "DOT numbers and contact info layout",
     ],
     highlights: ["Fleet consistency", "Print + cut graphics", "Built to be seen"],
-    turnaround: "Typical install: 1–4 days per vehicle",
+    turnaround: "Typical install: 1 to 4 days per vehicle",
   },
   {
     id: "partial-accents",
     issue: "No. 03",
     name: "Partial Wraps & Accents",
     shortDescription:
-      "Roofs, hoods, mirror caps, chrome delete, and racing stripes — sharp accents that change the whole attitude of the car.",
+      "Roofs, hoods, mirror caps, chrome delete, and racing stripes. Sharp accents that change the whole attitude of the car.",
     fullDescription:
       "Not every build needs a full wrap. A gloss-black roof, a blacked-out chrome trim package, a carbon-fiber hood, or a clean set of stripes can completely change the stance of a vehicle for a fraction of the cost.",
     idealFor:
-      "Owners who want a custom touch — chrome delete, two-tone roofs, hoods, mirrors, or stripe kits — without a full color change.",
+      "Owners who want a custom touch: chrome delete, two-tone roofs, hoods, mirrors, or stripe kits, without a full color change.",
     includes: [
       "Chrome delete and trim blackout",
       "Roof, hood, and mirror-cap wraps",
@@ -163,14 +163,14 @@ export const services: Service[] = [
       "Carbon-fiber and brushed-metal textures",
     ],
     highlights: ["Chrome delete", "Two-tone roofs", "Stripe kits"],
-    turnaround: "Typical install: 1–2 days",
+    turnaround: "Typical install: 1 to 2 days",
   },
   {
     id: "custom-prints",
     issue: "No. 04",
     name: "Custom Printed Wraps & Liveries",
     shortDescription:
-      "One-off printed designs, race liveries, and wild custom graphics — if you can dream it up, we can lay it down.",
+      "One-off printed designs, race liveries, and wild custom graphics. If you can dream it up, we can lay it down.",
     fullDescription:
       "This is where it gets fun. Full-color printed wraps, track-day liveries, sponsor layouts, and one-of-one art cars. We handle the design, the print, the lamination, and the install so the finished piece looks like it drove off a comic-book splash page.",
     idealFor:
@@ -182,7 +182,7 @@ export const services: Service[] = [
       "Color-matching to your brand or theme",
     ],
     highlights: ["Race liveries", "Full-color print", "One-of-one art"],
-    turnaround: "Typical install: 4–7 days with design",
+    turnaround: "Typical install: 4 to 7 days with design",
   },
   {
     id: "ppf-protection",
@@ -201,7 +201,7 @@ export const services: Service[] = [
       "Pairs perfectly with a color-change wrap",
     ],
     highlights: ["Self-healing", "Invisible armor", "Resale protection"],
-    turnaround: "Typical install: 2–4 days",
+    turnaround: "Typical install: 2 to 4 days",
   },
   {
     id: "wrap-removal",
@@ -210,7 +210,7 @@ export const services: Service[] = [
     shortDescription:
       "Clean removal of old or failing vinyl, adhesive cleanup, and surface prep to get you back to factory or ready to re-wrap.",
     fullDescription:
-      "Time for a change, or inherited someone else's bad install? We strip old vinyl the right way — low heat, careful peel, full adhesive cleanup — so your paint comes out clean and ready for whatever's next.",
+      "Time for a change, or inherited someone else's bad install? We strip old vinyl the right way: low heat, careful peel, full adhesive cleanup, so your paint comes out clean and ready for whatever's next.",
     idealFor:
       "Trade-ins, lease returns, color swaps, and rescuing a wrap that someone else botched.",
     includes: [
@@ -220,13 +220,13 @@ export const services: Service[] = [
       "Re-wrap consultation if you're going again",
     ],
     highlights: ["Clean peel", "Adhesive cleanup", "Re-wrap ready"],
-    turnaround: "Typical service: 1–2 days",
+    turnaround: "Typical service: 1 to 2 days",
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
-    title: "Origin Story — The Quote",
+    title: "Origin Story: The Quote",
     description:
       "Tell us about the vehicle and the look you're chasing. Send photos or swing by the new shop and we'll talk film, finish, coverage, and a straight-up price.",
     deliverable: "A clear, honest quote with no surprise add-ons.",
@@ -238,7 +238,7 @@ export const processSteps: ProcessStep[] = [
     deliverable: "Locked-in film choice or approved design proof.",
   },
   {
-    title: "Prep — The Real Work",
+    title: "Prep: The Real Work",
     description:
       "This is where installs are won or lost. We deep-clean, decontaminate, and disassemble the panels so the vinyl lays down flawless and the edges disappear.",
     deliverable: "A spotless, decontaminated surface ready for film.",
@@ -301,7 +301,7 @@ export const galleryBuilds: GalleryBuild[] = [
     category: "Accents & Detail",
     film: "Gloss white + orange accents",
     summary:
-      "One of just sixty Triple Crown 750S Spyders worldwide rolled into the bay for precision accent work — the kind of rare car you only trust to hands with eighteen years on them.",
+      "One of just sixty Triple Crown 750S Spyders worldwide rolled into the bay for precision accent work. The kind of rare car you only trust to hands with eighteen years on them.",
     scope: ["Accent wrap", "Precision install", "Exotic care"],
     accent: "yellow",
     image: "/images/gallery/mclaren-750s-spyder.jpg",
@@ -314,7 +314,7 @@ export const galleryBuilds: GalleryBuild[] = [
     category: "Partial & Accents",
     film: "Subtle black accent package",
     summary:
-      "A fully-loaded Targa GTS in for a subtle accent package — blacked-out trim and clean side striping that sharpen the lines without touching the factory yellow.",
+      "A fully-loaded Targa GTS in for a subtle accent package. Blacked-out trim and clean side striping that sharpen the lines without touching the factory yellow.",
     scope: ["Accent wrap", "Trim blackout", "Side stripes"],
     accent: "red",
     image: "/images/gallery/porsche-targa-gts-yellow.jpg",
@@ -327,7 +327,7 @@ export const galleryBuilds: GalleryBuild[] = [
     category: "Partial & Accents",
     film: "Blackout accents & accessories",
     summary:
-      "Round four on a regular client's Bronco Raptor — another set of blacked-out accents and accessories layered on to keep this rig looking meaner every time it visits.",
+      "Round four on a regular client's Bronco Raptor. Another set of blacked-out accents and accessories layered on to keep this rig looking meaner every time it visits.",
     scope: ["Accent wrap", "Accessory install", "Repeat client"],
     accent: "yellow",
     image: "/images/gallery/ford-bronco-raptor.jpg",
@@ -340,7 +340,7 @@ export const galleryBuilds: GalleryBuild[] = [
     category: "Partial & Accents",
     film: "Gloss black roof wrap",
     summary:
-      "This souped-up Subie came in to replace a years-old DIY roof job with a proper gloss-black roof wrap — clean edges, no lifting, done the right way.",
+      "This souped-up Subie came in to replace a years-old DIY roof job with a proper gloss-black roof wrap. Clean edges, no lifting, done the right way.",
     scope: ["Roof wrap", "Old vinyl removal", "Clean edges"],
     accent: "blue",
     image: "/images/gallery/subaru-wrx-blue.jpg",
@@ -353,7 +353,7 @@ export const galleryBuilds: GalleryBuild[] = [
     category: "Commercial & Fleet",
     film: "Printed & laminated graphics",
     summary:
-      "Matching service vans wrapped with bold brand colors, oversized logos, and contact info sized to read from three lanes over — advertising that works while it's parked.",
+      "Matching service vans wrapped with bold brand colors, oversized logos, and contact info sized to read from three lanes over. Advertising that works while it's parked.",
     scope: ["Fleet design", "Full print wrap", "DOT lettering"],
     accent: "red",
   },
@@ -381,7 +381,7 @@ export const serviceAreas = [
 ];
 
 export const differentiators = [
-  "Eighteen years of hands-on installs — not a franchise, a craftsman",
+  "Eighteen years of hands-on installs, not a franchise, a craftsman",
   "Premium cast films from 3M, Avery Dennison, and KPMF only",
   "A brand-new, bigger shop built to take on full fleets",
   "Every car treated like it's his own, from daily driver to exotic",
@@ -391,7 +391,7 @@ export const aboutHighlights = [
   {
     title: "A Pacific Northwest staple",
     description:
-      "Mark Wu didn't build his name on ads — he built it on clean installs and word of mouth. Eighteen years later, Wu Wraps is the name Seattle gearheads pass to a friend.",
+      "Mark Wu didn't build his name on ads. He built it on clean installs and word of mouth. Eighteen years later, Wu Wraps is the name Seattle gearheads pass to a friend.",
   },
   {
     title: "Craftsmanship over volume",
@@ -401,7 +401,7 @@ export const aboutHighlights = [
   {
     title: "Bigger shop, same hands",
     description:
-      "The new, larger space means faster turnaround and room for fleets — but Mark is still the one laying the vinyl on every build that rolls out the door.",
+      "The new, larger space means faster turnaround and room for fleets, but Mark is still the one laying the vinyl on every build that rolls out the door.",
   },
 ];
 
@@ -421,7 +421,7 @@ export const contactPageFaq: FaqItem[] = [
   {
     question: "Will a wrap damage my factory paint?",
     answer:
-      "No — done correctly, a wrap actually protects your paint. As long as the original finish is in good shape, the vinyl comes off cleanly when you're ready for a change and the paint underneath stays preserved.",
+      "No. Done correctly, a wrap actually protects your paint. As long as the original finish is in good shape, the vinyl comes off cleanly when you're ready for a change and the paint underneath stays preserved.",
   },
   {
     question: "Do you wrap commercial fleets and work trucks?",

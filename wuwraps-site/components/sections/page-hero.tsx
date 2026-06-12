@@ -16,7 +16,7 @@ const variantClass: Record<NonNullable<PageHeroProps["variant"]>, string> = {
 
 export function PageHero({ eyebrow, title, description, variant = "ink" }: PageHeroProps) {
   return (
-    <section className={`relative overflow-hidden border-b-[4px] border-[var(--color-ink)] ${variantClass[variant]}`}>
+    <section className={`relative overflow-hidden border-b border-[var(--color-line)] ${variantClass[variant]}`}>
       <div className="speed-lines absolute inset-0 opacity-30" aria-hidden="true" />
       <Container className="relative py-16 lg:py-24">
         <Reveal>

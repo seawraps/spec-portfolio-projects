@@ -24,7 +24,7 @@ export default function ContactPage() {
         variant="red"
       />
 
-      <section className="border-b-[4px] border-[var(--color-ink)] py-16 lg:py-24">
+      <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
         <Container className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
           <Reveal>
             <div className="comic-panel bg-[var(--color-paper)] p-6 sm:p-8">
@@ -33,7 +33,7 @@ export default function ContactPage() {
               </h2>
               <p className="mt-3 text-sm leading-7 text-[var(--color-ink-soft)]">
                 The more detail you give, the faster we can dial in a price. Not sure what you want
-                yet? No problem — tell us the vibe and we&apos;ll help you figure it out.
+                yet? No problem, tell us the vibe and we&apos;ll help you figure it out.
               </p>
               <div className="mt-6">
                 <ContactForm />
@@ -126,7 +126,7 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section className="border-b-[4px] border-[var(--color-ink)] py-16 lg:py-24">
+      <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
         <Container>
           <Reveal>
             <span className="comic-tag">Good to Know</span>

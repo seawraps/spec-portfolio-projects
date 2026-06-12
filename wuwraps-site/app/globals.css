@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  /* Newsprint / comic paper */
-  --color-paper: #f4ead0;
-  --color-paper-deep: #e7d9b6;
-  --color-ink: #14131a;
-  --color-ink-soft: #3a3742;
-  --color-muted: #5d5746;
+  /* Premium neutral base */
+  --color-paper: #f5f4f1;
+  --color-paper-deep: #ebe8e2;
+  --color-ink: #15141b;
+  --color-ink-deep: #0e0d13;
+  --color-ink-soft: #46434f;
+  --color-muted: #6b6675;
 
-  /* Primary comic inks */
+  /* Accent inks (the comic twist) */
   --color-red: #e4282c;
   --color-red-deep: #b21319;
   --color-blue: #1f57c3;
@@ -16,21 +17,23 @@
   --color-yellow: #ffce1f;
   --color-yellow-deep: #f0a500;
 
-  --color-surface: #fbf4e2;
-  --color-border: rgba(20, 19, 26, 0.9);
+  --color-surface: #ffffff;
+  --color-line: rgba(21, 20, 27, 0.12);
+  --color-line-strong: rgba(21, 20, 27, 0.2);
+  --color-border: rgba(21, 20, 27, 0.9);
   --color-error: #b21319;
 
-  --halftone-red: rgba(228, 40, 44, 0.5);
-  --halftone-blue: rgba(31, 87, 195, 0.45);
-  --halftone-ink: rgba(20, 19, 26, 0.32);
+  --halftone-light: rgba(255, 255, 255, 0.08);
+  --halftone-ink: rgba(20, 19, 26, 0.16);
 }
 
 @theme inline {
   --color-background: var(--color-paper);
   --color-foreground: var(--color-ink);
   --font-sans: var(--font-barlow);
-  --font-display: var(--font-bangers);
+  --font-display: var(--font-archivo);
   --font-heavy: var(--font-archivo);
+  --font-pow: var(--font-bangers);
 }
 
 * {
@@ -51,21 +54,22 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
-  line-height: 1.55;
+  line-height: 1.6;
   min-height: 100vh;
   position: relative;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Newsprint halftone dot texture across the whole page */
+/* Whisper-faint premium paper grain (replaces the loud halftone wash) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  background-image: radial-gradient(var(--halftone-ink) 1px, transparent 1.4px);
-  background-size: 7px 7px;
-  opacity: 0.22;
+  background-image: radial-gradient(rgba(20, 19, 26, 0.05) 0.8px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
 }
 
 body::after {
@@ -75,9 +79,8 @@ body::after {
   pointer-events: none;
   z-index: -2;
   background:
-    radial-gradient(circle at 12% 8%, rgba(255, 206, 31, 0.16), transparent 26%),
-    radial-gradient(circle at 88% 4%, rgba(31, 87, 195, 0.12), transparent 24%),
-    radial-gradient(circle at 78% 92%, rgba(228, 40, 44, 0.1), transparent 28%);
+    radial-gradient(circle at 50% -8%, rgba(20, 19, 26, 0.05), transparent 42%),
+    radial-gradient(circle at 92% 6%, rgba(31, 87, 195, 0.05), transparent 30%);
 }
 
 main {
@@ -108,8 +111,8 @@ textarea {
     color 160ms ease,
     background-color 160ms ease,
     border-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 img {
@@ -121,151 +124,167 @@ img {
   color: var(--color-ink);
 }
 
-/* ---------- Comic typography ---------- */
+/* ---------- Typography ---------- */
+
+/* Premium modern display: heavy grotesk, tight tracking. The site's workhorse heading. */
 .comic-display {
-  font-family: var(--font-bangers), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
-  letter-spacing: 0.012em;
-  line-height: 0.92;
+  letter-spacing: -0.022em;
+  line-height: 0.96;
   text-transform: uppercase;
 }
 
+/* The comic twist: Bangers, reserved for the occasional accent word or badge. */
+.comic-pow {
+  font-family: var(--font-bangers), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+/* Small uppercase labels / eyebrows. */
 .comic-heavy {
   font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-/* Thick comic ink outline on big text */
+/* Accent-colored display text (no comic outline anymore, just clean weight). */
 .ink-stroke {
-  color: var(--color-paper);
-  -webkit-text-stroke: 2px var(--color-ink);
-  paint-order: stroke fill;
-  text-shadow: 4px 4px 0 rgba(20, 19, 26, 0.92);
+  color: var(--color-ink);
 }
 
 .ink-stroke-red {
   color: var(--color-red);
-  -webkit-text-stroke: 2px var(--color-ink);
-  paint-order: stroke fill;
-  text-shadow: 4px 4px 0 rgba(20, 19, 26, 0.92);
 }
 
 .ink-stroke-yellow {
   color: var(--color-yellow);
-  -webkit-text-stroke: 2px var(--color-ink);
-  paint-order: stroke fill;
-  text-shadow: 4px 4px 0 rgba(20, 19, 26, 0.92);
 }
 
-/* ---------- Comic panels ---------- */
+/* ---------- Cards / panels ---------- */
 .comic-panel {
-  border: 3px solid var(--color-ink);
+  border: 1px solid var(--color-line);
+  border-radius: 18px;
   background: var(--color-surface);
-  box-shadow: 7px 7px 0 0 var(--color-ink);
+  box-shadow:
+    0 1px 2px rgba(20, 19, 26, 0.04),
+    0 24px 50px -34px rgba(20, 19, 26, 0.55);
   transition:
-    transform 160ms ease,
-    box-shadow 160ms ease;
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .comic-panel-hover:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 11px 11px 0 0 var(--color-ink);
+  transform: translateY(-4px);
+  box-shadow:
+    0 1px 2px rgba(20, 19, 26, 0.05),
+    0 34px 64px -32px rgba(20, 19, 26, 0.6);
 }
 
 .comic-panel-red {
-  border: 3px solid var(--color-ink);
+  border-radius: 18px;
   background: var(--color-red);
   color: var(--color-paper);
-  box-shadow: 7px 7px 0 0 var(--color-ink);
+  box-shadow: 0 24px 50px -32px rgba(228, 40, 44, 0.7);
 }
 
 .comic-panel-blue {
-  border: 3px solid var(--color-ink);
+  border-radius: 18px;
   background: var(--color-blue);
   color: var(--color-paper);
-  box-shadow: 7px 7px 0 0 var(--color-ink);
+  box-shadow: 0 24px 50px -32px rgba(31, 87, 195, 0.7);
 }
 
 .comic-panel-yellow {
-  border: 3px solid var(--color-ink);
+  border-radius: 18px;
   background: var(--color-yellow);
   color: var(--color-ink);
-  box-shadow: 7px 7px 0 0 var(--color-ink);
+  box-shadow: 0 24px 50px -32px rgba(240, 165, 0, 0.7);
 }
 
 .comic-panel-ink {
-  border: 3px solid var(--color-ink);
+  border-radius: 18px;
   background: var(--color-ink);
   color: var(--color-paper);
-  box-shadow: 7px 7px 0 0 var(--color-red);
+  box-shadow: 0 24px 50px -30px rgba(20, 19, 26, 0.8);
 }
 
 /* Subtle printed-comic overlay for real photos: faint halftone dots + ink-edge vignette */
 .comic-halftone {
   background-image:
-    radial-gradient(rgba(20, 19, 26, 0.16) 1px, transparent 1.4px),
-    linear-gradient(to top, rgba(20, 19, 26, 0.34), rgba(20, 19, 26, 0) 42%);
+    radial-gradient(rgba(20, 19, 26, 0.12) 1px, transparent 1.4px),
+    linear-gradient(to top, rgba(20, 19, 26, 0.28), rgba(20, 19, 26, 0) 40%);
   background-size:
     4px 4px,
     100% 100%;
   mix-blend-mode: multiply;
 }
 
-/* Halftone fills for accent backgrounds */
+/* Color-blocked section fills with a subtle halftone used sparingly as accents. */
 .halftone-red {
-  background-color: var(--color-red);
-  background-image: radial-gradient(rgba(20, 19, 26, 0.28) 1.4px, transparent 1.6px);
-  background-size: 9px 9px;
+  background-color: #cf2327;
+  background-image: radial-gradient(rgba(20, 19, 26, 0.14) 1.3px, transparent 1.6px);
+  background-size: 14px 14px;
 }
 
 .halftone-blue {
-  background-color: var(--color-blue);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.22) 1.4px, transparent 1.6px);
-  background-size: 9px 9px;
+  background-color: var(--color-blue-deep);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.3px, transparent 1.6px);
+  background-size: 14px 14px;
 }
 
 .halftone-yellow {
   background-color: var(--color-yellow);
-  background-image: radial-gradient(rgba(20, 19, 26, 0.2) 1.4px, transparent 1.6px);
-  background-size: 9px 9px;
+  background-image: radial-gradient(rgba(20, 19, 26, 0.16) 1.3px, transparent 1.6px);
+  background-size: 14px 14px;
 }
 
 .halftone-ink {
-  background-color: var(--color-ink);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.3px, transparent 1.5px);
-  background-size: 9px 9px;
+  background-color: var(--color-ink-deep);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.5px);
+  background-size: 16px 16px;
 }
 
-/* Action speed lines radiating from center */
+/* Faint radiating speed lines kept very subtle for a hint of motion. */
 .speed-lines {
-  background:
-    repeating-conic-gradient(
-      from 0deg at 50% 50%,
-      rgba(20, 19, 26, 0.14) 0deg 2deg,
-      transparent 2deg 7deg
-    );
+  background: repeating-conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(20, 19, 26, 0.05) 0deg 1.4deg,
+    transparent 1.4deg 9deg
+  );
 }
 
-/* Comic eyebrow tag */
+/* Eyebrow tag: clean pill with a single accent dot. */
 .comic-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  border: 2.5px solid var(--color-ink);
-  background: var(--color-yellow);
+  gap: 0.55rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: var(--color-surface);
   color: var(--color-ink);
   font-family: var(--font-archivo), sans-serif;
-  font-size: 0.66rem;
+  font-size: 0.62rem;
   font-weight: 400;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 0.4rem 0.85rem;
-  box-shadow: 3px 3px 0 0 var(--color-ink);
-  transform: rotate(-1.5deg);
+  padding: 0.42rem 0.95rem;
 }
 
-/* Burst / starburst caption */
+.comic-tag::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--color-red);
+  flex: none;
+}
+
+/* Burst / starburst badge the loudest piece of comic kept on purpose. */
 .burst {
   --burst-size: 8rem;
   display: inline-flex;
@@ -276,7 +295,7 @@ img {
   text-align: center;
   background: var(--color-yellow);
   color: var(--color-ink);
-  border: 3px solid var(--color-ink);
+  border: 2px solid var(--color-ink);
   clip-path: polygon(
     50% 0%, 61% 18%, 83% 12%, 78% 35%, 100% 43%, 82% 57%, 95% 78%,
     70% 76%, 65% 100%, 50% 82%, 35% 100%, 30% 76%, 5% 78%, 18% 57%,
@@ -284,26 +303,27 @@ img {
   );
 }
 
-/* Dialogue / caption box */
+/* Quote / caption card. */
 .caption-box {
-  border: 3px solid var(--color-ink);
-  background: var(--color-paper);
-  box-shadow: 5px 5px 0 0 var(--color-ink);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: 0 18px 44px -32px rgba(20, 19, 26, 0.55);
 }
 
 /* ---------- Reveal animation ---------- */
 .reveal {
   opacity: 0;
-  transform: translate3d(0, var(--reveal-distance, 26px), 0) rotate(-0.6deg);
+  transform: translate3d(0, var(--reveal-distance, 22px), 0);
   transition:
-    opacity 620ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
-    transform 620ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+    opacity 640ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+    transform 640ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
 
 .reveal-visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0) rotate(0deg);
+  transform: translate3d(0, 0, 0);
   will-change: auto;
 }
 

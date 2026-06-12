@@ -7,7 +7,7 @@ export const siteUrl =
 
 const baseTitle = `${company.name} | Vinyl Vehicle Wraps in Renton & Seattle, WA`;
 const baseDescription =
-  "Wu Wraps is Seattle's most trusted vinyl wrap shop — 18 years of color-change wraps, commercial fleet graphics, custom prints, and paint protection film in Renton, WA.";
+  "Wu Wraps is Seattle's most trusted vinyl wrap shop. 18 years of color-change wraps, commercial fleet graphics, custom prints, and paint protection film in Renton, WA.";
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
