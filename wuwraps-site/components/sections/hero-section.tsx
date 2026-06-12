@@ -1,6 +1,7 @@
+import Image from "next/image";
+
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
-import { ComicCar } from "@/components/ui/comic-car";
 import { Reveal } from "@/components/motion/reveal";
 import { company, featuredStats } from "@/lib/data";
 
@@ -41,8 +42,16 @@ export function HeroSection() {
         <Reveal delay={120} className="relative">
           {/* Hero comic panel */}
           <div className="comic-panel comic-panel-hover relative overflow-hidden">
-            <div className="aspect-[5/4] w-full">
-              <ComicCar accent="red" />
+            <div className="relative aspect-[5/4] w-full">
+              <Image
+                src="/images/gallery/porsche-gt2-green.jpg"
+                alt="Porsche 911 GT2 wrapped in 3M 2080 gloss green by Wu Wraps in Renton, WA"
+                fill
+                priority
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover"
+              />
+              <span className="comic-halftone pointer-events-none absolute inset-0" aria-hidden="true" />
             </div>
             <div className="absolute left-3 top-3 border-[2.5px] border-[var(--color-ink)] bg-[var(--color-yellow)] px-3 py-1">
               <span className="comic-heavy text-[0.62rem] tracking-[0.14em] text-[var(--color-ink)]">

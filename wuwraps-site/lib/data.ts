@@ -36,6 +36,9 @@ export type GalleryBuild = {
   summary: string;
   scope: string[];
   accent: "red" | "blue" | "yellow";
+  /** Path to a real install photo under /public. When omitted, a comic illustration is shown. */
+  image?: string;
+  imageAlt?: string;
 };
 
 export type FaqItem = {
@@ -280,14 +283,69 @@ export const testimonials: Testimonial[] = [
 
 export const galleryBuilds: GalleryBuild[] = [
   {
-    title: "Satin Black Stealth",
-    vehicle: "Nissan GT-R",
+    title: "2080 Gloss Green GT2",
+    vehicle: "Porsche 911 GT2",
     category: "Full Color-Change",
-    film: "Satin black cast vinyl",
+    film: "3M 2080 gloss green",
     summary:
-      "A glossy silver GT-R taken to full satin black with gloss-black accents and a complete chrome delete for a blacked-out, menacing stance.",
-    scope: ["Full wrap", "Chrome delete", "Gloss accents"],
+      "This clean GT2 came through the shop for a head-turning color change in 3M 2080 gloss green, set off by a satin-black hood for a real splash-page contrast.",
+    scope: ["Full color change", "Satin black hood", "Edge tuck"],
     accent: "blue",
+    image: "/images/gallery/porsche-gt2-green.jpg",
+    imageAlt:
+      "Porsche 911 GT2 wrapped in 3M 2080 gloss green with a satin black hood at the Wu Wraps shop in Renton",
+  },
+  {
+    title: "Triple Crown Spyder",
+    vehicle: "McLaren 750S Spyder",
+    category: "Accents & Detail",
+    film: "Gloss white + orange accents",
+    summary:
+      "One of just sixty Triple Crown 750S Spyders worldwide rolled into the bay for precision accent work — the kind of rare car you only trust to hands with eighteen years on them.",
+    scope: ["Accent wrap", "Precision install", "Exotic care"],
+    accent: "yellow",
+    image: "/images/gallery/mclaren-750s-spyder.jpg",
+    imageAlt:
+      "Gloss white McLaren 750S Spyder with orange accents in the Wu Wraps install bay",
+  },
+  {
+    title: "Speed Yellow Targa",
+    vehicle: "Porsche 911 Targa GTS",
+    category: "Partial & Accents",
+    film: "Subtle black accent package",
+    summary:
+      "A fully-loaded Targa GTS in for a subtle accent package — blacked-out trim and clean side striping that sharpen the lines without touching the factory yellow.",
+    scope: ["Accent wrap", "Trim blackout", "Side stripes"],
+    accent: "red",
+    image: "/images/gallery/porsche-targa-gts-yellow.jpg",
+    imageAlt:
+      "Yellow Porsche 911 Targa GTS with subtle black accent wrapping at Wu Wraps",
+  },
+  {
+    title: "Lifted & Loaded Bronco",
+    vehicle: "Ford Bronco Raptor",
+    category: "Partial & Accents",
+    film: "Blackout accents & accessories",
+    summary:
+      "Round four on a regular client's Bronco Raptor — another set of blacked-out accents and accessories layered on to keep this rig looking meaner every time it visits.",
+    scope: ["Accent wrap", "Accessory install", "Repeat client"],
+    accent: "yellow",
+    image: "/images/gallery/ford-bronco-raptor.jpg",
+    imageAlt:
+      "White Ford Bronco Raptor with blacked-out accents and accessories at the Wu Wraps shop",
+  },
+  {
+    title: "Roof-Wrapped WRX",
+    vehicle: "Subaru WRX",
+    category: "Partial & Accents",
+    film: "Gloss black roof wrap",
+    summary:
+      "This souped-up Subie came in to replace a years-old DIY roof job with a proper gloss-black roof wrap — clean edges, no lifting, done the right way.",
+    scope: ["Roof wrap", "Old vinyl removal", "Clean edges"],
+    accent: "blue",
+    image: "/images/gallery/subaru-wrx-blue.jpg",
+    imageAlt:
+      "Blue Subaru WRX with a fresh gloss black roof wrap in front of the Wu Wraps graffiti wall",
   },
   {
     title: "Rolling Billboard Fleet",
@@ -295,48 +353,8 @@ export const galleryBuilds: GalleryBuild[] = [
     category: "Commercial & Fleet",
     film: "Printed & laminated graphics",
     summary:
-      "Six matching service vans wrapped with bold brand colors, oversized logos, and contact info sized to read from three lanes over.",
+      "Matching service vans wrapped with bold brand colors, oversized logos, and contact info sized to read from three lanes over — advertising that works while it's parked.",
     scope: ["Fleet design", "Full print wrap", "DOT lettering"],
-    accent: "red",
-  },
-  {
-    title: "Color-Shift Showstopper",
-    vehicle: "Tesla Model 3",
-    category: "Full Color-Change",
-    film: "Purple-to-gold color shift",
-    summary:
-      "A flip-flop color-shift wrap that swings from deep purple to molten gold depending on the light. A genuine car-meet magnet.",
-    scope: ["Full wrap", "Color shift", "Edge tuck"],
-    accent: "yellow",
-  },
-  {
-    title: "Track-Day Livery",
-    vehicle: "Subaru WRX STI",
-    category: "Custom Print",
-    film: "Custom printed livery",
-    summary:
-      "A custom-designed race livery with sponsor blocks, racing numbers, and a layered geometric graphic package built for the track.",
-    scope: ["Livery design", "Printed wrap", "Number plates"],
-    accent: "blue",
-  },
-  {
-    title: "Carbon Hood & Roof",
-    vehicle: "Honda Civic Type R",
-    category: "Partial & Accents",
-    film: "Textured carbon fiber",
-    summary:
-      "A two-tone treatment with a textured carbon-fiber hood and roof, mirror caps, and a subtle accent stripe to finish the aggressive look.",
-    scope: ["Carbon hood", "Roof wrap", "Mirror caps"],
-    accent: "yellow",
-  },
-  {
-    title: "Matte Military Green",
-    vehicle: "Ford Bronco",
-    category: "Full Color-Change",
-    film: "Matte military green",
-    summary:
-      "A rugged matte military-green wrap with blacked-out trim and badges, built to look at home both on the trail and at the curb.",
-    scope: ["Full wrap", "Trim blackout", "Badge delete"],
     accent: "red",
   },
 ];
