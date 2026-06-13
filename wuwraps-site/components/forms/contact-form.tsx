@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent, useMemo, useState } from "react";
+import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 import { buttonClassName } from "@/components/ui/button-link";
 
@@ -63,8 +63,16 @@ export function ContactForm() {
   const [values, setValues] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const successRef = useRef<HTMLDivElement | null>(null);
 
   const hasErrors = useMemo(() => Object.keys(errors).length > 0, [errors]);
+
+  // Move focus to the confirmation so screen readers and keyboard users land on it
+  useEffect(() => {
+    if (isSubmitted) {
+      successRef.current?.focus();
+    }
+  }, [isSubmitted]);
 
   function onFieldChange(field: keyof FormState, value: string) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -85,7 +93,12 @@ export function ContactForm() {
     const validationErrors = validateForm(values);
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length > 0) {
+    const errorOrder: Array<keyof FormState> = ["name", "email", "phone", "message"];
+    const firstError = errorOrder.find((field) => validationErrors[field]);
+
+    if (firstError) {
+      // Send focus to the first field that needs fixing
+      document.getElementById(firstError)?.focus();
       return;
     }
 
@@ -95,7 +108,7 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="comic-panel-yellow p-7" role="status">
+      <div className="comic-panel-yellow p-7" role="status" tabIndex={-1} ref={successRef}>
         <p className="comic-display text-4xl text-[var(--color-ink)]">Boom! Message sent.</p>
         <p className="mt-3 text-sm leading-7 text-[var(--color-ink)] sm:text-base">
           Thanks for reaching out. Mark will get back to you within one business day with next
@@ -146,6 +159,8 @@ export function ContactForm() {
             id="email"
             name="email"
             type="email"
+            inputMode="email"
+            spellCheck={false}
             autoComplete="email"
             value={values.email}
             onChange={(event) => onFieldChange("email", event.target.value)}
@@ -170,6 +185,7 @@ export function ContactForm() {
             id="phone"
             name="phone"
             type="tel"
+            inputMode="tel"
             autoComplete="tel"
             value={values.phone}
             onChange={(event) => onFieldChange("phone", event.target.value)}
@@ -213,7 +229,7 @@ export function ContactForm() {
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : undefined}
           className={fieldClasses}
-          placeholder="Full color change to satin black, chrome delete, the works..."
+          placeholder="Full color change to satin black, chrome delete, the works…"
           required
         />
         {errors.message ? (

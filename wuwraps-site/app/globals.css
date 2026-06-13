@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium neutral base */
-  --color-paper: #f5f4f1;
-  --color-paper-deep: #ebe8e2;
+  /* Premium neutral base, grounded in the shop's polished-concrete floor (cool, not cream) */
+  color-scheme: light;
+  --color-paper: #eef0f1;
+  --color-paper-deep: #e2e5e7;
   --color-ink: #15141b;
   --color-ink-deep: #0e0d13;
   --color-ink-soft: #46434f;
@@ -115,6 +116,21 @@ textarea {
     transform 200ms ease;
 }
 
+/* Snappier taps on touch devices, no grey flash */
+a,
+button,
+label,
+summary,
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Let long body copy break gracefully */
+p {
+  text-wrap: pretty;
+}
+
 img {
   display: block;
 }
@@ -133,6 +149,8 @@ img {
   letter-spacing: -0.022em;
   line-height: 0.96;
   text-transform: uppercase;
+  text-wrap: balance;
+  font-variant-numeric: tabular-nums;
 }
 
 /* The comic twist: Bangers, reserved for the occasional accent word or badge. */

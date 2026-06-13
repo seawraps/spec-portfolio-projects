@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -31,6 +31,12 @@ const archivoBlack = localFont({
 });
 
 export const metadata: Metadata = siteMetadata;
+
+export const viewport: Viewport = {
+  // Matches the dark ticker bar at the very top of every page
+  themeColor: "#0e0d13",
+  colorScheme: "light",
+};
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
