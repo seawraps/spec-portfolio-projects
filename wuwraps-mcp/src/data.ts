@@ -127,7 +127,7 @@ export const services: Service[] = [
     shortDescription:
       "Smoked tail lights and tinted headlight film, done to look factory and keep you road legal.",
     fullDescription:
-      "Precut and hand finished light film that smokes out the rear and cleans up the front without the sprayed-on look. Subtle percentages that keep output usable and looks intentional.",
+      "Precut and hand finished light film that smokes out the rear and cleans up the front without the sprayed-on look. Subtle shades that keep light output usable and the look intentional.",
     includes: [
       "Tail light smoke in multiple shades",
       "Headlight and fog light film",

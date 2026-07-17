@@ -28,7 +28,7 @@ export function CtaSection() {
                 Call {company.phoneDisplay}
               </a>
             </div>
-            <p className="label mt-6 text-[0.62rem] text-[rgba(246,245,241,0.5)]">
+            <p className="label mt-6 text-[0.62rem] text-[rgba(246,245,241,0.62)]">
               {company.appointmentNote}
             </p>
           </div>

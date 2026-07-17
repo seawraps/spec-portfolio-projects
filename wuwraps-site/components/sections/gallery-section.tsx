@@ -10,6 +10,8 @@ type GallerySectionProps = {
   showCta?: boolean;
   heading?: string;
   intro?: string;
+  /** Eager-load the first row of photos when the grid sits near the top of the page. */
+  eagerFirstRow?: boolean;
 };
 
 export function GallerySection({
@@ -17,6 +19,7 @@ export function GallerySection({
   showCta = true,
   heading = "Recent work.",
   intro = "Every build below rolled out of the Renton studio. Fresh installs land on Instagram most weeks.",
+  eagerFirstRow = false,
 }: GallerySectionProps) {
   const shown = typeof limit === "number" ? galleryBuilds.slice(0, limit) : galleryBuilds;
 
@@ -42,6 +45,7 @@ export function GallerySection({
                         src={build.image}
                         alt={build.imageAlt ?? `${build.vehicle} wrapped by Wu Wraps`}
                         fill
+                        priority={eagerFirstRow && index < 3}
                         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       />
@@ -54,7 +58,7 @@ export function GallerySection({
                     <p className="display text-[1.05rem] text-[var(--bone)]">{build.vehicle}</p>
                     <p className="mt-1 text-sm text-[var(--mist)]">{build.film}</p>
                   </div>
-                  <p className="label shrink-0 text-[0.6rem] text-[rgba(246,245,241,0.45)]">
+                  <p className="label shrink-0 text-[0.6rem] text-[rgba(246,245,241,0.62)]">
                     {build.category}
                   </p>
                 </figcaption>

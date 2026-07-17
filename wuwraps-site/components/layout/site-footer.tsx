@@ -80,7 +80,7 @@ export function SiteFooter() {
       </Container>
 
       <div className="border-t border-[var(--line-darker)] py-5">
-        <Container className="flex flex-col gap-2 text-xs text-[rgba(246,245,241,0.45)] sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-2 text-xs text-[rgba(246,245,241,0.62)] sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {company.name}. All rights reserved.
           </p>

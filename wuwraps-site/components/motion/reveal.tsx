@@ -24,45 +24,25 @@ export function Reveal({
   useEffect(() => {
     const node = ref.current;
 
-    if (!node || typeof window === "undefined") {
+    if (!node) {
       return;
     }
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsRevealed(true);
-      return;
-    }
-
-    let hasRevealed = false;
-
-    const reveal = () => {
-      if (hasRevealed) {
-        return;
-      }
-
-      hasRevealed = true;
-      setIsRevealed(true);
-    };
-
-    const bounds = node.getBoundingClientRect();
-
-    if (bounds.top < window.innerHeight * 0.92) {
-      reveal();
-      return;
-    }
-
+    // Reduced motion is handled in CSS (.reveal is forced visible), so the
+    // observer can run unconditionally. It fires immediately for elements
+    // already in view, which also covers the above-the-fold case.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) {
           return;
         }
 
-        reveal();
+        setIsRevealed(true);
         observer.unobserve(node);
       },
       {
-        rootMargin: "0px 0px -10% 0px",
-        threshold: 0.14,
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.1,
       },
     );
 

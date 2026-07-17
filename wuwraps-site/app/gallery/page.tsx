@@ -23,6 +23,7 @@ export default function GalleryPage() {
       />
       <GallerySection
         showCta={false}
+        eagerFirstRow
         heading="Selected builds."
         intro="Exotics, daily drivers and everything between. Every panel here was laid by the same two hands."
       />

@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
-import { company } from "@/lib/data";
+import { company, services } from "@/lib/data";
 import { siteMetadata, siteUrl } from "@/lib/metadata";
 import "./globals.css";
 
@@ -71,6 +71,18 @@ const localBusinessJsonLd = {
       closes: "18:00",
     },
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Vinyl wrap, PPF and tint services",
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.name,
+        description: service.shortDescription,
+      },
+    })),
+  },
 };
 
 export default function RootLayout({

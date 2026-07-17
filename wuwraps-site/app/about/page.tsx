@@ -39,7 +39,7 @@ export default function AboutPage() {
               <p>
                 The name travels. He is known across the Avants community, the local Tesla and
                 Mini Cooper groups, and the classic car crowd. When shops like Imperial Tint
-                and Accutint have vinyl work to place, it lands on Mark's table, because
+                and Accutint have vinyl work to place, it lands on Mark&rsquo;s table, because
                 everyone in the business knows no one can outwrap him.
               </p>
               <p>
@@ -66,6 +66,7 @@ export default function AboutPage() {
                     src="/images/gallery/ford-bronco-raptor.jpg"
                     alt="Ford Bronco Raptor with blacked out accents inside the Wu Wraps studio"
                     fill
+                    priority
                     sizes="(min-width: 1024px) 40vw, 100vw"
                     className="object-cover"
                   />

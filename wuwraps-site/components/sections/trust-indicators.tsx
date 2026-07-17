@@ -8,7 +8,7 @@ export function TrustIndicators() {
   return (
     <section className="on-dark border-t border-[var(--line-darker)] bg-[var(--ink-deep)]">
       <Container className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 py-6 lg:justify-between">
-        <p className="label text-[0.6rem] text-[rgba(246,245,241,0.42)]">
+        <p className="label text-[0.6rem] text-[rgba(246,245,241,0.62)]">
           Known across the PNW
         </p>
         {trustedBy.map((name) => (

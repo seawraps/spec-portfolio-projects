@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { usePathname } from "next/navigation";
 
 import type { NavLink } from "@/lib/data";
@@ -25,10 +25,14 @@ function isActiveRoute(pathname: string, href: string) {
 export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
   const pathname = usePathname();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [prevPathname, setPrevPathname] = useState(pathname);
 
-  useEffect(() => {
+  // Close the menu when navigation happens, adjusting state during render
+  // instead of in an effect.
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setIsMobileOpen(false);
-  }, [pathname]);
+  }
 
   if (mode === "desktop") {
     return (
