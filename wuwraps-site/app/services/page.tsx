@@ -10,9 +10,9 @@ import { services } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Vinyl Wrap Services",
+  title: "Vinyl Wrap, PPF & Tint Services",
   description:
-    "Full color-change wraps, commercial fleet graphics, partial wraps and accents, custom printed liveries, paint protection film, and wrap removal in Renton & Seattle.",
+    "Color change wraps, interior and trim wraps, rims and body kits, chrome deletes, racing stripes, light tinting, paint protection film and window tint in Renton, WA.",
   path: "/services",
 });
 
@@ -20,79 +20,58 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="The Service Lineup"
-        title="Every wrap, one obsessive standard."
-        description="Whether it's a single accent or a whole fleet, every job gets premium cast film, meticulous prep, and a factory-grade finish."
-        variant="blue"
+        eyebrow="Services"
+        title="If it can be wrapped, Wu wraps it."
+        description="Exteriors, interiors, rims and body kits, plus PPF and window tint out of the new studio. Every job gets premium film and the same obsessive standard."
       />
 
-      <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
+      <section className="bg-[var(--fog)] py-16 lg:py-24">
         <Container>
-          <div className="grid gap-8">
+          <div className="grid gap-6">
             {services.map((service, index) => (
-              <Reveal key={service.id} delay={index * 50}>
+              <Reveal key={service.id} delay={Math.min(index * 40, 160)}>
                 <article
                   id={service.id}
-                  className="comic-panel comic-panel-hover grid gap-6 p-6 sm:p-8 lg:grid-cols-[1fr_1.3fr] lg:gap-10"
+                  className="grid gap-8 rounded-2xl bg-[var(--bone)] p-7 sm:p-9 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12"
                 >
                   <div>
-                    <span className="comic-heavy text-[0.72rem] tracking-[0.16em] text-[var(--color-red)]">
-                      {service.issue}
-                    </span>
-                    <h2 className="comic-display mt-2 text-[2.4rem] leading-[0.92] text-[var(--color-ink)] sm:text-[2.9rem]">
-                      {service.name}
-                    </h2>
-                    <p className="mt-4 text-[1rem] leading-8 text-[var(--color-ink-soft)]">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <h2 className="display text-[1.7rem] text-[var(--ink)] sm:text-[2rem]">
+                        {service.name}
+                      </h2>
+                      {service.tag ? (
+                        <span className="label rounded-full bg-[var(--cedar)] px-3 py-1 text-[0.56rem] text-[var(--bone)]">
+                          {service.tag}
+                        </span>
+                      ) : null}
+                    </div>
+                    <p className="mt-4 max-w-xl text-[1rem] leading-8 text-[var(--slate)]">
                       {service.fullDescription}
                     </p>
-                    <p className="comic-heavy mt-5 inline-flex border border-[var(--color-line-strong)] bg-[var(--color-yellow)] px-3 py-1.5 text-[0.66rem] tracking-[0.1em] text-[var(--color-ink)]">
-                      {service.turnaround}
+                    <p className="label mt-6 text-[0.64rem] text-[var(--cedar)]">
+                      Typical turnaround: {service.turnaround}
                     </p>
                   </div>
 
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div className="border border-[var(--color-line-strong)] bg-[var(--color-surface)] p-5">
-                      <h3 className="comic-heavy text-[0.7rem] tracking-[0.14em] text-[var(--color-blue)]">
-                        What&apos;s Included
-                      </h3>
-                      <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-ink-soft)]">
-                        {service.includes.map((item) => (
-                          <li key={item} className="flex gap-2">
-                            <span aria-hidden="true" className="text-[var(--color-red)]">
-                              ▸
-                            </span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="border border-[var(--color-line-strong)] bg-[var(--color-surface)] p-5">
-                      <h3 className="comic-heavy text-[0.7rem] tracking-[0.14em] text-[var(--color-blue)]">
-                        Best For
-                      </h3>
-                      <p className="mt-3 text-sm leading-7 text-[var(--color-ink-soft)]">
-                        {service.idealFor}
-                      </p>
-                      <ul className="mt-4 flex flex-wrap gap-2">
-                        {service.highlights.map((highlight) => (
-                          <li
-                            key={highlight}
-                            className="comic-heavy border border-[var(--color-line-strong)] bg-[var(--color-yellow)] px-2 py-1 text-[0.58rem] tracking-[0.08em] text-[var(--color-ink)]"
-                          >
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                  <ul className="space-y-2.5 border-t border-[var(--line-lighter)] pt-6 text-sm leading-7 text-[var(--slate)] lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+                    {service.includes.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span
+                          aria-hidden="true"
+                          className="mt-2.5 h-[3px] w-4 shrink-0 rounded-full bg-[var(--cedar)]"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </article>
               </Reveal>
             ))}
           </div>
 
           <Reveal className="mt-12">
-            <ButtonLink href="/contact" variant="red">
-              Get a Quote on Your Build →
+            <ButtonLink href="/contact" variant="ink">
+              Talk Through Your Build
             </ButtonLink>
           </Reveal>
         </Container>

@@ -8,9 +8,9 @@ import { company, consultationChecklist, contactPageFaq } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Contact & Quotes",
+  title: "Contact & Booking",
   description:
-    "Get a free vinyl wrap quote from Wu Wraps in Renton, WA. Call (206) 707-6491, email wuwraps@gmail.com, or send your vehicle details for color-change, fleet, and custom wraps.",
+    "Wu Wraps is appointment only. Call (206) 707-6491 or send your vehicle details to book vinyl wraps, chrome deletes, PPF or window tint in Renton, WA.",
   path: "/contact",
 });
 
@@ -18,24 +18,21 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Get a Quote"
-        title="Tell us about your ride."
-        description="Send over your vehicle and the look you're chasing, and Mark will follow up with a straight, honest quote and a spot on the schedule."
-        variant="red"
+        eyebrow="Booking"
+        title="Start the conversation."
+        description="The studio is appointment only, no walk-ins. Send the car, the look you are chasing and your timeline, and Mark will get back to you with a straight answer."
       />
 
-      <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
+      <section className="bg-[var(--fog)] py-16 lg:py-24">
         <Container className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
           <Reveal>
-            <div className="comic-panel bg-[var(--color-paper)] p-6 sm:p-8">
-              <h2 className="comic-display text-[2.2rem] leading-none text-[var(--color-ink)]">
-                Start your quote
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--color-ink-soft)]">
-                The more detail you give, the faster we can dial in a price. Not sure what you want
-                yet? No problem, tell us the vibe and we&apos;ll help you figure it out.
+            <div className="rounded-2xl bg-[var(--bone)] p-7 sm:p-9">
+              <h2 className="display text-[1.8rem] text-[var(--ink)]">Request an appointment</h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--slate)]">
+                The more detail you give, the faster the quote. Not sure what you want yet?
+                Tell us the vibe and we will help you figure it out.
               </p>
-              <div className="mt-6">
+              <div className="mt-7">
                 <ContactForm />
               </div>
             </div>
@@ -43,38 +40,36 @@ export default function ContactPage() {
 
           <div className="space-y-6">
             <Reveal>
-              <div className="comic-panel-ink p-6">
-                <h2 className="comic-display text-[1.9rem] leading-none text-[var(--color-yellow)]">
-                  The Shop
-                </h2>
-                <dl className="mt-5 space-y-4 text-sm">
+              <div className="on-dark rounded-2xl bg-[var(--graphite)] p-7">
+                <h2 className="display text-[1.4rem] text-[var(--bone)]">The studio</h2>
+                <dl className="mt-6 space-y-5 text-sm">
                   <div>
-                    <dt className="comic-heavy text-[0.64rem] tracking-[0.14em] text-[var(--color-yellow)]">
-                      Call / Text
-                    </dt>
+                    <dt className="label text-[0.6rem] text-[var(--mist)]">Call or text</dt>
                     <dd className="mt-1">
-                      <a className="text-[var(--color-paper)] hover:text-[var(--color-yellow)]" href={`tel:${company.phoneRaw}`}>
+                      <a
+                        className="text-[var(--bone)] hover:text-[var(--cedar)]"
+                        href={`tel:${company.phoneRaw}`}
+                      >
                         {company.phoneDisplay}
                       </a>
                     </dd>
                   </div>
                   <div>
-                    <dt className="comic-heavy text-[0.64rem] tracking-[0.14em] text-[var(--color-yellow)]">
-                      Email
-                    </dt>
+                    <dt className="label text-[0.6rem] text-[var(--mist)]">Email</dt>
                     <dd className="mt-1">
-                      <a className="text-[var(--color-paper)] hover:text-[var(--color-yellow)]" href={`mailto:${company.email}`}>
+                      <a
+                        className="text-[var(--bone)] hover:text-[var(--cedar)]"
+                        href={`mailto:${company.email}`}
+                      >
                         {company.email}
                       </a>
                     </dd>
                   </div>
                   <div>
-                    <dt className="comic-heavy text-[0.64rem] tracking-[0.14em] text-[var(--color-yellow)]">
-                      Instagram
-                    </dt>
+                    <dt className="label text-[0.6rem] text-[var(--mist)]">Instagram</dt>
                     <dd className="mt-1">
                       <a
-                        className="text-[var(--color-paper)] hover:text-[var(--color-yellow)]"
+                        className="text-[var(--bone)] hover:text-[var(--cedar)]"
                         href={company.instagramUrl}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -84,38 +79,36 @@ export default function ContactPage() {
                     </dd>
                   </div>
                   <div>
-                    <dt className="comic-heavy text-[0.64rem] tracking-[0.14em] text-[var(--color-yellow)]">
-                      Location
-                    </dt>
-                    <dd className="mt-1 text-[var(--color-paper)]">
-                      {company.addressLine}
-                      <br />
-                      {company.cityStateZip}
+                    <dt className="label text-[0.6rem] text-[var(--mist)]">Location</dt>
+                    <dd className="mt-1 text-[var(--bone)]">
+                      {company.addressLine}, {company.cityStateZip}
                     </dd>
                   </div>
                   <div>
-                    <dt className="comic-heavy text-[0.64rem] tracking-[0.14em] text-[var(--color-yellow)]">
-                      Hours
-                    </dt>
-                    <dd className="mt-1 space-y-1 text-[var(--color-paper)]">
+                    <dt className="label text-[0.6rem] text-[var(--mist)]">Hours</dt>
+                    <dd className="mt-1 space-y-1 text-[var(--bone)]">
                       {company.hours.map((hours) => (
                         <p key={hours}>{hours}</p>
                       ))}
                     </dd>
                   </div>
                 </dl>
+                <p className="label mt-6 border-t border-[var(--line-darker)] pt-4 text-[0.6rem] text-[var(--mist)]">
+                  {company.appointmentNote}
+                </p>
               </div>
             </Reveal>
 
             <Reveal delay={80}>
-              <div className="comic-panel-yellow p-6">
-                <h2 className="comic-display text-[1.7rem] leading-none text-[var(--color-ink)]">
-                  Have this handy
-                </h2>
-                <ul className="mt-4 space-y-2 text-sm leading-7 text-[var(--color-ink)]">
+              <div className="rounded-2xl border border-[var(--line-light)] p-7">
+                <h2 className="display text-[1.2rem] text-[var(--ink)]">Have this handy</h2>
+                <ul className="mt-4 space-y-2.5 text-sm leading-7 text-[var(--slate)]">
                   {consultationChecklist.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <span aria-hidden="true">▸</span>
+                    <li key={item} className="flex gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2.5 h-[3px] w-4 shrink-0 rounded-full bg-[var(--cedar)]"
+                      />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -126,28 +119,28 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
+      <section className="bg-[var(--fog-deep)] py-16 lg:py-24">
         <Container>
           <Reveal>
-            <span className="comic-tag">Good to Know</span>
-            <h2 className="comic-display mt-5 max-w-3xl text-[2.7rem] leading-[0.92] text-[var(--color-ink)] sm:text-[3.6rem]">
+            <p className="eyebrow text-[var(--slate)]">Good to know</p>
+            <h2 className="display mt-5 max-w-3xl text-[2.2rem] text-[var(--ink)] sm:text-[3rem]">
               Questions, answered.
             </h2>
           </Reveal>
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
             {contactPageFaq.map((faq, index) => (
-              <Reveal key={faq.question} delay={index * 50}>
-                <details className="comic-panel comic-panel-hover group p-5 [&_summary::-webkit-details-marker]:hidden">
-                  <summary className="comic-heavy flex cursor-pointer items-center justify-between gap-3 text-[0.92rem] leading-snug tracking-[0.02em] text-[var(--color-ink)]">
+              <Reveal key={faq.question} delay={Math.min(index * 50, 200)}>
+                <details className="group rounded-2xl bg-[var(--bone)] p-6 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between gap-3 text-[0.95rem] font-semibold leading-snug text-[var(--ink)]">
                     {faq.question}
                     <span
                       aria-hidden="true"
-                      className="comic-display text-2xl text-[var(--color-red)] transition-transform group-open:rotate-45"
+                      className="display text-xl text-[var(--cedar)] transition-transform group-open:rotate-45"
                     >
                       +
                     </span>
                   </summary>
-                  <p className="mt-3 text-sm leading-7 text-[var(--color-ink-soft)]">{faq.answer}</p>
+                  <p className="mt-3 text-sm leading-7 text-[var(--slate)]">{faq.answer}</p>
                 </details>
               </Reveal>
             ))}

@@ -23,9 +23,9 @@ const initialState: FormState = {
 };
 
 const fieldClasses =
-  "mt-2 w-full border border-[var(--color-line-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-ink)] outline-none transition focus:bg-white focus:shadow-[0_0_0_3px_rgba(31,87,195,0.22)]";
+  "mt-2 w-full rounded-xl border border-[var(--line-light)] bg-[var(--fog)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:bg-white focus:shadow-[0_0_0_3px_rgba(194,64,47,0.18)]";
 
-const labelClasses = "comic-heavy text-[0.7rem] tracking-[0.12em] text-[var(--color-ink)]";
+const labelClasses = "label text-[0.64rem] text-[var(--ink)]";
 
 const errorClasses = "mt-1 text-sm font-semibold text-[var(--color-error)]";
 
@@ -108,11 +108,16 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="comic-panel-yellow p-7" role="status" tabIndex={-1} ref={successRef}>
-        <p className="comic-display text-4xl text-[var(--color-ink)]">Boom! Message sent.</p>
-        <p className="mt-3 text-sm leading-7 text-[var(--color-ink)] sm:text-base">
+      <div
+        className="rounded-2xl border-t-2 border-[var(--cedar)] bg-[var(--fog)] p-7"
+        role="status"
+        tabIndex={-1}
+        ref={successRef}
+      >
+        <p className="display text-2xl text-[var(--ink)]">Message sent.</p>
+        <p className="mt-3 text-sm leading-7 text-[var(--slate)] sm:text-base">
           Thanks for reaching out. Mark will get back to you within one business day with next
-          steps and a straight-up quote.
+          steps and a straight answer.
         </p>
         <button
           type="button"
@@ -245,8 +250,8 @@ export function ContactForm() {
         </p>
       ) : null}
 
-      <button type="submit" className={buttonClassName("red", "w-full sm:w-auto")}>
-        Send It →
+      <button type="submit" className={buttonClassName("cedar", "w-full sm:w-auto")}>
+        Send the Request
       </button>
     </form>
   );

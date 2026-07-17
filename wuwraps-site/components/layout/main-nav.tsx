@@ -33,7 +33,7 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
   if (mode === "desktop") {
     return (
       <nav aria-label="Primary navigation">
-        <ul className="flex items-center gap-1">
+        <ul className="flex items-center gap-2">
           {links.map((link) => {
             const isActive = isActiveRoute(pathname, link.href);
 
@@ -42,12 +42,18 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
                 <Link
                   href={link.href}
                   className={cn(
-                    "comic-heavy relative inline-flex items-center rounded-full px-4 py-2 text-[0.7rem] tracking-[0.12em] text-[var(--color-ink-soft)] transition hover:bg-[var(--color-paper-deep)] hover:text-[var(--color-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-blue)]",
-                    isActive && "bg-[var(--color-ink)] text-[var(--color-paper)] hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)]",
+                    "label relative inline-flex items-center px-3 py-2 text-[0.7rem] text-[var(--mist)] transition hover:text-[var(--bone)]",
+                    isActive && "text-[var(--bone)]",
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {link.label}
+                  {isActive ? (
+                    <span
+                      className="absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-[var(--cedar)]"
+                      aria-hidden="true"
+                    />
+                  ) : null}
                 </Link>
               </li>
             );
@@ -61,7 +67,7 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
     <div className="relative">
       <button
         type="button"
-        className="inline-flex h-11 w-11 items-center justify-center border border-[var(--color-line-strong)] bg-[var(--color-yellow)] text-[var(--color-ink)] shadow-[0_14px_30px_-18px_rgba(20,19,26,0.5)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-blue)]"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line-dark)] text-[var(--bone)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cedar)]"
         onClick={() => setIsMobileOpen((current) => !current)}
         aria-expanded={isMobileOpen}
         aria-controls="mobile-menu"
@@ -70,19 +76,19 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
         <span className="relative block h-4 w-5">
           <span
             className={cn(
-              "absolute left-0 top-0 h-[2.5px] w-5 bg-current transition-transform duration-200",
+              "absolute left-0 top-0 h-[2px] w-5 bg-current transition-transform duration-200",
               isMobileOpen && "translate-y-[0.45rem] rotate-45",
             )}
           />
           <span
             className={cn(
-              "absolute left-0 top-[0.45rem] h-[2.5px] w-5 bg-current transition-opacity duration-200",
+              "absolute left-0 top-[0.45rem] h-[2px] w-5 bg-current transition-opacity duration-200",
               isMobileOpen && "opacity-0",
             )}
           />
           <span
             className={cn(
-              "absolute bottom-0 left-0 h-[2.5px] w-5 bg-current transition-transform duration-200",
+              "absolute bottom-0 left-0 h-[2px] w-5 bg-current transition-transform duration-200",
               isMobileOpen && "-translate-y-[0.45rem] -rotate-45",
             )}
           />
@@ -93,16 +99,16 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
         <Fragment>
           <button
             type="button"
-            className="fixed inset-0 z-40 bg-[rgba(20,19,26,0.2)]"
+            className="fixed inset-0 z-40 bg-[rgba(14,15,18,0.5)]"
             aria-label="Close primary navigation"
             onClick={() => setIsMobileOpen(false)}
           />
           <div
             id="mobile-menu"
-            className="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(20rem,calc(100vw-1.5rem))] border border-[var(--color-line-strong)] bg-[var(--color-paper)] p-3 shadow-[0_14px_30px_-18px_rgba(20,19,26,0.5)]"
+            className="absolute right-0 top-[calc(100%+0.9rem)] z-50 w-[min(19rem,calc(100vw-1.5rem))] rounded-2xl border border-[var(--line-dark)] bg-[var(--graphite)] p-3 shadow-[0_30px_60px_-24px_rgba(0,0,0,0.7)]"
           >
             <nav aria-label="Mobile primary navigation">
-              <ul className="grid gap-2">
+              <ul className="grid gap-1">
                 {links.map((link) => {
                   const isActive = isActiveRoute(pathname, link.href);
 
@@ -111,16 +117,15 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
                       <Link
                         href={link.href}
                         className={cn(
-                          "comic-heavy flex items-center justify-between border border-[var(--color-line-strong)] px-4 py-3 text-[0.78rem] tracking-[0.08em] transition",
+                          "label flex items-center justify-between rounded-xl px-4 py-3 text-[0.74rem] transition",
                           isActive
-                            ? "bg-[var(--color-red)] text-[var(--color-paper)]"
-                            : "bg-[var(--color-surface)] text-[var(--color-ink)] hover:bg-[var(--color-yellow)]",
+                            ? "bg-[var(--cedar)] text-[var(--bone)]"
+                            : "text-[var(--mist)] hover:bg-[rgba(246,245,241,0.06)] hover:text-[var(--bone)]",
                         )}
                         aria-current={isActive ? "page" : undefined}
                         onClick={() => setIsMobileOpen(false)}
                       >
                         <span>{link.label}</span>
-                        <span aria-hidden="true">→</span>
                       </Link>
                     </li>
                   );
@@ -129,13 +134,11 @@ export function MainNav({ links, mode, phoneDisplay, phoneRaw }: MainNavProps) {
             </nav>
 
             {phoneDisplay && phoneRaw ? (
-              <div className="mt-3 border-t-[2.5px] border-dashed border-[var(--color-line-strong)] pt-3">
-                <p className="comic-heavy text-[0.62rem] tracking-[0.14em] text-[var(--color-muted)]">
-                  Call the shop
-                </p>
+              <div className="mt-2 border-t border-[var(--line-dark)] px-4 pb-2 pt-3">
+                <p className="label text-[0.6rem] text-[var(--mist)]">Appointment only</p>
                 <a
                   href={`tel:${phoneRaw}`}
-                  className="comic-display mt-1 block text-2xl text-[var(--color-red)]"
+                  className="display mt-1 block text-xl text-[var(--bone)]"
                 >
                   {phoneDisplay}
                 </a>

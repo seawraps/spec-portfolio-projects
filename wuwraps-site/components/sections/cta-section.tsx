@@ -1,41 +1,36 @@
 import { Container } from "@/components/layout/container";
 import { ButtonLink, buttonClassName } from "@/components/ui/button-link";
+import { Formline } from "@/components/ui/formline";
 import { Reveal } from "@/components/motion/reveal";
 import { company } from "@/lib/data";
 
 export function CtaSection() {
   return (
-    <section className="border-b border-[var(--color-line)] py-16 lg:py-24">
+    <section className="on-dark bg-[var(--graphite)] py-20 lg:py-28">
       <Container>
         <Reveal>
-          <div className="comic-panel relative overflow-hidden p-8 sm:p-12 lg:p-16">
-            <div className="speed-lines absolute inset-0 -z-0 opacity-50" aria-hidden="true" />
-            <div className="relative z-10 max-w-3xl">
-              <span className="comic-tag">Ready When You Are</span>
-              <h2 className="comic-display mt-5 text-[3rem] leading-[0.88] sm:text-[4.4rem]">
-                <span className="ink-stroke-red">Let&apos;s wrap it.</span>
-              </h2>
-              <p className="mt-5 max-w-xl text-[1.05rem] leading-8 text-[var(--color-ink-soft)]">
-                Tell Mark about your vehicle and the look you&apos;re after. You&apos;ll get a
-                straight, honest quote and a spot on the schedule at the new Renton shop.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <ButtonLink href="/contact" variant="red">
-                  Start My Quote →
-                </ButtonLink>
-                <a href={`tel:${company.phoneRaw}`} className={buttonClassName("blue")}>
-                  Call {company.phoneDisplay}
-                </a>
-                <a
-                  href={company.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={buttonClassName("yellow")}
-                >
-                  Follow {company.instagram}
-                </a>
-              </div>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="display text-[2.6rem] text-[var(--bone)] sm:text-[3.6rem]">
+              Wrapped right,
+              <br />
+              or not at all.
+            </h2>
+            <Formline className="mx-auto mt-5 h-4 w-44" />
+            <p className="mx-auto mt-6 max-w-md text-[1rem] leading-8 text-[var(--mist)]">
+              Tell Mark about the car and the look you are chasing. Straight answers,
+              competitive pricing, and the best work in town.
+            </p>
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+              <ButtonLink href="/contact" variant="cedar">
+                Book a Consult
+              </ButtonLink>
+              <a href={`tel:${company.phoneRaw}`} className={buttonClassName("ghost-dark")}>
+                Call {company.phoneDisplay}
+              </a>
             </div>
+            <p className="label mt-6 text-[0.62rem] text-[rgba(246,245,241,0.5)]">
+              {company.appointmentNote}
+            </p>
           </div>
         </Reveal>
       </Container>

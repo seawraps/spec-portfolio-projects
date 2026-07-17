@@ -2,85 +2,74 @@ import Image from "next/image";
 
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
+import { Formline } from "@/components/ui/formline";
 import { Reveal } from "@/components/motion/reveal";
-import { company, featuredStats } from "@/lib/data";
+import { company, heroStats } from "@/lib/data";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden border-b border-[var(--color-line)]">
-      <div className="speed-lines absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
-      <Container className="grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-20">
+    <section className="on-dark">
+      <Container className="grid items-center gap-12 py-16 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-24">
         <div>
           <Reveal>
-            <span className="comic-tag">{company.badge}</span>
+            <p className="eyebrow text-[var(--mist)]">Renton, Washington · Since {company.foundedYear}</p>
           </Reveal>
-          <Reveal delay={60}>
-            <h1 className="comic-display mt-5 text-[3.6rem] leading-[0.85] sm:text-[5.2rem] lg:text-[6rem]">
-              <span className="ink-stroke block">Your Ride,</span>
-              <span className="ink-stroke-red block">Wrapped Right.</span>
+          <Reveal delay={70}>
+            <h1 className="display mt-6 text-[3.4rem] text-[var(--bone)] sm:text-[4.6rem] lg:text-[5.4rem]">
+              Vinyl,
+              <br />
+              mastered.
             </h1>
+            <Formline className="mt-4 h-4 w-48 sm:w-64" />
           </Reveal>
-          <Reveal delay={120}>
-            <div className="caption-box mt-7 max-w-xl p-5">
-              <p className="text-[1.05rem] leading-8 text-[var(--color-ink)]">
-                {company.tagline}
-              </p>
-            </div>
+          <Reveal delay={140}>
+            <p className="mt-7 max-w-md text-[1.05rem] leading-8 text-[var(--mist)]">
+              Wu Wraps is Mark Wu: the Pacific Northwest&apos;s most trusted hands for color
+              change wraps, chrome deletes, stripes, PPF and tint. If it can be wrapped,
+              he is the one to call.
+            </p>
           </Reveal>
-          <Reveal delay={180}>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <ButtonLink href="/contact" variant="red">
-                Get a Free Quote →
+          <Reveal delay={210}>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <ButtonLink href="/contact" variant="cedar">
+                Book a Consult
               </ButtonLink>
-              <ButtonLink href="/gallery" variant="blue">
-                See the Builds
+              <ButtonLink href="/gallery" variant="ghost-dark">
+                See the Work
               </ButtonLink>
             </div>
+            <p className="label mt-6 text-[0.62rem] text-[rgba(246,245,241,0.5)]">
+              {company.appointmentNote}
+            </p>
           </Reveal>
         </div>
 
-        <Reveal delay={120} className="relative">
-          {/* Hero comic panel */}
-          <div className="comic-panel comic-panel-hover relative overflow-hidden">
-            <div className="relative aspect-[5/4] w-full">
+        <Reveal delay={140}>
+          <figure className="photo-frame">
+            <div className="relative aspect-[4/3] w-full">
               <Image
                 src="/images/gallery/porsche-gt2-green.jpg"
                 alt="Porsche 911 GT2 wrapped in 3M 2080 gloss green by Wu Wraps in Renton, WA"
                 fill
                 priority
-                sizes="(min-width: 1024px) 45vw, 100vw"
+                sizes="(min-width: 1024px) 48vw, 100vw"
                 className="object-cover"
               />
-              <span className="comic-halftone pointer-events-none absolute inset-0" aria-hidden="true" />
+              <span className="photo-tone" aria-hidden="true" />
             </div>
-            <div className="absolute left-3 top-3 rounded-full bg-[var(--color-ink)]/85 px-3 py-1 backdrop-blur-sm">
-              <span className="comic-heavy text-[0.6rem] tracking-[0.16em] text-[var(--color-paper)]">
-                Wu Wraps · Renton, WA
-              </span>
-            </div>
-          </div>
-          {/* Burst badge */}
-          <div className="burst absolute -right-3 -top-6 hidden sm:flex" style={{ "--burst-size": "7.5rem" } as React.CSSProperties}>
-            <span className="comic-pow text-center text-[1.45rem] leading-[0.82] text-[var(--color-ink)]">
-              {company.yearsInBusiness}
-              <br />
-              YEARS!
-            </span>
-          </div>
+            <figcaption className="label absolute bottom-4 left-4 rounded-full bg-[rgba(14,15,18,0.72)] px-4 py-2 text-[0.6rem] text-[var(--bone)] backdrop-blur-sm">
+              Porsche 911 GT2 · 3M 2080 Gloss Green
+            </figcaption>
+          </figure>
         </Reveal>
       </Container>
 
-      {/* Stat strip */}
-      <div className="border-t border-[var(--color-line)] halftone-yellow">
-        <Container className="grid divide-y divide-[rgba(20,19,26,0.14)] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          {featuredStats.map((stat) => (
-            <div key={stat.label} className="px-2 py-6 text-center">
-              <p className="comic-display text-[3rem] leading-none text-[var(--color-ink)] sm:text-[3.6rem]">
-                {stat.value}
-              </p>
-              <p className="comic-heavy mt-2 text-[0.66rem] tracking-[0.12em] text-[var(--color-ink)]">
-                {stat.label}
-              </p>
+      <div className="border-t border-[var(--line-darker)]">
+        <Container className="grid gap-8 py-10 sm:grid-cols-3">
+          {heroStats.map((stat) => (
+            <div key={stat.label}>
+              <p className="display text-[1.5rem] text-[var(--bone)]">{stat.value}</p>
+              <p className="mt-1.5 text-sm leading-6 text-[var(--mist)]">{stat.label}</p>
             </div>
           ))}
         </Container>

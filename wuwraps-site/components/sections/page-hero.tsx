@@ -1,34 +1,28 @@
 import { Container } from "@/components/layout/container";
+import { Formline } from "@/components/ui/formline";
 import { Reveal } from "@/components/motion/reveal";
 
 type PageHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
-  variant?: "red" | "blue" | "ink";
 };
 
-const variantClass: Record<NonNullable<PageHeroProps["variant"]>, string> = {
-  red: "halftone-red text-[var(--color-paper)]",
-  blue: "halftone-blue text-[var(--color-paper)]",
-  ink: "halftone-ink text-[var(--color-paper)]",
-};
-
-export function PageHero({ eyebrow, title, description, variant = "ink" }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description }: PageHeroProps) {
   return (
-    <section className={`relative overflow-hidden border-b border-[var(--color-line)] ${variantClass[variant]}`}>
-      <div className="speed-lines absolute inset-0 opacity-30" aria-hidden="true" />
-      <Container className="relative py-16 lg:py-24">
+    <section className="on-dark">
+      <Container className="py-16 lg:py-24">
         <Reveal>
-          <span className="comic-tag">{eyebrow}</span>
+          <p className="eyebrow text-[var(--mist)]">{eyebrow}</p>
         </Reveal>
-        <Reveal delay={60}>
-          <h1 className="comic-display mt-5 max-w-4xl text-[3rem] leading-[0.88] text-[var(--color-paper)] sm:text-[4.4rem] lg:text-[5rem]">
+        <Reveal delay={70}>
+          <h1 className="display mt-5 max-w-3xl text-[2.8rem] text-[var(--bone)] sm:text-[4rem]">
             {title}
           </h1>
+          <Formline className="mt-4 h-4 w-40" />
         </Reveal>
-        <Reveal delay={120}>
-          <p className="mt-5 max-w-2xl text-[1.05rem] leading-8 text-[rgba(251,244,226,0.9)]">
+        <Reveal delay={140}>
+          <p className="mt-6 max-w-xl text-[1.02rem] leading-8 text-[var(--mist)]">
             {description}
           </p>
         </Reveal>

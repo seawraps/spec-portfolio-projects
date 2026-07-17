@@ -2,9 +2,8 @@ import Image from "next/image";
 
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
-import { ComicCar } from "@/components/ui/comic-car";
 import { Reveal } from "@/components/motion/reveal";
-import { galleryBuilds } from "@/lib/data";
+import { galleryBuilds, company } from "@/lib/data";
 
 type GallerySectionProps = {
   limit?: number;
@@ -16,77 +15,66 @@ type GallerySectionProps = {
 export function GallerySection({
   limit,
   showCta = true,
-  heading = "Builds straight off the splash page.",
-  intro = "A look at the color changes, fleets, and custom liveries rolling out of the Renton shop.",
+  heading = "Recent work.",
+  intro = "Every build below rolled out of the Renton studio. Fresh installs land on Instagram most weeks.",
 }: GallerySectionProps) {
   const shown = typeof limit === "number" ? galleryBuilds.slice(0, limit) : galleryBuilds;
 
   return (
-    <section id="gallery" className="border-b border-[var(--color-line)] py-16 lg:py-24">
+    <section id="gallery" className="on-dark py-20 lg:py-28">
       <Container>
         <Reveal>
-          <span className="comic-tag">The Gallery</span>
-          <h2 className="comic-display mt-5 max-w-4xl text-[2.7rem] leading-[0.92] text-[var(--color-ink)] sm:text-[3.8rem] lg:text-[4.4rem]">
+          <p className="eyebrow text-[var(--mist)]">The gallery</p>
+          <h2 className="display mt-5 max-w-3xl text-[2.4rem] text-[var(--bone)] sm:text-[3.2rem]">
             {heading}
           </h2>
-          <p className="mt-5 max-w-2xl text-[1.02rem] leading-8 text-[var(--color-ink-soft)]">
-            {intro}
-          </p>
+          <p className="mt-5 max-w-xl text-[1rem] leading-8 text-[var(--mist)]">{intro}</p>
         </Reveal>
 
-        <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {shown.map((build, index) => (
-            <Reveal key={build.title} delay={index * 60}>
-              <article className="comic-panel comic-panel-hover group flex h-full flex-col overflow-hidden">
-                <div className="relative aspect-[5/4] w-full overflow-hidden border-b-[3px] border-[var(--color-ink)]">
-                  {build.image ? (
-                    <>
+            <Reveal key={build.title} delay={Math.min(index * 60, 240)}>
+              <figure className="group">
+                <div className="photo-frame">
+                  <div className="relative aspect-[4/3] w-full">
+                    {build.image ? (
                       <Image
                         src={build.image}
                         alt={build.imageAlt ?? `${build.vehicle} wrapped by Wu Wraps`}
                         fill
                         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       />
-                      <span className="comic-halftone pointer-events-none absolute inset-0" aria-hidden="true" />
-                    </>
-                  ) : (
-                    <ComicCar accent={build.accent} />
-                  )}
-                  <span className="comic-heavy absolute left-2 top-2 border border-[var(--color-line-strong)] bg-[var(--color-paper)] px-2 py-1 text-[0.58rem] tracking-[0.1em] text-[var(--color-ink)]">
+                    ) : null}
+                    <span className="photo-tone" aria-hidden="true" />
+                  </div>
+                </div>
+                <figcaption className="mt-4 flex items-baseline justify-between gap-4">
+                  <div>
+                    <p className="display text-[1.05rem] text-[var(--bone)]">{build.vehicle}</p>
+                    <p className="mt-1 text-sm text-[var(--mist)]">{build.film}</p>
+                  </div>
+                  <p className="label shrink-0 text-[0.6rem] text-[rgba(246,245,241,0.45)]">
                     {build.category}
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="comic-display text-[1.7rem] leading-none text-[var(--color-ink)]">
-                    {build.title}
-                  </h3>
-                  <p className="comic-heavy mt-1 text-[0.66rem] tracking-[0.12em] text-[var(--color-red)]">
-                    {build.vehicle} · {build.film}
                   </p>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-[var(--color-ink-soft)]">
-                    {build.summary}
-                  </p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {build.scope.map((item) => (
-                      <li
-                        key={item}
-                        className="comic-heavy border border-[var(--color-line-strong)] bg-[var(--color-surface)] px-2 py-1 text-[0.58rem] tracking-[0.08em] text-[var(--color-ink)]"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
+                </figcaption>
+              </figure>
             </Reveal>
           ))}
         </div>
 
         {showCta ? (
-          <Reveal className="mt-12">
-            <ButtonLink href="/gallery" variant="blue">
-              See the Full Gallery
+          <Reveal className="mt-12 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="/gallery" variant="bone">
+              Full Gallery
+            </ButtonLink>
+            <ButtonLink
+              href={company.instagramUrl}
+              variant="ghost-dark"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram {company.instagram}
             </ButtonLink>
           </Reveal>
         ) : null}

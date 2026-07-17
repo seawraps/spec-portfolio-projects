@@ -68,8 +68,6 @@ server.registerTool(
         "",
         service.fullDescription,
         "",
-        `Ideal for: ${service.idealFor}`,
-        "",
         "Includes:",
         includes,
         "",
@@ -90,7 +88,7 @@ server.registerTool(
   async () => {
     return text(
       [
-        `${business.name} — owner ${business.owner}, wrapping since ${business.foundedYear}.`,
+        `${business.name}, owner ${business.owner}, wrapping since ${business.foundedYear}.`,
         business.tagline,
         "",
         `Phone: ${business.phoneDisplay}`,
@@ -198,8 +196,8 @@ server.registerTool(
       "New Wu Wraps quote request",
       "==========================",
       `Name:     ${name}`,
-      `Email:    ${email ?? "—"}`,
-      `Phone:    ${phone ?? "—"}`,
+      `Email:    ${email ?? "Not provided"}`,
+      `Phone:    ${phone ?? "Not provided"}`,
       `Vehicle:  ${vehicle ?? "Not specified"}`,
       `Service:  ${serviceName}`,
       `Details:  ${details ?? "Not specified"}`,

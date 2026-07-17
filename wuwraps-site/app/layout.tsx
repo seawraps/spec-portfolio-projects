@@ -18,12 +18,6 @@ const barlow = localFont({
   ],
 });
 
-const bangers = localFont({
-  variable: "--font-bangers",
-  display: "swap",
-  src: [{ path: "./fonts/bangers-400.ttf", weight: "400", style: "normal" }],
-});
-
 const archivoBlack = localFont({
   variable: "--font-archivo",
   display: "swap",
@@ -33,8 +27,8 @@ const archivoBlack = localFont({
 export const metadata: Metadata = siteMetadata;
 
 export const viewport: Viewport = {
-  // Matches the dark ticker bar at the very top of every page
-  themeColor: "#0e0d13",
+  // Matches the dark studio header
+  themeColor: "#141519",
   colorScheme: "light",
 };
 
@@ -44,7 +38,7 @@ const localBusinessJsonLd = {
   name: company.name,
   alternateName: "Wu Wraps Vinyl",
   description:
-    "Vinyl vehicle wrap shop specializing in full color-change wraps, commercial fleet graphics, custom printed wraps, and paint protection film in the Renton and Seattle area.",
+    "Vinyl wrap studio specializing in color change wraps, interior and trim wraps, chrome deletes, racing stripes, light tinting, paint protection film and window tint in the Renton and Seattle area. Appointment only.",
   url: siteUrl,
   telephone: company.phoneRaw,
   email: company.email,
@@ -86,16 +80,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${barlow.variable} ${bangers.variable} ${archivoBlack.variable} antialiased`}
-      >
+      <body className={`${barlow.variable} ${archivoBlack.variable} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         <a
           href="#main-content"
-          className="comic-heavy sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:border-[3px] focus:border-[var(--color-ink)] focus:bg-[var(--color-yellow)] focus:px-4 focus:py-2 focus:text-[var(--color-ink)]"
+          className="label sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[var(--cedar)] focus:px-5 focus:py-2.5 focus:text-[var(--bone)]"
         >
           Skip to main content
         </a>

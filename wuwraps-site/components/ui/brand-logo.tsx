@@ -7,11 +7,11 @@ type BrandLogoProps = {
 };
 
 /**
- * Wu Wraps mark: a clean rounded speech bubble (a nod to the shop's painted
- * "WU WRAPS" graffiti) with a single comic spark for the twist. Built as inline
- * SVG so it stays crisp at any size. "WU" is set in the site's heavy grotesk.
+ * Wu Wraps mark: a speech bubble in bone white, a quiet echo of the WU! WRAPS
+ * burst painted on the studio wall, with a cedar stripe and a single yellow
+ * spark. The one openly comic element in the identity.
  */
-export function BrandLogo({ className, size = 56 }: BrandLogoProps) {
+export function BrandLogo({ className, size = 44 }: BrandLogoProps) {
   return (
     <svg
       width={size}
@@ -21,41 +21,32 @@ export function BrandLogo({ className, size = 56 }: BrandLogoProps) {
       aria-label="Wu Wraps logo"
       className={cn("shrink-0", className)}
     >
-      {/* Soft drop shadow for a little lift */}
-      <defs>
-        <filter id="wu-shadow" x="-20%" y="-20%" width="140%" height="150%">
-          <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#15141b" floodOpacity="0.25" />
-        </filter>
-      </defs>
-
-      {/* Speech bubble + tail */}
-      <g filter="url(#wu-shadow)">
-        <rect x="6" y="20" width="108" height="66" rx="20" fill="#15141b" />
-        <path d="M34 82 L52 82 L33 106 Z" fill="#15141b" />
-      </g>
+      {/* Speech bubble and tail */}
+      <rect x="8" y="22" width="104" height="62" rx="18" fill="var(--bone, #f6f5f1)" />
+      <path d="M36 82 L54 82 L35 104 Z" fill="var(--bone, #f6f5f1)" />
 
       {/* WU wordmark */}
       <text
         x="60"
-        y="65"
+        y="64"
         textAnchor="middle"
         style={{ fontFamily: "var(--font-archivo), sans-serif" }}
-        fontSize="40"
+        fontSize="38"
         letterSpacing="1"
-        fill="#f5f4f1"
+        fill="#141519"
       >
         WU
       </text>
 
-      {/* Red accent underline */}
-      <rect x="41" y="70" width="38" height="4.5" rx="2.25" fill="#e4282c" />
+      {/* Cedar stripe */}
+      <rect x="42" y="69" width="36" height="4" rx="2" fill="#c2402f" />
 
-      {/* Comic spark (the twist) */}
+      {/* Spark */}
       <polygon
-        points="101,10 106,21 117,26 106,31 101,42 96,31 85,26 96,21"
+        points="103,8 107.5,19 118,23.5 107.5,28 103,39 98.5,28 88,23.5 98.5,19"
         fill="#ffce1f"
-        stroke="#15141b"
-        strokeWidth="2.5"
+        stroke="#141519"
+        strokeWidth="2"
         strokeLinejoin="round"
       />
     </svg>

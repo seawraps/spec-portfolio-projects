@@ -1,72 +1,63 @@
+import Link from "next/link";
+
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Reveal } from "@/components/motion/reveal";
 import { services } from "@/lib/data";
 
 type FeaturedServicesProps = {
-  /** Limit the number of services shown. */
   limit?: number;
   showCta?: boolean;
 };
 
+/**
+ * Services as a clean index list rather than a wall of cards. Each row links
+ * to the services page.
+ */
 export function FeaturedServices({ limit, showCta = true }: FeaturedServicesProps) {
   const shown = typeof limit === "number" ? services.slice(0, limit) : services;
 
   return (
-    <section
-      id="services"
-      className="halftone-ink border-b border-[var(--color-line)] py-16 text-[var(--color-paper)] lg:py-24"
-    >
+    <section id="services" className="bg-[var(--fog)] py-20 lg:py-28">
       <Container>
         <Reveal>
-          <span className="comic-tag">What We Do</span>
-          <h2 className="comic-display mt-5 max-w-4xl text-[2.7rem] leading-[0.92] text-[var(--color-paper)] sm:text-[3.8rem] lg:text-[4.4rem]">
-            Pick your <span className="text-[var(--color-yellow)]">superpower.</span>
+          <p className="eyebrow text-[var(--slate)]">What Wu wraps</p>
+          <h2 className="display mt-5 max-w-3xl text-[2.4rem] text-[var(--ink)] sm:text-[3.2rem]">
+            Exteriors, interiors, rims, kits.
+            <span className="text-[var(--cedar)]"> All of it.</span>
           </h2>
-          <p className="mt-5 max-w-2xl text-[1.02rem] leading-8 text-[rgba(251,244,226,0.88)]">
-            From a full color change to a fleet of work vans, every job gets the same obsessive
-            prep and factory-grade finish.
-          </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 border-t border-[var(--line-light)]">
           {shown.map((service, index) => (
-            <Reveal key={service.id} delay={index * 60}>
-              <article className="comic-panel comic-panel-hover flex h-full flex-col p-6 text-[var(--color-ink)]">
-                <span className="comic-heavy text-[0.7rem] tracking-[0.16em] text-[var(--color-red)]">
-                  {service.issue}
-                </span>
-                <h3 className="comic-display mt-2 text-[1.9rem] leading-none text-[var(--color-ink)]">
+            <Reveal key={service.id} delay={Math.min(index * 40, 200)}>
+              <Link
+                href={`/services#${service.id}`}
+                className="group grid gap-2 border-b border-[var(--line-light)] py-6 transition-colors hover:bg-white sm:grid-cols-[2fr_3fr_auto] sm:items-baseline sm:gap-8 sm:px-4"
+              >
+                <h3 className="display text-[1.15rem] text-[var(--ink)] transition-colors group-hover:text-[var(--cedar)]">
                   {service.name}
+                  {service.tag ? (
+                    <span className="label ml-3 inline-block rounded-full bg-[var(--cedar)] px-2.5 py-0.5 align-middle text-[0.54rem] text-[var(--bone)]">
+                      New
+                    </span>
+                  ) : null}
                 </h3>
-                <p className="mt-3 flex-1 text-sm leading-7 text-[var(--color-ink-soft)]">
+                <p className="text-sm leading-7 text-[var(--slate)]">
                   {service.shortDescription}
                 </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {service.highlights.map((highlight) => (
-                    <li
-                      key={highlight}
-                      className="comic-heavy border border-[var(--color-line-strong)] bg-[var(--color-yellow)] px-2 py-1 text-[0.6rem] tracking-[0.08em] text-[var(--color-ink)]"
-                    >
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-                <p className="comic-heavy mt-4 border-t-[2px] border-dashed border-[var(--color-line-strong)] pt-3 text-[0.66rem] tracking-[0.1em] text-[var(--color-blue)]">
+                <p className="label hidden text-[0.62rem] text-[var(--slate)] sm:block">
                   {service.turnaround}
                 </p>
-              </article>
+              </Link>
             </Reveal>
           ))}
         </div>
 
         {showCta ? (
-          <Reveal className="mt-12 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            <ButtonLink href="/services" variant="yellow">
-              Full Service Lineup
-            </ButtonLink>
-            <ButtonLink href="/contact" variant="red">
-              Get a Quote
+          <Reveal className="mt-10">
+            <ButtonLink href="/services" variant="ink">
+              Every Service in Detail
             </ButtonLink>
           </Reveal>
         ) : null}

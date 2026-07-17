@@ -5,9 +5,9 @@ import { company } from "@/lib/data";
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://wuwraps-site.vercel.app";
 
-const baseTitle = `${company.name} | Vinyl Vehicle Wraps in Renton & Seattle, WA`;
+const baseTitle = `${company.name} | Vinyl Wraps, PPF & Tint in Renton & Seattle, WA`;
 const baseDescription =
-  "Wu Wraps is Seattle's most trusted vinyl wrap shop. 18 years of color-change wraps, commercial fleet graphics, custom prints, and paint protection film in Renton, WA.";
+  "Wu Wraps is the Pacific Northwest's most trusted vinyl wrap studio. Color change wraps, chrome deletes, racing stripes, PPF and window tint by Mark Wu in Renton, WA. Appointment only.";
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -20,14 +20,15 @@ export const siteMetadata: Metadata = {
   keywords: [
     "vinyl wrap Renton",
     "car wrap Seattle",
-    "vehicle wrap Seattle",
     "color change wrap Seattle",
-    "commercial fleet wraps Renton WA",
-    "fleet graphics Seattle",
-    "paint protection film Seattle",
-    "chrome delete Renton",
-    "custom car wrap Bellevue",
+    "chrome delete Tesla Seattle",
+    "racing stripes Seattle",
+    "headlight tint Renton",
+    "paint protection film Renton",
+    "window tint Renton WA",
+    "interior trim wrap Seattle",
     "Wu Wraps",
+    "Mark Wu",
   ],
   authors: [{ name: company.owner }],
   creator: company.owner,

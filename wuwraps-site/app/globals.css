@@ -1,40 +1,40 @@
 @import "tailwindcss";
 
+/*
+  Wu Wraps design system.
+  Palette pulled from the studio itself: charcoal polished concrete, cool gray
+  walls, bone white, and one cedar red accent that reads as both Coast Salish
+  formline red and racing red. Yellow survives only as the logo spark.
+*/
 :root {
-  /* Premium neutral base, grounded in the shop's polished-concrete floor (cool, not cream) */
   color-scheme: light;
-  --color-paper: #eef0f1;
-  --color-paper-deep: #e2e5e7;
-  --color-ink: #15141b;
-  --color-ink-deep: #0e0d13;
-  --color-ink-soft: #46434f;
-  --color-muted: #6b6675;
 
-  /* Accent inks (the comic twist) */
-  --color-red: #e4282c;
-  --color-red-deep: #b21319;
-  --color-blue: #1f57c3;
-  --color-blue-deep: #133a8a;
-  --color-yellow: #ffce1f;
-  --color-yellow-deep: #f0a500;
+  --ink: #141519;
+  --ink-deep: #0e0f12;
+  --graphite: #1c1e23;
+  --fog: #eef0f1;
+  --fog-deep: #e3e5e8;
+  --bone: #f6f5f1;
+  --slate: #4c505a;
+  --mist: rgba(246, 245, 241, 0.68);
 
-  --color-surface: #ffffff;
-  --color-line: rgba(21, 20, 27, 0.12);
-  --color-line-strong: rgba(21, 20, 27, 0.2);
-  --color-border: rgba(21, 20, 27, 0.9);
-  --color-error: #b21319;
+  --cedar: #c2402f;
+  --cedar-deep: #9c3223;
+  --spark: #ffce1f;
 
-  --halftone-light: rgba(255, 255, 255, 0.08);
-  --halftone-ink: rgba(20, 19, 26, 0.16);
+  --line-light: rgba(20, 21, 25, 0.14);
+  --line-lighter: rgba(20, 21, 25, 0.08);
+  --line-dark: rgba(246, 245, 241, 0.16);
+  --line-darker: rgba(246, 245, 241, 0.08);
+
+  --color-error: #9c3223;
 }
 
 @theme inline {
-  --color-background: var(--color-paper);
-  --color-foreground: var(--color-ink);
+  --color-background: var(--fog);
+  --color-foreground: var(--ink);
   --font-sans: var(--font-barlow);
   --font-display: var(--font-archivo);
-  --font-heavy: var(--font-archivo);
-  --font-pow: var(--font-bangers);
 }
 
 * {
@@ -52,36 +52,12 @@ html {
 }
 
 body {
-  background-color: var(--color-paper);
-  color: var(--color-ink);
+  background-color: var(--fog);
+  color: var(--ink);
   font-family: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
-  line-height: 1.6;
+  line-height: 1.65;
   min-height: 100vh;
-  position: relative;
   -webkit-font-smoothing: antialiased;
-}
-
-/* Whisper-faint premium paper grain (replaces the loud halftone wash) */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background-image: radial-gradient(rgba(20, 19, 26, 0.05) 0.8px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.6;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -2;
-  background:
-    radial-gradient(circle at 50% -8%, rgba(20, 19, 26, 0.05), transparent 42%),
-    radial-gradient(circle at 92% 6%, rgba(31, 87, 195, 0.05), transparent 30%);
 }
 
 main {
@@ -93,7 +69,7 @@ section {
 }
 
 section[id] {
-  scroll-margin-top: 9rem;
+  scroll-margin-top: 7rem;
 }
 
 a {
@@ -113,10 +89,10 @@ textarea {
     background-color 160ms ease,
     border-color 160ms ease,
     box-shadow 200ms ease,
+    opacity 200ms ease,
     transform 200ms ease;
 }
 
-/* Snappier taps on touch devices, no grey flash */
 a,
 button,
 label,
@@ -126,7 +102,6 @@ summary,
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Let long body copy break gracefully */
 p {
   text-wrap: pretty;
 }
@@ -136,206 +111,87 @@ img {
 }
 
 ::selection {
-  background: var(--color-yellow);
-  color: var(--color-ink);
+  background: var(--cedar);
+  color: var(--bone);
 }
 
 /* ---------- Typography ---------- */
 
-/* Premium modern display: heavy grotesk, tight tracking. The site's workhorse heading. */
-.comic-display {
+.display {
   font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
-  letter-spacing: -0.022em;
-  line-height: 0.96;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
   text-transform: uppercase;
   text-wrap: balance;
   font-variant-numeric: tabular-nums;
 }
 
-/* The comic twist: Bangers, reserved for the occasional accent word or badge. */
-.comic-pow {
-  font-family: var(--font-bangers), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 0.9;
+.eyebrow {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
-/* Small uppercase labels / eyebrows. */
-.comic-heavy {
-  font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+/* Cedar tick before an eyebrow: a quiet nod to a laid stripe of vinyl. */
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.4rem;
+  height: 2px;
+  background: var(--cedar);
+  vertical-align: middle;
+  margin-right: 0.7rem;
+  margin-top: -2px;
+}
+
+.label {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-/* Accent-colored display text (no comic outline anymore, just clean weight). */
-.ink-stroke {
-  color: var(--color-ink);
+/* ---------- Surfaces ---------- */
+
+.on-dark {
+  background-color: var(--ink);
+  color: var(--bone);
 }
 
-.ink-stroke-red {
-  color: var(--color-red);
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--graphite);
 }
 
-.ink-stroke-yellow {
-  color: var(--color-yellow);
-}
-
-/* ---------- Cards / panels ---------- */
-.comic-panel {
-  border: 1px solid var(--color-line);
-  border-radius: 18px;
-  background: var(--color-surface);
-  box-shadow:
-    0 1px 2px rgba(20, 19, 26, 0.04),
-    0 24px 50px -34px rgba(20, 19, 26, 0.55);
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease;
-}
-
-.comic-panel-hover:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 1px 2px rgba(20, 19, 26, 0.05),
-    0 34px 64px -32px rgba(20, 19, 26, 0.6);
-}
-
-.comic-panel-red {
-  border-radius: 18px;
-  background: var(--color-red);
-  color: var(--color-paper);
-  box-shadow: 0 24px 50px -32px rgba(228, 40, 44, 0.7);
-}
-
-.comic-panel-blue {
-  border-radius: 18px;
-  background: var(--color-blue);
-  color: var(--color-paper);
-  box-shadow: 0 24px 50px -32px rgba(31, 87, 195, 0.7);
-}
-
-.comic-panel-yellow {
-  border-radius: 18px;
-  background: var(--color-yellow);
-  color: var(--color-ink);
-  box-shadow: 0 24px 50px -32px rgba(240, 165, 0, 0.7);
-}
-
-.comic-panel-ink {
-  border-radius: 18px;
-  background: var(--color-ink);
-  color: var(--color-paper);
-  box-shadow: 0 24px 50px -30px rgba(20, 19, 26, 0.8);
-}
-
-/* Subtle printed-comic overlay for real photos: faint halftone dots + ink-edge vignette */
-.comic-halftone {
+/* Printed-page overlay for photos: a whisper of halftone plus a grounding
+   vignette. The one place the comic ink shows on every page. */
+.photo-tone {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background-image:
-    radial-gradient(rgba(20, 19, 26, 0.12) 1px, transparent 1.4px),
-    linear-gradient(to top, rgba(20, 19, 26, 0.28), rgba(20, 19, 26, 0) 40%);
+    radial-gradient(rgba(14, 15, 18, 0.05) 1px, transparent 1.3px),
+    linear-gradient(to top, rgba(14, 15, 18, 0.3), rgba(14, 15, 18, 0) 36%);
   background-size:
-    4px 4px,
+    6px 6px,
     100% 100%;
   mix-blend-mode: multiply;
 }
 
-/* Color-blocked section fills with a subtle halftone used sparingly as accents. */
-.halftone-red {
-  background-color: #cf2327;
-  background-image: radial-gradient(rgba(20, 19, 26, 0.14) 1.3px, transparent 1.6px);
-  background-size: 14px 14px;
-}
-
-.halftone-blue {
-  background-color: var(--color-blue-deep);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.3px, transparent 1.6px);
-  background-size: 14px 14px;
-}
-
-.halftone-yellow {
-  background-color: var(--color-yellow);
-  background-image: radial-gradient(rgba(20, 19, 26, 0.16) 1.3px, transparent 1.6px);
-  background-size: 14px 14px;
-}
-
-.halftone-ink {
-  background-color: var(--color-ink-deep);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.5px);
-  background-size: 16px 16px;
-}
-
-/* Faint radiating speed lines kept very subtle for a hint of motion. */
-.speed-lines {
-  background: repeating-conic-gradient(
-    from 0deg at 50% 50%,
-    rgba(20, 19, 26, 0.05) 0deg 1.4deg,
-    transparent 1.4deg 9deg
-  );
-}
-
-/* Eyebrow tag: clean pill with a single accent dot. */
-.comic-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  border: 1px solid var(--color-line-strong);
-  border-radius: 999px;
-  background: var(--color-surface);
-  color: var(--color-ink);
-  font-family: var(--font-archivo), sans-serif;
-  font-size: 0.62rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 0.42rem 0.95rem;
-}
-
-.comic-tag::before {
-  content: "";
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 999px;
-  background: var(--color-red);
-  flex: none;
-}
-
-/* Burst / starburst badge the loudest piece of comic kept on purpose. */
-.burst {
-  --burst-size: 8rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--burst-size);
-  height: var(--burst-size);
-  text-align: center;
-  background: var(--color-yellow);
-  color: var(--color-ink);
-  border: 2px solid var(--color-ink);
-  clip-path: polygon(
-    50% 0%, 61% 18%, 83% 12%, 78% 35%, 100% 43%, 82% 57%, 95% 78%,
-    70% 76%, 65% 100%, 50% 82%, 35% 100%, 30% 76%, 5% 78%, 18% 57%,
-    0% 43%, 22% 35%, 17% 12%, 39% 18%
-  );
-}
-
-/* Quote / caption card. */
-.caption-box {
-  border: 1px solid var(--color-line);
-  border-radius: 16px;
-  background: var(--color-surface);
-  box-shadow: 0 18px 44px -32px rgba(20, 19, 26, 0.55);
-}
-
 /* ---------- Reveal animation ---------- */
+
 .reveal {
   opacity: 0;
-  transform: translate3d(0, var(--reveal-distance, 22px), 0);
+  transform: translate3d(0, var(--reveal-distance, 18px), 0);
   transition:
-    opacity 640ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
-    transform 640ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+    opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
 
@@ -350,7 +206,7 @@ button:focus-visible,
 summary:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid var(--color-blue);
+  outline: 3px solid var(--cedar);
   outline-offset: 3px;
 }
 
@@ -370,10 +226,6 @@ textarea:focus-visible {
 
   .reveal {
     opacity: 1;
-    transform: none;
-  }
-
-  .comic-panel-hover:hover {
     transform: none;
   }
 }

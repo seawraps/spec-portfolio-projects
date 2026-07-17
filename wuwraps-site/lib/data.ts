@@ -5,27 +5,12 @@ export type NavLink = {
 
 export type Service = {
   id: string;
-  issue: string;
   name: string;
+  tag?: string;
   shortDescription: string;
   fullDescription: string;
-  idealFor: string;
   includes: string[];
-  highlights: string[];
   turnaround: string;
-};
-
-export type ProcessStep = {
-  title: string;
-  description: string;
-  deliverable: string;
-};
-
-export type Testimonial = {
-  quote: string;
-  customerName: string;
-  location: string;
-  project: string;
 };
 
 export type GalleryBuild = {
@@ -34,11 +19,14 @@ export type GalleryBuild = {
   category: string;
   film: string;
   summary: string;
-  scope: string[];
-  accent: "red" | "blue" | "yellow";
-  /** Path to a real install photo under /public. When omitted, a comic illustration is shown. */
   image?: string;
   imageAlt?: string;
+};
+
+export type Testimonial = {
+  quote: string;
+  customerName: string;
+  context: string;
 };
 
 export type FaqItem = {
@@ -50,7 +38,7 @@ export const company = {
   name: "Wu Wraps",
   owner: "Mark Wu",
   tagline:
-    "Seattle's most trusted vinyl wrap shop. Eighteen years turning daily drivers, show cars, and work fleets into rolling artwork out of Renton, Washington.",
+    "Vinyl wrap studio in Renton, Washington. Color changes, chrome deletes, PPF and tint for the Pacific Northwest car community.",
   phoneDisplay: "(206) 707-6491",
   phoneRaw: "+12067076491",
   email: "wuwraps@gmail.com",
@@ -63,9 +51,8 @@ export const company = {
     "Saturday: By appointment",
     "Sunday: Closed",
   ],
-  badge: "18 Years Wrapping the Pacific Northwest",
+  appointmentNote: "Appointment only. No walk-ins, please reach out first.",
   foundedYear: "2008",
-  yearsInBusiness: "18",
   primaryServiceArea:
     "Renton, Seattle, Bellevue, Kent, Tukwila, Newcastle, Issaquah, and the greater Puget Sound",
 };
@@ -73,296 +60,265 @@ export const company = {
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/gallery", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
-export const trustIndicators = [
-  {
-    title: "18 years, thousands of wraps",
-    detail:
-      "Mark Wu has been laying vinyl in the Renton and Seattle area since 2008. The reputation was earned one clean install at a time.",
-  },
-  {
-    title: "Premium films only",
-    detail:
-      "We install certified, name-brand cast vinyl from 3M, Avery Dennison, and KPMF, backed by real manufacturer warranties.",
-  },
-  {
-    title: "Brand-new, bigger shop",
-    detail:
-      "A larger climate-controlled bay means more lifts, faster turnaround, and room to take on full fleets without the wait.",
-  },
-  {
-    title: "Trusted by thousands",
-    detail:
-      "Daily drivers, exotics, race cars, and commercial fleets across Puget Sound roll on a Wu Wraps install.",
-  },
+/** The communities and shops that already know the name. */
+export const trustedBy = [
+  "As seen on Avants",
+  "PNW Tesla community",
+  "Mini Cooper clubs",
+  "Classic car groups",
+  "Imperial Tint",
+  "Accutint",
 ];
 
-export const featuredStats = [
-  { value: "18", label: "Years wrapping the Pacific Northwest" },
-  { value: "5K+", label: "Vehicles transformed and counting" },
-  { value: "100%", label: "Premium cast vinyl, every job" },
+export const heroStats = [
+  { value: "Since 2008", label: "Wrapping the Pacific Northwest" },
+  { value: "Thousands", label: "Of panels laid by the same two hands" },
+  { value: "By appointment", label: "One build in the studio at a time" },
 ];
 
 export const services: Service[] = [
   {
-    id: "color-change-wraps",
-    issue: "No. 01",
-    name: "Full Color-Change Wraps",
+    id: "color-change",
+    name: "Full Color Change",
     shortDescription:
-      "Transform your ride bumper to bumper. Gloss, satin, matte, chrome, or color-shift, all without touching the factory paint.",
+      "Bumper to bumper transformations in gloss, satin, matte and color shift, finished so clean they read as paint.",
     fullDescription:
-      "A full color change is the headline act. We disassemble panels, wrap every visible surface, and tuck the edges so it reads like factory paint. Switch your daily into a head-turner and protect the original finish underneath for resale day.",
-    idealFor:
-      "Drivers who want a brand-new look, a rare color, or a finish the factory never offered, with the paint protected underneath.",
+      "The headline act. Panels come apart, every visible surface gets wrapped, and the edges tuck out of sight so the finish reads as factory. Your original paint stays preserved underneath for the day you sell or switch.",
     includes: [
-      "Full panel disassembly and edge tucking",
-      "Door jambs and hidden areas wrapped on request",
-      "Hundreds of gloss, satin, matte, and color-shift options",
-      "Factory paint preserved for resale value",
+      "Panel disassembly and full edge tucking",
+      "Door jambs and hidden areas on request",
+      "Premium cast films from 3M, Avery Dennison, KPMF and Inozetek",
+      "Factory paint preserved for resale",
     ],
-    highlights: ["Color-shift & chrome", "Satin & matte", "Factory-grade edges"],
-    turnaround: "Typical install: 3 to 5 days",
+    turnaround: "3 to 5 days",
   },
   {
-    id: "commercial-fleet",
-    issue: "No. 02",
-    name: "Commercial & Fleet Graphics",
+    id: "interior-trim",
+    name: "Interior & Trim",
     shortDescription:
-      "Turn your vans, trucks, and trailers into 24/7 billboards with bold, on-brand printed graphics that get noticed.",
+      "Dash panels, consoles and trim wrapped in textures the factory never offered, without a single sprayed part.",
     fullDescription:
-      "Your work vehicles are the cheapest advertising you'll ever buy. We design, print, and install logos, lettering, and full fleet wraps that keep your branding consistent across every truck on the road, and pulling in calls while parked.",
-    idealFor:
-      "Contractors, trades, food trucks, and any local business that wants its vehicles working as rolling advertisements.",
+      "Interior work is where patience shows. Trim pieces come out, get wrapped edge to edge in carbon, brushed metal, gloss or satin, and go back in with zero rattles. A cabin refresh that is fully reversible.",
     includes: [
-      "Custom design and print-ready artwork",
-      "Logos, lettering, and partial or full coverage",
-      "Consistent branding across the whole fleet",
-      "DOT numbers and contact info layout",
+      "Dash, console and door trim",
+      "Carbon fiber, brushed and textured films",
+      "Careful removal and reinstall",
+      "Fully reversible, no paint or dip",
     ],
-    highlights: ["Fleet consistency", "Print + cut graphics", "Built to be seen"],
-    turnaround: "Typical install: 1 to 4 days per vehicle",
+    turnaround: "1 to 3 days",
   },
   {
-    id: "partial-accents",
-    issue: "No. 03",
-    name: "Partial Wraps & Accents",
+    id: "rims-body-kits",
+    name: "Rims & Body Kits",
     shortDescription:
-      "Roofs, hoods, mirror caps, chrome delete, and racing stripes. Sharp accents that change the whole attitude of the car.",
+      "Wheels, aero and kit pieces wrapped to match or contrast the body, sharper than powder and easier to change.",
     fullDescription:
-      "Not every build needs a full wrap. A gloss-black roof, a blacked-out chrome trim package, a carbon-fiber hood, or a clean set of stripes can completely change the stance of a vehicle for a fraction of the cost.",
-    idealFor:
-      "Owners who want a custom touch: chrome delete, two-tone roofs, hoods, mirrors, or stripe kits, without a full color change.",
+      "Splitters, spoilers, diffusers, mirror caps and full wheel faces. Wrapping kit pieces gets you a perfect color match or a deliberate contrast, and when you change direction the vinyl comes off clean.",
     includes: [
-      "Chrome delete and trim blackout",
-      "Roof, hood, and mirror-cap wraps",
-      "Racing stripes and accent graphics",
-      "Carbon-fiber and brushed-metal textures",
+      "Wheel faces and center caps",
+      "Splitters, spoilers and diffusers",
+      "Perfect match to the body wrap",
+      "Swap the look without repainting",
     ],
-    highlights: ["Chrome delete", "Two-tone roofs", "Stripe kits"],
-    turnaround: "Typical install: 1 to 2 days",
+    turnaround: "1 to 2 days",
   },
   {
-    id: "custom-prints",
-    issue: "No. 04",
-    name: "Custom Printed Wraps & Liveries",
+    id: "chrome-delete",
+    name: "Chrome Delete",
     shortDescription:
-      "One-off printed designs, race liveries, and wild custom graphics. If you can dream it up, we can lay it down.",
+      "Window trim, badges, grilles and accents blacked out with the obsessive edge work Wu is known for.",
     fullDescription:
-      "This is where it gets fun. Full-color printed wraps, track-day liveries, sponsor layouts, and one-of-one art cars. We handle the design, the print, the lamination, and the install so the finished piece looks like it drove off a comic-book splash page.",
-    idealFor:
-      "Show builds, race teams, promo vehicles, and anyone who wants a finish nobody else on the road has.",
+      "The detail job that separates installers from artists. Every strip of trim gets wrapped individually, corners wrapped around and tucked, so the blackout looks anodized rather than taped. Tesla and Mini owners around the Sound know this one well.",
     includes: [
-      "Custom design and proofing",
-      "Full-color printed and laminated vinyl",
-      "Race liveries and sponsor layouts",
-      "Color-matching to your brand or theme",
+      "Window surrounds, badges and grilles",
+      "Gloss, satin or matte black",
+      "Individual piece by piece wrapping",
+      "The cleanest edges in the business",
     ],
-    highlights: ["Race liveries", "Full-color print", "One-of-one art"],
-    turnaround: "Typical install: 4 to 7 days with design",
+    turnaround: "1 to 2 days",
   },
   {
-    id: "ppf-protection",
-    issue: "No. 05",
-    name: "Paint Protection Film (PPF)",
+    id: "stripes-accents",
+    name: "Racing Stripes & Accents",
     shortDescription:
-      "Clear, self-healing film that guards your paint from rock chips, road rash, and Pacific Northwest weather.",
+      "Custom designed stripes, roofs, hoods and graphic accents, laid straight and symmetrical every time.",
     fullDescription:
-      "Invisible armor for your finish. Self-healing clear film takes the rock chips, bug etching, and grime so your paint doesn't have to. Add it to high-impact zones or go full-front for the ones you plan to keep.",
-    idealFor:
-      "New cars, exotics, and anyone who wants the paint underneath to stay flawless for years.",
+      "From classic dual rally stripes to one-off accent packages, every stripe is designed for your car's proportions, then laid by hand and aligned down to the millimeter. A favorite with the classic car crowd.",
     includes: [
-      "Full-front, track-pack, or full-body coverage",
-      "Self-healing, high-gloss clear film",
-      "Rock-chip and road-rash protection",
-      "Pairs perfectly with a color-change wrap",
+      "Custom stripe design and layout",
+      "Roof, hood and mirror accents",
+      "Two tone treatments",
+      "Classic and modern styles",
     ],
-    highlights: ["Self-healing", "Invisible armor", "Resale protection"],
-    turnaround: "Typical install: 2 to 4 days",
+    turnaround: "1 to 2 days",
   },
   {
-    id: "wrap-removal",
-    issue: "No. 06",
-    name: "Wrap Removal & Restoration",
+    id: "light-tinting",
+    name: "Tail Light & Headlight Tinting",
     shortDescription:
-      "Clean removal of old or failing vinyl, adhesive cleanup, and surface prep to get you back to factory or ready to re-wrap.",
+      "Smoked tail lights and tinted headlight film, done to look factory and keep you road legal.",
     fullDescription:
-      "Time for a change, or inherited someone else's bad install? We strip old vinyl the right way: low heat, careful peel, full adhesive cleanup, so your paint comes out clean and ready for whatever's next.",
-    idealFor:
-      "Trade-ins, lease returns, color swaps, and rescuing a wrap that someone else botched.",
+      "Precut and hand finished light film that smokes out the rear and cleans up the front without the sprayed-on look. Subtle percentages that keep output usable and looks intentional.",
     includes: [
-      "Safe, low-heat vinyl removal",
-      "Complete adhesive and residue cleanup",
-      "Paint inspection and surface prep",
-      "Re-wrap consultation if you're going again",
+      "Tail light smoke in multiple shades",
+      "Headlight and fog light film",
+      "Protects lenses from rock chips",
+      "Removable, no spray tint",
     ],
-    highlights: ["Clean peel", "Adhesive cleanup", "Re-wrap ready"],
-    turnaround: "Typical service: 1 to 2 days",
+    turnaround: "Same day to 1 day",
+  },
+  {
+    id: "ppf",
+    name: "Paint Protection Film",
+    tag: "New at the studio",
+    shortDescription:
+      "Self-healing clear armor for fronts, track packs or full bodies, now offered out of the larger facility.",
+    fullDescription:
+      "The new studio made room for full PPF service. Self-healing clear film takes the rock chips, road rash and bug etching so your paint or wrap does not have to. Pair a full body wrap with PPF on the nose for the best of both.",
+    includes: [
+      "Full front, track pack or full body",
+      "Self-healing top coat",
+      "Stacks with color change wraps",
+      "Kept flawless for years",
+    ],
+    turnaround: "2 to 4 days",
+  },
+  {
+    id: "window-tint",
+    name: "Window Tint",
+    tag: "New at the studio",
+    shortDescription:
+      "Ceramic window film for heat, glare and privacy, installed with the same edge discipline as the vinyl.",
+    fullDescription:
+      "Another new service the bigger space unlocked. High grade ceramic film cuts heat and glare, protects the interior and finishes the look. Installed dust free, edge to edge, with no gaps and no purple fade.",
+    includes: [
+      "Ceramic film, multiple shades",
+      "Heat and UV rejection",
+      "Dust free installation",
+      "Legal shades guidance for WA",
+    ],
+    turnaround: "Same day to 1 day",
   },
 ];
 
-export const processSteps: ProcessStep[] = [
+export const galleryBuilds: GalleryBuild[] = [
   {
-    title: "Origin Story: The Quote",
-    description:
-      "Tell us about the vehicle and the look you're chasing. Send photos or swing by the new shop and we'll talk film, finish, coverage, and a straight-up price.",
-    deliverable: "A clear, honest quote with no surprise add-ons.",
+    title: "2080 Gloss Green",
+    vehicle: "Porsche 911 GT2",
+    category: "Full Color Change",
+    film: "3M 2080 gloss green, satin black hood",
+    summary:
+      "A clean GT2 taken to gloss green with a satin black hood. The kind of color you cannot order from Stuttgart.",
+    image: "/images/gallery/porsche-gt2-green.jpg",
+    imageAlt:
+      "Porsche 911 GT2 wrapped in 3M 2080 gloss green with a satin black hood at the Wu Wraps studio in Renton",
   },
   {
-    title: "Design & Film Pick",
-    description:
-      "Pick your color or finish from hundreds of premium options. For printed and commercial jobs, we mock up the artwork and proof it with you before anything hits the printer.",
-    deliverable: "Locked-in film choice or approved design proof.",
+    title: "Triple Crown",
+    vehicle: "McLaren 750S Spyder",
+    category: "Accent Work",
+    film: "Factory white with orange accents",
+    summary:
+      "One of sixty Triple Crown Spyders worldwide. Precision accent work on a car you do not hand to just anyone.",
+    image: "/images/gallery/mclaren-750s-spyder.jpg",
+    imageAlt:
+      "White McLaren 750S Spyder Triple Crown with orange accents inside the Wu Wraps studio",
   },
   {
-    title: "Prep: The Real Work",
-    description:
-      "This is where installs are won or lost. We deep-clean, decontaminate, and disassemble the panels so the vinyl lays down flawless and the edges disappear.",
-    deliverable: "A spotless, decontaminated surface ready for film.",
+    title: "Speed Yellow",
+    vehicle: "Porsche 911 Targa GTS",
+    category: "Accents & Blackout",
+    film: "Subtle black accent package",
+    summary:
+      "A loaded Targa GTS with blacked out trim and clean side striping that sharpens the factory yellow.",
+    image: "/images/gallery/porsche-targa-gts-yellow.jpg",
+    imageAlt:
+      "Yellow Porsche 911 Targa GTS with black accent wrapping at Wu Wraps",
   },
   {
-    title: "The Install",
-    description:
-      "Eighteen years of hands-on experience meet your vehicle. Precise, patient, bubble-free installation with edges tucked and wrapped like it came that way from the factory.",
-    deliverable: "A clean, tight, factory-quality wrap.",
+    title: "Round Four",
+    vehicle: "Ford Bronco Raptor",
+    category: "Accents & Accessories",
+    film: "Blackout accents and accessories",
+    summary:
+      "A repeat client's Bronco Raptor back for its fourth round of blackout work. They keep coming back for a reason.",
+    image: "/images/gallery/ford-bronco-raptor.jpg",
+    imageAlt:
+      "White Ford Bronco Raptor with blacked out accents at the Wu Wraps studio",
   },
   {
-    title: "Reveal & Care Guide",
-    description:
-      "We walk the whole vehicle with you, check every edge in the light, and send you off with care instructions so the wrap stays sharp for years.",
-    deliverable: "Final walkthrough, care guide, and warranty info.",
+    title: "Roof Redone",
+    vehicle: "Subaru WRX",
+    category: "Roof Wrap",
+    film: "Gloss black roof",
+    summary:
+      "A years-old DIY roof job stripped and redone properly. Clean edges, no lifting, done once and done right.",
+    image: "/images/gallery/subaru-wrx-blue.jpg",
+    imageAlt:
+      "Blue Subaru WRX with a fresh gloss black roof wrap in front of the Wu Wraps mural",
   },
 ];
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Mark wrapped my GT-R satin black and it looks better than paint. Edges are perfect, no lifting a year later. Nobody in Seattle touches his attention to detail.",
+      "I found Mark through Avants and now I will not let anyone else touch my cars. The chrome delete on my Model S looks anodized, not wrapped. You have to see his edges in person.",
     customerName: "Derek T.",
-    location: "Bellevue, WA",
-    project: "Full color-change wrap",
+    context: "Avants member, Bellevue",
   },
   {
     quote:
-      "We wrapped all six of our service vans with Wu Wraps. Consistent, sharp, and the phone hasn't stopped ringing since. Best marketing money we've spent.",
+      "Half the Mini club has been through Mark's studio at this point. Stripes, roofs, mirror caps, all of it laid straight and symmetrical. Nobody else gets the details this right.",
     customerName: "Priya N.",
-    location: "Kent, WA",
-    project: "Fleet graphics",
+    context: "PNW Mini Cooper community",
   },
   {
     quote:
-      "Been going to Mark for years. Chrome delete, roof wrap, now a full livery on the track car. The guy is an artist and treats every car like it's his own.",
+      "I trusted him with a fifty year old car and he treated it like his own. The stripe layout took longer than the install because he refused to eyeball it. That is the difference.",
     customerName: "Marcus R.",
-    location: "Renton, WA",
-    project: "Custom livery & accents",
+    context: "Classic car owner, Renton",
   },
 ];
 
-export const galleryBuilds: GalleryBuild[] = [
+export const artistPoints = [
   {
-    title: "2080 Gloss Green GT2",
-    vehicle: "Porsche 911 GT2",
-    category: "Full Color-Change",
-    film: "3M 2080 gloss green",
-    summary:
-      "This clean GT2 came through the shop for a head-turning color change in 3M 2080 gloss green, set off by a satin-black hood for a real splash-page contrast.",
-    scope: ["Full color change", "Satin black hood", "Edge tuck"],
-    accent: "blue",
-    image: "/images/gallery/porsche-gt2-green.jpg",
-    imageAlt:
-      "Porsche 911 GT2 wrapped in 3M 2080 gloss green with a satin black hood at the Wu Wraps shop in Renton",
+    title: "An artist, not an installer",
+    description:
+      "Mark grew up on comics and graffiti and it shows in the studio walls. The craft is the same one he brings to a panel of vinyl: steady hands, obsessive lines, no shortcuts.",
   },
   {
-    title: "Triple Crown Spyder",
-    vehicle: "McLaren 750S Spyder",
-    category: "Accents & Detail",
-    film: "Gloss white + orange accents",
-    summary:
-      "One of just sixty Triple Crown 750S Spyders worldwide rolled into the bay for precision accent work. The kind of rare car you only trust to hands with eighteen years on them.",
-    scope: ["Accent wrap", "Precision install", "Exotic care"],
-    accent: "yellow",
-    image: "/images/gallery/mclaren-750s-spyder.jpg",
-    imageAlt:
-      "Gloss white McLaren 750S Spyder with orange accents in the Wu Wraps install bay",
+    title: "The installer the installers call",
+    description:
+      "When shops like Imperial Tint and Accutint need vinyl laid, the work comes to Mark. If you have admired a wrap around Seattle, there is a good chance his hands were on it.",
   },
   {
-    title: "Speed Yellow Targa",
-    vehicle: "Porsche 911 Targa GTS",
-    category: "Partial & Accents",
-    film: "Subtle black accent package",
-    summary:
-      "A fully-loaded Targa GTS in for a subtle accent package. Blacked-out trim and clean side striping that sharpen the lines without touching the factory yellow.",
-    scope: ["Accent wrap", "Trim blackout", "Side stripes"],
-    accent: "red",
-    image: "/images/gallery/porsche-targa-gts-yellow.jpg",
-    imageAlt:
-      "Yellow Porsche 911 Targa GTS with subtle black accent wrapping at Wu Wraps",
-  },
-  {
-    title: "Lifted & Loaded Bronco",
-    vehicle: "Ford Bronco Raptor",
-    category: "Partial & Accents",
-    film: "Blackout accents & accessories",
-    summary:
-      "Round four on a regular client's Bronco Raptor. Another set of blacked-out accents and accessories layered on to keep this rig looking meaner every time it visits.",
-    scope: ["Accent wrap", "Accessory install", "Repeat client"],
-    accent: "yellow",
-    image: "/images/gallery/ford-bronco-raptor.jpg",
-    imageAlt:
-      "White Ford Bronco Raptor with blacked-out accents and accessories at the Wu Wraps shop",
-  },
-  {
-    title: "Roof-Wrapped WRX",
-    vehicle: "Subaru WRX",
-    category: "Partial & Accents",
-    film: "Gloss black roof wrap",
-    summary:
-      "This souped-up Subie came in to replace a years-old DIY roof job with a proper gloss-black roof wrap. Clean edges, no lifting, done the right way.",
-    scope: ["Roof wrap", "Old vinyl removal", "Clean edges"],
-    accent: "blue",
-    image: "/images/gallery/subaru-wrx-blue.jpg",
-    imageAlt:
-      "Blue Subaru WRX with a fresh gloss black roof wrap in front of the Wu Wraps graffiti wall",
-  },
-  {
-    title: "Rolling Billboard Fleet",
-    vehicle: "Sprinter Van Fleet",
-    category: "Commercial & Fleet",
-    film: "Printed & laminated graphics",
-    summary:
-      "Matching service vans wrapped with bold brand colors, oversized logos, and contact info sized to read from three lanes over. Advertising that works while it's parked.",
-    scope: ["Fleet design", "Full print wrap", "DOT lettering"],
-    accent: "red",
+    title: "A bigger studio, the same standard",
+    description:
+      "The new facility added room for PPF and window tint, but nothing else changed. One build at a time, by appointment, finished when it is right.",
   },
 ];
 
-export const aboutStats = [
-  { label: "Wrapping since", value: company.foundedYear },
-  { label: "Home base", value: "Renton Highlands, WA" },
-  { label: "Specialty", value: "Color-change, fleet, and custom prints" },
+export const processSteps = [
+  {
+    title: "Reach out",
+    description:
+      "The studio is appointment only, so start with a call, an email or the form. Tell Mark the car and the look you are chasing. Photos help.",
+  },
+  {
+    title: "Talk it through",
+    description:
+      "You will get a straight answer on film, finish, timeline and price. Competitive rates for the best work in town means the quote tends to make sense fast.",
+  },
+  {
+    title: "Book the build",
+    description:
+      "Your car gets the studio to itself. Prep, disassembly, install and a final walkthrough of every edge before it rolls out.",
+  },
 ];
 
 export const serviceAreas = [
@@ -380,62 +336,48 @@ export const serviceAreas = [
   "Auburn",
 ];
 
-export const differentiators = [
-  "Eighteen years of hands-on installs, not a franchise, a craftsman",
-  "Premium cast films from 3M, Avery Dennison, and KPMF only",
-  "A brand-new, bigger shop built to take on full fleets",
-  "Every car treated like it's his own, from daily driver to exotic",
-];
-
-export const aboutHighlights = [
-  {
-    title: "A Pacific Northwest staple",
-    description:
-      "Mark Wu didn't build his name on ads. He built it on clean installs and word of mouth. Eighteen years later, Wu Wraps is the name Seattle gearheads pass to a friend.",
-  },
-  {
-    title: "Craftsmanship over volume",
-    description:
-      "Wrapping is part chemistry, part patience, part art. Every panel is prepped right, every edge is tucked, and nothing leaves the shop until it would pass as factory.",
-  },
-  {
-    title: "Bigger shop, same hands",
-    description:
-      "The new, larger space means faster turnaround and room for fleets, but Mark is still the one laying the vinyl on every build that rolls out the door.",
-  },
+export const aboutStats = [
+  { label: "Wrapping since", value: company.foundedYear },
+  { label: "Home base", value: "Renton, WA" },
+  { label: "Booking", value: "Appointment only" },
 ];
 
 export const consultationChecklist = [
-  "Year, make, and model of your vehicle",
-  "The finish or look you're going for (or send inspo photos)",
-  "Full wrap, partial, fleet, or PPF",
-  "Your timeline and any event you're building toward",
+  "Year, make and model",
+  "The look you are going for, inspiration photos welcome",
+  "Which services: wrap, chrome delete, stripes, PPF, tint",
+  "Your timeline or any event you are building toward",
 ];
 
 export const contactPageFaq: FaqItem[] = [
   {
+    question: "Do you take walk-ins?",
+    answer:
+      "No, the studio is appointment only. Call, email or send the form first and Mark will get you scheduled. It keeps every build getting his full attention.",
+  },
+  {
     question: "How long does a vinyl wrap last?",
     answer:
-      "A quality cast-vinyl wrap, installed right and cared for, typically lasts five to seven years. We only use premium films from 3M, Avery Dennison, and KPMF so you get the full lifespan.",
+      "A quality cast vinyl wrap, installed right and cared for, typically lasts five to seven years. Wu Wraps only installs premium films from 3M, Avery Dennison, KPMF and Inozetek, so you get the full lifespan.",
   },
   {
     question: "Will a wrap damage my factory paint?",
     answer:
-      "No. Done correctly, a wrap actually protects your paint. As long as the original finish is in good shape, the vinyl comes off cleanly when you're ready for a change and the paint underneath stays preserved.",
+      "No. Done correctly, a wrap protects your paint. As long as the original finish is healthy, the vinyl comes off clean whenever you are ready for a change.",
   },
   {
-    question: "Do you wrap commercial fleets and work trucks?",
+    question: "How much does it cost?",
     answer:
-      "Absolutely. Fleet and commercial graphics are a big part of what we do. We keep your branding consistent across every vehicle and our new, larger shop lets us turn fleets around faster than ever.",
+      "It depends on the vehicle, the film and the coverage. Pricing is competitive, and you are getting the best work in town, so it tends to be one hell of a deal. Send your details for a straight quote.",
   },
   {
-    question: "How much does a wrap cost?",
+    question: "Do you offer PPF and window tint?",
     answer:
-      "It depends on the vehicle, the film, and the coverage. Partial accents start affordable, while full color-change and custom printed wraps cost more. Send us your vehicle details for a straight, honest quote.",
+      "Yes. The new, larger studio added full paint protection film and ceramic window tint service alongside the vinyl work.",
   },
   {
-    question: "Where are you located?",
+    question: "Can you wrap things that are not cars?",
     answer:
-      "We're based in the Renton Highlands and serve the greater Seattle and Puget Sound area, including Bellevue, Kent, Tukwila, Newcastle, and Issaquah. Reach out and we'll get you scheduled.",
+      "If it can be wrapped, Mark can wrap it. Motorcycles, boats, appliances, furniture. Reach out with the project and find out.",
   },
 ];
