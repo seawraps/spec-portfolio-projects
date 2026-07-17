@@ -6,11 +6,12 @@ import { company } from "@/lib/data";
 
 export function CtaSection() {
   return (
-    <section className="on-dark bg-[var(--graphite)] py-20 lg:py-28">
-      <Container>
+    <section className="on-dark relative overflow-hidden bg-[var(--graphite)] py-20 lg:py-28">
+      <div className="halftone-corner" aria-hidden="true" />
+      <Container className="relative">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="display text-[2.6rem] text-[var(--bone)] sm:text-[3.6rem]">
+            <h2 className="display print-offset text-[2.6rem] text-[var(--bone)] sm:text-[3.6rem]">
               Wrapped right,
               <br />
               or not at all.

@@ -10,8 +10,8 @@ export function ArtistSection() {
     <section className="bg-[var(--fog)] py-20 lg:py-28">
       <Container className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
         <Reveal>
-          <figure className="photo-frame lg:sticky lg:top-28">
-            <div className="relative aspect-[4/3] w-full lg:aspect-[3/4]">
+          <figure className="comic-frame comic-frame-light lg:sticky lg:top-28">
+            <div className="comic-frame-media relative aspect-[4/3] w-full lg:aspect-[3/4]">
               <Image
                 src="/images/gallery/mclaren-750s-spyder.jpg"
                 alt="McLaren 750S Spyder in the Wu Wraps studio, in front of the painted WU! WRAPS mural"
@@ -21,7 +21,7 @@ export function ArtistSection() {
               />
               <span className="photo-tone" aria-hidden="true" />
             </div>
-            <figcaption className="label absolute bottom-4 left-4 rounded-full bg-[rgba(14,15,18,0.72)] px-4 py-2 text-[0.6rem] text-[var(--bone)] backdrop-blur-sm">
+            <figcaption className="caption-tag absolute -bottom-3 left-4">
               The studio, Renton WA
             </figcaption>
           </figure>

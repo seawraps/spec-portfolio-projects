@@ -2,12 +2,14 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { Formline } from "@/components/ui/formline";
+import { FormlineBand } from "@/components/ui/formline-band";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { company, navLinks, serviceAreas } from "@/lib/data";
 
 export function SiteFooter() {
   return (
-    <footer className="on-dark border-t border-[var(--line-darker)]">
+    <footer className="on-dark">
+      <FormlineBand bg="var(--ink)" />
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.3fr_0.7fr_0.9fr] lg:py-20">
         <div>
           <div className="flex items-center gap-3">

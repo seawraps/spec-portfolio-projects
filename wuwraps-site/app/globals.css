@@ -35,6 +35,7 @@
   --color-foreground: var(--ink);
   --font-sans: var(--font-barlow);
   --font-display: var(--font-archivo);
+  --font-pow: var(--font-bangers);
 }
 
 * {
@@ -155,11 +156,139 @@ img {
   text-transform: uppercase;
 }
 
+/* Comic lettering, rationed: the burst badge and quote glyphs only. */
+.pow {
+  font-family: var(--font-bangers), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+/* 80s print misregistration: the color plate sits a hair off the black plate. */
+.print-offset {
+  text-shadow: 5px 5px 0 rgba(194, 64, 47, 0.85);
+}
+
+.print-offset-soft {
+  text-shadow: 4px 4px 0 rgba(194, 64, 47, 0.35);
+}
+
 /* ---------- Surfaces ---------- */
 
 .on-dark {
   background-color: var(--ink);
   color: var(--bone);
+}
+
+/* Ben-Day dot field bleeding in from a corner, like an 80s cover background. */
+.halftone-corner {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(194, 64, 47, 0.5) 1.7px, transparent 2px);
+  background-size: 15px 15px;
+  -webkit-mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 52%);
+  mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 52%);
+}
+
+.halftone-corner-left {
+  -webkit-mask-image: radial-gradient(circle at 0% 100%, black 0%, transparent 48%);
+  mask-image: radial-gradient(circle at 0% 100%, black 0%, transparent 48%);
+}
+
+.halftone-corner-light {
+  background-image: radial-gradient(rgba(20, 21, 25, 0.22) 1.7px, transparent 2px);
+}
+
+@media (max-width: 640px) {
+  .halftone-corner {
+    -webkit-mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 34%);
+    mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 34%);
+  }
+
+  .halftone-corner-left {
+    -webkit-mask-image: radial-gradient(circle at 0% 100%, black 0%, transparent 34%);
+    mask-image: radial-gradient(circle at 0% 100%, black 0%, transparent 34%);
+  }
+}
+
+/* Marvel caption box: the yellow narration tag pinned to a panel corner. */
+.caption-tag {
+  display: inline-block;
+  background: var(--spark);
+  color: var(--ink-deep);
+  border: 2px solid var(--ink-deep);
+  box-shadow: 3px 3px 0 0 var(--ink-deep);
+  font-family: var(--font-archivo), sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  transform: rotate(-1.2deg);
+}
+
+/* Comic panel frame for photos: inked border, hard cedar offset shadow. */
+.comic-frame {
+  position: relative;
+  overflow: visible;
+  border-radius: 10px;
+  background: var(--graphite);
+  border: 3px solid var(--bone);
+  box-shadow: 9px 9px 0 0 var(--cedar);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.comic-frame > .comic-frame-media {
+  overflow: hidden;
+  border-radius: 7px;
+}
+
+.comic-frame-hover:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 13px 13px 0 0 var(--cedar);
+}
+
+/* Frame variant for light sections: inked border instead of bone. */
+.comic-frame-light {
+  border-color: var(--ink-deep);
+}
+
+/* Starburst badge, straight off a cover corner. */
+.burst {
+  --burst-size: 7.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--burst-size);
+  height: var(--burst-size);
+  text-align: center;
+  background: var(--spark);
+  color: var(--ink-deep);
+  border: 2.5px solid var(--ink-deep);
+  clip-path: polygon(
+    50% 0%, 61% 18%, 83% 12%, 78% 35%, 100% 43%, 82% 57%, 95% 78%,
+    70% 76%, 65% 100%, 50% 82%, 35% 100%, 30% 76%, 5% 78%, 18% 57%,
+    0% 43%, 22% 35%, 17% 12%, 39% 18%
+  );
+}
+
+/* Speech bubble tail for testimonial cards. */
+.bubble {
+  position: relative;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 2.4rem;
+  bottom: -0.85rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: inherit;
+  clip-path: polygon(0 0, 100% 0, 22% 100%);
 }
 
 .photo-frame {

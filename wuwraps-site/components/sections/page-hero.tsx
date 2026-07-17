@@ -10,13 +10,14 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, title, description }: PageHeroProps) {
   return (
-    <section className="on-dark">
-      <Container className="py-16 lg:py-24">
+    <section className="on-dark relative overflow-hidden">
+      <div className="halftone-corner" aria-hidden="true" />
+      <Container className="relative py-16 lg:py-24">
         <Reveal>
           <p className="eyebrow text-[var(--mist)]">{eyebrow}</p>
         </Reveal>
         <Reveal delay={70}>
-          <h1 className="display mt-5 max-w-3xl text-[2.8rem] text-[var(--bone)] sm:text-[4rem]">
+          <h1 className="display print-offset mt-5 max-w-3xl text-[2.8rem] text-[var(--bone)] sm:text-[4rem]">
             {title}
           </h1>
           <Formline className="mt-4 h-4 w-40" />

@@ -24,6 +24,12 @@ const archivoBlack = localFont({
   src: [{ path: "./fonts/archivo-black-400.ttf", weight: "400", style: "normal" }],
 });
 
+const bangers = localFont({
+  variable: "--font-bangers",
+  display: "swap",
+  src: [{ path: "./fonts/bangers-400.ttf", weight: "400", style: "normal" }],
+});
+
 export const metadata: Metadata = siteMetadata;
 
 export const viewport: Viewport = {
@@ -92,7 +98,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${barlow.variable} ${archivoBlack.variable} antialiased`}>
+      <body className={`${barlow.variable} ${archivoBlack.variable} ${bangers.variable} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

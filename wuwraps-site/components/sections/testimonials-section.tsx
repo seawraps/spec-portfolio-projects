@@ -13,14 +13,19 @@ export function TestimonialsSection() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-14 grid gap-x-6 gap-y-10 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <Reveal key={testimonial.customerName} delay={index * 80}>
-              <figure className="flex h-full flex-col rounded-2xl bg-[var(--bone)] p-7">
-                <blockquote className="flex-1 text-[0.98rem] leading-8 text-[var(--ink)]">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
-                <figcaption className="mt-6 border-t border-[var(--line-lighter)] pt-4">
+              <figure className="flex h-full flex-col">
+                <div className="bubble flex-1 rounded-2xl bg-[var(--bone)] p-7">
+                  <span className="pow block text-4xl leading-none text-[var(--cedar)]" aria-hidden="true">
+                    &ldquo;
+                  </span>
+                  <blockquote className="mt-1 text-[0.98rem] leading-8 text-[var(--ink)]">
+                    {testimonial.quote}
+                  </blockquote>
+                </div>
+                <figcaption className="mt-6 pl-7">
                   <p className="label text-[0.7rem] text-[var(--ink)]">
                     {testimonial.customerName}
                   </p>

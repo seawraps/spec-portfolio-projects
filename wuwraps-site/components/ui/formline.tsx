@@ -19,7 +19,8 @@ export function Formline({ className, color = "var(--cedar)" }: FormlineProps) {
       preserveAspectRatio="none"
     >
       <path
-        d="M2 19 C 64 8, 138 3, 226 7 C 272 9, 300 7, 318 3 C 304 13, 272 17, 228 17 C 142 14, 72 17, 2 19 Z"
+        fillRule="evenodd"
+        d="M2 19 C 64 8, 138 3, 226 7 C 272 9, 300 7, 318 3 C 304 13, 272 17, 228 17 C 142 14, 72 17, 2 19 Z M120 11 C 150 8, 190 8, 212 10 C 188 10.5, 148 11, 120 11 Z"
         fill={color}
       />
     </svg>
