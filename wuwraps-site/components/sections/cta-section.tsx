@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Container } from "@/components/layout/container";
 import { ButtonLink, buttonClassName } from "@/components/ui/button-link";
 import { Formline } from "@/components/ui/formline";
@@ -8,6 +10,18 @@ export function CtaSection() {
   return (
     <section className="on-dark relative overflow-hidden bg-[var(--graphite)] py-20 lg:py-28">
       <div className="halftone-corner" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[130%] w-[80%] -translate-x-1/2 -translate-y-1/2 opacity-35"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/art/spray-cta.png"
+          alt=""
+          fill
+          sizes="80vw"
+          className="object-contain"
+        />
+      </div>
       <Container className="relative">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">

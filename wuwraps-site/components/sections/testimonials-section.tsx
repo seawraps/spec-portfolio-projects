@@ -18,7 +18,11 @@ export function TestimonialsSection() {
             <Reveal key={testimonial.customerName} delay={index * 80}>
               <figure className="flex h-full flex-col">
                 <div className="bubble flex-1 rounded-2xl bg-[var(--bone)] p-7">
-                  <span className="pow block text-4xl leading-none text-[var(--cedar)]" aria-hidden="true">
+                  <span
+                    className="pow block text-4xl leading-none"
+                    style={{ color: ["var(--cedar)", "var(--sea)", "var(--spark)"][index % 3] }}
+                    aria-hidden="true"
+                  >
                     &ldquo;
                   </span>
                   <blockquote className="mt-1 text-[0.98rem] leading-8 text-[var(--ink)]">

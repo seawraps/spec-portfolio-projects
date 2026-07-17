@@ -40,7 +40,10 @@ export function ArtistSection() {
           <div className="mt-10 space-y-8">
             {artistPoints.map((point, index) => (
               <Reveal key={point.title} delay={index * 80}>
-                <div className="border-l-2 border-[var(--cedar)] pl-6">
+                <div
+                  className="border-l-2 pl-6"
+                  style={{ borderColor: ["var(--cedar)", "var(--sea)", "var(--spark)"][index % 3] }}
+                >
                   <h3 className="display text-[1.1rem] text-[var(--ink)]">{point.title}</h3>
                   <p className="mt-2 text-[0.95rem] leading-8 text-[var(--slate)]">
                     {point.description}

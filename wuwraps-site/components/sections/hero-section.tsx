@@ -12,6 +12,19 @@ export function HeroSection() {
     <section className="on-dark relative overflow-hidden">
       {/* Ben-Day dots bleeding in from the cover corner */}
       <div className="halftone-corner" aria-hidden="true" />
+      {/* Spray paint drifting in from the studio wall */}
+      <div
+        className="pointer-events-none absolute -left-[8%] top-[-6%] hidden h-[110%] w-[62%] opacity-40 lg:block"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/art/spray-hero.png"
+          alt=""
+          fill
+          sizes="62vw"
+          className="object-contain object-left-top"
+        />
+      </div>
 
       <Container className="relative grid items-center gap-12 py-16 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-24">
         <div>

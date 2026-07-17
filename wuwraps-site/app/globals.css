@@ -20,6 +20,8 @@
 
   --cedar: #c2402f;
   --cedar-deep: #9c3223;
+  --sea: #2fa6b8;
+  --sea-deep: #1e7e8d;
   --spark: #ffce1f;
 
   --line-light: rgba(20, 21, 25, 0.14);
@@ -181,13 +183,21 @@ img {
   color: var(--bone);
 }
 
-/* Ben-Day dot field bleeding in from a corner, like an 80s cover background. */
+/* Ben-Day dot field bleeding in from a corner, like an 80s cover background.
+   Two misaligned color plates, cedar over teal, like a CMYK press drift. */
 .halftone-corner {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(194, 64, 47, 0.5) 1.7px, transparent 2px);
-  background-size: 15px 15px;
+  background-image:
+    radial-gradient(rgba(194, 64, 47, 0.5) 1.7px, transparent 2px),
+    radial-gradient(rgba(47, 166, 184, 0.35) 1.7px, transparent 2px);
+  background-size:
+    15px 15px,
+    15px 15px;
+  background-position:
+    0 0,
+    6px 7px;
   -webkit-mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 52%);
   mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 52%);
 }
@@ -230,12 +240,13 @@ img {
 
 /* Comic panel frame for photos: inked border, hard cedar offset shadow. */
 .comic-frame {
+  --frame-accent: var(--cedar);
   position: relative;
   overflow: visible;
   border-radius: 10px;
   background: var(--graphite);
   border: 3px solid var(--bone);
-  box-shadow: 9px 9px 0 0 var(--cedar);
+  box-shadow: 9px 9px 0 0 var(--frame-accent);
   transition:
     transform 220ms ease,
     box-shadow 220ms ease;
@@ -248,7 +259,7 @@ img {
 
 .comic-frame-hover:hover {
   transform: translate(-3px, -3px);
-  box-shadow: 13px 13px 0 0 var(--cedar);
+  box-shadow: 13px 13px 0 0 var(--frame-accent);
 }
 
 /* Frame variant for light sections: inked border instead of bone. */

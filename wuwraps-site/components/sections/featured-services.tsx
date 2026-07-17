@@ -35,7 +35,11 @@ export function FeaturedServices({ limit, showCta = true }: FeaturedServicesProp
                 href={`/services#${service.id}`}
                 className="group grid gap-2 border-b border-[var(--line-light)] py-6 transition-colors hover:bg-white sm:grid-cols-[auto_2fr_3fr_auto] sm:items-baseline sm:gap-8 sm:px-4"
               >
-                <span className="pow hidden text-[1.1rem] text-[var(--cedar)] sm:block" aria-hidden="true">
+                <span
+                  className="pow hidden text-[1.1rem] sm:block"
+                  style={{ color: ["var(--cedar)", "var(--sea)", "var(--spark)"][index % 3] }}
+                  aria-hidden="true"
+                >
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="display text-[1.15rem] text-[var(--ink)] transition-colors group-hover:text-[var(--cedar)]">

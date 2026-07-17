@@ -39,7 +39,14 @@ export function GallerySection({
           {shown.map((build, index) => (
             <Reveal key={build.title} delay={Math.min(index * 60, 240)}>
               <figure className="group">
-                <div className="comic-frame comic-frame-hover">
+                <div
+                  className="comic-frame comic-frame-hover"
+                  style={
+                    {
+                      "--frame-accent": ["var(--cedar)", "var(--sea)", "var(--spark)"][index % 3],
+                    } as React.CSSProperties
+                  }
+                >
                   <div className="comic-frame-media relative aspect-[4/3] w-full">
                     {build.image ? (
                       <Image
