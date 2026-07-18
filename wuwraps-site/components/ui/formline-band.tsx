@@ -6,6 +6,8 @@ type FormlineBandProps = {
   bg?: string;
   /** Formline color. */
   color?: string;
+  /** Slowly drift the pattern sideways, one unit per loop. */
+  flow?: boolean;
 };
 
 /**
@@ -18,11 +20,12 @@ export function FormlineBand({
   className,
   bg = "var(--ink)",
   color = "var(--cedar)",
+  flow = false,
 }: FormlineBandProps) {
-  return (
+  const band = (
     <svg
       aria-hidden="true"
-      className={cn("block h-7 w-full", className)}
+      className={cn("block h-7 w-full", !flow && className, flow && "band-flow h-7 w-[calc(100%+150px)]")}
       preserveAspectRatio="xMidYMid slice"
     >
       <defs>
@@ -44,4 +47,14 @@ export function FormlineBand({
       <rect width="100%" height="100%" fill="url(#formline-unit)" />
     </svg>
   );
+
+  if (flow) {
+    return (
+      <div aria-hidden="true" className={cn("overflow-hidden", className)}>
+        {band}
+      </div>
+    );
+  }
+
+  return band;
 }
