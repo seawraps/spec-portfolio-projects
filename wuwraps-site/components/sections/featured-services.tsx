@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
+import { SpraySwipe } from "@/components/ui/spray-swipe";
 import { Reveal } from "@/components/motion/reveal";
 import { services } from "@/lib/data";
 
@@ -26,6 +27,7 @@ export function FeaturedServices({ limit, showCta = true }: FeaturedServicesProp
             Exteriors, interiors, rims, kits.
             <span className="text-[var(--cedar)]"> All of it.</span>
           </h2>
+          <SpraySwipe className="mt-3" />
         </Reveal>
 
         <div className="mt-14 border-t border-[var(--line-light)]">

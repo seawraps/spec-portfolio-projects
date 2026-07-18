@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { Container } from "@/components/layout/container";
 import { ButtonLink } from "@/components/ui/button-link";
-import { Formline } from "@/components/ui/formline";
+import { Circled } from "@/components/ui/circled";
 import { FormlineBand } from "@/components/ui/formline-band";
 import { Reveal } from "@/components/motion/reveal";
 import { company, heroStats } from "@/lib/data";
@@ -37,9 +37,8 @@ export function HeroSection() {
             <h1 className="display print-offset mt-6 text-[3.4rem] text-[var(--bone)] sm:text-[4.6rem] lg:text-[5.4rem]">
               Vinyl,
               <br />
-              mastered.
+              <Circled>mastered.</Circled>
             </h1>
-            <Formline className="mt-5 h-4 w-48 sm:w-64" />
           </Reveal>
           <Reveal delay={140}>
             <p className="mt-7 max-w-md text-[1.05rem] leading-8 text-[var(--mist)]">

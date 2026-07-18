@@ -226,6 +226,7 @@ img {
 /* Marvel caption box: the yellow narration tag pinned to a panel corner. */
 .caption-tag {
   display: inline-block;
+  position: relative;
   background: var(--spark);
   color: var(--ink-deep);
   border: 2px solid var(--ink-deep);
@@ -236,6 +237,18 @@ img {
   text-transform: uppercase;
   padding: 0.35rem 0.7rem;
   transform: rotate(-1.2deg);
+}
+
+/* Fresh paint runs off the corner of the tag. */
+.caption-tag::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  bottom: -0.6rem;
+  width: 3.5px;
+  height: 0.6rem;
+  border-radius: 0 0 3px 3px;
+  background: var(--spark);
 }
 
 /* Comic panel frame for photos: inked border, hard cedar offset shadow. */

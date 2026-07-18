@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { SpraySwipe } from "@/components/ui/spray-swipe";
 import { Reveal } from "@/components/motion/reveal";
 import { testimonials } from "@/lib/data";
 
@@ -11,6 +12,7 @@ export function TestimonialsSection() {
           <h2 className="display mt-5 max-w-3xl text-[2.4rem] text-[var(--ink)] sm:text-[3.2rem]">
             Ask around. They will send you to Mark.
           </h2>
+          <SpraySwipe className="mt-3" color="sea" />
         </Reveal>
 
         <div className="mt-14 grid gap-x-6 gap-y-10 lg:grid-cols-3">
